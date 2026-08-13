@@ -1,0 +1,940 @@
+{
+  "meta": {
+    "title": "Япония 2026 · через Китай",
+    "subtitle": "Маршрут в кармане",
+    "dates": "19 сентября — 3 октября 2026",
+    "timezone": "Asia/Tokyo",
+    "currency": "JPY",
+    "sourceChecked": "13 августа 2026",
+    "version": "2026.08.13-final",
+    "principles": [
+      "Жёсткие якоря важнее полноты списка",
+      "Такси — не базовый сценарий",
+      "Шопинг, альтернативы рядом и гастрономия идут параллельными треками",
+      "Критичное продублировано офлайн, внешние ссылки помечены как онлайн"
+    ]
+  },
+  "cityRanges": [
+    { "city": "Osaka", "label": "Осака", "dates": "21–25.09", "color": "coral" },
+    { "city": "Kyoto", "label": "Киото", "dates": "25–27.09", "color": "moss" },
+    { "city": "Hakone", "label": "Хаконе", "dates": "27–28.09", "color": "lake" },
+    { "city": "Tokyo", "label": "Токио", "dates": "28.09–02.10", "color": "ink" }
+  ],
+  "hotels": [
+    {
+      "city": "Осака",
+      "dates": "21–25 сентября",
+      "name": "HOTEL HANKYU GRAN RESPIRE OSAKA",
+      "address": "Grand Green Osaka South Building, 5-54 Ofukacho, Kita-ku, Osaka 530-0011",
+      "phone": "+81 6 6372 8506"
+    },
+    {
+      "city": "Киото",
+      "dates": "25–27 сентября",
+      "name": "THE GENERAL KYOTO SHIJO SHINMACHI",
+      "address": "392 Mukadeyacho, Shinmachi-dori, Nishikikoji-agaru, Nakagyo-ku, Kyoto 604-8214",
+      "phone": "+81 75 746 2877"
+    },
+    {
+      "city": "Хаконе",
+      "dates": "27–28 сентября",
+      "name": "KAKUINOYADO SHIUNSO",
+      "address": "92 Tonosawa, Hakone-machi, Ashigarashimo-gun, Kanagawa 250-0315",
+      "phone": "+81 460 85 8511"
+    },
+    {
+      "city": "Токио",
+      "dates": "28 сентября — 2 октября",
+      "name": "HOTEL 1899 TOKYO",
+      "address": "6-4-1 Shinbashi, Minato-ku, Tokyo 105-0004",
+      "phone": "+81 3 3432 1899"
+    }
+  ],
+  "days": [
+    {
+      "id": "sep-21-osaka",
+      "number": 1,
+      "date": "2026-09-21",
+      "dateLabel": "21 сентября · понедельник",
+      "city": "Осака",
+      "title": "Прилёт и мягкий вход",
+      "summary": "Без героизма после перелёта: заселиться, освоить Umeda и сделать только разведку по магазинам.",
+      "load": "лёгкая",
+      "distance": "5–7 км",
+      "wake": "—",
+      "principle": "Сохранить силы на раннюю Нару; ничего не догонять после задержки рейса.",
+      "anchors": [
+        { "time": "12:45", "label": "KIX · HU473" },
+        { "time": "15:45", "label": "Отель" }
+      ],
+      "timeline": [
+        { "time": "12:45", "title": "Прилёт в KIX", "detail": "HU473. Иммиграция, багаж, наличные — ориентир до 14:15.", "kind": "anchor" },
+        { "time": "14:15", "title": "ICOCA каждому", "detail": "Старт ¥2,000: депозит ¥500 + баланс ¥1,500. Затем пополнить до ¥5,000–10,000 наличными.", "kind": "task" },
+        { "time": "14:30", "title": "HARUKA до Osaka Station", "detail": "Около 50 минут. Точный билет и QR должны быть сохранены офлайн.", "kind": "move" },
+        { "time": "15:45", "title": "Заселение", "detail": "HOTEL HANKYU GRAN RESPIRE OSAKA, Grand Green Osaka.", "kind": "anchor" },
+        { "time": "17:00", "title": "Grand Green Osaka", "detail": "Короткая прогулка и ориентация вокруг станции.", "kind": "flex" },
+        { "time": "17:35", "title": "Разведка Umeda", "detail": "Не более 20–25 минут на магазин; покупки и повторные примерки — 23 сентября.", "kind": "shopping" },
+        { "time": "19:00", "title": "Ужин Umeda / Fukushima", "detail": "Выбирать по самочувствию рядом с отелем.", "kind": "food" }
+      ],
+      "shopping": {
+        "window": "17:35–18:50",
+        "goal": "Разведка: часы, размеры и наличие; без длинных решений.",
+        "stops": ["Seiko Boutique · Grand Front", "Knot · LINKS Umeda", "UNIQLO UMEDA"],
+        "rule": "Максимум 3 короткие остановки. Всё сомнительное — в список возврата 23 сентября."
+      },
+      "links": [
+        { "label": "Seiko Boutique", "url": "https://www.seikowatches.com/jp-ja/stores/special/seikoboutique/" },
+        { "label": "Knot Umeda", "url": "https://en.knot-designs.com/pages/stores-links-umeda" },
+        { "label": "UNIQLO Umeda", "url": "https://www.uniqlo.com/jp/ja/contents/corp/press-release/2025/10/25101013_store.html" }
+      ]
+    },
+    {
+      "id": "sep-22-nara",
+      "number": 2,
+      "date": "2026-09-22",
+      "dateLabel": "22 сентября · вторник",
+      "city": "Нара → Осака",
+      "title": "Нара до толпы",
+      "summary": "Ранний храмовый маршрут, Нарамати днём и короткий шопинг-коридор в Namba.",
+      "load": "высокая",
+      "distance": "15–17 км",
+      "wake": "05:15",
+      "principle": "Утро — культуре; Namba вечером — только одна примерка или один страхующий магазин.",
+      "anchors": [
+        { "time": "07:30", "label": "Tōdai-ji" },
+        { "time": "15:45", "label": "Возврат" }
+      ],
+      "timeline": [
+        { "time": "05:55", "title": "JR Osaka → Nara", "detail": "Yamatoji Line. Использовать Kansai-Hiroshima Area Pass.", "kind": "move" },
+        { "time": "07:30", "title": "Tōdai-ji", "detail": "Главный ранний якорь до групп.", "kind": "anchor" },
+        { "time": "08:35", "title": "Nigatsudō", "detail": "Терраса и утренний свет; не удлинять подъём.", "kind": "flex" },
+        { "time": "09:15", "title": "Олени и Kasugayama", "detail": "Пеший переход к святилищу через парк.", "kind": "flex" },
+        { "time": "10:15", "title": "Kasuga Taisha", "detail": "Спокойный осмотр без дополнительного музейного круга.", "kind": "anchor" },
+        { "time": "11:35", "title": "Yoshikien", "detail": "Короткая пауза в саду.", "kind": "flex" },
+        { "time": "12:30", "title": "Naramachi", "detail": "Обед, Gango-ji и квартал machiya — по энергии.", "kind": "food" },
+        { "time": "15:45", "title": "Nara → Namba", "detail": "JR через Tennoji, затем Midosuji при необходимости.", "kind": "move" },
+        { "time": "16:15", "title": "Одна примерка", "detail": "Onitsuka Tiger Namba; Takashimaya Watch Maison — только если часы не примерены в Umeda.", "kind": "shopping" },
+        { "time": "17:40", "title": "Hōzenji и Dōtonbori", "detail": "Вечерняя прогулка и ужин до 21:00.", "kind": "flex" }
+      ],
+      "shopping": {
+        "window": "16:15–17:35",
+        "goal": "Размеры и конкретные SKU в Onitsuka; не превращать вечер в торговый марафон.",
+        "stops": ["Onitsuka Tiger Namba", "Takashimaya Watch Maison · только страховка"],
+        "rule": "Выбрать один вариант, не оба."
+      },
+      "links": [
+        { "label": "Onitsuka Yellow Collection", "url": "https://www.onitsukatiger.com/jp/en-gl/brand/yellow-collection/store" }
+      ]
+    },
+    {
+      "id": "sep-23-himeji",
+      "number": 3,
+      "date": "2026-09-23",
+      "dateLabel": "23 сентября · среда",
+      "city": "Химэдзи → Осака",
+      "title": "Белая цапля и современное искусство",
+      "summary": "Himeji первым входом, затем Aki Sasamoto в NMAO и закат над Osaka.",
+      "load": "высокая",
+      "distance": "14–16 км",
+      "wake": "06:00",
+      "principle": "Замок — непереносимый центр дня; вечерний шопинг — только один возврат.",
+      "anchors": [
+        { "time": "09:00", "label": "Himeji" },
+        { "time": "17:10", "label": "Umeda Sky" }
+      ],
+      "timeline": [
+        { "time": "06:50", "title": "Отель → Shin-Osaka", "detail": "Заложить запас на переход и платформу.", "kind": "move" },
+        { "time": "07:30", "title": "Sanyō Shinkansen", "detail": "Прибытие Himeji не позже 08:10; место резервировать отдельно по JR-West Pass.", "kind": "move" },
+        { "time": "08:20", "title": "Ōtemae-dōri", "detail": "Прямой подход и первая перспектива замка.", "kind": "flex" },
+        { "time": "09:00", "title": "Himeji Castle", "detail": "2 оплаченных билета. Открыть онлайн-подтверждение, не полагаться только на скриншот. В 2026 идут реставрационные работы вокруг части маршрута.", "kind": "anchor" },
+        { "time": "11:15", "title": "Kōko-en", "detail": "Сад после замка, затем быстрый обед.", "kind": "anchor" },
+        { "time": "12:05", "title": "Обед и возврат", "detail": "Не задерживаться: NMAO закрывает вход в 16:30.", "kind": "move" },
+        { "time": "14:15", "title": "Aki Sasamoto · NMAO", "detail": "Life Laboratory, ¥1,800; музей открыт 10:00–17:00, последний вход 16:30.", "kind": "anchor" },
+        { "time": "16:10", "title": "Один возврат в Umeda", "detail": "До 16:45: Seiko, Knot, UNIQLO или Hankyu — один заранее выбранный пункт.", "kind": "shopping" },
+        { "time": "17:10", "title": "Umeda Sky", "detail": "Закат около 17:55. Билет ¥2,000; крыша может закрыться из-за сильного дождя.", "kind": "anchor" },
+        { "time": "19:20", "title": "Ужин Fukushima", "detail": "Прямой возврат после ужина.", "kind": "food" }
+      ],
+      "shopping": {
+        "window": "16:10–16:45",
+        "goal": "Закрыть один вопрос после разведки 21 сентября.",
+        "stops": ["Seiko", "Knot", "UNIQLO", "Hankyu Umeda"],
+        "rule": "Ровно один магазин; в 16:45 двигаться к Umeda Sky."
+      },
+      "decision": {
+        "title": "Если Himeji ограничит маршрут",
+        "trigger": "Проверить официальный статус за 48 часов.",
+        "protect": "Главную башню, если она открыта, и вход 09:00.",
+        "cut": "Kōko-en или длинный обход, если проходы сужены.",
+        "fallback": "Только при закрытии главной башни/сильной усталости: Sumiyoshi Taisha 07:30 → Osaka Castle снаружи → Nakanoshima/NMAO 12:30."
+      },
+      "links": [
+        { "label": "Himeji · реставрация", "url": "https://www.city.himeji.lg.jp/castle/0000033820.html" },
+        { "label": "Aki Sasamoto · NMAO", "url": "https://www.nmao.go.jp/events/event/20260719_sasamoto-aki/?lang=en" },
+        { "label": "Umeda Sky", "url": "https://www.skybldg.co.jp/en/" }
+      ]
+    },
+    {
+      "id": "sep-24-miyajima",
+      "number": 4,
+      "date": "2026-09-24",
+      "dateLabel": "24 сентября · четверг",
+      "city": "Миядзима → Хиросима",
+      "title": "Святилище на воде и память",
+      "summary": "Ранний прилив у Itsukushima, лодка прямо к Peace Park и минимум два часа в музее.",
+      "load": "выше средней",
+      "distance": "10–12 км",
+      "wake": "04:45",
+      "principle": "Не двигать музей и Sakura 766; при сбое лодки сокращать остров.",
+      "anchors": [
+        { "time": "08:30", "label": "Itsukushima" },
+        { "time": "13:30", "label": "Peace Museum" }
+      ],
+      "timeline": [
+        { "time": "05:15", "title": "Osaka → Shin-Osaka", "detail": "Проверить платформу с вечера.", "kind": "move" },
+        { "time": "06:00", "title": "Mizuho 601", "detail": "Shin-Osaka → Hiroshima, прибытие 07:25. Место по JR-West Pass.", "kind": "anchor" },
+        { "time": "07:35", "title": "JR + JR Ferry", "detail": "Hiroshima → Miyajimaguchi → Miyajima. Visitor tax ¥100.", "kind": "move" },
+        { "time": "08:30", "title": "Itsukushima Shrine", "detail": "Высокий прилив около 08:07 (306 см по таблице). Вход ¥300.", "kind": "anchor" },
+        { "time": "09:35", "title": "Senjōkaku + Daishō-in", "detail": "Daishō-in сокращается первым при задержке.", "kind": "flex" },
+        { "time": "11:00", "title": "Ранний обед", "detail": "К Pier 3 к 11:45, без дополнительной очереди.", "kind": "food" },
+        { "time": "12:00", "title": "World Heritage Sea Route", "detail": "Бронь есть; оплатить ¥2,400 с человека на месте. Прибыть к Pier 3 в 11:45.", "kind": "anchor" },
+        { "time": "13:30", "title": "Hiroshima Peace Memorial Museum", "detail": "2 оплаченных QR, окно входа 13:30–14:00. Выделить не меньше двух часов.", "kind": "anchor" },
+        { "time": "15:30", "title": "Peace Park", "detail": "Парк и ранний ужин в ekie у станции.", "kind": "flex" },
+        { "time": "18:33", "title": "Sakura 766", "detail": "Hiroshima → Shin-Osaka 19:59; не переносить.", "kind": "anchor" },
+        { "time": "20:20", "title": "Отель и отдых", "detail": "Следующий день — переезд в Kyoto.", "kind": "return" }
+      ],
+      "decision": {
+        "title": "Если Sea Route отменён",
+        "trigger": "Сообщение оператора / непогода до отправления.",
+        "protect": "Вход в музей 13:30–14:00 и Sakura 766 в 18:33.",
+        "cut": "Daishō-in и длинный обед.",
+        "fallback": "JR Ferry → JR до Hiroshima → трамвай к Peace Park; целевой вход в музей около 14:00."
+      },
+      "links": [
+        { "label": "Приливы Miyajima", "url": "https://www.miyajima.or.jp/sio/sio09.php" },
+        { "label": "Sea Route", "url": "https://www.aqua-net-h.co.jp/en/heritage/reservation" },
+        { "label": "Peace Museum", "url": "https://peace-tourism.com/en/spot/entry-40.html" },
+        { "label": "JR-West route search", "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/route-search/" }
+      ]
+    },
+    {
+      "id": "sep-25-kyoto",
+      "number": 5,
+      "date": "2026-09-25",
+      "dateLabel": "25 сентября · пятница",
+      "city": "Киото",
+      "title": "Север, керамика и сумерки Gion",
+      "summary": "Kinkaku-ji и Ryōan-ji утром, ремесленная ось Gojo–Higashiyama и закатный спуск к Gion.",
+      "load": "высокая",
+      "distance": "13–15 км",
+      "wake": "06:10",
+      "principle": "Ремесленные покупки — точечно: один выбор в каждой паре, максимум три остановки на спуске.",
+      "anchors": [
+        { "time": "09:00", "label": "Kinkaku-ji" },
+        { "time": "15:20", "label": "Kiyomizu" }
+      ],
+      "timeline": [
+        { "time": "06:50", "title": "Checkout и Osaka → Kyoto", "detail": "JR Special Rapid. Использовать pass, затем метро/автобус.", "kind": "move" },
+        { "time": "08:00", "title": "Багаж в The General", "detail": "Оформить Yamato: большой багаж сразу в Hotel 1899; в Hakone взять одну небольшую сумку.", "kind": "task" },
+        { "time": "09:00", "title": "Kinkaku-ji", "detail": "Первый северный якорь.", "kind": "anchor" },
+        { "time": "10:15", "title": "Ryōan-ji", "detail": "Каменный сад; не добавлять Ninna-ji.", "kind": "anchor" },
+        { "time": "11:30", "title": "Переезд и быстрый обед", "detail": "Закончить обед до 12:45.", "kind": "move" },
+        { "time": "13:00", "title": "Kawai Kanjirō House", "detail": "Дом-мастерская как глубокий культурный блок дня.", "kind": "anchor" },
+        { "time": "14:20", "title": "Gojōzaka и Yasaka Pagoda", "detail": "Начало линейного маршрута вниз.", "kind": "flex" },
+        { "time": "15:20", "title": "Kiyomizu-dera", "detail": "Не затягивать выше по склону.", "kind": "anchor" },
+        { "time": "16:15", "title": "Sannenzaka / Ninenzaka", "detail": "До трёх коротких ремесленных остановок.", "kind": "shopping" },
+        { "time": "17:30", "title": "Gion и Yasaka Shrine", "detail": "Сумеречная прогулка без возврата вверх.", "kind": "flex" },
+        { "time": "19:15", "title": "Ужин Ponto-chō", "detail": "Бронировать только если нужен конкретный ресторан.", "kind": "food" }
+      ],
+      "shopping": {
+        "window": "11:40–17:50 · параллельно маршруту",
+        "goal": "Японское ремесло без зигзагов и перегруза.",
+        "stops": ["KUOE или Kaikado", "SPINGLE или керамика", "Shōeidō", "Wargo", "Kanaami-Tsuji", "Kazurasei"],
+        "rule": "KUOE/Kaikado — выбрать одно; SPINGLE/керамика — выбрать одно; на спуске максимум три коротких стопа."
+      },
+      "links": [
+        { "label": "SPINGLE Kyoto", "url": "https://www.spingle.jp/pages/shoplist/kyoto-higashiyama" },
+        { "label": "Kanaami-Tsuji", "url": "https://kanaamitsuji.net/" },
+        { "label": "Kazurasei", "url": "https://www.kazurasei.co.jp/c/kamikazari/kamikazari-material/gem_metal/kamikazari278" }
+      ]
+    },
+    {
+      "id": "sep-26-kyoto",
+      "number": 6,
+      "date": "2026-09-26",
+      "dateLabel": "26 сентября · суббота",
+      "city": "Киото",
+      "title": "День двух якорей",
+      "summary": "Fushimi Inari до толпы, Katsura строго в 11:20 и лунный вечер в Daikakuji.",
+      "load": "очень высокая",
+      "distance": "15–18 км",
+      "wake": "05:40",
+      "principle": "Katsura и Daikakuji защищены. Hiranoya и длинный Bamboo — переменные.",
+      "anchors": [
+        { "time": "11:20", "label": "Katsura" },
+        { "time": "17:30", "label": "Daikakuji" }
+      ],
+      "timeline": [
+        { "time": "06:20", "title": "Выезд к Fushimi Inari", "detail": "На месте около 06:50. Дойти до Mitsutsuji достаточно; разворот вовремя.", "kind": "move" },
+        { "time": "08:35", "title": "Inari → Katsura", "detail": "Через Kyoto/Shijō и Hankyu; от станции около 20 минут пешком.", "kind": "move" },
+        { "time": "11:00", "title": "Регистрация Katsura", "detail": "Экскурсия 11:20, паспорт, ¥1,000 с человека. Большие сумки нельзя.", "kind": "anchor" },
+        { "time": "12:25", "title": "Katsura → Oku-Saga", "detail": "Hankyu + редкий Kyoto Bus 92/94. Проверить расписание вечером 25 сентября.", "kind": "decision" },
+        { "time": "14:00", "title": "Hiranoya — условно", "detail": "Только shinko за ¥1,200 и только если можно сесть сразу. При ETA после 14:20 пропустить.", "kind": "flex" },
+        { "time": "14:35", "title": "Adashino Nenbutsu-ji", "detail": "¥500; приём до 16:30. В Sai no Kawara не фотографировать.", "kind": "anchor" },
+        { "time": "15:35", "title": "Saga-Toriimoto + Bamboo", "detail": "Около 3 км вниз; длинный бамбуковый круг сокращается первым.", "kind": "flex" },
+        { "time": "17:30", "title": "Daikakuji Moon Viewing", "detail": "17:30–21:00, вход ¥700. Лодка+чай ¥7,000 — только лист ожидания при отменах, не часть базового плана.", "kind": "anchor" },
+        { "time": "19:00", "title": "Вечерняя служба", "detail": "Ориентир 19:00–19:30; затем спокойный выход.", "kind": "anchor" },
+        { "time": "20:30", "title": "Возвращение", "detail": "Не компенсировать пропущенные пункты вечером.", "kind": "return" }
+      ],
+      "decision": {
+        "title": "Контроль после Katsura",
+        "trigger": "Ожидание Bus 92/94 и фактический ETA в Oku-Saga.",
+        "protect": "Katsura 11:20 и Daikakuji с 17:30.",
+        "cut": "+15: сократить Hiranoya; +30: убрать Hiranoya; +60: убрать Hiranoya и длинный Bamboo.",
+        "fallback": "Если автобус ждёт больше 15 минут, сравнить следующий рейс. Такси — только если реально возвращает 20+ минут; базовый сценарий остаётся без такси."
+      },
+      "secrets": [
+        { "label": "Katsura · код бронирования", "value": "" }
+      ],
+      "links": [
+        { "label": "Katsura Imperial Villa", "url": "https://sankan.kunaicho.go.jp/multilingual/lang/en/information.html" },
+        { "label": "Hiranoya", "url": "https://ayuchaya-hiranoya.com/" },
+        { "label": "Adashino Nenbutsu-ji", "url": "https://nenbutsuji.jp/eng/" },
+        { "label": "Daikakuji · Moon Viewing", "url": "https://www.daikakuji.or.jp/r8kangetsukokuchi/" }
+      ]
+    },
+    {
+      "id": "sep-27-hakone",
+      "number": 7,
+      "date": "2026-09-27",
+      "dateLabel": "27 сентября · воскресенье",
+      "city": "Киото → Хаконе",
+      "title": "Скульптура и рёкан",
+      "summary": "Ранний Hikari до Odawara, Open-Air Museum и раннее заселение ради kaiseki и onsen.",
+      "load": "средняя",
+      "distance": "6–8 км",
+      "wake": "06:15",
+      "principle": "Прибытие в Shiunso и ужин важнее дополнительного круга по музею.",
+      "anchors": [
+        { "time": "08:33", "label": "Hikari 642" },
+        { "time": "16:15", "label": "Shiunso" }
+      ],
+      "timeline": [
+        { "time": "06:45", "title": "Завтрак и checkout", "detail": "Только сумка на одну ночь; большой багаж уже едет в Tokyo.", "kind": "task" },
+        { "time": "07:25", "title": "Shijō → Kyoto Station", "detail": "Не добавлять утренние остановки.", "kind": "move" },
+        { "time": "08:33", "title": "Hikari 642 → Odawara", "detail": "Прибытие 10:38. Ordinary reserved, место E ради Fuji. Финальная проверка поезда и места после 14:00 JST 27 августа.", "kind": "anchor" },
+        { "time": "10:45", "title": "Hakone Freepass", "detail": "От Odawara, 2 дня, ¥6,000 с человека. Бумажный или мобильный вариант.", "kind": "task" },
+        { "time": "12:15", "title": "Hakone Open-Air Museum", "detail": "2–2,5 часа. Онлайн ¥1,800, касса ¥2,000; покупать накануне после прогноза.", "kind": "anchor" },
+        { "time": "15:30", "title": "В Tonosawa", "detail": "Цель — заселиться около 16:15, не позже 18:00.", "kind": "move" },
+        { "time": "18:00", "title": "Kaiseki и onsen", "detail": "Время подтвердить у рёкана. Бесплатную приватную ванну запросить при check-in.", "kind": "anchor" }
+      ],
+      "links": [
+        { "label": "SmartEX", "url": "https://smart-ex.jp/en/reservation/useful/accept_time/" },
+        { "label": "Hakone Freepass", "url": "https://odakyu-global.com/passes/hakone-freepass/" },
+        { "label": "Open-Air Museum tickets", "url": "https://www.hakone-oam.or.jp/en/webticket/" },
+        { "label": "Shiunso FAQ", "url": "https://www.shiunso.co.jp/english/faq/" }
+      ]
+    },
+    {
+      "id": "sep-28-tokyo",
+      "number": 8,
+      "date": "2026-09-28",
+      "dateLabel": "28 сентября · понедельник",
+      "city": "Хаконе → Токио",
+      "title": "Петля Хаконе и Tokyo Tower",
+      "summary": "Погода решает порядок: Owakudani, Lake Ashi и храм; затем прямой переезд к Shinbashi.",
+      "load": "средняя",
+      "distance": "9–11 км",
+      "wake": "06:45",
+      "principle": "Fuji и работа транспорта важнее галочек; при сбоях сохранить Lake Ashi и Hakone Shrine.",
+      "anchors": [
+        { "time": "09:50", "label": "Owakudani" },
+        { "time": "17:15", "label": "Zōjō-ji" }
+      ],
+      "timeline": [
+        { "time": "07:00", "title": "Onsen + live cams", "detail": "Сверить прогноз, видимость Fuji и статус ropeway.", "kind": "task" },
+        { "time": "07:30", "title": "Завтрак и багаж", "detail": "Малую сумку отправить/оставить до 09:00 по договорённости с рёканом.", "kind": "task" },
+        { "time": "08:20", "title": "Tonosawa → Gora → Sōunzan", "detail": "Hakone Tozan Train и cable car.", "kind": "move" },
+        { "time": "09:50", "title": "Ōwakudani", "detail": "Короткий осмотр; при остановке ropeway исключается целиком.", "kind": "anchor" },
+        { "time": "10:35", "title": "Ropeway → Tōgendai", "detail": "Около 30 минут с пересадкой/остановкой.", "kind": "move" },
+        { "time": "11:20", "title": "Lake Ashi cruise", "detail": "Включено в Hakone Freepass.", "kind": "anchor" },
+        { "time": "12:05", "title": "Hakone Shrine", "detail": "Не стоять в длинной очереди к torii, если она мешает переезду.", "kind": "anchor" },
+        { "time": "12:45", "title": "Issa · yosegi", "detail": "Одна покупка 12:45–13:10; не искать второй магазин.", "kind": "shopping" },
+        { "time": "13:30", "title": "В Tokyo", "detail": "Bus → Hakone-Yumoto → Odawara → Shinkansen Shinagawa → JR Shimbashi.", "kind": "move" },
+        { "time": "17:15", "title": "Zōjō-ji и Tokyo Tower", "detail": "Короткая прогулка после заселения в Hotel 1899.", "kind": "anchor" },
+        { "time": "18:35", "title": "Ginza — только страховка", "detail": "До 19:15 и только один предмет, если 30 сентября вероятно выпадет из-за Fuji.", "kind": "shopping" },
+        { "time": "19:30", "title": "Ужин Shinbashi", "detail": "Рядом с отелем.", "kind": "food" }
+      ],
+      "shopping": {
+        "window": "12:45–13:10 + опционально 18:35–19:15",
+        "goal": "Yosegi в Hakone; в Ginza — только страховка одного критичного предмета.",
+        "stops": ["Issa · yosegi", "Seiko или Mikimoto или Itoya · один вариант"],
+        "rule": "Ginza открывать только если прогноз Fuji угрожает плану 30 сентября."
+      },
+      "decision": {
+        "title": "Если ropeway или cruise остановлены",
+        "trigger": "Статус Hakone Navi утром.",
+        "protect": "Hakone Shrine, Lake Ashi и переезд в Tokyo.",
+        "cut": "Ōwakudani при остановке ropeway; круиз при остановке судов.",
+        "fallback": "Автобус через Sengoku/Tōgendai или сразу Moto-Hakone. Если круиз не ходит — автобус напрямую."
+      },
+      "links": [
+        { "label": "Hakone transport status", "url": "https://www.hakonenavi.jp/international/en/transportation/hakone-ropeway" },
+        { "label": "Fuji live cams", "url": "https://live.fujigoko.tv/" },
+        { "label": "Issa", "url": "https://hakone-japan.com/things-to-do/foods-shops/shops/yosegi-zaiku-store-issa/" }
+      ]
+    },
+    {
+      "id": "sep-29-tokyo",
+      "number": 9,
+      "date": "2026-09-29",
+      "dateLabel": "29 сентября · вторник",
+      "city": "Токио",
+      "title": "Meiji, Aoyama и Shibuya",
+      "summary": "Спокойное утро, Nezu Museum, архитектура и шопинг с бюджетом времени до Shibuya Sky.",
+      "load": "высокая",
+      "distance": "12–14 км",
+      "wake": "06:30",
+      "principle": "110 минут шопинга — жёсткий бюджет; примерка обуви заменяет часть модных остановок.",
+      "anchors": [
+        { "time": "10:00", "label": "Nezu" },
+        { "time": "16:40", "label": "Shibuya Sky" }
+      ],
+      "timeline": [
+        { "time": "07:15", "title": "Meiji Jingū", "detail": "Ранний вход через лес; без Yoyogi Park.", "kind": "anchor" },
+        { "time": "08:45", "title": "Harajuku → Aoyama", "detail": "Кофе и прямой переход к музею.", "kind": "move" },
+        { "time": "10:00", "title": "Nezu Museum", "detail": "A Ceramic Travelogue, 15.08–12.10. Взрослый ¥1,400, нужен временной слот и отдельный QR каждому.", "kind": "anchor" },
+        { "time": "12:05", "title": "Шопинг-коридор Aoyama", "detail": "Бюджет 110 минут. Выбрать готовый сценарий или собрать свой без превышения.", "kind": "shopping" },
+        { "time": "12:15", "title": "Полный обед", "detail": "Не заменять обед перекусами между магазинами.", "kind": "food" },
+        { "time": "13:20", "title": "Omotesandō architecture", "detail": "Архитектура встроена в линейное движение к Shibuya.", "kind": "flex" },
+        { "time": "16:10", "title": "Shibuya Crossing", "detail": "Короткая остановка перед входом.", "kind": "flex" },
+        { "time": "16:40", "title": "Shibuya Sky", "detail": "Целевой слот 16:20 или 16:40. Онлайн после 15:00 — ¥3,400; касса ¥3,700. Закат около 17:30.", "kind": "anchor" },
+        { "time": "18:30", "title": "Shibuya PARCO + ужин", "detail": "PORTER EXCHANGE и вечерние повторы — только в том же районе.", "kind": "shopping" }
+      ],
+      "shopping": {
+        "window": "12:05–15:45 + 18:30–20:45",
+        "goal": "Закрыть кисти и одну полноценную примерку; мода — по остаточному времени.",
+        "budgetMinutes": 110,
+        "presets": [
+          { "name": "Сбалансировано", "minutes": 85, "stops": ["Hakuhodo · 15", "Scotch Grain · 45", "AURALEE · 25"] },
+          { "name": "Обувь", "minutes": 95, "stops": ["Hakuhodo · 15", "Scotch Grain · 45", "Onitsuka NIPPON MADE · 35"] },
+          { "name": "Мода", "minutes": 80, "stops": ["Hakuhodo · 15", "AURALEE · 25", "PLEATS PLEASE · 20", "HOMME PLISSÉ · 20"] }
+        ],
+        "stops": ["Hakuhodo", "AURALEE", "PLEATS PLEASE", "HOMME PLISSÉ", "Scotch Grain", "Onitsuka NIPPON MADE", "uka", "PORTER EXCHANGE"],
+        "rule": "Scotch Grain заменяет AURALEE + одну Issey остановку; PORTER — только вечерний same-area повтор."
+      },
+      "links": [
+        { "label": "Nezu tickets", "url": "https://www.e-tix.jp/nezu-muse/en/" },
+        { "label": "Shibuya Sky tickets", "url": "https://www.shibuya-scramble-square.com/sky/ticket/" },
+        { "label": "Hakuhodo Aoyama", "url": "https://hakuho-do.co.jp/en/pages/stores_aoyama" },
+        { "label": "Onitsuka NIPPON MADE", "url": "https://www.onitsukatiger.com/jp/ja-jp/brand/nippon-made" },
+        { "label": "uka", "url": "https://uka.co.jp/salons/ukacojp_store/" },
+        { "label": "PORTER EXCHANGE", "url": "https://www.yoshidakaban.com/en/shopinfo/px/px_shibuya/" }
+      ]
+    },
+    {
+      "id": "sep-30-tokyo",
+      "number": 10,
+      "date": "2026-09-30",
+      "dateLabel": "30 сентября · среда",
+      "city": "Токио / Fuji reserve",
+      "title": "День, который выбирает погода",
+      "summary": "Базово — Hiroshige, TNM, Edo-Tokyo и Ginza. При чистом Fuji — ранний поезд к Chureito и Kawaguchiko.",
+      "load": "средняя",
+      "distance": "10–12 км",
+      "wake": "06:30 / 06:15 Fuji",
+      "principle": "Решение принимается 29 сентября вечером; после него не смешивать два сценария.",
+      "anchors": [
+        { "time": "09:30", "label": "Hiroshige" },
+        { "time": "08:30", "label": "Fuji No.7" }
+      ],
+      "timeline": [
+        { "time": "07:30", "title": "Tsukiji Outer Market", "detail": "Короткий завтрак; при Fuji-сценарии пропустить.", "kind": "food" },
+        { "time": "09:15", "title": "Tokyo National Museum", "detail": "К входу до открытия выставки.", "kind": "move" },
+        { "time": "09:30", "title": "Hiroshige · Part One", "detail": "New Perspectives on Edo Japan, 29.09–25.10. ¥1,500 или advance ¥1,300 до 28.09; без временного слота, включает коллекцию TNM.", "kind": "anchor" },
+        { "time": "11:30", "title": "Honkan highlights", "detail": "Только выбранные залы, не весь музей.", "kind": "flex" },
+        { "time": "12:45", "title": "Обед Ueno", "detail": "Полный обед перед Ryōgoku.", "kind": "food" },
+        { "time": "13:45", "title": "Edo-Tokyo Museum", "detail": "Permanent Exhibition + BROTHERS IN ARMS. Музей 09:30–17:30; permanent ¥800, combo с special ¥2,740. Билеты невозвратные — покупать только после решения по Fuji.", "kind": "anchor" },
+        { "time": "16:45", "title": "Ginza 2–6 chōme", "detail": "Линейный маршрут без возвратов.", "kind": "shopping" },
+        { "time": "19:30", "title": "Ужин", "detail": "Завершить шопинг к 19:20.", "kind": "food" }
+      ],
+      "alternate": {
+        "title": "Fuji reserve · только при чистом прогнозе",
+        "corrected": true,
+        "note": "Исправлено после проверки официального расписания: No.94 в сентябре не ходит.",
+        "timeline": [
+          { "time": "08:30", "title": "Fuji Excursion No.7", "detail": "Shinjuku → Shimoyoshida 10:13; ¥4,010 с человека." },
+          { "time": "10:25", "title": "Chureito Pagoda", "detail": "Подъём только при видимости и приемлемой жаре." },
+          { "time": "12:30", "title": "Local train → Kawaguchiko", "detail": "Обед и Oishi Park при устойчивой видимости." },
+          { "time": "16:48", "title": "Fuji Excursion No.44", "detail": "Kawaguchiko → Shinjuku 18:48; ¥4,200 с человека." }
+        ]
+      },
+      "shopping": {
+        "window": "16:45–19:20 · только базовый сценарий",
+        "goal": "Линейно закрыть канцелярию, часы и один дополнительный бренд.",
+        "stops": ["Itoya", "Seiko Dream Square", "Wako или Mikimoto или Citizen", "Natsuno", "UNIQLO", "MUJI"],
+        "rule": "Сначала Itoya и Seiko; затем только один из Wako/Mikimoto/Citizen. Если Fuji выбран — Ginza не пытаться вернуть вечером."
+      },
+      "decision": {
+        "title": "Решение 29 сентября вечером",
+        "trigger": "JMA + live cams + облачность утром 30.09.",
+        "protect": "Выбранный сценарий целиком и обратный Fuji No.44 в 16:48.",
+        "cut": "Fuji при низкой видимости; Edo-Tokyo и Ginza при Fuji-сценарии.",
+        "fallback": "Если Fuji не едем — купить невозвратный Edo-Tokyo билет вечером 29 сентября и следовать базовому дню."
+      },
+      "links": [
+        { "label": "Fuji Excursion timetable", "url": "https://e.fujikyu-railway.jp/fujikaiyuu/" },
+        { "label": "Fuji live cams", "url": "https://live.fujigoko.tv/" },
+        { "label": "Hiroshige · TNM", "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=2759&lang=en" },
+        { "label": "Edo-Tokyo tickets", "url": "https://www.edo-tokyo-museum.or.jp/en/information/guide/" },
+        { "label": "Itoya Ginza", "url": "https://www.ito-ya.co.jp/ext/store/ginza/" },
+        { "label": "Seiko Dream Square", "url": "https://www.seikowatches.com/jp-ja/stores/special/seikodreamsquare/en/index" },
+        { "label": "Wako", "url": "https://www.ginza.jp/en/landmark/9743" }
+      ]
+    },
+    {
+      "id": "oct-01-asakusa",
+      "number": 11,
+      "date": "2026-10-01",
+      "dateLabel": "1 октября · четверг",
+      "city": "Токио",
+      "title": "Asakusa, инструменты и kabuki",
+      "summary": "Ранний Sensō-ji, сфокусированный Kappabashi, обязательный сброс покупок в отеле и Nakamuraza.",
+      "load": "средняя",
+      "distance": "9–11 км",
+      "wake": "06:45",
+      "principle": "Тяжёлые покупки не идут в театр; максимум четыре магазина и один возврат.",
+      "anchors": [
+        { "time": "08:15", "label": "Sensō-ji" },
+        { "time": "16:00", "label": "Kabuki" }
+      ],
+      "timeline": [
+        { "time": "07:45", "title": "Hotel → Asakusa", "detail": "Ginza Line; прямой ранний приезд.", "kind": "move" },
+        { "time": "08:15", "title": "Sensō-ji + Asakusa Shrine", "detail": "Главный осмотр до плотного потока.", "kind": "anchor" },
+        { "time": "09:00", "title": "Asakusa Culture Center", "detail": "Короткая верхняя точка обзора.", "kind": "flex" },
+        { "time": "09:40", "title": "Nakamise", "detail": "Проход без отдельного шопинг-листа.", "kind": "flex" },
+        { "time": "10:30", "title": "Kappabashi", "detail": "Dengama, Hashitō, KAMA-ASA, Iidaya — максимум четыре точки.", "kind": "shopping" },
+        { "time": "12:20", "title": "Обед и пауза", "detail": "Проверить покупки, чек и упаковку ножей.", "kind": "food" },
+        { "time": "13:20", "title": "Сброс покупок в отеле", "detail": "Прямая Ginza Line; вернуться в Asakusa к 14:35. Ножи и тяжёлые пакеты оставить в Hotel 1899.", "kind": "task" },
+        { "time": "15:10", "title": "Heisei Nakamuraza", "detail": "Прибыть за 40–50 минут, забрать/проверить билет в box office.", "kind": "anchor" },
+        { "time": "16:00", "title": "Part 2 · Kabuki", "detail": "Оплачено. Верификация хранится в кармане документов.", "kind": "anchor" },
+        { "time": "20:30", "title": "Поздний ужин / Skytree", "detail": "По энергии, без обязательной смотровой.", "kind": "food" }
+      ],
+      "shopping": {
+        "window": "10:30–13:15",
+        "goal": "Керамика, палочки, нож и кухонные инструменты по заранее заданному списку.",
+        "stops": ["Dengama", "Hashitō", "KAMA-ASA", "Iidaya"],
+        "rule": "Максимум 4 точки + один короткий возврат. Ножи — только в зарегистрированный багаж."
+      },
+      "secrets": [
+        { "label": "Nakamuraza · верификация", "value": "" }
+      ],
+      "links": [
+        { "label": "Hashitō", "url": "https://www.kappabashi.or.jp/en/shops/148/" },
+        { "label": "KAMA-ASA", "url": "https://kama-asa.co.jp/en/pages/shops" }
+      ]
+    },
+    {
+      "id": "oct-02-departure",
+      "number": 12,
+      "date": "2026-10-02",
+      "dateLabel": "2 октября · пятница",
+      "city": "Токио → аэропорт",
+      "title": "Narita и перелёт в Чэнду",
+      "summary": "Спокойный выезд к 3U3962: NRT T1 к 13:15, затем ночёвка в центре Чэнду.",
+      "load": "лёгкая",
+      "distance": "3–5 км + аэропорт",
+      "wake": "06:45",
+      "principle": "Свободное утро существует только до 10:30; NRT T1 и запас перед международным рейсом не сокращаем.",
+      "anchors": [
+        { "time": "13:15", "label": "NRT T1" },
+        { "time": "16:40", "label": "3U3962" }
+      ],
+      "timeline": [
+        { "time": "07:30", "title": "Завтрак и документы", "detail": "Паспорт, билеты, tax-free покупки и багажный чек.", "kind": "task" },
+        { "time": "08:30", "title": "Свободное окно рядом", "detail": "Только одна короткая прогулка из блока альтернатив; вернуться к багажу до 10:30.", "kind": "flex" },
+        { "time": "10:45", "title": "Checkout", "detail": "Финально проверить ножи в зарегистрированном багаже, power bank — в ручной клади.", "kind": "anchor" },
+        { "time": "11:15", "title": "Hotel 1899 → Narita", "detail": "Базово: Shimbashi → Tokyo + Narita Express. Если навигатор показывает прямой Access Express без ожидания — можно выбрать его. Цель NRT T1 к 13:15.", "kind": "move" },
+        { "time": "13:15", "title": "NRT Terminal 1", "detail": "Регистрация 3U3962, багаж, проверка gate. После регистрации — обед в T1.", "kind": "anchor" },
+        { "time": "15:50", "title": "У выхода на посадку", "detail": "Паспорт, boarding pass и документы для транзитного въезда в Китай под рукой.", "kind": "task" },
+        { "time": "16:40", "title": "3U3962 · NRT → TFU", "detail": "Sichuan Airlines, NRT T1 → Chengdu Tianfu T1, прилёт 21:00 по билету.", "kind": "anchor" },
+        { "time": "22:15", "title": "TFU → Crowne Plaza", "detail": "После иммиграции и багажа — заранее заказанный трансфер/DiDi; отель без airport shuttle.", "kind": "move" }
+      ],
+      "decision": {
+        "title": "Если железная дорога к NRT нестабильна",
+        "trigger": "Сбой/задержка N'EX или Access Express утром 02.10.",
+        "protect": "Прибытие в NRT T1 к 13:15 и 3U3962 в 16:40.",
+        "cut": "Любую утреннюю прогулку и ресторан до регистрации.",
+        "fallback": "Уехать раньше; при серьёзном сбое запросить у отеля альтернативный маршрут и рассмотреть airport bus/taxi только как аварийный вариант."
+      },
+      "links": [
+        { "label": "Narita · Sichuan Airlines", "url": "https://www.narita-airport.jp/en/flight/dep-search/?keywordAirlineCodeL=SICHUANAIRLINES&keywordAirlineCodeV=3U" },
+        { "label": "Crowne Plaza Chengdu", "url": "https://www.ihg.com/crowneplaza/hotels/us/en/chengdu/ctuch/hoteldetail" }
+      ]
+    }
+  ],
+  "bookingTasks": [
+    {
+      "id": "nezu",
+      "status": "action",
+      "deadline": "Сейчас",
+      "sortDate": "2026-08-12",
+      "title": "Nezu Museum · 29.09 10:00",
+      "price": "¥1,400 / человек",
+      "action": "Купить временной слот 10:00 и сохранить отдельный QR каждому.",
+      "offline": "2 QR + письмо-подтверждение",
+      "url": "https://www.e-tix.jp/nezu-muse/en/"
+    },
+    {
+      "id": "haruka",
+      "status": "action",
+      "deadline": "21 августа · 10:00 JST",
+      "sortDate": "2026-08-21",
+      "title": "HARUKA KIX → Osaka · 21.09",
+      "price": "¥1,800 / человек",
+      "action": "Купить online one-way ticket. Для получения нужен паспорт, номер брони, 4-значный код и физическая платёжная карта.",
+      "offline": "QR/номер брони + 4-значный код; взять оригинал карты",
+      "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/oneway/haruka/"
+    },
+    {
+      "id": "jr-pass",
+      "status": "action",
+      "deadline": "22 августа · 10:00 JST",
+      "sortDate": "2026-08-22",
+      "title": "Kansai-Hiroshima Area Pass · 22–26.09",
+      "price": "¥17,000 / человек",
+      "action": "Купить 5-дневный pass с началом 22.09. Виртуальная/numberless карта не подходит для получения.",
+      "offline": "Номер брони + 4-значный код; паспорт и физическая карта",
+      "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/jrwest-rail-pass/kansai_hiroshima/"
+    },
+    {
+      "id": "himeji-seats",
+      "status": "action",
+      "deadline": "23 августа · 10:00 JST",
+      "sortDate": "2026-08-23",
+      "title": "Места Shinkansen · Himeji 23.09",
+      "price": "Включено в JR-West Pass",
+      "action": "Зарезервировать поезд с прибытием в Himeji не позже 08:10 и возврат около 13:00.",
+      "offline": "Номера поездов, вагон/места, seat tickets",
+      "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/route-search/"
+    },
+    {
+      "id": "hiroshima-seats",
+      "status": "action",
+      "deadline": "24 августа · 10:00 JST",
+      "sortDate": "2026-08-24",
+      "title": "Места Shinkansen · Hiroshima 24.09",
+      "price": "Включено в JR-West Pass",
+      "action": "Mizuho 601, 06:00 → 07:25; Sakura 766, 18:33 → 19:59.",
+      "offline": "Вагон/места + seat tickets",
+      "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/route-search/"
+    },
+    {
+      "id": "hikari",
+      "status": "verify",
+      "deadline": "27 августа · после 14:00 JST",
+      "sortDate": "2026-08-27",
+      "title": "Hikari 642 Kyoto → Odawara · 27.09",
+      "price": "≈ ¥12,300–12,500 / человек",
+      "action": "Финально подтвердить поезд, ordinary reserved и место E после определения расписания за месяц.",
+      "offline": "SmartEX QR/IC привязка + поезд, вагон и место",
+      "url": "https://smart-ex.jp/en/reservation/useful/accept_time/"
+    },
+    {
+      "id": "fuji",
+      "status": "action",
+      "deadline": "30 августа · 10:00 JST",
+      "sortDate": "2026-08-30",
+      "title": "Fuji reserve · 30.09",
+      "price": "¥4,010 туда + ¥4,200 обратно / человек",
+      "action": "Бронировать No.7 Shinjuku 08:30 → Shimoyoshida 10:13 и No.44 Kawaguchiko 16:48 → Shinjuku 18:48. No.94 в сентябре не ходит.",
+      "offline": "Оба билета, места и правило возврата/обмена",
+      "url": "https://e.fujikyu-railway.jp/fujikaiyuu/"
+    },
+    {
+      "id": "shiunso",
+      "status": "action",
+      "deadline": "До 13 сентября",
+      "sortDate": "2026-09-13",
+      "title": "Shiunso · питание и check-in",
+      "price": "По бронированию рёкана",
+      "action": "Подтвердить диеты, время ужина/завтрака, прибытие до 18:00 и возможность приватной ванны при check-in.",
+      "offline": "Письмо рёкана + телефон",
+      "url": "https://www.shiunso.co.jp/english/faq/"
+    },
+    {
+      "id": "shibuya-sky",
+      "status": "action",
+      "deadline": "15 сентября · открыть продажу",
+      "sortDate": "2026-09-15",
+      "title": "Shibuya Sky · 29.09",
+      "price": "¥3,400 online после 15:00",
+      "action": "Купить слот 16:20 или 16:40. Продажа открыта до даты на две недели вперёд; цена кассы ¥3,700.",
+      "offline": "QR + время входа; напоминание о locker",
+      "url": "https://www.shibuya-scramble-square.com/sky/ticket/"
+    },
+    {
+      "id": "umeda",
+      "status": "action",
+      "deadline": "До 21 сентября",
+      "sortDate": "2026-09-21",
+      "title": "Umeda Sky · 23.09 17:10",
+      "price": "¥2,000 / человек",
+      "action": "Купить заранее и сохранить QR. Проверить погоду: rooftop может закрыться при сильном дожде.",
+      "offline": "QR каждому",
+      "url": "https://www.skybldg.co.jp/en/"
+    },
+    {
+      "id": "hiroshige",
+      "status": "action",
+      "deadline": "До 28 сентября",
+      "sortDate": "2026-09-28",
+      "title": "Hiroshige · TNM 30.09",
+      "price": "¥1,300 advance / ¥1,500 regular",
+      "action": "Купить advance только если базовый Tokyo-сценарий остаётся вероятным; предзаказ закрывается 28.09.",
+      "offline": "Билет/подтверждение",
+      "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=2759&lang=en"
+    },
+    {
+      "id": "edo",
+      "status": "watch",
+      "deadline": "29 сентября · вечером",
+      "sortDate": "2026-09-29",
+      "title": "Edo-Tokyo Museum · 30.09",
+      "price": "¥800 permanent / ¥2,740 combo",
+      "action": "Покупать невозвратный билет только после решения не ехать к Fuji. Combo включает BROTHERS IN ARMS.",
+      "offline": "QR + выбранный тип билета",
+      "url": "https://www.edo-tokyo-museum.or.jp/en/information/guide/"
+    },
+    {
+      "id": "yamato",
+      "status": "verify",
+      "deadline": "25 сентября · утром",
+      "sortDate": "2026-09-25",
+      "title": "Yamato Kyoto → Hotel 1899",
+      "price": "Уточнить у отеля",
+      "action": "Отправить большой багаж напрямую в Tokyo; в Hakone взять сумку на одну ночь. Согласовать приём обоими отелями.",
+      "offline": "Фото квитанции и tracking number",
+      "url": ""
+    },
+    {
+      "id": "kyoto-bus",
+      "status": "watch",
+      "deadline": "25 сентября · вечером",
+      "sortDate": "2026-09-25",
+      "title": "Kyoto Bus 92/94 · 26.09",
+      "price": "ICOCA",
+      "action": "Проверить редкое расписание Katsura → Oku-Saga. Если стыковки нет, поменять порядок: Bamboo раньше, затем автобус к Daikakuji.",
+      "offline": "Скрин расписания / номера рейсов",
+      "url": ""
+    },
+    {
+      "id": "open-air",
+      "status": "watch",
+      "deadline": "26 сентября · вечером",
+      "sortDate": "2026-09-26",
+      "title": "Hakone Open-Air Museum · 27.09",
+      "price": "¥1,800 online / ¥2,000 gate",
+      "action": "После прогноза купить online ticket, если музей остаётся в плане.",
+      "offline": "QR",
+      "url": "https://www.hakone-oam.or.jp/en/webticket/"
+    },
+    {
+      "id": "departure",
+      "status": "done",
+      "deadline": "Готово",
+      "sortDate": "2026-08-13",
+      "title": "3U3962 · NRT → Chengdu · 02.10 16:40",
+      "price": "Билет есть",
+      "action": "NRT Terminal 1 → TFU Terminal 1, прилёт 21:00. Целевой выезд из Hotel 1899 в 11:15.",
+      "offline": "Билет + маршрут до NRT + адрес Crowne Plaza",
+      "url": "https://www.narita-airport.jp/en/flight/dep-search/?keywordAirlineCodeL=SICHUANAIRLINES&keywordAirlineCodeV=3U"
+    },
+    {
+      "id": "china-transit",
+      "status": "verify",
+      "deadline": "12 сентября",
+      "sortDate": "2026-09-12",
+      "title": "Китай · 240-hour transit",
+      "price": "Без визы при подтверждении права на въезде",
+      "action": "Перепроверить актуальные правила NIA для PEK и TFU, распечатать/сохранить билеты дальше по маршруту и обе брони отелей.",
+      "offline": "Паспорт + HU473/3U3887 + отели + адреса на китайском",
+      "url": "https://en.nia.gov.cn/n147418/n147463/c183412/content.html"
+    },
+    {
+      "id": "china-payments",
+      "status": "action",
+      "deadline": "До 5 сентября",
+      "sortDate": "2026-09-05",
+      "title": "Китай · Alipay, WeChat и карты",
+      "price": "—",
+      "action": "Установить приложения, привязать зарубежную карту, пройти идентификацию и проверить небольшой платёж до вылета.",
+      "offline": "Резервная физическая карта + немного CNY",
+      "url": ""
+    },
+    {
+      "id": "beijing-shuttle",
+      "status": "verify",
+      "deadline": "18 сентября",
+      "sortDate": "2026-09-18",
+      "title": "Fairfield Beijing · shuttle и ранний выезд",
+      "price": "24-hour shuttle включён",
+      "action": "Подтвердить точку pickup после HU7986 и забронировать/согласовать shuttle к PEK T2 около 05:25 21.09.",
+      "offline": "Телефон отеля + адрес на китайском + точка pickup",
+      "url": "https://www.marriott.com/en-us/hotels/bjspe-fairfield-beijing-capital-airport/overview/"
+    },
+    {
+      "id": "panda-ticket",
+      "status": "action",
+      "deadline": "Как только откроется продажа",
+      "sortDate": "2026-09-20",
+      "title": "Chengdu Panda Base · 03.10 07:30",
+      "price": "Проверить при покупке",
+      "action": "Купить ранний слот/South Gate на паспортные данные; сохранить QR и правила входа.",
+      "offline": "QR + паспорт + китайский адрес South Gate",
+      "url": "https://m.panda.org.cn/en/service/ticket/"
+    },
+    {
+      "id": "chengdu-transfer",
+      "status": "action",
+      "deadline": "До 25 сентября",
+      "sortDate": "2026-09-25",
+      "title": "TFU → Crowne Plaza · ночь 02.10",
+      "price": "Уточнить",
+      "action": "Заказать трансфер/DiDi после 3U3962 и подтвердить у отеля хранение багажа 03.10 до 12:20.",
+      "offline": "Водитель/ваучер + адрес отеля на китайском",
+      "url": "https://www.ihg.com/crowneplaza/hotels/us/en/chengdu/ctuch/hoteldetail"
+    },
+    {
+      "id": "himeji-paid",
+      "status": "done",
+      "deadline": "Готово",
+      "sortDate": "2026-09-23",
+      "title": "Himeji + Kōko-en · 23.09 09:00",
+      "price": "¥2,600 / человек · оплачено",
+      "action": "Открывать живое подтверждение; иметь офлайн-копию как запас.",
+      "offline": "2 билета + письмо",
+      "url": "https://www.city.himeji.lg.jp/castle/0000030310.html"
+    },
+    {
+      "id": "sea-route-booked",
+      "status": "done",
+      "deadline": "Готово",
+      "sortDate": "2026-09-24",
+      "title": "World Heritage Sea Route · 24.09 12:00",
+      "price": "Бронь есть; ¥2,400 / человек на месте",
+      "action": "Прибыть к Pier 3 в 11:45.",
+      "offline": "Подтверждение брони",
+      "url": "https://www.aqua-net-h.co.jp/en/heritage/reservation"
+    },
+    {
+      "id": "hiroshima-paid",
+      "status": "done",
+      "deadline": "Готово",
+      "sortDate": "2026-09-24",
+      "title": "Hiroshima Peace Museum · 24.09 13:30",
+      "price": "2 билета · оплачено",
+      "action": "Окно входа 13:30–14:00; выделить минимум 2 часа.",
+      "offline": "2 QR",
+      "url": "https://peace-tourism.com/en/spot/entry-40.html"
+    },
+    {
+      "id": "katsura-confirmed",
+      "status": "done",
+      "deadline": "Готово",
+      "sortDate": "2026-09-26",
+      "title": "Katsura Imperial Villa · 26.09 11:20",
+      "price": "¥1,000 / человек на месте",
+      "action": "Регистрация к 11:00, оригинал паспорта, без крупного багажа.",
+      "offline": "Код брони + паспорт",
+      "url": "https://sankan.kunaicho.go.jp/multilingual/lang/en/information.html"
+    },
+    {
+      "id": "nakamuraza-paid",
+      "status": "done",
+      "deadline": "Готово",
+      "sortDate": "2026-10-01",
+      "title": "Heisei Nakamuraza Part 2 · 01.10 16:00",
+      "price": "Оплачено",
+      "action": "Прибыть к 15:10; верификацию показать в box office.",
+      "offline": "Подтверждение + номер верификации",
+      "url": ""
+    }
+  ],
+  "transport": [
+    {
+      "title": "ICOCA",
+      "when": "Вся поездка",
+      "detail": "Каждому своя карта. Старт ¥2,000 (депозит ¥500 + баланс ¥1,500), затем пополнить наличными до ¥5,000–10,000."
+    },
+    {
+      "title": "Kansai-Hiroshima Area Pass",
+      "when": "22–26 сентября",
+      "detail": "¥17,000 на 5 дней. На Sanyō Shinkansen нужны отдельные seat tickets. В дни pass не прикладывать ICOCA вместо него."
+    },
+    {
+      "title": "Kyoto Subway & Bus 1-Day Pass",
+      "when": "25 сентября",
+      "detail": "¥1,100 с человека; 26 сентября — ICOCA из-за нестандартных участков."
+    },
+    {
+      "title": "SmartEX",
+      "when": "27 сентября",
+      "detail": "Отдельно от JR-West Pass. Использовать привязанную IC или QR; проверить поезд/место после 14:00 за месяц."
+    },
+    {
+      "title": "Hakone Freepass",
+      "when": "27–28 сентября",
+      "detail": "От Odawara ¥6,000 на 2 дня; включает местные поезда, cable car, ropeway, cruise и ряд автобусов."
+    },
+    {
+      "title": "Такси",
+      "when": "Не базовый транспорт",
+      "detail": "План рассчитан на ноль такси. Единственное условное применение — 26 сентября, если после Katsura такси реально возвращает 20+ минут."
+    }
+  ],
+  "planB": [
+    {
+      "title": "Fuji не виден",
+      "signal": "Низкая видимость на live cams и плотная облачность по JMA вечером 29.09.",
+      "action": "Остаться в Tokyo: TNM/Hiroshige → Edo-Tokyo → Ginza. Не покупать Edo-Tokyo до решения."
+    },
+    {
+      "title": "Sea Route отменён",
+      "signal": "Непогода или сообщение оператора 24.09.",
+      "action": "JR Ferry → JR → трамвай; сократить Daishō-in и обед; сохранить музей и Sakura 766."
+    },
+    {
+      "title": "Hakone ropeway/cruise не работают",
+      "signal": "Красный статус Hakone Navi утром 28.09.",
+      "action": "Автобус через Sengoku/Tōgendai или сразу Moto-Hakone; сохранить Shrine/Lake Ashi, убрать Ōwakudani."
+    },
+    {
+      "title": "Himeji ограничен ремонтом",
+      "signal": "Официальное закрытие/сильное сужение маршрута за 48 часов.",
+      "action": "Если main keep открыт — идти. Локальный запас Osaka включать только при закрытии башни или сильной усталости."
+    },
+    {
+      "title": "Тайфун / жара / Silver Week",
+      "signal": "Предупреждения JMA или ранние остановки поездов.",
+      "action": "Проверка за 48 и 12 часов; вода, полотенце, зонт, обувь; 20–30 минут на пересадки, 45–60 минут на дальние поезда."
+    }
+  ],
+  "pocket": {
+    "emergency": [
+      { "label": "Полиция", "value": "110" },
+      { "label": "Скорая / пожарные", "value": "119" }
+    ],
+    "rules": [
+      "Паспорт нужен для Katsura и получения ряда JR-West билетов.",
+      "Power bank — только ручная кладь; ножи — только зарегистрированный багаж.",
+      "Сохранить QR как файлы/в Wallet, но для Himeji держать и живое подтверждение.",
+      "На Shibuya Sky сумки и свободные предметы оставляются в locker.",
+      "При сбое сначала защищать якорь и возврат, а не пытаться ускорить все пункты."
+    ],
+    "weather": [
+      { "label": "JMA forecast", "url": "https://www.jma.go.jp/bosai/forecast/" },
+      { "label": "Fuji live cams", "url": "https://live.fujigoko.tv/" },
+      { "label": "Hakone status", "url": "https://www.hakonenavi.jp/international/en/transportation/hakone-ropeway" }
+    ]
+  }
+}
