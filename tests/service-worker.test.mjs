@@ -5,14 +5,14 @@ import vm from "node:vm";
 
 class BrowserRequest extends Request {
   constructor(input, init) {
-    const value = typeof input === "string" ? new URL(input, "https://example.test/japan-2026/").href : input;
+    const value = typeof input === "string" ? new URL(input, "https://example.test/JPN26/").href : input;
     super(value, init);
   }
 }
 
 function requestKey(input, ignoreSearch = false) {
   const raw = typeof input === "string" ? input : input.url;
-  const url = new URL(raw, "https://example.test/japan-2026/");
+  const url = new URL(raw, "https://example.test/JPN26/");
   if (ignoreSearch) url.search = "";
   return url.href;
 }
@@ -56,8 +56,8 @@ test("service worker installs atomically, preserves unrelated caches and serves 
   let online = true;
 
   const self = {
-    registration: { scope: "https://example.test/japan-2026/" },
-    location: new URL("https://example.test/japan-2026/sw.js"),
+    registration: { scope: "https://example.test/JPN26/" },
+    location: new URL("https://example.test/JPN26/sw.js"),
     clients: { async claim() {} },
     async skipWaiting() {},
     addEventListener(type, callback) { listeners.set(type, callback); },
@@ -104,7 +104,7 @@ test("service worker installs atomically, preserves unrelated caches and serves 
   online = false;
   let responsePromise;
   const fetchEvent = {
-    request: { method: "GET", mode: "navigate", url: "https://example.test/japan-2026/day/sep-21-osaka/" },
+    request: { method: "GET", mode: "navigate", url: "https://example.test/JPN26/day/sep-21-osaka/" },
     respondWith(promise) { responsePromise = Promise.resolve(promise); },
   };
   listeners.get("fetch")(fetchEvent);
