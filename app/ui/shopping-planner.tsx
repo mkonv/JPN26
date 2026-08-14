@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight, Check, Clock3, Minus, Plus } from "lucide-react";
 import { useMemo, useState } from "react";
-import trip from "@/data/trip.json";
+import { withBasePath } from "@/app/site-path";
 
 const stores = [
   { id: "hakuhodo", name: "Hakuhodo", area: "Aoyama", minutes: 15, task: "Кисти по списку" },
@@ -20,7 +19,7 @@ type ShoppingInfo = {
   goal: string;
   rule: string;
 };
-type ShoppingDay = (typeof trip.days)[number] & { shopping: ShoppingInfo };
+type ShoppingDay = { id: string; dateLabel: string; city: string; shopping: ShoppingInfo };
 
 const presets = [
   { label: "Баланс", ids: ["hakuhodo", "scotch", "auralee"] },
@@ -28,12 +27,11 @@ const presets = [
   { label: "Мода", ids: ["hakuhodo", "auralee", "pleats", "homme"] },
 ] as const;
 
-export function ShoppingPlanner() {
+export function ShoppingPlanner({ shoppingDays }: { shoppingDays: ShoppingDay[] }) {
   const [selected, setSelected] = useState<string[]>([...presets[0].ids]);
   const budget = 110;
   const used = useMemo(() => stores.filter((store) => selected.includes(store.id)).reduce((sum, store) => sum + store.minutes, 0), [selected]);
   const remaining = budget - used;
-  const shoppingDays = trip.days.filter((day) => "shopping" in day) as ShoppingDay[];
 
   function toggle(id: string) { setSelected((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]); }
 
@@ -63,7 +61,7 @@ export function ShoppingPlanner() {
         <div className="section-heading"><div><span>вся поездка</span><h2>Окна по дням</h2></div></div>
         {shoppingDays.map((day) => {
           const shopping = day.shopping;
-          return <Link href={`/day/${day.id}#shopping`} className="shopping-day-row" key={day.id}><div className="shopping-date"><span>{day.dateLabel.slice(0, 2)}</span><small>{day.dateLabel.slice(3, 6)}</small></div><div><small>{day.city} · {shopping.window}</small><strong>{shopping.goal}</strong><p>{shopping.rule}</p></div><ArrowRight size={17} /></Link>;
+          return <a href={withBasePath(`/day/${day.id}#shopping`)} className="shopping-day-row" key={day.id}><div className="shopping-date"><span>{day.dateLabel.slice(0, 2)}</span><small>{day.dateLabel.slice(3, 6)}</small></div><div><small>{day.city} · {shopping.window}</small><strong>{shopping.goal}</strong><p>{shopping.rule}</p></div><ArrowRight size={17} /></a>;
         })}
       </section>
     </>

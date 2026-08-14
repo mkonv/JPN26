@@ -1,7 +1,8 @@
 "use client";
 
 import { Check, RotateCcw, UtensilsCrossed } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
+import { useLocalStorageValue } from "./use-local-storage";
 
 type FoodItem = {
   id: string;
@@ -15,29 +16,22 @@ type FoodItem = {
 const STORAGE_KEY = "japan-food-passport-2026";
 
 export function FoodPassport({ items }: { items: FoodItem[] }) {
-  const [done, setDone] = useState<string[]>([]);
-
-  useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (!saved) return;
-    try { queueMicrotask(() => setDone(JSON.parse(saved))); } catch { /* ignore stale local data */ }
-  }, []);
+  const [storedDone, setStoredDone] = useLocalStorageValue(STORAGE_KEY, "[]");
+  const done = useMemo<string[]>(() => {
+    try { return JSON.parse(storedDone); } catch { return []; }
+  }, [storedDone]);
 
   const must = useMemo(() => items.filter((item) => item.level === "must"), [items]);
   const bonus = useMemo(() => items.filter((item) => item.level !== "must"), [items]);
   const mustDone = must.filter((item) => done.includes(item.id)).length;
 
   function toggle(id: string) {
-    setDone((current) => {
-      const next = current.includes(id) ? current.filter((item) => item !== id) : [...current, id];
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      return next;
-    });
+    const next = done.includes(id) ? done.filter((item) => item !== id) : [...done, id];
+    setStoredDone(JSON.stringify(next));
   }
 
   function reset() {
-    localStorage.removeItem(STORAGE_KEY);
-    setDone([]);
+    setStoredDone(null);
   }
 
   return (

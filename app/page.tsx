@@ -1,8 +1,9 @@
-import Link from "next/link";
 import { ArrowRight, CheckCircle2, MapPinned, Plane, TicketCheck, UtensilsCrossed } from "lucide-react";
 import trip from "@/data/trip.json";
 import enrichment from "@/data/travel-enrichment.json";
 import { OfflinePanel } from "./ui/offline-panel";
+import { ToriiMark } from "./ui/japanese-mark";
+import { SiteLink } from "./ui/site-link";
 
 const statusLabels = {
   action: "сделать",
@@ -23,9 +24,10 @@ export default function HomePage() {
   return (
     <>
       <section className="home-hero">
+        <div className="hero-japanese" aria-hidden="true"><ToriiMark /><span>NIPPON · 2026</span></div>
         <div className="hero-kicker"><MapPinned size={15} /> маршрут в кармане</div>
         <h1>Япония<br /><em>19.09—03.10</em></h1>
-        <p>15 календарных дней · Beijing → Japan → Chengdu</p>
+        <p>15 календарных дней · Пекин → Япония → Чэнду</p>
         <div className="hero-proof">
           <span><TicketCheck size={16} /> 4 якоря подтверждены</span>
           <span><Plane size={16} /> 4 рейса внесены</span>
@@ -33,33 +35,33 @@ export default function HomePage() {
       </section>
 
       <section className="page-section journey-section">
-        <div className="section-heading"><div><span>от двери до двери</span><h2>Вся поездка</h2></div><Link href="/china">Китай подробно <ArrowRight size={16} /></Link></div>
+        <div className="section-heading"><div><span>от двери до двери</span><h2>Вся поездка</h2></div><SiteLink href="/china">Китай подробно <ArrowRight size={16} /></SiteLink></div>
         <div className="journey-strip">
           <div className="china"><span>19–21.09</span><strong>Пекин</strong><small>HU7986 → HU473</small></div>
           <div className="japan"><span>21.09–02.10</span><strong>Япония</strong><small>12 дней</small></div>
           <div className="china"><span>02–03.10</span><strong>Чэнду</strong><small>3U3962 → 3U3887</small></div>
         </div>
         <div className="guide-cards">
-          <Link href="/china" className="guide-card china-guide"><Plane size={21} /><div><small>два stopover</small><strong>Китай: рейсы и план</strong><span>Отели, транзит, багаж, панды</span></div><ArrowRight size={17} /></Link>
-          <Link href="/food" className="guide-card food-guide"><UtensilsCrossed size={21} /><div><small>параллельный трек</small><strong>Гастрономия</strong><span>{enrichment.foodPassport.filter((item) => item.level === "must").length} главных блюд + Tabelog</span></div><ArrowRight size={17} /></Link>
+          <SiteLink href="/china" className="guide-card china-guide"><Plane size={21} /><div><small>две остановки</small><strong>Китай: рейсы и план</strong><span>Отели, транзит, багаж, панды</span></div><ArrowRight size={17} /></SiteLink>
+          <SiteLink href="/food" className="guide-card food-guide"><UtensilsCrossed size={21} /><div><small>параллельный трек</small><strong>Гастрономия</strong><span>{enrichment.foodPassport.filter((item) => item.level === "must").length} главных блюд + Tabelog</span></div><ArrowRight size={17} /></SiteLink>
         </div>
       </section>
 
       <section className="page-section first-section">
         <div className="section-heading">
           <div><span>до поездки</span><h2>Ближайшие действия</h2></div>
-          <Link href="/todo">Все задачи <ArrowRight size={16} /></Link>
+          <SiteLink href="/todo">Все задачи <ArrowRight size={16} /></SiteLink>
         </div>
         <div className="task-peek-list">
           {openTasks.map((task) => (
-            <Link href={`/todo#${task.id}`} className="task-peek" key={task.id}>
+            <SiteLink href={`/todo#${task.id}`} className="task-peek" key={task.id}>
               <span className={`status-dot ${task.status}`} />
               <div>
                 <small>{task.deadline}</small>
                 <strong>{task.title}</strong>
               </div>
               <span className={`mini-status ${task.status}`}>{statusLabels[task.status as keyof typeof statusLabels] ?? task.status}</span>
-            </Link>
+            </SiteLink>
           ))}
         </div>
       </section>
@@ -74,7 +76,7 @@ export default function HomePage() {
       <section className="page-section">
         <div className="section-heading">
           <div><span>12 дней в Японии</span><h2>Маршрут</h2></div>
-          <Link href="/day">Обзор <ArrowRight size={16} /></Link>
+          <SiteLink href="/day">Обзор <ArrowRight size={16} /></SiteLink>
         </div>
         <div className="city-ribbon" aria-label="Города поездки">
           {trip.cityRanges.map((range) => (
@@ -85,11 +87,11 @@ export default function HomePage() {
         </div>
         <div className="day-cards compact-days">
           {trip.days.map((day) => (
-            <Link href={`/day/${day.id}`} className="day-row" key={day.id}>
+            <SiteLink href={`/day/${day.id}`} className="day-row" key={day.id}>
               <div className="day-number"><span>{day.number}</span><small>{day.dateLabel.slice(0, 2)}</small></div>
               <div className="day-row-copy"><small>{day.city}</small><strong>{day.title}</strong><span>{day.anchors.map((anchor) => `${anchor.time} ${anchor.label}`).join(" · ")}</span></div>
               <ArrowRight size={17} />
-            </Link>
+            </SiteLink>
           ))}
         </div>
       </section>

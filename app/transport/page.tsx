@@ -10,7 +10,7 @@ export default function TransportPage() {
       <header className="page-hero simple-hero transport-hero">
         <div className="hero-kicker"><TrainFront size={15} /> билеты и турникеты</div>
         <h1>Что показывать<br />и когда.</h1>
-        <p>Самая частая ошибка — смешать pass, seat ticket и ICOCA. Здесь только рабочая схема.</p>
+        <p>Самая частая ошибка — смешать проездной, билет на место и ICOCA. Здесь только рабочая схема.</p>
       </header>
       <section className="page-section first-section">
         <div className="transport-list">
@@ -19,7 +19,7 @@ export default function TransportPage() {
       </section>
       <section className="page-section gate-section">
         <div className="section-heading"><div><span>JR-West · 22–26.09</span><h2>Проход через турникет</h2></div></div>
-        <ol className="gate-flow"><li><span>1</span><div><strong>Вставить физический pass</strong><p>Не прикладывать ICOCA вместо него.</p></div></li><li><span>2</span><div><strong>Для Shinkansen иметь seat ticket</strong><p>Pass отвечает за проезд, seat ticket — за конкретное место.</p></div></li><li><span>3</span><div><strong>Забрать все билеты на выходе</strong><p>Не уходить от турникета без возвращённых карточек.</p></div></li></ol>
+        <ol className="gate-flow"><li><span>1</span><div><strong>Вставить физический проездной</strong><p>Не прикладывать ICOCA вместо него.</p></div></li><li><span>2</span><div><strong>Для синкансэна иметь билет на место</strong><p>Проездной отвечает за поездку, отдельный билет — за конкретное место.</p></div></li><li><span>3</span><div><strong>Забрать все билеты на выходе</strong><p>Не уходить от турникета без возвращённых карточек.</p></div></li></ol>
       </section>
       <section className="page-section">
         <div className="section-heading"><div><span>онлайн</span><h2>Официальные справочники</h2></div></div>

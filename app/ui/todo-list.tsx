@@ -1,41 +1,46 @@
 "use client";
 
 import { Check, ExternalLink, FileDown, RotateCcw, ShieldAlert } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-import trip from "@/data/trip.json";
+import { useMemo, useState } from "react";
+import { useLocalStorageValue } from "./use-local-storage";
 
 type Filter = "open" | "date" | "done";
+type BookingTask = {
+  id: string;
+  status: string;
+  sortDate: string;
+  deadline: string;
+  title: string;
+  price: string;
+  action: string;
+  offline: string;
+  url?: string;
+};
 const storageKey = "japan-booking-checks-v2";
 const statusCopy = { action: "действие", verify: "проверить", watch: "по ситуации", done: "подтверждено" } as const;
 
-export function TodoList() {
+export function TodoList({ bookingTasks }: { bookingTasks: BookingTask[] }) {
   const [filter, setFilter] = useState<Filter>("open");
-  const [checked, setChecked] = useState<Record<string, boolean>>({});
-
-  useEffect(() => {
-    queueMicrotask(() => {
-      try { setChecked(JSON.parse(localStorage.getItem(storageKey) ?? "{}")); } catch { setChecked({}); }
-    });
-  }, []);
+  const [storedChecks, setStoredChecks] = useLocalStorageValue(storageKey, "{}");
+  const checked = useMemo<Record<string, boolean>>(() => {
+    try { return JSON.parse(storedChecks); } catch { return {}; }
+  }, [storedChecks]);
 
   function toggle(id: string) {
-    setChecked((current) => {
-      const next = { ...current, [id]: !current[id] };
-      localStorage.setItem(storageKey, JSON.stringify(next));
-      return next;
-    });
+    const next = { ...checked, [id]: !checked[id] };
+    setStoredChecks(JSON.stringify(next));
   }
 
   const tasks = useMemo(() => {
-    const sorted = [...trip.bookingTasks].sort((a, b) => a.sortDate.localeCompare(b.sortDate));
+    const sorted = [...bookingTasks].sort((a, b) => a.sortDate.localeCompare(b.sortDate));
     if (filter === "done") return sorted.filter((task) => task.status === "done" || checked[task.id]);
     if (filter === "open") return sorted.filter((task) => task.status !== "done" && !checked[task.id]);
     return sorted;
-  }, [filter, checked]);
+  }, [bookingTasks, filter, checked]);
 
   const counts = {
-    open: trip.bookingTasks.filter((task) => task.status !== "done" && !checked[task.id]).length,
-    done: trip.bookingTasks.filter((task) => task.status === "done" || checked[task.id]).length,
+    open: bookingTasks.filter((task) => task.status !== "done" && !checked[task.id]).length,
+    done: bookingTasks.filter((task) => task.status === "done" || checked[task.id]).length,
   };
 
   return (
@@ -43,7 +48,7 @@ export function TodoList() {
       <div className="todo-summary">
         <div><span>{counts.open}</span><small>открыто</small></div>
         <div><span>{counts.done}</span><small>готово</small></div>
-        <div><span>{trip.bookingTasks.length}</span><small>всего</small></div>
+        <div><span>{bookingTasks.length}</span><small>всего</small></div>
       </div>
       <div className="todo-tabs" role="tablist" aria-label="Фильтр задач">
         <button className={filter === "open" ? "active" : ""} onClick={() => setFilter("open")}>Сейчас</button>
@@ -70,7 +75,7 @@ export function TodoList() {
         })}
         {tasks.length === 0 && <div className="empty-state"><Check size={24} /><strong>В этой вкладке пусто</strong><p>Все открытые задачи отмечены.</p></div>}
       </div>
-      {Object.keys(checked).length > 0 && <button className="reset-checks" onClick={() => { localStorage.removeItem(storageKey); setChecked({}); }}><RotateCcw size={16} /> Сбросить локальные отметки</button>}
+      {Object.keys(checked).length > 0 && <button className="reset-checks" onClick={() => setStoredChecks(null)}><RotateCcw size={16} /> Сбросить локальные отметки</button>}
     </section>
   );
 }

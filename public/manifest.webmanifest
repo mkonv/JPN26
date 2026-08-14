@@ -1,15 +1,22 @@
 {
+  "id": "./",
   "name": "Япония 2026 — маршрут в кармане",
-  "short_name": "Japan 2026",
-  "description": "Offline-first маршрут Москва — Пекин — Япония — Чэнду на 19 сентября — 3 октября 2026.",
+  "short_name": "Япония 2026",
+  "description": "Офлайн-путеводитель: маршрут, подготовка, транспорт, еда и запасные варианты.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "orientation": "portrait",
+  "orientation": "portrait-primary",
   "background_color": "#f4f1e9",
   "theme_color": "#123d34",
   "icons": [
-    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Все дни", "short_name": "Дни", "url": "./day/", "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }] },
+    { "name": "Подготовка", "short_name": "Подготовка", "url": "./todo/", "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }] },
+    { "name": "Карманная памятка", "short_name": "Карман", "url": "./pocket/", "icons": [{ "src": "./icon-192.png", "sizes": "192x192" }] }
   ]
 }

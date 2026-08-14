@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { ShoppingBag } from "lucide-react";
 import { ShoppingPlanner } from "@/app/ui/shopping-planner";
+import trip from "@/data/trip.json";
 
 export const metadata: Metadata = { title: "Шопинг" };
 
 export default function ShoppingPage() {
+  const shoppingDays = trip.days
+    .filter((day) => "shopping" in day)
+    .map((day) => ({ id: day.id, dateLabel: day.dateLabel, city: day.city, shopping: day.shopping! }));
   return (
     <>
       <header className="page-hero simple-hero shopping-hero-page">
@@ -12,7 +16,7 @@ export default function ShoppingPage() {
         <h1>Покупки,<br />не съедающие поездку.</h1>
         <p>Окна, приоритеты и стоп-правила собраны отдельно — но каждая точка остаётся привязана к реальному маршруту дня.</p>
       </header>
-      <ShoppingPlanner />
+      <ShoppingPlanner shoppingDays={shoppingDays} />
     </>
   );
 }

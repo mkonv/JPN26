@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, Info, Star, UtensilsCrossed } from "lucide-react";
 import enrichment from "@/data/travel-enrichment.json";
 import { FoodPassport } from "@/app/ui/food-passport";
+import { SiteLink } from "@/app/ui/site-link";
 
 export const metadata: Metadata = { title: "Гастрономическое путешествие" };
 
@@ -22,7 +22,7 @@ export default function FoodPage() {
           <article><Star size={19} /><div><strong>3.5 на Tabelog — уже сильно</strong><p>Японская шкала строже привычных 5-star сервисов. Мы не отбрасываем маршрутный вариант только из-за 3.4.</p></div></article>
           <article><Info size={19} /><div><strong>Сначала блюдо и логистика</strong><p>Основной выбор стоит первым; второй и третий страхуют очередь, выходной или другой бюджет.</p></div></article>
         </div>
-        <Link className="food-day-link" href="/day"><span>Открыть день и его рестораны</span><ArrowRight size={17} /></Link>
+        <SiteLink className="food-day-link" href="/day"><span>Открыть день и его рестораны</span><ArrowRight size={17} /></SiteLink>
       </section>
 
       <section className="page-section passport-section" id="passport">

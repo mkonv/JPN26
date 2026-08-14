@@ -77,7 +77,7 @@ function ChinaStop({ stop, eyebrow }: { stop: ChinaStopData; eyebrow: string }) 
         <div className="china-food-head"><UtensilsCrossed size={18} /><div><span>местный вкус без крюка</span><strong>Выбрать один вариант</strong></div></div>
         <div className="china-food-list">{stop.food.map((item) => <a href={item.url} target="_blank" rel="noreferrer" key={item.name}><div><strong>{item.name}</strong><span>{item.dish}</span><p>{item.fit}</p></div><MapPinned size={17} /></a>)}</div>
       </div>
-      {stop.id === "beijing-stopover" && <div className="china-warning"><AlertTriangle size={18} /><p><strong>Багажная развилка:</strong> не угадывать. В SVO прочитать аэропорт на бирке: PEK — получаем 20.09; KIX — багаж следует дальше. На PEK всё равно подтвердить у transfer desk.</p></div>}
+      {stop.id === "beijing-stopover" && <div className="china-warning"><AlertTriangle size={18} /><p><strong>Багажная развилка:</strong> не угадывать. В SVO прочитать аэропорт на бирке: PEK — получаем 20.09; KIX — багаж следует дальше. На PEK всё равно подтвердить у стойки транзита.</p></div>}
     </section>
   );
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CopyButton } from "@/app/ui/copy-button";
 import { OfflinePanel } from "@/app/ui/offline-panel";
-import { SecretReveal } from "@/app/ui/day-view";
+import { SecretReveal } from "@/app/ui/secret-reveal";
 import { CloudSun, ExternalLink, Hotel, MapPin, Phone, ShieldCheck } from "lucide-react";
 import trip from "@/data/trip.json";
 import enrichment from "@/data/travel-enrichment.json";

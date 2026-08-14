@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { AlertTriangle, ArrowRight, CloudSun, ExternalLink, ShieldCheck } from "lucide-react";
 import trip from "@/data/trip.json";
+import { SiteLink } from "@/app/ui/site-link";
 
-export const metadata: Metadata = { title: "Plan B" };
+export const metadata: Metadata = { title: "План Б" };
 
 export default function PlanBPage() {
   return (
     <>
       <header className="page-hero simple-hero planb-hero">
         <div className="hero-kicker"><ShieldCheck size={15} /> решения вместо паники</div>
-        <h1>Plan B,<br />который не ломает день.</h1>
+        <h1>План Б,<br />который не ломает день.</h1>
         <p>Каждый сценарий начинается с сигнала, затем защищает главное и только потом сокращает остальное.</p>
       </header>
       <section className="page-section first-section">
@@ -31,9 +31,9 @@ export default function PlanBPage() {
       <section className="page-section">
         <div className="section-heading"><div><span>быстрый переход</span><h2>Дни с решениями</h2></div></div>
         <div className="official-links">
-          {trip.days.filter((day) => "decision" in day).map((day) => <Link href={`/day/${day.id}`} key={day.id}><span>{day.dateLabel.slice(0, 12)} · {day.title}</span><small>открыть</small><ArrowRight size={16} /></Link>)}
+          {trip.days.filter((day) => "decision" in day).map((day) => <SiteLink href={`/day/${day.id}`} key={day.id}><span>{day.dateLabel.slice(0, 12)} · {day.title}</span><small>открыть</small><ArrowRight size={16} /></SiteLink>)}
         </div>
-        <div className="weather-links"><a href="https://www.jma.go.jp/bosai/forecast/" target="_blank" rel="noreferrer"><CloudSun size={18} /><span>JMA forecast</span><ExternalLink size={15} /></a><a href="https://live.fujigoko.tv/" target="_blank" rel="noreferrer"><CloudSun size={18} /><span>Fuji live cams</span><ExternalLink size={15} /></a></div>
+        <div className="weather-links"><a href="https://www.jma.go.jp/bosai/forecast/" target="_blank" rel="noreferrer"><CloudSun size={18} /><span>Прогноз JMA</span><ExternalLink size={15} /></a><a href="https://live.fujigoko.tv/" target="_blank" rel="noreferrer"><CloudSun size={18} /><span>Камеры Фудзи</span><ExternalLink size={15} /></a></div>
       </section>
     </>
   );

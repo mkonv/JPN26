@@ -1,7 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="118" fill="#123d34"/>
-  <circle cx="384" cy="130" r="68" fill="#d85a42"/>
-  <path d="M116 335c46-78 99-117 158-117 46 0 90 24 132 72v96H106z" fill="#f4f1e9"/>
-  <path d="M160 330c30-48 61-72 94-72 25 0 50 14 76 41l-21 23c-20-19-38-29-55-29-23 0-45 18-67 54z" fill="#123d34"/>
-  <path d="M253 94v130M198 139h110" stroke="#f4f1e9" stroke-width="20" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Япония 2026">
+  <rect width="512" height="512" rx="112" fill="#123d34"/>
+  <rect x="18" y="18" width="476" height="476" rx="96" fill="none" stroke="#f4ead6" stroke-opacity=".34" stroke-width="5"/>
+  <circle cx="256" cy="256" r="184" fill="#f7f1e5"/>
+  <circle cx="338" cy="178" r="72" fill="#cf513d"/>
+  <path d="M147 354c58-8 94-40 112-95 16-51 42-84 82-103" fill="none" stroke="#123d34" stroke-width="29" stroke-linecap="round"/>
+  <circle cx="148" cy="354" r="24" fill="#c99a38" stroke="#123d34" stroke-width="12"/>
+  <circle cx="260" cy="256" r="15" fill="#f7f1e5" stroke="#123d34" stroke-width="10"/>
+  <circle cx="340" cy="156" r="17" fill="#f7f1e5" stroke="#123d34" stroke-width="10"/>
+  <path d="M126 391h260" stroke="#123d34" stroke-opacity=".16" stroke-width="5" stroke-linecap="round"/>
 </svg>

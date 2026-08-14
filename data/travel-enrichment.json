@@ -59,7 +59,7 @@
       "address": "No. 17 Fuqian First Street, Shunyi District, Beijing 101312, China",
       "localAddress": "北京市顺义区府前一街17号",
       "phone": "+86 10 6458 5888",
-      "note": "Бесплатный круглосуточный shuttle к PEK T2/T3; место посадки уточнить у отеля после посадки."
+      "note": "Бесплатный круглосуточный трансфер отеля к PEK T2/T3; место посадки уточнить у отеля после прилёта."
     },
     {
       "city": "Чэнду",
@@ -68,7 +68,7 @@
       "address": "No. 31 Zongfu Street, Chengdu 610016, China",
       "localAddress": "成都市总府街31号",
       "phone": "+86 28 8678 6666",
-      "note": "В центре рядом с Taikoo Li/IFS; собственного airport shuttle нет."
+      "note": "В центре рядом с Taikoo Li/IFS; собственного трансфера из аэропорта нет."
     }
   ],
   "china": {
@@ -82,12 +82,12 @@
       "id": "beijing-stopover",
       "dateLabel": "19–21 сентября · Москва → Пекин → Осака",
       "title": "Пекин без гонки после ночного рейса",
-      "summary": "Один компактный культурный коридор, ранний возврат в airport hotel и защищённый HU473 утром.",
+      "summary": "Один компактный культурный коридор, ранний возврат в отель у аэропорта и защищённый HU473 утром.",
       "timeline": [
         { "time": "19.09 · 16:30", "title": "Быть в SVO", "detail": "Регистрация HU7986, проверить конечный пункт багажной бирки: PEK или KIX." },
         { "time": "20:05", "title": "HU7986 · SVO → PEK", "detail": "Ночной перелёт; паспорт и бронь HU473 держать в ручной клади." },
         { "time": "20.09 · 08:55", "title": "Прилёт в Пекин", "detail": "Иммиграция/транзитное разрешение. Если багаж оформлен только до PEK — получить его." },
-        { "time": "10:45", "title": "Fairfield и багаж", "detail": "Позвонить в отель по Wi-Fi аэропорта и уточнить точку shuttle T2/T3; оставить вещи." },
+        { "time": "10:45", "title": "Fairfield и багаж", "detail": "Позвонить в отель по Wi-Fi аэропорта и уточнить точку посадки на трансфер T2/T3; оставить вещи." },
         { "time": "12:30", "title": "Lama Temple + Wudaoying", "detail": "Один район, минимум пересадок; при сильной усталости оставить только храм и обед." },
         { "time": "15:20", "title": "Shichahai + Drum Tower lanes", "detail": "Прогулка по hutong; Jingshan — только если есть силы и ясное небо." },
         { "time": "18:00", "title": "Ранний ужин и в отель", "detail": "Цель — быть в Fairfield к 20:00; подготовить документы и будильник." },
@@ -108,8 +108,8 @@
       "timeline": [
         { "time": "02.10 · 16:40", "title": "3U3962 · NRT T1 → TFU T1", "detail": "Прилёт 21:00 по билету." },
         { "time": "21:00", "title": "Иммиграция и багаж", "detail": "Документы на 240-hour transit держать готовыми; не планировать ужин с бронью." },
-        { "time": "22:15", "title": "TFU → Crowne Plaza", "detail": "Ночью базовый вариант — заранее заказанный трансфер/DiDi. Отель без shuttle." },
-        { "time": "23:25", "title": "Check-in", "detail": "Сразу согласовать хранение багажа 3 октября и ранний breakfast box при необходимости." },
+        { "time": "22:15", "title": "TFU → Crowne Plaza", "detail": "Ночью базовый вариант — заранее заказанный трансфер/DiDi. У отеля нет собственного трансфера." },
+        { "time": "23:25", "title": "Заселение", "detail": "Сразу согласовать хранение багажа 3 октября и ранний завтрак с собой при необходимости." },
         { "time": "03.10 · 06:35", "title": "Выезд к Panda Base", "detail": "Такси/DiDi к South Gate; билет на утренний слот купить заранее." },
         { "time": "07:30", "title": "Chengdu Panda Base", "detail": "2–2,5 часа: сначала взрослые панды до жары, затем nursery по фактической очереди." },
         { "time": "10:15", "title": "Возврат в центр", "detail": "Taikoo Li + Daci Temple только как короткий коридор рядом с отелем." },
@@ -262,7 +262,7 @@
           { "name": "Odawara Bar", "score": "3.47", "dish": "local fish set", "why": "Рыба Sagami Bay вместо второй soba.", "route": "Только если едите у Odawara до покупки Freepass.", "url": "https://tabelog.com/en/kanagawa/A1409/", "pick": false }
         ] },
         { "label": "Ужин · Shiunso", "time": "18:00", "note": "Фиксированный kaiseki включён в рёкан — альтернативы не планируем, а заранее подтверждаем время и диеты.", "options": [
-          { "name": "Shiunso kaiseki", "score": "включено", "dish": "ryokan kaiseki", "why": "Это один из ключевых гастрономических опытов поездки.", "route": "Check-in до 18:00; время ужина подтвердить заранее.", "url": "https://www.shiunso.co.jp/english/", "pick": true }
+          { "name": "Shiunso kaiseki", "score": "включено", "dish": "кайсэки в рёкане", "why": "Это один из ключевых гастрономических опытов поездки.", "route": "Заселение до 18:00; время ужина подтвердить заранее.", "url": "https://www.shiunso.co.jp/english/", "pick": true }
         ] }
       ]
     },
@@ -289,7 +289,7 @@
       "alternatives": [
         { "name": "Ota Memorial Museum of Art", "delta": "+45–60 мин", "when": "Если Meiji прошли быстро и хочется ukiyo-e", "swap": "Заменяет кофе/часть шопинга до Nezu; проверить выставку и часы.", "url": "https://www.google.com/maps/search/?api=1&query=Ota+Memorial+Museum+of+Art" },
         { "name": "Taro Okamoto Memorial Museum", "delta": "+35–50 мин", "when": "Если Nezu оказался коротким", "swap": "Дом-студия рядом с Aoyama; убрать один магазин.", "url": "https://www.google.com/maps/search/?api=1&query=Taro+Okamoto+Memorial+Museum" },
-        { "name": "Watari-um", "delta": "+40–55 мин", "when": "Если нужен современный art-блок", "swap": "Только при сильной текущей выставке; заменить 40 минут shopping budget.", "url": "https://www.google.com/maps/search/?api=1&query=Watari-um+Tokyo" }
+        { "name": "Watari-um", "delta": "+40–55 мин", "when": "Если нужен блок современного искусства", "swap": "Только при сильной текущей выставке; заменить 40 минут шопинга.", "url": "https://www.google.com/maps/search/?api=1&query=Watari-um+Tokyo" }
       ],
       "meals": [
         { "label": "Обед · Aoyama", "time": "12:15", "note": "Полный обед защищён; магазины подстраиваются под него.", "options": [
@@ -308,7 +308,7 @@
       "alternatives": [
         { "name": "Ueno Tōshō-gū", "delta": "+25–35 мин", "when": "Если Honkan закончили раньше", "swap": "Святилище прямо в Ueno Park; не двигать обед позже 13:00.", "url": "https://www.google.com/maps/search/?api=1&query=Ueno+Toshogu" },
         { "name": "Kyu-Yasuda Garden", "delta": "+25–35 мин", "when": "Если Edo-Tokyo прошли быстро", "swap": "Бесплатный сад рядом с Ryōgoku; уйти к Ginza по плану.", "url": "https://www.google.com/maps/search/?api=1&query=Kyu-Yasuda+Garden" },
-        { "name": "Mitsubishi Ichigokan Museum", "delta": "+60–90 мин", "when": "Если shopping-коридор больше не нужен", "swap": "Полная замена большей части Ginza-шопинга; проверить текущую выставку.", "url": "https://www.google.com/maps/search/?api=1&query=Mitsubishi+Ichigokan+Museum" }
+        { "name": "Mitsubishi Ichigokan Museum", "delta": "+60–90 мин", "when": "Если шопинг-коридор больше не нужен", "swap": "Полная замена большей части шопинга в Гиндзе; проверить текущую выставку.", "url": "https://www.google.com/maps/search/?api=1&query=Mitsubishi+Ichigokan+Museum" }
       ],
       "meals": [
         { "label": "Завтрак · Tsukiji", "time": "07:30", "note": "Одна тарелка, не дегустационный марафон перед музеями.", "options": [
@@ -356,10 +356,10 @@
       "alternatives": [
         { "name": "Atago Shrine", "delta": "+30–40 мин", "when": "Только если багаж собран и выезд подтверждён", "swap": "Короткий локальный подъём рядом с отелем; вернуться к 10:30.", "url": "https://www.google.com/maps/search/?api=1&query=Atago+Shrine+Tokyo" },
         { "name": "Hama-rikyū Gardens", "delta": "+60–75 мин", "when": "Только при выезде из отеля не позже 11:00", "swap": "Последняя прогулка вместо долгого завтрака; не совмещать с Atago.", "url": "https://www.google.com/maps/search/?api=1&query=Hama-rikyu+Gardens" },
-        { "name": "NRT T1 Observation Deck", "delta": "+20–30 мин", "when": "Если уже прошли check-in и контроль времени достаточен", "swap": "Безопасная последняя точка внутри аэропорта; вернуться к gate по табло.", "url": "https://www.narita-airport.jp/en/service/airport-observation-deck/" }
+        { "name": "Смотровая площадка NRT T1", "delta": "+20–30 мин", "when": "Если уже прошли регистрацию и запас времени достаточен", "swap": "Безопасная последняя точка внутри аэропорта; вернуться к выходу на посадку по табло.", "url": "https://www.narita-airport.jp/en/service/airport-observation-deck/" }
       ],
       "meals": [
-        { "label": "Поздний обед · NRT T1", "time": "14:00", "note": "Выбирать после регистрации; gate и посадка важнее ресторана.", "options": [
+        { "label": "Поздний обед · NRT T1", "time": "14:00", "note": "Выбирать после регистрации; выход на посадку и её время важнее ресторана.", "options": [
           { "name": "Kawatoyo · NRT T1", "score": "3.62", "dish": "unagi", "why": "Сильный финальный японский специалитет в аэропорту.", "route": "Только при запасе не меньше 90 минут до boarding.", "url": "https://tabelog.com/en/chiba/A1204/A120401/R7231/rstLst/RC011199/", "pick": true },
           { "name": "Dashi Chazuke En", "score": "3.25", "dish": "ochazuke", "why": "Лёгкий и быстрый прощальный обед.", "route": "Лучший резерв при ограниченном времени.", "url": "https://tabelog.com/en/chiba/A1204/A120401/12004604/", "pick": false },
           { "name": "Sushi Kyotatsu", "score": "3.2+", "dish": "sushi", "why": "Практичный аэропортовый вариант японской классики.", "route": "Выбирать только по короткой очереди.", "url": "https://tabelog.com/en/chiba/A1204/A120401/12000918/", "pick": false }

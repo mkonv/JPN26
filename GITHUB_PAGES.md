@@ -1,31 +1,10 @@
-# GitHub Pages deployment
+# Развёртывание на GitHub Pages
 
-This copy is prepared for a static GitHub Pages deployment.
+1. Загрузите содержимое этой папки в корень репозитория.
+2. Откройте `Settings → Pages` и выберите `Source: GitHub Actions`.
+3. Отправьте изменения в ветку `main` или вручную запустите `Deploy Japan 2026 to GitHub Pages` на вкладке `Actions`.
+4. Workflow проверит код и ссылки, соберёт версионированную офлайн-копию, откроет все страницы без сети и опубликует каталог `out/`.
 
-## One-time setup
+Поддерживается адрес вида `https://USERNAME.github.io/REPOSITORY/`: путь репозитория автоматически передаётся из `actions/configure-pages` через `NEXT_PUBLIC_BASE_PATH`.
 
-1. Create a new GitHub repository and upload the contents of this folder to the repository root.
-2. Use `main` as the default branch.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment → Source**, choose **GitHub Actions**.
-5. Open the **Actions** tab and wait for the workflow **Deploy Japan 2026 to GitHub Pages** to complete.
-6. Return to **Settings → Pages** to see the published URL.
-
-The workflow automatically reads the GitHub Pages base path, runs `next build` as a static export, uploads `./out`, and deploys it.
-
-## Booking-code privacy
-
-The original source contained two booking/verification codes. They were intentionally removed from this GitHub-ready copy because a GitHub Pages site is static and anything shipped in its HTML/JavaScript can be read by visitors even when visually hidden.
-
-On the published site's **Карман → Коды бронирований** section, enter each code once. The value is stored only in that browser's `localStorage`, not in GitHub and not on a server.
-
-## Offline mode
-
-After deployment:
-
-1. Open the live site in Safari on the iPhone while online.
-2. Tap **Сохранить весь маршрут**.
-3. Add the site to the Home Screen.
-4. Open it once in Airplane Mode and test several day pages.
-
-The service worker in this copy is base-path-aware, so it works for both `username.github.io/repository/` project sites and root Pages sites.
+После публикации откройте PWA на iPhone, нажмите «Проверить и обновить копию» и выполните холодный запуск в авиарежиме.

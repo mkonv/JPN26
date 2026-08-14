@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, Gauge, MapPinned, Sunrise } from "lucide-react";
 import trip from "@/data/trip.json";
+import { SiteLink } from "@/app/ui/site-link";
 
 export const metadata: Metadata = { title: "Все дни" };
 
@@ -17,7 +17,7 @@ export default function DaysPage() {
         <div className="legend-row"><span><i className="load-dot easy" /> лёгкая</span><span><i className="load-dot medium" /> средняя</span><span><i className="load-dot high" /> высокая</span></div>
         <div className="day-cards">
           {trip.days.map((day) => (
-            <Link href={`/day/${day.id}`} className="full-day-card" key={day.id}>
+            <SiteLink href={`/day/${day.id}`} className="full-day-card" key={day.id}>
               <div className="full-day-top">
                 <div className="day-number large"><span>{day.number}</span><small>день</small></div>
                 <div className="full-day-title"><small>{day.dateLabel} · {day.city}</small><h2>{day.title}</h2></div>
@@ -32,7 +32,7 @@ export default function DaysPage() {
               <div className="anchor-pills">
                 {day.anchors.map((anchor) => <span key={`${anchor.time}-${anchor.label}`}><strong>{anchor.time}</strong> {anchor.label}</span>)}
               </div>
-            </Link>
+            </SiteLink>
           ))}
         </div>
       </section>

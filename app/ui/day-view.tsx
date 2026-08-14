@@ -1,10 +1,9 @@
-"use client";
-
-import Link from "next/link";
 import { AlertTriangle, ArrowLeft, ArrowRight, Check, ChevronDown, Clock3, Compass, ExternalLink, Gauge, MapPinned, RotateCcw, ShoppingBag, Sunrise, Ticket, TrainFront, UtensilsCrossed } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
 import trip from "@/data/trip.json";
 import enrichment from "@/data/travel-enrichment.json";
+import { NowStepper } from "./now-stepper";
+import { SecretReveal } from "./secret-reveal";
+import { SiteLink } from "./site-link";
 
 type Day = (typeof trip.days)[number];
 type TimelineItem = Day["timeline"][number];
@@ -36,6 +35,7 @@ type DayWithOptionalData = Day & {
   decision?: DayDecision;
   secrets?: DaySecret[];
 };
+type DayEnrichment = (typeof enrichment.dayEnrichment)[keyof typeof enrichment.dayEnrichment];
 
 const kindIcon: Record<string, React.ComponentType<{ size?: number }>> = {
   anchor: Ticket,
@@ -48,43 +48,20 @@ const kindIcon: Record<string, React.ComponentType<{ size?: number }>> = {
   return: RotateCcw,
 };
 
-export function DayView({ day, previous, next }: { day: Day; previous: Day | null; next: Day | null }) {
-  const [step, setStep] = useState(0);
-
-  useEffect(() => {
-    const now = new Date();
-    if (now.toISOString().slice(0, 10) !== day.date) return;
-    const minutes = now.getHours() * 60 + now.getMinutes();
-    let nearest = 0;
-    day.timeline.forEach((item, index) => {
-      if (item.time === "TBD") return;
-      const [h, m] = item.time.split(":").map(Number);
-      if (h * 60 + m <= minutes) nearest = index;
-    });
-    queueMicrotask(() => setStep(nearest));
-  }, [day]);
-
-  const current = day.timeline[step];
-  const following = day.timeline[step + 1] ?? null;
-  const progress = Math.round(((step + 1) / day.timeline.length) * 100);
+export function DayView({ day, previous, next, enriched, tabelogNote }: { day: Day; previous: Day | null; next: Day | null; enriched: DayEnrichment; tabelogNote: string }) {
   const optional = day as DayWithOptionalData;
   const alternate = optional.alternate;
   const shopping = optional.shopping;
   const decision = optional.decision;
   const secrets = optional.secrets;
-  const enriched = enrichment.dayEnrichment[day.id as keyof typeof enrichment.dayEnrichment];
-
-  const dayColor = useMemo(() => {
-    if (day.city.includes("Киото")) return "moss";
-    if (day.city.includes("Хаконе")) return "lake";
-    if (day.city.includes("Токио") || day.city.includes("Fuji")) return "ink";
-    return "coral";
-  }, [day.city]);
+  const dayColor = day.city.includes("Киото") ? "moss" : day.city.includes("Хаконе") ? "lake" : day.city.includes("Токио") || day.city.includes("Fuji") ? "ink" : "coral";
+  const cityJapanese = day.city.includes("Киото") ? "京都" : day.city.includes("Хаконе") ? "箱根" : day.city.includes("Токио") ? "東京" : day.city.includes("Нара") ? "奈良" : day.city.includes("Хиросима") ? "広島" : day.city.includes("Осака") ? "大阪" : "日本";
 
   return (
     <>
       <header className={`day-detail-hero ${dayColor}`}>
         <div className="day-detail-top"><span>день {day.number} из 12</span><span>{day.city}</span></div>
+        <span className="day-japanese" aria-hidden="true">{cityJapanese}</span>
         <p>{day.dateLabel}</p>
         <h1>{day.title}</h1>
         <div className="day-detail-meta"><span><Gauge size={15} /> {day.load}</span><span><MapPinned size={15} /> {day.distance}</span><span><Sunrise size={15} /> {day.wake}</span></div>
@@ -104,20 +81,7 @@ export function DayView({ day, previous, next }: { day: Day; previous: Day | nul
         {shopping && <a href="#shopping"><ShoppingBag size={18} /><span><small>окно дня</small><strong>Шопинг</strong></span></a>}
       </nav>
 
-      <section className="page-section now-block">
-        <div className="section-heading"><div><span>ориентир</span><h2>Сейчас / дальше</h2></div><strong className="progress-label">{progress}%</strong></div>
-        <div className="progress-track"><span style={{ width: `${progress}%` }} /></div>
-        <article className="now-step-card">
-          <div className="now-step-time"><span>сейчас</span><strong>{current.time}</strong></div>
-          <div className="now-step-main"><h3>{current.title}</h3><p>{current.detail}</p></div>
-          {following && <div className="next-step"><span>дальше · {following.time}</span><strong>{following.title}</strong></div>}
-          <div className="step-controls">
-            <button onClick={() => setStep((value) => Math.max(0, value - 1))} disabled={step === 0}><ArrowLeft size={17} /> Раньше</button>
-            <span>{step + 1} / {day.timeline.length}</span>
-            <button onClick={() => setStep((value) => Math.min(day.timeline.length - 1, value + 1))} disabled={step === day.timeline.length - 1}>Дальше <ArrowRight size={17} /></button>
-          </div>
-        </article>
-      </section>
+      <NowStepper date={day.date} timeline={day.timeline} />
 
       {decision && (
         <section className="page-section decision-section">
@@ -146,10 +110,10 @@ export function DayView({ day, previous, next }: { day: Day; previous: Day | nul
       <section className="page-section" id="route">
         <div className="section-heading"><div><span>полный день</span><h2>Маршрут по времени</h2></div></div>
         <div className="route-timeline">
-          {day.timeline.map((item: TimelineItem, index) => {
+          {day.timeline.map((item: TimelineItem) => {
             const Icon = kindIcon[item.kind] ?? MapPinned;
             return (
-              <article className={`route-item ${item.kind} ${index === step ? "current" : ""}`} key={`${item.time}-${item.title}`}>
+              <article className={`route-item ${item.kind}`} key={`${item.time}-${item.title}`}>
                 <time>{item.time}</time>
                 <div className="route-marker"><Icon size={14} /></div>
                 <div><h3>{item.title}</h3><p>{item.detail}</p></div>
@@ -181,7 +145,7 @@ export function DayView({ day, previous, next }: { day: Day; previous: Day | nul
       </section>
 
       <section className="page-section food-section" id="food">
-        <div className="section-heading"><div><span>гастрономическое путешествие</span><h2>Еда по маршруту</h2></div><Link href="/food">Паспорт блюд <ArrowRight size={16} /></Link></div>
+        <div className="section-heading"><div><span>гастрономическое путешествие</span><h2>Еда по маршруту</h2></div><SiteLink href="/food">Паспорт блюд <ArrowRight size={16} /></SiteLink></div>
         <p className="parallel-intro">В строке уже виден базовый выбор. Нажмите на приём пищи только если хотите сравнить все варианты.</p>
         <div className="meal-groups">
           {enriched.meals.map((meal) => {
@@ -211,7 +175,7 @@ export function DayView({ day, previous, next }: { day: Day; previous: Day | nul
             );
           })}
         </div>
-        <div className="tabelog-note">{enrichment.meta.tabelogNote}</div>
+        <div className="tabelog-note">{tabelogNote}</div>
       </section>
 
       {shopping && (
@@ -245,60 +209,9 @@ export function DayView({ day, previous, next }: { day: Day; previous: Day | nul
       )}
 
       <nav className="day-switcher" aria-label="Соседние дни">
-        {previous ? <Link href={`/day/${previous.id}`}><ArrowLeft size={17} /><span><small>день {previous.number}</small>{previous.title}</span></Link> : <span />}
-        {next ? <Link href={`/day/${next.id}`} className="next"><span><small>день {next.number}</small>{next.title}</span><ArrowRight size={17} /></Link> : <span />}
+        {previous ? <SiteLink href={`/day/${previous.id}`}><ArrowLeft size={17} /><span><small>день {previous.number}</small>{previous.title}</span></SiteLink> : <span />}
+        {next ? <SiteLink href={`/day/${next.id}`} className="next"><span><small>день {next.number}</small>{next.title}</span><ArrowRight size={17} /></SiteLink> : <span />}
       </nav>
     </>
-  );
-}
-
-export function SecretReveal({ label, value }: { label: string; value: string }) {
-  const storageKey = `japan-private-code:${label}`;
-  const [shown, setShown] = useState(false);
-  const [storedValue, setStoredValue] = useState("");
-  const [editing, setEditing] = useState(false);
-  const [draft, setDraft] = useState("");
-
-  useEffect(() => {
-    const localValue = localStorage.getItem(storageKey) ?? value;
-    setStoredValue(localValue);
-    setDraft(localValue);
-  }, [storageKey, value]);
-
-  function saveCode() {
-    const next = draft.trim();
-    if (next) localStorage.setItem(storageKey, next);
-    else localStorage.removeItem(storageKey);
-    setStoredValue(next);
-    setEditing(false);
-    setShown(Boolean(next));
-  }
-
-  if (editing || !storedValue) {
-    return (
-      <div className="secret-card secret-editor">
-        <Ticket size={19} />
-        <div>
-          <span>{label}</span>
-          <input
-            value={draft}
-            onChange={(event) => setDraft(event.target.value)}
-            placeholder="Введите код на этом устройстве"
-            autoComplete="off"
-            spellCheck={false}
-            aria-label={label}
-          />
-        </div>
-        <button type="button" className="secret-action" onClick={saveCode}>сохранить</button>
-      </div>
-    );
-  }
-
-  return (
-    <button className="secret-card" onClick={() => setShown((current) => !current)} aria-expanded={shown}>
-      <Ticket size={19} />
-      <div><span>{label}</span><strong>{shown ? storedValue : "••••••••••"}</strong></div>
-      <span className="secret-action">{shown ? "скрыть" : "показать"}</span>
-    </button>
   );
 }
