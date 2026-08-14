@@ -15,6 +15,13 @@ const stores = [
   { id: "uka", name: "uka", area: "Omotesandō", minutes: 15, task: "Быстрая покупка" },
 ] as const;
 
+type ShoppingInfo = {
+  window: string;
+  goal: string;
+  rule: string;
+};
+type ShoppingDay = (typeof trip.days)[number] & { shopping: ShoppingInfo };
+
 const presets = [
   { label: "Баланс", ids: ["hakuhodo", "scotch", "auralee"] },
   { label: "Обувь", ids: ["hakuhodo", "scotch", "onitsuka"] },
@@ -26,7 +33,7 @@ export function ShoppingPlanner() {
   const budget = 110;
   const used = useMemo(() => stores.filter((store) => selected.includes(store.id)).reduce((sum, store) => sum + store.minutes, 0), [selected]);
   const remaining = budget - used;
-  const shoppingDays = trip.days.filter((day) => "shopping" in day);
+  const shoppingDays = trip.days.filter((day) => "shopping" in day) as ShoppingDay[];
 
   function toggle(id: string) { setSelected((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]); }
 

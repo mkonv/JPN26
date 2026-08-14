@@ -58,7 +58,7 @@ export function TodoList() {
             <article id={task.id} className={`todo-card ${task.status} ${isDone ? "is-done" : ""}`} key={task.id}>
               <button className="todo-check" onClick={() => toggle(task.id)} aria-label={isDone ? `Снять отметку ${task.title}` : `Отметить ${task.title}`}><span>{isDone && <Check size={15} />}</span></button>
               <div className="todo-main">
-                <div className="todo-card-top"><span className={`status-badge ${task.status}`}>{statusCopy[task.status]}</span><time>{task.deadline}</time></div>
+                <div className="todo-card-top"><span className={`status-badge ${task.status}`}>{statusCopy[task.status as keyof typeof statusCopy] ?? task.status}</span><time>{task.deadline}</time></div>
                 <h2>{task.title}</h2>
                 <strong className="todo-price">{task.price}</strong>
                 <p>{task.action}</p>

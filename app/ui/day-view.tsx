@@ -8,6 +8,34 @@ import enrichment from "@/data/travel-enrichment.json";
 
 type Day = (typeof trip.days)[number];
 type TimelineItem = Day["timeline"][number];
+type DayAlternate = {
+  title: string;
+  corrected?: boolean;
+  note?: string;
+  timeline: Array<{ time: string; title: string; detail: string }>;
+};
+type DayShopping = {
+  window: string;
+  goal: string;
+  stops: string[];
+  rule: string;
+  budgetMinutes?: number;
+  presets?: Array<{ name: string; minutes: number; stops: string[] }>;
+};
+type DayDecision = {
+  title: string;
+  trigger: string;
+  protect: string;
+  cut: string;
+  fallback: string;
+};
+type DaySecret = { label: string; value: string };
+type DayWithOptionalData = Day & {
+  alternate?: DayAlternate;
+  shopping?: DayShopping;
+  decision?: DayDecision;
+  secrets?: DaySecret[];
+};
 
 const kindIcon: Record<string, React.ComponentType<{ size?: number }>> = {
   anchor: Ticket,
@@ -39,10 +67,11 @@ export function DayView({ day, previous, next }: { day: Day; previous: Day | nul
   const current = day.timeline[step];
   const following = day.timeline[step + 1] ?? null;
   const progress = Math.round(((step + 1) / day.timeline.length) * 100);
-  const alternate = "alternate" in day ? day.alternate : undefined;
-  const shopping = "shopping" in day ? day.shopping : undefined;
-  const decision = "decision" in day ? day.decision : undefined;
-  const secrets = "secrets" in day ? day.secrets : undefined;
+  const optional = day as DayWithOptionalData;
+  const alternate = optional.alternate;
+  const shopping = optional.shopping;
+  const decision = optional.decision;
+  const secrets = optional.secrets;
   const enriched = enrichment.dayEnrichment[day.id as keyof typeof enrichment.dayEnrichment];
 
   const dayColor = useMemo(() => {
@@ -189,7 +218,7 @@ export function DayView({ day, previous, next }: { day: Day; previous: Day | nul
         <section className="page-section shopping-section" id="shopping">
           <div className="section-heading"><div><span>параллельный трек</span><h2>Шопинг без перегруза</h2></div></div>
           <article className="shopping-window"><ShoppingBag size={20} /><div><span>окно</span><strong>{shopping.window}</strong><p>{shopping.goal}</p></div></article>
-          {"presets" in shopping && shopping.presets && (
+          {shopping.presets && (
             <div className="preset-cards">
               {shopping.presets.map((preset) => <article key={preset.name}><div><strong>{preset.name}</strong><span>{preset.minutes} мин</span></div><p>{preset.stops.join(" → ")}</p></article>)}
             </div>

@@ -8,9 +8,23 @@ import enrichment from "@/data/travel-enrichment.json";
 
 export const metadata: Metadata = { title: "Карман" };
 
+type PocketSecret = { label: string; value: string };
+type PocketHotel = {
+  city: string;
+  dates: string;
+  name: string;
+  address: string;
+  phone: string;
+  localAddress?: string;
+  note?: string;
+};
+
 export default function PocketPage() {
-  const secrets = trip.days.flatMap((day) => "secrets" in day ? day.secrets : []);
-  const hotels = [enrichment.additionalHotels[0], ...trip.hotels, enrichment.additionalHotels[1]];
+  const secrets: PocketSecret[] = trip.days.flatMap((day) => {
+    const item = day as typeof day & { secrets?: PocketSecret[] };
+    return item.secrets ?? [];
+  });
+  const hotels: PocketHotel[] = [enrichment.additionalHotels[0], ...trip.hotels, enrichment.additionalHotels[1]];
   return (
     <>
       <header className="page-hero simple-hero pocket-hero">
@@ -25,12 +39,12 @@ export default function PocketPage() {
             <article key={hotel.name}>
               <div className="hotel-head"><Hotel size={19} /><div><span>{hotel.city} · {hotel.dates}</span><h2>{hotel.name}</h2></div></div>
               <p>{hotel.address}</p>
-              {"localAddress" in hotel && <p className="hotel-local-address">{hotel.localAddress}</p>}
-              {"note" in hotel && <p className="hotel-note">{hotel.note}</p>}
+              {hotel.localAddress && <p className="hotel-local-address">{hotel.localAddress}</p>}
+              {hotel.note && <p className="hotel-note">{hotel.note}</p>}
               <div className="hotel-actions">
                 <a href={`tel:${hotel.phone.replace(/\s/g, "")}`}><Phone size={16} /> Позвонить</a>
                 <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hotel.address)}`} target="_blank" rel="noreferrer"><MapPin size={16} /> Карта</a>
-                <CopyButton value={`${hotel.name}\n${"localAddress" in hotel ? `${hotel.localAddress}\n` : ""}${hotel.address}\n${hotel.phone}`} />
+                <CopyButton value={`${hotel.name}\n${hotel.localAddress ? `${hotel.localAddress}\n` : ""}${hotel.address}\n${hotel.phone}`} />
               </div>
             </article>
           ))}

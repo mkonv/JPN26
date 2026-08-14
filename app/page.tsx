@@ -58,9 +58,7 @@ export default function HomePage() {
                 <small>{task.deadline}</small>
                 <strong>{task.title}</strong>
               </div>
-              <span className={`mini-status ${task.status}`}>
-                {statusLabels[task.status as keyof typeof statusLabels] ?? task.status}
-              </span>
+              <span className={`mini-status ${task.status}`}>{statusLabels[task.status as keyof typeof statusLabels] ?? task.status}</span>
             </Link>
           ))}
         </div>
