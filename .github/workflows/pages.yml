@@ -34,8 +34,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install browser for offline test
+      - name: Install browser for offline and mobile tests
         run: npx playwright install --with-deps chromium
+
+      - name: Audit production dependencies
+        run: npm run security:audit
 
       - name: Validate and build static site
         env:
@@ -46,6 +49,11 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: npm run test:offline
+
+      - name: Verify mobile layout
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: npm run test:mobile
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
