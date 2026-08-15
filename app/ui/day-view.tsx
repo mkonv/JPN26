@@ -147,6 +147,7 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
       <section className="page-section food-section" id="food">
         <div className="section-heading"><div><span>гастрономическое путешествие</span><h2>Еда по маршруту</h2></div><SiteLink href="/food">Паспорт блюд <ArrowRight size={16} /></SiteLink></div>
         <p className="parallel-intro">В строке уже виден базовый выбор. Нажмите на приём пищи только если хотите сравнить все варианты.</p>
+        <article className="food-safety-card"><AlertTriangle size={18} /><div><strong>{enrichment.meta.foodSafety.title}</strong><p>{enrichment.meta.foodSafety.summary}</p><code>{enrichment.meta.foodSafety.ja}</code></div></article>
         <div className="meal-groups">
           {enriched.meals.map((meal) => {
             const best = meal.options.find((option) => option.pick) ?? meal.options[0];
@@ -162,7 +163,7 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
                   <div className="restaurant-cards">
                     {meal.options.map((option) => (
                       <article className={option.pick ? "recommended" : ""} key={option.name}>
-                        <div className="restaurant-top"><span>{option.pick ? "базовый выбор" : option.dish}</span><strong>{option.score === "включено" ? "включено" : option.score.startsWith("Tabelog") ? option.score : `Tabelog ${option.score}`}</strong></div>
+                        <div className="restaurant-top"><span>{option.pick ? "базовый выбор" : option.dish}</span><strong>{option.score === "включено" ? "включено" : option.score === "—" ? "проверить на месте" : option.score.startsWith("Tabelog") ? option.score : `Tabelog ${option.score}`}</strong></div>
                         <h3>{option.name}</h3>
                         <p><b>{option.dish}.</b> {option.why}</p>
                         <div className="restaurant-route"><MapPinned size={15} /><span>{option.route}</span></div>

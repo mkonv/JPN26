@@ -17,6 +17,7 @@ type PocketHotel = {
   phone: string;
   localAddress?: string;
   note?: string;
+  mapUrl?: string;
 };
 
 export default function PocketPage() {
@@ -30,7 +31,7 @@ export default function PocketPage() {
       <header className="page-hero simple-hero pocket-hero">
         <div className="hero-kicker"><ShieldCheck size={15} /> без поиска по документам</div>
         <h1>Нужное<br />за десять секунд.</h1>
-        <p>Отели, телефоны, скрытые коды, офлайн-копия и правила, которые вспоминают слишком поздно.</p>
+        <p>Отели, телефоны, коды только на текущую сессию, офлайн-копия и правила, которые вспоминают слишком поздно.</p>
       </header>
       <section className="page-section first-section">
         <div className="section-heading"><div><span>ночёвки</span><h2>Отели</h2></div></div>
@@ -43,7 +44,7 @@ export default function PocketPage() {
               {hotel.note && <p className="hotel-note">{hotel.note}</p>}
               <div className="hotel-actions">
                 <a href={`tel:${hotel.phone.replace(/\s/g, "")}`}><Phone size={16} /> Позвонить</a>
-                <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hotel.address)}`} target="_blank" rel="noreferrer"><MapPin size={16} /> Карта</a>
+                <a href={hotel.mapUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hotel.address)}`} target="_blank" rel="noreferrer"><MapPin size={16} /> Карта</a>
                 <CopyButton value={`${hotel.name}\n${hotel.localAddress ? `${hotel.localAddress}\n` : ""}${hotel.address}\n${hotel.phone}`} />
               </div>
             </article>
@@ -60,7 +61,7 @@ export default function PocketPage() {
       </section>
       <section className="page-section">
         <div className="section-heading"><div><span>по касанию</span><h2>Коды бронирований</h2></div></div>
-        <p className="section-intro">Скрыты по умолчанию, чтобы номер не был постоянно виден на экране.</p>
+        <p className="section-intro">Коды не входят в публичные исходники и не сохраняются в localStorage. Введённое значение живёт только до перезагрузки страницы.</p>
         <div className="secret-list">{secrets.map((secret) => <SecretReveal label={secret.label} value={secret.value} key={secret.label} />)}</div>
       </section>
       <section className="page-section">

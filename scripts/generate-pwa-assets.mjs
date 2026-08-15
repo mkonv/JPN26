@@ -25,7 +25,7 @@ function publicUrl(filePath) {
   return `${basePath}/${file}`;
 }
 
-const cacheableExtensions = new Set([".html", ".js", ".css", ".png", ".svg", ".webmanifest", ".woff2"]);
+const cacheableExtensions = new Set([".html", ".js", ".css", ".png", ".svg", ".webmanifest", ".woff2", ".ttf"]);
 const allFiles = await walk(outDir.pathname);
 const cacheableFiles = allFiles.filter((file) => {
   const extension = file.slice(file.lastIndexOf("."));
@@ -33,7 +33,10 @@ const cacheableFiles = allFiles.filter((file) => {
   return cacheableExtensions.has(extension) && name !== "sw.js";
 }).sort();
 
+const templateSource = await readFile(templatePath, "utf8");
 const hash = createHash("sha256");
+hash.update("sw-template.js");
+hash.update(templateSource);
 for (const file of cacheableFiles) {
   hash.update(relative(outDir.pathname, file));
   hash.update(await readFile(file));
@@ -44,7 +47,7 @@ const buildId = `${trip.meta.version.replace(/[^a-zA-Z0-9.-]/g, "-")}-${contentH
 const urls = [...new Set(cacheableFiles.map(publicUrl))].sort();
 const routes = urls.filter((url) => url.endsWith("/") || url.endsWith(".html"));
 
-let template = await readFile(templatePath, "utf8");
+let template = templateSource;
 template = template
   .replace("__BUILD_ID__", JSON.stringify(buildId))
   .replace("__TRIP_VERSION__", JSON.stringify(trip.meta.version))

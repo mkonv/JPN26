@@ -2,23 +2,21 @@
 
 import { Ticket } from "lucide-react";
 import { useState } from "react";
-import { useLocalStorageValue } from "./use-local-storage";
 
 export function SecretReveal({ label, value }: { label: string; value: string }) {
-  const storageKey = `japan-private-code:${label}`;
-  const [storedValue, setStoredValue] = useLocalStorageValue(storageKey, value);
+  const [sessionValue, setSessionValue] = useState(value);
   const [shown, setShown] = useState(false);
-  const [editing, setEditing] = useState(false);
+  const [editing, setEditing] = useState(!value);
   const [draft, setDraft] = useState(value);
 
-  function saveCode() {
+  function useForSession() {
     const next = draft.trim();
-    setStoredValue(next || null);
+    setSessionValue(next);
     setEditing(false);
     setShown(Boolean(next));
   }
 
-  if (editing || !storedValue) {
+  if (editing || !sessionValue) {
     return (
       <div className="secret-card secret-editor">
         <Ticket size={19} />
@@ -27,22 +25,24 @@ export function SecretReveal({ label, value }: { label: string; value: string })
           <input
             value={draft}
             onChange={(event) => setDraft(event.target.value)}
-            placeholder="Введите код на этом устройстве"
+            placeholder="Введите код на эту сессию"
             autoComplete="off"
             spellCheck={false}
             aria-label={label}
           />
         </div>
-        <button type="button" className="secret-action" onClick={saveCode}>сохранить</button>
+        <button type="button" className="secret-action" onClick={useForSession}>использовать</button>
       </div>
     );
   }
 
   return (
-    <button className="secret-card" type="button" onClick={() => setShown((current) => !current)} aria-expanded={shown}>
+    <div className="secret-card">
       <Ticket size={19} />
-      <div><span>{label}</span><strong>{shown ? storedValue : "••••••••••"}</strong></div>
-      <span className="secret-action">{shown ? "скрыть" : "показать"}</span>
-    </button>
+      <button className="secret-value-button" type="button" onClick={() => setShown((current) => !current)} aria-expanded={shown}>
+        <span>{label}</span><strong>{shown ? sessionValue : "••••••••••"}</strong>
+      </button>
+      <button type="button" className="secret-action" onClick={() => { setDraft(sessionValue); setEditing(true); setShown(false); }}>изменить</button>
+    </div>
   );
 }

@@ -6,36 +6,31 @@ import { withBasePath } from "@/app/site-path";
 
 export function ServiceWorkerRegistration() {
   const [updated, setUpdated] = useState(false);
-
   useEffect(() => {
-    if (process.env.NODE_ENV !== "production" || !("serviceWorker" in navigator)) return;
-
+    if (!("serviceWorker" in navigator)) return;
     let cancelled = false;
+    let removeRegistrationListener: (() => void) | undefined;
+    let removeInstallingListener: (() => void) | undefined;
     const hadController = Boolean(navigator.serviceWorker.controller);
-    let removeUpdateListener: (() => void) | undefined;
     const announce = (name: string) => window.dispatchEvent(new CustomEvent(name));
 
     navigator.serviceWorker.register(withBasePath("/sw.js"), {
-      scope: withBasePath("/"),
-      updateViaCache: "none",
+      scope: withBasePath("/"), updateViaCache: "none",
     }).then((registration) => {
       if (cancelled) return;
       announce("japan-sw-ready");
       const onUpdateFound = () => {
+        removeInstallingListener?.();
         const installing = registration.installing;
         if (!installing) return;
         const onStateChange = () => {
           if (installing.state === "installed") announce("japan-sw-update");
         };
         installing.addEventListener("statechange", onStateChange);
-        removeUpdateListener = () => installing.removeEventListener("statechange", onStateChange);
+        removeInstallingListener = () => installing.removeEventListener("statechange", onStateChange);
       };
       registration.addEventListener("updatefound", onUpdateFound);
-      const priorCleanup = removeUpdateListener;
-      removeUpdateListener = () => {
-        priorCleanup?.();
-        registration.removeEventListener("updatefound", onUpdateFound);
-      };
+      removeRegistrationListener = () => registration.removeEventListener("updatefound", onUpdateFound);
       registration.update().catch(() => undefined);
     }).catch(() => announce("japan-sw-error"));
 
@@ -46,7 +41,8 @@ export function ServiceWorkerRegistration() {
     navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
     return () => {
       cancelled = true;
-      removeUpdateListener?.();
+      removeInstallingListener?.();
+      removeRegistrationListener?.();
       navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
     };
   }, []);

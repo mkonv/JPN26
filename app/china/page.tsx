@@ -42,7 +42,7 @@ export default function ChinaPage() {
         <div className="china-hotel-cards">
           {hotels.map((hotel) => (
             <article key={hotel.name}>
-              <Hotel size={19} /><div><span>{hotel.city} · {hotel.dates}</span><h3>{hotel.name}</h3><p>{hotel.localAddress}</p><small>{hotel.address}</small><a href={`tel:${hotel.phone.replace(/\s/g, "")}`}>{hotel.phone}</a><em>{hotel.note}</em></div>
+              <Hotel size={19} /><div><span>{hotel.city} · {hotel.dates}</span><h3>{hotel.name}</h3><p className="china-local-address">{hotel.localAddress}</p><small>{hotel.address}</small><a href={`tel:${hotel.phone.replace(/\s/g, "")}`}>{hotel.phone}</a><em>{hotel.note}</em></div>
             </article>
           ))}
         </div>
@@ -73,8 +73,13 @@ function ChinaStop({ stop, eyebrow }: { stop: ChinaStopData; eyebrow: string }) 
       <div className="china-timeline">
         {stop.timeline.map((item, index) => <article key={`${item.time}-${item.title}`}><span>{index + 1}</span><time>{item.time}</time><div><strong>{item.title}</strong><p>{item.detail}</p></div></article>)}
       </div>
+      <div className="china-map-block">
+        <div className="china-food-head"><MapPinned size={18} /><div><span>готово для Китая</span><strong>Китайские адреса + Amap</strong></div></div>
+        <div className="china-place-list">{stop.places.map((place) => <a href={place.amap} target="_blank" rel="noreferrer" key={place.name}><div><strong>{place.name}</strong><p>{place.address}</p></div><ExternalLink size={16} /></a>)}</div>
+      </div>
       <div className="china-food-block">
-        <div className="china-food-head"><UtensilsCrossed size={18} /><div><span>местный вкус без крюка</span><strong>Выбрать один вариант</strong></div></div>
+        <div className="china-food-head"><UtensilsCrossed size={18} /><div><span>soft preference по свинине</span><strong>Сильное место важнее абсолютного запрета</strong></div></div>
+        <p className="china-food-warning">{enrichment.meta.foodSafety.summary}</p>
         <div className="china-food-list">{stop.food.map((item) => <a href={item.url} target="_blank" rel="noreferrer" key={item.name}><div><strong>{item.name}</strong><span>{item.dish}</span><p>{item.fit}</p></div><MapPinned size={17} /></a>)}</div>
       </div>
       {stop.id === "beijing-stopover" && <div className="china-warning"><AlertTriangle size={18} /><p><strong>Багажная развилка:</strong> не угадывать. В SVO прочитать аэропорт на бирке: PEK — получаем 20.09; KIX — багаж следует дальше. На PEK всё равно подтвердить у стойки транзита.</p></div>}

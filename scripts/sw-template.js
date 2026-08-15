@@ -6,6 +6,7 @@ const PRECACHE_PREFIX = `${CACHE_PREFIX}precache-`;
 const RUNTIME_PREFIX = `${CACHE_PREFIX}runtime-`;
 const PRECACHE_CACHE = `${PRECACHE_PREFIX}${BUILD_ID}`;
 const RUNTIME_CACHE = `${RUNTIME_PREFIX}${BUILD_ID}`;
+const STAGING_CACHE = `${PRECACHE_CACHE}-install`;
 const SCOPE_PATH = new URL(self.registration.scope).pathname.replace(/\/$/, "");
 const DEBUG_STATE = { stage: "boot", index: 0, url: "", error: "" };
 self.__JAPAN_PWA_DEBUG = DEBUG_STATE;
@@ -29,14 +30,21 @@ async function putBatch(cache, urls) {
 }
 
 async function precacheAll() {
-  await caches.delete(PRECACHE_CACHE);
-  const cache = await caches.open(PRECACHE_CACHE);
+  await caches.delete(STAGING_CACHE);
+  const staging = await caches.open(STAGING_CACHE);
   try {
-    await putBatch(cache, PRECACHE_URLS);
+    await putBatch(staging, PRECACHE_URLS);
+    const finalCache = await caches.open(PRECACHE_CACHE);
+    for (const url of PRECACHE_URLS) {
+      const response = await staging.match(url, { ignoreSearch: true });
+      if (!response) throw new Error(`staging cache missing ${url}`);
+      await finalCache.put(new Request(url, { credentials: "same-origin" }), response);
+    }
+    await caches.delete(STAGING_CACHE);
   } catch (error) {
     DEBUG_STATE.stage = "failed";
     DEBUG_STATE.error = error instanceof Error ? error.message : String(error);
-    await caches.delete(PRECACHE_CACHE);
+    await caches.delete(STAGING_CACHE);
     throw error;
   }
 }
@@ -46,7 +54,7 @@ async function ownPrecacheNames() {
 }
 
 async function previousPrecacheName() {
-  const names = (await ownPrecacheNames()).filter((name) => name !== PRECACHE_CACHE);
+  const names = (await ownPrecacheNames()).filter((name) => name !== PRECACHE_CACHE && name !== STAGING_CACHE && !name.endsWith("-install"));
   return names.at(-1) ?? null;
 }
 

@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   manifest: withBasePath("/manifest.webmanifest"),
   appleWebApp: { capable: true, statusBarStyle: "black-translucent", title: "Япония 2026" },
   icons: { icon: withBasePath("/favicon.svg"), apple: withBasePath("/apple-touch-icon.png") },
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: { index: false, follow: false, noimageindex: true },
+  },
 };
 
 export const viewport: Viewport = {

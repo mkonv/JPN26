@@ -112,3 +112,36 @@ test("service worker installs atomically, preserves unrelated caches and serves 
   assert.equal(response.status, 200);
   assert.match(await response.text(), /Япония 2026/);
 });
+
+test("failed same-build install preserves an existing complete precache", async () => {
+  const source = await readFile(new URL("../out/sw.js", import.meta.url), "utf8");
+  const buildId = source.match(/const BUILD_ID = "([^"]+)";/)?.[1];
+  assert.ok(buildId, "generated worker must expose an embedded build id");
+  const listeners = new Map();
+  const caches = new FakeCacheStorage();
+  const currentName = `japan-2026-precache-${buildId}`;
+  const current = await caches.open(currentName);
+  await current.put("https://example.test/JPN26/", new Response("stable-old-copy", { status: 200 }));
+
+  const self = {
+    registration: { scope: "https://example.test/JPN26/" },
+    location: new URL("https://example.test/JPN26/sw.js"),
+    clients: { async claim() {} },
+    async skipWaiting() {},
+    addEventListener(type, callback) { listeners.set(type, callback); },
+  };
+  const context = vm.createContext({
+    self, caches, URL, Request: BrowserRequest, Response, Error, Set, Promise, console,
+    fetch: async () => { throw new Error("network failed during upgrade"); },
+  });
+  vm.runInContext(source, context);
+
+  const install = waitableEvent();
+  listeners.get("install")(install);
+  await assert.rejects(install.done());
+
+  assert.equal(await caches.has(currentName), true, "current cache must survive a failed reinstall");
+  const stable = await (await caches.open(currentName)).match("https://example.test/JPN26/");
+  assert.equal(await stable.text(), "stable-old-copy");
+  assert.equal((await caches.keys()).some((name) => name.endsWith("-install")), false, "failed staging cache must be removed");
+});

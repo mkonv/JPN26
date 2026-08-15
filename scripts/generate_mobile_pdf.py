@@ -103,8 +103,8 @@ STYLES = {
     "white_label": ParagraphStyle("WhiteLabel", fontName="DejaVu-Bold", fontSize=6.2, leading=8, textColor=HexColor("#EFC969"), tracking=1.1),
     "time": ParagraphStyle("Time", fontName="DejaVu-Bold", fontSize=8.2, leading=10, textColor=CORAL),
     "card_title": ParagraphStyle("CardTitle", fontName="DejaVu-Bold", fontSize=9, leading=11, textColor=INK),
-    "toc_heading": ParagraphStyle("TOCHeading", fontName="DejaVu-Bold", fontSize=8, leading=11, textColor=INK, leftIndent=0, firstLineIndent=0),
-    "toc_sub": ParagraphStyle("TOCSub", fontName="DejaVu", fontSize=7, leading=10, textColor=MUTED, leftIndent=4 * mm, firstLineIndent=0),
+    "toc_heading": ParagraphStyle("TOCHeading", fontName="DejaVu-Bold", fontSize=7.2, leading=8.6, textColor=INK, leftIndent=0, firstLineIndent=0),
+    "toc_sub": ParagraphStyle("TOCSub", fontName="DejaVu", fontSize=6.2, leading=7.6, textColor=MUTED, leftIndent=4 * mm, firstLineIndent=0),
     "cn": ParagraphStyle("CN", fontName="NotoSansSC", fontSize=9.5, leading=13, textColor=INK),
 }
 
@@ -125,9 +125,9 @@ class MobileDoc(BaseDocTemplate):
             rightMargin=MARGIN_X,
             topMargin=TOP,
             bottomMargin=BOTTOM,
-            title="Japan 2026 - mobile itinerary",
-            author="Victoria and Misha",
-            subject="Japan and China trip, 19 September - 3 October 2026",
+            title="Япония 2026 - мобильный маршрут",
+            author="Виктория и Миша",
+            subject="Поездка по Японии через Китай, 19 сентября - 3 октября 2026",
         )
         frame = Frame(MARGIN_X, BOTTOM, CONTENT_W, PAGE_H - TOP - BOTTOM, id="mobile", showBoundary=0)
         self.addPageTemplates([PageTemplate(id="content", frames=[frame], onPage=draw_page)])
@@ -155,7 +155,7 @@ def draw_page(canvas, doc):
     canvas.line(MARGIN_X, 8 * mm, PAGE_W - MARGIN_X, 8 * mm)
     canvas.setFont("DejaVu", 6.2)
     canvas.setFillColor(MUTED)
-    canvas.drawString(MARGIN_X, 4.8 * mm, "JAPAN 2026 - OFFLINE MOBILE PLAN")
+    canvas.drawString(MARGIN_X, 4.8 * mm, "ЯПОНИЯ 2026 - МОБИЛЬНЫЙ ОФЛАЙН-МАРШРУТ")
     canvas.drawRightString(PAGE_W - MARGIN_X, 4.8 * mm, f"{doc.page}")
     canvas.restoreState()
 
@@ -220,7 +220,7 @@ def spacer(size=2.5):
 def hero_block(kicker: str, title: str, subtitle: str, color=PINE, details: list[str] | None = None):
     rows = [[p(kicker.upper(), "white_label")], [spacer(4)], [p(title, "hero_title")], [spacer(2)], [p(subtitle, "hero_sub")]]
     if details:
-        rows.extend([[spacer(4)], [Table([[badge(item, HexColor("#FFFFFF22"), colors.white) for item in details]], hAlign="LEFT", style=[("VALIGN", (0,0), (-1,-1), "TOP"), ("LEFTPADDING", (0,0), (-1,-1), 0), ("RIGHTPADDING", (0,0), (-1,-1), 2*mm)])]])
+        rows.extend([[spacer(4)], [Table([[badge(item, GOLD_SOFT, HexColor("#5A4312")) for item in details]], hAlign="LEFT", style=[("VALIGN", (0,0), (-1,-1), "TOP"), ("LEFTPADDING", (0,0), (-1,-1), 0), ("RIGHTPADDING", (0,0), (-1,-1), 2*mm)])]])
     outer = Table(rows, colWidths=[CONTENT_W])
     outer.setStyle(TableStyle([
         ("BACKGROUND", (0,0), (-1,-1), color),
@@ -259,16 +259,16 @@ def timeline_table(items: list[dict], color=CORAL):
 
 def decision_card(decision: dict):
     rows = [
-        [p("TRIGGER", "white_label"), p(decision["trigger"], "white_small")],
-        [p("PROTECT", "white_label"), p(decision["protect"], "white_small")],
-        [p("CUT", "white_label"), p(decision["cut"], "white_small")],
-        [p("ACT", "white_label"), p(decision["fallback"], "white_small")],
+        [p("ТРИГГЕР", "white_label"), p(decision["trigger"], "white_small")],
+        [p("СОХРАНЯЕМ", "white_label"), p(decision["protect"], "white_small")],
+        [p("СОКРАЩАЕМ", "white_label"), p(decision["cut"], "white_small")],
+        [p("ДЕЙСТВУЕМ", "white_label"), p(decision["fallback"], "white_small")],
     ]
     table = Table(rows, colWidths=[20 * mm, CONTENT_W - 20 * mm], hAlign="LEFT")
     table.setStyle(TableStyle([
         ("BACKGROUND", (0,0), (-1,-1), PINE),
         ("VALIGN", (0,0), (-1,-1), "TOP"),
-        ("LINEBELOW", (0,0), (-1,-2), 0.4, HexColor("#FFFFFF22")),
+        ("LINEBELOW", (0,0), (-1,-2), 0.4, HexColor("#5F756B")),
         ("LEFTPADDING", (0,0), (-1,-1), 3 * mm),
         ("RIGHTPADDING", (0,0), (-1,-1), 3 * mm),
         ("TOPPADDING", (0,0), (-1,-1), 2.4 * mm),
@@ -298,68 +298,107 @@ def flight_cards():
 def todo_cards():
     output = []
     status_color = {"action": CORAL, "verify": GOLD, "watch": LAKE, "done": PINE_2}
+    status_copy = {"action": "действие", "verify": "проверить", "watch": "по ситуации", "done": "подтверждено"}
+    groups: dict[str, list[dict]] = {}
     for task in sorted(TRIP["bookingTasks"], key=lambda item: item["sortDate"]):
-        color = status_color[task["status"]]
-        head = Table([[p(task["deadline"], "label"), Paragraph(clean(task["status"].upper()), ParagraphStyle("Status", fontName="DejaVu-Bold", fontSize=6.2, leading=8, textColor=color, alignment=TA_RIGHT))]], colWidths=[CONTENT_W/2-8*mm, CONTENT_W/2-8*mm])
-        head.setStyle(TableStyle([("ALIGN", (1,0), (1,-1), "RIGHT"), ("LEFTPADDING", (0,0), (-1,-1), 0), ("RIGHTPADDING", (0,0), (-1,-1), 0)]))
-        body = [head, spacer(1), p(task["title"], "card_title"), p(task["price"], "small"), spacer(1), p(task["action"], "body"), spacer(1), rich(f"<b>OFFLINE:</b> {clean(task['offline'])}", "small")]
-        if task.get("url"):
-            body.extend([spacer(1), rich(link_text("Official page", task["url"]), "small")])
-        output.extend([KeepTogether(card(body, left_bar=color)), spacer(2)])
+        group = task.get("group", "Билеты, транспорт и подготовка")
+        groups.setdefault(group, []).append(task)
+    for group, tasks in groups.items():
+        output.extend([label(group), spacer(1)])
+        for task in tasks:
+            color = status_color[task["status"]]
+            head = Table([[p(task["deadline"], "label"), Paragraph(clean(status_copy[task["status"]].upper()), ParagraphStyle("Status", fontName="DejaVu-Bold", fontSize=6.2, leading=8, textColor=color, alignment=TA_RIGHT))]], colWidths=[CONTENT_W/2-8*mm, CONTENT_W/2-8*mm])
+            head.setStyle(TableStyle([("ALIGN", (1,0), (1,-1), "RIGHT"), ("LEFTPADDING", (0,0), (-1,-1), 0), ("RIGHTPADDING", (0,0), (-1,-1), 0)]))
+            body = [head, spacer(1), p(task["title"], "card_title"), p(task["price"], "small"), spacer(1), p(task["action"], "body"), spacer(1), rich(f"<b>СОХРАНИТЬ ОФЛАЙН:</b> {clean(task['offline'])}", "small")]
+            if task.get("url"):
+                body.extend([spacer(1), rich(link_text("Открыть страницу", task["url"]), "small")])
+            output.extend([KeepTogether(card(body, left_bar=color)), spacer(2)])
+        output.append(spacer(2))
     return output
 
 
 def china_stop(stop: dict, title: str, color=CHINA):
-    output = [PageBreak(), OutlineHeading(title, 0, STYLES["h1"]), p(stop["dateLabel"], "label"), spacer(1), p(stop["summary"], "body"), spacer(3), label("Hour by hour"), spacer(1), timeline_table(stop["timeline"], color), spacer(4), label("One local taste - no detour"), spacer(1)]
+    output = [PageBreak(), OutlineHeading(title, 0, STYLES["h1"]), p(stop["dateLabel"], "label"), spacer(1), p(stop["summary"], "body"), spacer(3), label("По времени"), spacer(1), timeline_table(stop["timeline"], color), spacer(4)]
+    if stop.get("places"):
+        output.extend([label("Китайские адреса + Amap"), spacer(1)])
+        for place in stop["places"]:
+            output.extend([KeepTogether(card([
+                Paragraph(clean(place["name"]), STYLES["cn"]),
+                Paragraph(clean(place["address"]), STYLES["cn"]),
+                rich(link_text("Открыть в Amap", place["amap"]), "small")
+            ], background=LAKE_SOFT, border=HexColor("#C3CFD6"))), spacer(1)])
+        output.append(spacer(2))
+    food_cards = []
     for item in stop["food"]:
-        output.extend([KeepTogether(card([
+        food_cards.append(card([
             rich(f"<b>{clean(item['name'])}</b> · <font color='#D85A42'>{clean(item['dish'])}</font>", "body"),
             p(item["fit"], "small")
-        ], background=HexColor("#F5E9DF"), border=HexColor("#E5CFC0"))), spacer(1.5)])
+        ], background=HexColor("#F5E9DF"), border=HexColor("#E5CFC0")))
+    output.extend([card([
+        p(EXTRA["meta"]["foodSafety"]["title"], "card_title"),
+        p(EXTRA["meta"]["foodSafety"]["summary"], "small"),
+        Paragraph(EXTRA["meta"]["foodSafety"]["ja"], STYLES["cn"])
+    ], background=GOLD_SOFT, border=GOLD, left_bar=GOLD), spacer(2)])
+    output.append(KeepTogether([label("Еда - soft preference"), spacer(1), food_cards[0], spacer(1.5)]))
+    for food_card in food_cards[1:]:
+        output.extend([KeepTogether(food_card), spacer(1.5)])
     if stop["id"] == "beijing-stopover":
-        output.extend([spacer(2), card([rich("<b>BAGGAGE FORK:</b> Read the destination on the tag at SVO. PEK means collect in Beijing; KIX means it is checked through. Confirm again at the PEK transfer desk.", "body")], background=GOLD_SOFT, border=GOLD, left_bar=GOLD)])
+        output.extend([spacer(2), card([rich("<b>КУДА ОФОРМЛЕН БАГАЖ:</b> Прочитать код назначения на бирке в SVO. PEK - получить в Пекине; KIX - багаж оформлен до Осаки. Ещё раз подтвердить на стойке транзита в PEK.", "body")], background=GOLD_SOFT, border=GOLD, left_bar=GOLD)])
     return output
 
 
 def day_story(day: dict):
     enriched = EXTRA["dayEnrichment"][day["id"]]
     day_color = PINE if "Киото" in day["city"] else LAKE if "Хаконе" in day["city"] else HexColor("#283630") if "Токио" in day["city"] else CORAL
-    hero_details = [f"{day['load']} · {day['distance']}", f"wake {day['wake']}"]
-    output = [PageBreak(), OutlineHeading(f"Day {day['number']}. {day['title']}", 0, STYLES["h1"])]
+    hero_details = [f"{day['load']} · {day['distance']}", f"подъём {day['wake']}"]
+    output = [PageBreak(), OutlineHeading(f"День {day['number']}. {day['title']}", 0, STYLES["h1"])]
     output.extend([
-        hero_block(f"DAY {day['number']} OF 12 · {day['dateLabel']}", day["title"], f"{day['city']} · {day['summary']}", day_color, hero_details),
+        hero_block(f"ДЕНЬ {day['number']} ИЗ 12 · {day['dateLabel']}", day["title"], f"{day['city']} · {day['summary']}", day_color, hero_details),
         spacer(3),
-        label("Principle of the day"), spacer(1),
+        label("Принцип дня"), spacer(1),
         card([p(day["principle"], "body")], background=CORAL_SOFT, border=HexColor("#E7C4BA"), left_bar=CORAL),
         spacer(3),
     ])
-    anchors = Table([[badge(f"{anchor['time']}  {anchor['label']}", GOLD_SOFT, HexColor("#775716")) for anchor in day["anchors"]]], hAlign="LEFT")
+    anchor_badges = [badge(f"{anchor['time']}  {anchor['label']}", GOLD_SOFT, HexColor("#775716")) for anchor in day["anchors"]]
+    anchor_rows = [anchor_badges[index:index + 2] for index in range(0, len(anchor_badges), 2)]
+    if len(anchor_rows[-1]) == 1:
+        anchor_rows[-1].append(Spacer(1, 1))
+    anchors = Table(anchor_rows, colWidths=[CONTENT_W / 2, CONTENT_W / 2], hAlign="LEFT")
     anchors.setStyle(TableStyle([("VALIGN", (0,0), (-1,-1), "TOP"), ("LEFTPADDING", (0,0), (-1,-1), 0), ("RIGHTPADDING", (0,0), (-1,-1), 2*mm)]))
-    output.extend([anchors, spacer(3), label("Main route"), spacer(1), timeline_table(day["timeline"], day_color)])
+    output.extend([anchors, spacer(3), label("Основной маршрут"), spacer(1), timeline_table(day["timeline"], day_color)])
     if day.get("decision"):
         output.extend([spacer(4), label(day["decision"]["title"]), spacer(1), decision_card(day["decision"])])
     if day.get("alternate"):
         alt = day["alternate"]
-        output.extend([spacer(4), label("Full alternate scenario"), spacer(1), p(alt["title"], "h3"), p(alt.get("note", ""), "small"), spacer(1), timeline_table(alt["timeline"], LAKE)])
+        output.extend([spacer(4), label("Полный альтернативный сценарий"), spacer(1), p(alt["title"], "h3"), p(alt.get("note", ""), "small"), spacer(1), timeline_table(alt["timeline"], LAKE)])
 
-    output.extend([PageBreak(), OutlineHeading(f"Day {day['number']} - parallel tracks", 1, STYLES["h2"]), p(day["dateLabel"], "label"), spacer(2), label("If time opened up"), spacer(1), p("Choose one nearby option only. Each card says when it works and what it replaces.", "small"), spacer(2)])
+    output.extend([PageBreak(), OutlineHeading(f"День {day['number']} - параллельные треки", 1, STYLES["h2"]), p(day["dateLabel"], "label"), spacer(2), label("Если освободилось время"), spacer(1), p("Выберите только один вариант рядом. В каждой карточке указано, когда он подходит и что заменяет.", "small"), spacer(2)])
     for index, item in enumerate(enriched["alternatives"], start=1):
         output.extend([KeepTogether(card([
             rich(f"<font color='#D85A42'><b>{index}. {clean(item['name'])}</b></font> · {clean(item['delta'])}", "body"),
-            rich(f"<b>WHEN:</b> {clean(item['when'])}", "small"),
-            rich(f"<b>FIT:</b> {clean(item['swap'])}", "small"),
-            rich(link_text("Open online", item["url"]), "small")
+            rich(f"<b>КОГДА:</b> {clean(item['when'])}", "small"),
+            rich(f"<b>КАК ВСТРОИТЬ:</b> {clean(item['swap'])}", "small"),
+            rich(link_text("Открыть место онлайн", item["url"]), "small")
         ], background=HexColor("#F0F4EE"), border=HexColor("#CBD7CD"))), spacer(1.5)])
 
-    output.extend([spacer(3), label("Gastronomic journey"), spacer(1), p("The first restaurant is the base choice. The rest protect against queues, closures, budget or a different signature dish.", "small"), spacer(2)])
+    output.extend([
+        spacer(3), label("Гастрономическое путешествие"), spacer(1),
+        p("Базовый вариант выбирается по качеству и логистике. Свинина - soft preference, не запрет; блюда со свининой не маркируются как pork-free и при известном составе помечаются явно.", "small"),
+        spacer(1), card([
+            p(EXTRA["meta"]["foodSafety"]["title"], "card_title"),
+            p(EXTRA["meta"]["foodSafety"]["summary"], "tiny"),
+            Paragraph(EXTRA["meta"]["foodSafety"]["ja"], STYLES["cn"]),
+            p(EXTRA["meta"]["tabelogNote"], "tiny")
+        ], background=GOLD_SOFT, border=HexColor("#D5B963"), left_bar=GOLD), spacer(2)
+    ])
     for meal in enriched["meals"]:
         option_rows = []
         for option in meal["options"]:
-            marker = "BASE" if option.get("pick") else "ALT"
-            score = option["score"] if str(option["score"]).startswith("Tabelog") or option["score"] == "включено" else f"Tabelog {option['score']}"
+            marker = "БАЗА" if option.get("pick") else "ЗАМЕНА"
+            score = option["score"] if str(option["score"]).startswith("Tabelog") or option["score"] == "включено" else ("проверить на месте" if option["score"] == "—" else f"Tabelog {option['score']}")
             name = link_text(option["name"], option["url"]) if option.get("url") else clean(option["name"])
             option_rows.append([
-                Paragraph(clean(marker), ParagraphStyle("MealMarker", fontName="DejaVu-Bold", fontSize=6, leading=8, textColor=CORAL if marker == "BASE" else MUTED)),
+                Paragraph(clean(marker), ParagraphStyle("MealMarker", fontName="DejaVu-Bold", fontSize=5.5, leading=8, textColor=CORAL if marker == "БАЗА" else MUTED)),
                 rich(f"<b>{name}</b> · {clean(score)}<br/><font color='#D85A42'>{clean(option['dish'])}</font><br/><font color='#66716C' size='6.4'>{clean(option['why'])} {clean(option['route'])}</font>", "small"),
             ])
         options = Table(option_rows, colWidths=[12 * mm, CONTENT_W - 20 * mm], splitByRow=1)
@@ -378,19 +417,22 @@ def day_story(day: dict):
 
     if day.get("shopping"):
         shop = day["shopping"]
-        output.extend([spacer(2), label("Shopping in parallel"), spacer(1), card([
+        output.extend([spacer(2), label("Шопинг параллельно маршруту"), spacer(1), card([
             rich(f"<b>{clean(shop['window'])}</b><br/>{clean(shop['goal'])}", "body"),
             spacer(1), p(" -> ".join(shop["stops"]), "small"),
-            spacer(1), rich(f"<b>STOP RULE:</b> {clean(shop['rule'])}", "small")
+            spacer(1), rich(f"<b>СТОП-ПРАВИЛО:</b> {clean(shop['rule'])}", "small")
         ], background=HexColor("#EFE7EF"), border=HexColor("#D5C6D4"), left_bar=HexColor("#6E536B"))])
 
-    output.extend([spacer(3), card([p(EXTRA["meta"]["tabelogNote"], "tiny")], background=GOLD_SOFT, border=HexColor("#E2D3A8"))])
     return output
 
 
 def food_passport():
-    output = [PageBreak(), OutlineHeading("Food passport", 0, STYLES["h1"]), p("A realistic collection: core missions first, bonuses only when the route naturally matches.", "body"), spacer(4)]
-    for group, title in (("must", "CORE DISHES"), ("bonus", "BONUS - NO DETOUR")):
+    output = [PageBreak(), OutlineHeading("Паспорт блюд", 0, STYLES["h1"]), p("Коллекция после аудита и финальных решений: качество и логистика важнее строгого pork-free фильтра; свинина отмечается явно, но не блокирует сильное блюдо.", "body"), spacer(3), card([
+        p(EXTRA["meta"]["foodSafety"]["title"], "card_title"),
+        p(EXTRA["meta"]["foodSafety"]["summary"], "small"),
+        Paragraph(EXTRA["meta"]["foodSafety"]["ja"], STYLES["cn"])
+    ], background=GOLD_SOFT, border=GOLD, left_bar=GOLD), spacer(4)]
+    for group, title in (("must", "ГЛАВНЫЕ БЛЮДА"), ("bonus", "БОНУСЫ - БЕЗ КРЮКА")):
         output.extend([label(title), spacer(1)])
         rows = []
         for item in EXTRA["foodPassport"]:
@@ -417,7 +459,7 @@ def food_passport():
 
 def pocket_pages():
     hotels = [EXTRA["additionalHotels"][0], *TRIP["hotels"], EXTRA["additionalHotels"][1]]
-    output = [PageBreak(), OutlineHeading("Pocket reference", 0, STYLES["h1"]), p("Hotels, numbers and offline rules in one place.", "body"), spacer(4), label("Hotels in travel order"), spacer(1)]
+    output = [PageBreak(), OutlineHeading("Карманная памятка", 0, STYLES["h1"]), p("Отели, экстренные номера и офлайн-правила в одном месте.", "body"), spacer(4), label("Отели по ходу поездки"), spacer(1)]
     for hotel in hotels:
         body = [p(f"{hotel['city']} · {hotel['dates']}", "label"), p(hotel["name"], "card_title")]
         if hotel.get("localAddress"):
@@ -426,18 +468,18 @@ def pocket_pages():
         if hotel.get("note"):
             body.append(p(hotel["note"], "tiny"))
         output.extend([KeepTogether(card(body)), spacer(1.5)])
-    output.extend([spacer(3), label("Emergency"), spacer(1)])
+    output.extend([spacer(3), label("Экстренные номера"), spacer(1)])
     nums = Table([
-        [badge("JAPAN POLICE 110", CORAL_SOFT, CORAL), badge("JAPAN AMBULANCE/FIRE 119", CORAL_SOFT, CORAL)],
-        [badge("CHINA POLICE 110", LAKE_SOFT, CHINA), badge("CHINA AMBULANCE 120 / FIRE 119", LAKE_SOFT, CHINA)]
+        [badge("ЯПОНИЯ · ПОЛИЦИЯ 110", CORAL_SOFT, CORAL), badge("ЯПОНИЯ · СКОРАЯ/ПОЖАРНЫЕ 119", CORAL_SOFT, CORAL)],
+        [badge("КИТАЙ · ПОЛИЦИЯ 110", LAKE_SOFT, CHINA), badge("КИТАЙ · СКОРАЯ 120 / ПОЖАРНЫЕ 119", LAKE_SOFT, CHINA)]
     ], colWidths=[CONTENT_W/2, CONTENT_W/2])
     nums.setStyle(TableStyle([("VALIGN", (0,0), (-1,-1), "TOP"), ("LEFTPADDING", (0,0), (-1,-1), 0), ("RIGHTPADDING", (0,0), (-1,-1), 2*mm), ("TOPPADDING", (0,0), (-1,-1), 1*mm)]))
-    output.extend([nums, spacer(4), label("Rules that matter"), spacer(1)])
+    output.extend([nums, spacer(4), label("Важные правила"), spacer(1)])
     rules = [
         *TRIP["pocket"]["rules"],
-        "For China keep onward tickets, hotel bookings and Chinese addresses offline.",
-        "Check baggage destination on the physical tag; do not assume PEK or KIX.",
-        "On 2 October reach NRT T1 around 13:15 for 3U3962 at 16:40.",
+        "Для Китая сохранить офлайн билеты дальше по маршруту, брони отелей и адреса на китайском.",
+        "Проверить пункт назначения на физической багажной бирке; не считать PEK или KIX само собой разумеющимся.",
+        "2 октября быть в NRT T1 около 13:15 к рейсу 3U3962 в 16:40.",
     ]
     for i, rule in enumerate(rules, 1):
         output.extend([KeepTogether(card([rich(f"<b>{i}.</b> {clean(rule)}", "body")], background=HexColor("#F8F6F0"))), spacer(1.3)])
@@ -447,42 +489,53 @@ def pocket_pages():
 def build_story():
     story = []
     story.extend([
-        hero_block("VICTORIA + MISHA · FINAL MOBILE EDITION", "Japan 2026", "19 September - 3 October · Beijing -> Osaka -> Kyoto -> Hakone -> Tokyo -> Chengdu -> Moscow", PINE, ["15 calendar days", "12 Japan days", "4 flights"]),
+        hero_block("ВИКТОРИЯ + МИША · МОБИЛЬНАЯ ВЕРСИЯ", "Япония 2026", "19 сентября - 3 октября · Пекин -> Осака -> Киото -> Хаконе -> Токио -> Чэнду -> Москва", PINE, ["15 календарных дней", "12 дней в Японии", "4 перелёта"]),
         spacer(6),
-        label("On the go, not a coffee-table book"), spacer(1),
-        p("Open the PDF outline in Files or Books and jump straight to today's day. The main route comes first; alternatives, food and shopping stay on a second parallel page so they never obscure the next anchor.", "body"),
+        label("Для поездки, а не для журнального столика"), spacer(1),
+        p("Откройте оглавление PDF в приложении Файлы или Книги и сразу перейдите к сегодняшнему дню. Основной маршрут идёт первым; альтернативы, еда и шопинг вынесены в параллельный слой и не заслоняют следующий якорь.", "body"),
         spacer(4),
-        card([rich("<b>1. Route:</b> follow the hour-by-hour list.<br/><b>2. Time opened:</b> choose one nearby alternative.<br/><b>3. Meal:</b> take the base choice, open the link only to check live hours.<br/><b>4. Delay:</b> protect the anchor and apply the cut rule.", "body")], background=PINE_SOFT, border=HexColor("#C5D6CF"), left_bar=PINE),
+        card([rich("<b>1. Маршрут:</b> следовать плану по времени.<br/><b>2. Освободилось время:</b> выбрать одну альтернативу рядом.<br/><b>3. Еда:</b> взять базовый вариант, ссылку открывать для проверки часов.<br/><b>4. Задержка:</b> защищать якорь и применять правило сокращения.", "body")], background=PINE_SOFT, border=HexColor("#C5D6CF"), left_bar=PINE),
         spacer(6),
-        p(f"Version {EXTRA['meta']['version']} · sources checked {EXTRA['meta']['sourceChecked']}", "tiny"),
+        p(f"Версия {EXTRA['meta']['version']} · источники проверены {EXTRA['meta']['sourceChecked']}", "tiny"),
         PageBreak(),
-        OutlineHeading("Quick index", 0, STYLES["h1"]),
-        p("Tap an entry. Page numbers are also shown for offline navigation.", "body"),
+        OutlineHeading("Быстрое оглавление", 0, STYLES["h1"]),
+        p("Нажмите на пункт. Номера страниц также указаны для офлайн-навигации.", "body"),
         spacer(4),
     ])
     toc = TableOfContents()
     toc.levelStyles = [STYLES["toc_heading"], STYLES["toc_sub"]]
     toc.dotsMinLevel = 0
-    story.extend([toc, PageBreak(), OutlineHeading("Flights", 0, STYLES["h1"]), p("All four tickets are now part of the route. Times below follow the current booking data; recheck terminals in the airline app.", "body"), spacer(4), *flight_cards()])
+    story.extend([toc, PageBreak(), OutlineHeading("Перелёты", 0, STYLES["h1"]), p("Все четыре билета входят в маршрут. Время соответствует текущим данным бронирований; терминалы перепроверить в приложении авиакомпании.", "body"), spacer(4), *flight_cards()])
 
-    story.extend([PageBreak(), OutlineHeading("To do before departure", 0, STYLES["h1"]), p("Booking deadlines, China setup and the exact offline proof to keep.", "body"), spacer(4), *todo_cards()])
+    story.extend([PageBreak(), OutlineHeading("Что сделать до поездки", 0, STYLES["h1"]), p("Сроки бронирований, подготовка к Китаю и точный список того, что сохранить офлайн.", "body"), spacer(4), *todo_cards()])
 
     rule = EXTRA["china"]["rule"]
-    story.extend([PageBreak(), OutlineHeading("China transit rule", 0, STYLES["h1"]), card([
-        p(rule["title"], "h3"), p(rule["summary"], "body"), spacer(2), rich(f"<b>KEEP:</b> {clean(rule['protect'])}", "small"), rich(f"<b>RECHECK:</b> {clean(rule['check'])}", "small"), spacer(2), rich(link_text("Official NIA rule", EXTRA["china"]["links"][0]["url"]), "small")
+    story.extend([PageBreak(), OutlineHeading("Правило транзита через Китай", 0, STYLES["h1"]), card([
+        p(rule["title"], "h3"), p(rule["summary"], "body"), spacer(2), rich(f"<b>СОХРАНИТЬ:</b> {clean(rule['protect'])}", "small"), rich(f"<b>ПЕРЕПРОВЕРИТЬ:</b> {clean(rule['check'])}", "small"), spacer(2), rich(link_text("Официальные правила NIA", EXTRA["china"]["links"][0]["url"]), "small")
     ], background=LAKE_SOFT, border=HexColor("#BECED6"), left_bar=CHINA)])
 
-    story.extend(china_stop(EXTRA["china"]["outbound"], "Beijing stopover"))
+    story.extend(china_stop(EXTRA["china"]["outbound"], "Остановка в Пекине"))
     for day in TRIP["days"]:
         story.extend(day_story(day))
-    story.extend(china_stop(EXTRA["china"]["return"], "Chengdu stopover"))
+    story.extend(china_stop(EXTRA["china"]["return"], "Остановка в Чэнду"))
 
-    story.extend([PageBreak(), OutlineHeading("China preparation", 0, STYLES["h1"]), p("Complete before the two stopovers.", "body"), spacer(4)])
+    story.extend([PageBreak(), OutlineHeading("Подготовка к Китаю", 0, STYLES["h1"]), p("Сделать до обеих промежуточных остановок.", "body"), spacer(4)])
     for index, item in enumerate(EXTRA["china"]["prep"], 1):
-        story.extend([KeepTogether(card([rich(f"<b>{index}.</b> {clean(item)}", "body")], background=LAKE_SOFT, border=HexColor("#C3CFD6"))), spacer(1.5)])
-    story.extend([spacer(3), label("Official sources"), spacer(1)])
-    for item in EXTRA["china"]["links"]:
-        story.extend([rich(link_text(item["label"], item["url"]), "body"), spacer(1)])
+        story.extend([KeepTogether(card([rich(f"<b>{index}.</b> {clean(item)}", "body")], background=LAKE_SOFT, border=HexColor("#C3CFD6"), padding=2.4 * mm)), spacer(0.8)])
+    story.extend([spacer(3), label("Официальные источники"), spacer(1)])
+    source_cells = [rich(link_text(item["label"], item["url"]), "small") for item in EXTRA["china"]["links"]]
+    source_rows = [source_cells[index:index + 2] for index in range(0, len(source_cells), 2)]
+    if len(source_rows[-1]) == 1:
+        source_rows[-1].append(Spacer(1, 1))
+    sources = Table(source_rows, colWidths=[CONTENT_W / 2, CONTENT_W / 2], hAlign="LEFT")
+    sources.setStyle(TableStyle([
+        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING", (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 2 * mm),
+        ("TOPPADDING", (0, 0), (-1, -1), 1 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1 * mm),
+    ]))
+    story.append(sources)
 
     story.extend(food_passport())
     story.extend(pocket_pages())

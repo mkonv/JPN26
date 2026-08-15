@@ -44,12 +44,13 @@ test("canonical data contains every parallel track and no public booking codes",
   assert.deepEqual(enrichment.flights.map((item) => item.flight), ["HU7986", "HU473", "3U3962", "3U3887"]);
   assert.equal(enrichment.additionalHotels.length, 2);
   assert.equal(days.length, 12);
-  assert.equal(days.flatMap((day) => day.alternatives).length, 36);
-  assert.ok(days.every((day) => day.alternatives.length === 3));
-  assert.equal(days.flatMap((day) => day.meals).length, 24);
-  assert.equal(days.flatMap((day) => day.meals.flatMap((meal) => meal.options)).length, 68);
-  assert.equal(enrichment.foodPassport.filter((dish) => dish.level === "must").length, 14);
-  assert.equal(enrichment.foodPassport.filter((dish) => dish.level === "bonus").length, 7);
+  assert.ok(days.every((day) => day.alternatives.length >= 1 && day.alternatives.length <= 3));
+  const meals = days.flatMap((day) => day.meals);
+  assert.equal(meals.length, 24);
+  assert.ok(meals.every((meal) => meal.options.length >= 1 && meal.options.length <= 3));
+  assert.ok(enrichment.foodPassport.filter((dish) => dish.level === "must").length >= 8);
+  assert.ok(enrichment.foodPassport.filter((dish) => dish.level === "bonus").length >= 5);
+  assert.match(enrichment.meta.foodSafety.ja, /豚肉/);
   assert.ok(trip.days.flatMap((day) => day.secrets ?? []).every((secret) => secret.value === ""));
 });
 
@@ -72,7 +73,7 @@ test("static export renders all critical Russian content", async () => {
   assert.match(china, /FAIRFIELD BY MARRIOTT BEIJING CAPITAL AIRPORT/);
   assert.match(china, /CROWNE PLAZA CHENGDU CITY CENTER/);
   assert.match(food, /Гастрономическое путешествие/);
-  assert.match(clean(food), /14 главных/);
+  assert.match(clean(food), /9 главных/);
   assert.match(day, /Куда свернуть/);
   assert.match(day, /Где поесть/);
   assert.match(day, /大阪/);
@@ -88,6 +89,7 @@ test("generated offline manifest is complete and every URL resolves to an export
   assert.ok(manifest.urls.every((url) => !url.endsWith(".txt")), "RSC payloads are intentionally excluded from the document-navigation PWA");
   assert.ok(manifest.urls.includes(`${basePath}/manifest.webmanifest`));
   assert.ok(manifest.urls.includes(`${basePath}/icon-512-maskable.png`));
+  assert.ok(manifest.urls.some((url) => url.endsWith(".ttf")), "compiled CJK font must be part of guaranteed precache");
 
   for (const url of manifest.urls) {
     await access(new URL(outputPathForUrl(url), outRoot));

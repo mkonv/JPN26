@@ -1,9 +1,15 @@
 {
   "meta": {
     "journeyDates": "19 сентября — 3 октября 2026",
-    "sourceChecked": "13 августа 2026",
-    "version": "2026.08.13-china-food-alternatives",
-    "tabelogNote": "Баллы Tabelog проверены 13.08.2026. Для Японии 3.5 — уже сильная оценка; перед визитом всё равно открыть карточку и проверить часы/выходной."
+    "sourceChecked": "15 августа 2026 · полный аудит",
+    "version": "2026.08.15-v6-audit-fixed",
+    "tabelogNote": "После аудита ресторан считается рабочим кандидатом только при подтверждённых часах на дату и реалистичной логистике. Свинина — мягкое предпочтение, а не запрет: если сильное место или конкретное блюдо содержит свинину, это явно отмечается, но само по себе не блокирует рекомендацию.",
+    "foodSafety": {
+      "title": "Свинина — soft preference",
+      "summary": "По возможности выбираем блюда без явной свинины, но это не строгий запрет. Бульон, даси, соус, лард или сильное локальное блюдо со свининой допустимы; главное — не выдавать такое блюдо за pork-free и отмечать состав, когда он известен.",
+      "ja": "豚肉はできれば避けたいですが、絶対ではありません。豚肉、ベーコン、ラード、豚骨スープが入っている場合は教えてください。",
+      "ru": "Свинину по возможности предпочитаю не брать, но строгого запрета нет. Пожалуйста, скажите, если в блюде есть свинина, бекон, свиной жир или tonkotsu-бульон."
+    }
   },
   "flights": [
     {
@@ -59,7 +65,8 @@
       "address": "No. 17 Fuqian First Street, Shunyi District, Beijing 101312, China",
       "localAddress": "北京市顺义区府前一街17号",
       "phone": "+86 10 6458 5888",
-      "note": "Бесплатный круглосуточный трансфер отеля к PEK T2/T3; место посадки уточнить у отеля после прилёта."
+      "note": "Бесплатный круглосуточный трансфер отеля к PEK T2/T3; место посадки уточнить у отеля после прилёта.",
+      "mapUrl": "https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E6%9C%BA%E5%9C%BA%E4%B8%87%E6%9E%AB%E9%85%92%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E9%A1%BA%E4%B9%89%E5%8C%BA%E5%BA%9C%E5%89%8D%E4%B8%80%E8%A1%9717%E5%8F%B7&view=map&src=japan2026"
     },
     {
       "city": "Чэнду",
@@ -68,7 +75,8 @@
       "address": "No. 31 Zongfu Street, Chengdu 610016, China",
       "localAddress": "成都市总府街31号",
       "phone": "+86 28 8678 6666",
-      "note": "В центре рядом с Taikoo Li/IFS; собственного трансфера из аэропорта нет."
+      "note": "В центре рядом с Taikoo Li/IFS; собственного трансфера из аэропорта нет.",
+      "mapUrl": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E6%80%BB%E5%BA%9C%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E6%80%BB%E5%BA%9C%E8%A1%9731%E5%8F%B7&view=map&src=japan2026"
     }
   ],
   "china": {
@@ -84,20 +92,86 @@
       "title": "Пекин без гонки после ночного рейса",
       "summary": "Один компактный культурный коридор, ранний возврат в отель у аэропорта и защищённый HU473 утром.",
       "timeline": [
-        { "time": "19.09 · 16:30", "title": "Быть в SVO", "detail": "Регистрация HU7986, проверить конечный пункт багажной бирки: PEK или KIX." },
-        { "time": "20:05", "title": "HU7986 · SVO → PEK", "detail": "Ночной перелёт; паспорт и бронь HU473 держать в ручной клади." },
-        { "time": "20.09 · 08:55", "title": "Прилёт в Пекин", "detail": "Иммиграция/транзитное разрешение. Если багаж оформлен только до PEK — получить его." },
-        { "time": "10:45", "title": "Fairfield и багаж", "detail": "Позвонить в отель по Wi-Fi аэропорта и уточнить точку посадки на трансфер T2/T3; оставить вещи." },
-        { "time": "12:30", "title": "Lama Temple + Wudaoying", "detail": "Один район, минимум пересадок; при сильной усталости оставить только храм и обед." },
-        { "time": "15:20", "title": "Shichahai + Drum Tower lanes", "detail": "Прогулка по hutong; Jingshan — только если есть силы и ясное небо." },
-        { "time": "18:00", "title": "Ранний ужин и в отель", "detail": "Цель — быть в Fairfield к 20:00; подготовить документы и будильник." },
-        { "time": "21.09 · 05:25", "title": "Shuttle к PEK T2", "detail": "Выезд подтвердить на ресепшене вечером; цель быть у стойки около 06:00." },
-        { "time": "08:45", "title": "HU473 · PEK T2 → KIX T1", "detail": "Прилёт 12:45; дальше начинается день 1 основного маршрута." }
+        {
+          "time": "19.09 · 16:30",
+          "title": "Быть в SVO",
+          "detail": "Регистрация HU7986, проверить конечный пункт багажной бирки: PEK или KIX."
+        },
+        {
+          "time": "20:05",
+          "title": "HU7986 · SVO → PEK",
+          "detail": "Ночной перелёт; паспорт и бронь HU473 держать в ручной клади."
+        },
+        {
+          "time": "20.09 · 08:55",
+          "title": "Прилёт в Пекин",
+          "detail": "Иммиграция/транзитное разрешение. Если багаж оформлен только до PEK — получить его."
+        },
+        {
+          "time": "10:45",
+          "title": "Fairfield и багаж",
+          "detail": "Позвонить в отель по Wi-Fi аэропорта и уточнить точку посадки на трансфер T2/T3; оставить вещи."
+        },
+        {
+          "time": "12:30",
+          "title": "Lama Temple + Wudaoying",
+          "detail": "Один район, минимум пересадок; при сильной усталости оставить только храм и обед."
+        },
+        {
+          "time": "15:20",
+          "title": "Shichahai + переулки у Drum Tower",
+          "detail": "Прогулка по хутунам; Jingshan — только если есть силы и ясное небо."
+        },
+        {
+          "time": "18:00",
+          "title": "Ранний ужин и в отель",
+          "detail": "Цель — быть в Fairfield к 20:00; подготовить документы и будильник."
+        },
+        {
+          "time": "21.09 · 06:00",
+          "title": "Shuttle к PEK T2",
+          "detail": "Fairfield shuttle отправляется от отеля каждый час ровно в :00. Забронировать минимум за 2 часа; целевой рейс 06:00."
+        },
+        {
+          "time": "08:45",
+          "title": "HU473 · PEK T2 → KIX T1",
+          "detail": "Прилёт 12:45; дальше начинается день 1 основного маршрута."
+        }
       ],
       "food": [
-        { "name": "Jin Ding Xuan · Ditan", "dish": "пекинские dumplings, zhajiangmian", "fit": "рядом с Lama Temple; удобный поздний завтрак/обед", "url": "https://www.google.com/maps/search/?api=1&query=Jin+Ding+Xuan+Ditan+Beijing" },
-        { "name": "Yao Ji Chao Gan · Drum Tower", "dish": "baozi и chao gan", "fit": "локальная короткая остановка у Drum Tower", "url": "https://www.google.com/maps/search/?api=1&query=Yao+Ji+Chao+Gan+Drum+Tower+Beijing" },
-        { "name": "Siji Minfu · Dongsi", "dish": "пекинская утка", "fit": "только при короткой очереди; не жертвовать возвратом в отель", "url": "https://www.google.com/maps/search/?api=1&query=Siji+Minfu+Dongsi+Beijing" }
+        {
+          "name": "Siji Minfu · Beijing duck",
+          "dish": "пекинская утка",
+          "fit": "Утка — базовый заказ. Свиные закуски не обязательны; soft preference не требует проверять каждый соус/гарнир.",
+          "url": "https://uri.amap.com/search?keyword=%E5%9B%9B%E5%AD%A3%E6%B0%91%E7%A6%8F%E7%83%A4%E9%B8%AD%E5%BA%97%20%E4%B8%9C%E5%9B%9B%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA&view=map&src=japan2026"
+        }
+      ],
+      "places": [
+        {
+          "name": "雍和宫",
+          "address": "北京市东城区雍和宫大街12号",
+          "amap": "https://uri.amap.com/search?keyword=%E9%9B%8D%E5%92%8C%E5%AE%AB%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E9%9B%8D%E5%92%8C%E5%AE%AB%E5%A4%A7%E8%A1%9712%E5%8F%B7&view=map&src=japan2026"
+        },
+        {
+          "name": "五道营胡同",
+          "address": "北京市东城区五道营胡同",
+          "amap": "https://uri.amap.com/search?keyword=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C&view=map&src=japan2026"
+        },
+        {
+          "name": "什刹海",
+          "address": "北京市西城区什刹海",
+          "amap": "https://uri.amap.com/search?keyword=%E4%BB%80%E5%88%B9%E6%B5%B7%20%E5%8C%97%E4%BA%AC%E5%B8%82%E8%A5%BF%E5%9F%8E%E5%8C%BA&view=map&src=japan2026"
+        },
+        {
+          "name": "北京鼓楼",
+          "address": "北京市东城区钟楼湾一带",
+          "amap": "https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E9%BC%93%E6%A5%BC%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA&view=map&src=japan2026"
+        },
+        {
+          "name": "北京首都机场万枫酒店",
+          "address": "北京市顺义区府前一街17号",
+          "amap": "https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E6%9C%BA%E5%9C%BA%E4%B8%87%E6%9E%AB%E9%85%92%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E9%A1%BA%E4%B9%89%E5%8C%BA%E5%BA%9C%E5%89%8D%E4%B8%80%E8%A1%9717%E5%8F%B7&view=map&src=japan2026"
+        }
       ]
     },
     "return": {
@@ -106,288 +180,1095 @@
       "title": "Чэнду: панды утром, аэропорт без риска",
       "summary": "После позднего прилёта — только отель. Утром один главный якорь и короткий вкус Чэнду перед TFU.",
       "timeline": [
-        { "time": "02.10 · 16:40", "title": "3U3962 · NRT T1 → TFU T1", "detail": "Прилёт 21:00 по билету." },
-        { "time": "21:00", "title": "Иммиграция и багаж", "detail": "Документы на 240-hour transit держать готовыми; не планировать ужин с бронью." },
-        { "time": "22:15", "title": "TFU → Crowne Plaza", "detail": "Ночью базовый вариант — заранее заказанный трансфер/DiDi. У отеля нет собственного трансфера." },
-        { "time": "23:25", "title": "Заселение", "detail": "Сразу согласовать хранение багажа 3 октября и ранний завтрак с собой при необходимости." },
-        { "time": "03.10 · 06:35", "title": "Выезд к Panda Base", "detail": "Такси/DiDi к South Gate; билет на утренний слот купить заранее." },
-        { "time": "07:30", "title": "Chengdu Panda Base", "detail": "2–2,5 часа: сначала взрослые панды до жары, затем nursery по фактической очереди." },
-        { "time": "10:15", "title": "Возврат в центр", "detail": "Taikoo Li + Daci Temple только как короткий коридор рядом с отелем." },
-        { "time": "11:15", "title": "Ранний обед", "detail": "Dan dan noodles / hongyou chaoshou; без hotpot, который трудно уложить по времени." },
-        { "time": "12:20", "title": "Забрать багаж", "detail": "Выехать из отеля не позже 12:40." },
-        { "time": "14:00", "title": "TFU T1", "detail": "Международная регистрация, погранконтроль и запас перед 3U3887." },
-        { "time": "17:00", "title": "3U3887 · TFU T1 → SVO C", "detail": "Прилёт в Москву 20:20 по билету." }
+        {
+          "time": "02.10 · 16:40",
+          "title": "3U3962 · NRT T1 → TFU T1",
+          "detail": "Прилёт 21:00 по билету."
+        },
+        {
+          "time": "21:00",
+          "title": "Иммиграция и багаж",
+          "detail": "Документы на 240-часовой транзит держать готовыми; не планировать ужин с бронью."
+        },
+        {
+          "time": "22:15",
+          "title": "TFU → Crowne Plaza",
+          "detail": "Ночью базовый вариант — заранее заказанный трансфер/DiDi. Бесплатный Panda shuttle отеля относится к утреннему выезду к базе, не к аэропорту."
+        },
+        {
+          "time": "23:25",
+          "title": "Заселение",
+          "detail": "Сразу уточнить на ресепшене точное время/место бесплатного Panda shuttle 03.10 и хранение багажа."
+        },
+        {
+          "time": "03.10 · по времени отеля",
+          "title": "Бесплатный Panda shuttle / резерв DiDi",
+          "detail": "С 23.06.2026 Crowne Plaza заявляет бесплатный шаттл к Panda Base. Время заранее подтвердить у отеля; если не подходит под вход 07:30 — использовать DiDi."
+        },
+        {
+          "time": "07:30",
+          "title": "Chengdu Panda Base",
+          "detail": "До 10:00. Сначала активные зоны утром; не обещать возврат в центр уже к 10:15."
+        },
+        {
+          "time": "10:00",
+          "title": "Выход и дорога в центр",
+          "detail": "Реалистичный ориентир возвращения к Crowne Plaza / Taikoo Li — около 10:35–10:50 при нормальном трафике."
+        },
+        {
+          "time": "10:50",
+          "title": "Taikoo Li + Daci Temple",
+          "detail": "Короткий коридор рядом с отелем; первым сокращается при задержке Panda Base."
+        },
+        {
+          "time": "11:20",
+          "title": "Ранний обед",
+          "detail": "Soft preference: dan dan noodles и hongyou chaoshou снова допустимы как знаковые блюда Чэнду, хотя типично могут содержать свинину. Выбрать один быстрый локальный обед у Taikoo Li и не растягивать остановку."
+        },
+        {
+          "time": "12:10",
+          "title": "Забрать багаж",
+          "detail": "Выехать из отеля около 12:30; не растягивать центр."
+        },
+        {
+          "time": "14:00",
+          "title": "TFU T1",
+          "detail": "Международная регистрация, погранконтроль и запас перед 3U3887."
+        },
+        {
+          "time": "17:00",
+          "title": "3U3887 · TFU T1 → SVO C",
+          "detail": "Прилёт в Москву 20:20 по билету."
+        }
       ],
       "food": [
-        { "name": "Chunyangguan Yutian Restaurant", "dish": "dan dan noodles и sweet-water noodles", "fit": "быстрый формат в центральном Чэнду", "url": "https://www.google.com/maps/search/?api=1&query=Chunyangguan+Yutian+Restaurant+Chengdu" },
-        { "name": "Long Chao Shou · Chunxi Road", "dish": "hongyou wontons и набор сяочи", "fit": "рядом с отелем, удобно попробовать несколько классических закусок", "url": "https://www.google.com/maps/search/?api=1&query=Long+Chao+Shou+Chunxi+Road+Chengdu" },
-        { "name": "Chen Mapo Tofu · Luomashi", "dish": "mapo tofu", "fit": "только если открыто и без крюка; запас по выезду важнее", "url": "https://www.google.com/maps/search/?api=1&query=Chen+Mapo+Tofu+Luomashi+Chengdu" }
+        {
+          "name": "Chengdu quick lunch · choose on site near Taikoo Li",
+          "dish": "dan dan noodles / hongyou chaoshou / tofu / poultry",
+          "fit": "Знаковые dan dan noodles и chaoshou часто содержат свинину; в soft-режиме это допустимо. Не выдавать их за pork-free, выбрать по очереди и времени.",
+          "url": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E5%A4%AA%E5%8F%A4%E9%87%8C%20%E6%8B%85%E6%8B%85%E9%9D%A2%20%E7%BA%A2%E6%B2%B9%E6%8A%84%E6%89%8B&view=map&src=japan2026"
+        }
+      ],
+      "places": [
+        {
+          "name": "成都大熊猫繁育研究基地",
+          "address": "成都市成华区熊猫大道1375号",
+          "amap": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E5%A4%A7%E7%86%8A%E7%8C%AB%E7%B9%81%E8%82%B2%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%20%E6%88%90%E9%83%BD%E5%B8%82%E6%88%90%E5%8D%8E%E5%8C%BA%E7%86%8A%E7%8C%AB%E5%A4%A7%E9%81%931375%E5%8F%B7&view=map&src=japan2026"
+        },
+        {
+          "name": "成都远洋太古里",
+          "address": "成都市锦江区中纱帽街8号",
+          "amap": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E8%BF%9C%E6%B4%8B%E5%A4%AA%E5%8F%A4%E9%87%8C%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E4%B8%AD%E7%BA%B1%E5%B8%BD%E8%A1%978%E5%8F%B7&view=map&src=japan2026"
+        },
+        {
+          "name": "大慈寺",
+          "address": "成都市锦江区大慈寺路21-23号",
+          "amap": "https://uri.amap.com/search?keyword=%E5%A4%A7%E6%85%88%E5%AF%BA%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E5%A4%A7%E6%85%88%E5%AF%BA%E8%B7%AF21-23%E5%8F%B7&view=map&src=japan2026"
+        },
+        {
+          "name": "成都总府皇冠假日酒店",
+          "address": "成都市锦江区总府街31号",
+          "amap": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E6%80%BB%E5%BA%9C%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E6%80%BB%E5%BA%9C%E8%A1%9731%E5%8F%B7&view=map&src=japan2026"
+        }
       ]
     },
     "prep": [
       "Установить Alipay и WeChat, привязать зарубежную карту и проверить небольшой платёж до вылета.",
-      "Сохранить офлайн адреса обоих отелей на английском и китайском, телефоны и скриншоты маршрутов.",
+      "Сохранить офлайн английские и китайские адреса обоих отелей и телефоны.",
+      "Для всех китайских точек использовать готовые Amap-ссылки/китайские названия на странице «Китай»; Google Maps не считать рабочей навигацией.",
       "На регистрации в SVO спросить, куда оформлен багаж, и физически проверить код аэропорта на бирке.",
       "Купить утренний билет Chengdu Panda Base; сохранить QR/паспортные данные и правила входа.",
-      "Заказать/согласовать ночной трансфер TFU → Crowne Plaza; общественный транспорт не считать базовым после 21:00.",
-      "Скачать офлайн-карты Китая; Google-сервисы могут быть недоступны — продублировать точки в Apple Maps/Amap.",
-      "За 7 дней перепроверить 240-hour transit на сайте NIA и все терминалы в авиабилетах."
+      "У Crowne Plaza заранее подтвердить точное время бесплатного Panda shuttle; если оно не подходит к 07:30, заказать DiDi.",
+      "За 7 дней перепроверить правила 240-часового транзита на сайте NIA и все терминалы в авиабилетах."
     ],
     "links": [
-      { "label": "NIA · 240-hour transit", "url": "https://en.nia.gov.cn/n147418/n147463/c183412/content.html" },
-      { "label": "Fairfield Beijing Airport", "url": "https://www.marriott.com/en-us/hotels/bjspe-fairfield-beijing-capital-airport/overview/" },
-      { "label": "Crowne Plaza Chengdu", "url": "https://www.ihg.com/crowneplaza/hotels/us/en/chengdu/ctuch/hoteldetail" },
-      { "label": "Chengdu Panda Base", "url": "https://www.panda.org.cn/en/" },
-      { "label": "Panda Base tickets", "url": "https://m.panda.org.cn/en/service/ticket/" }
+      {
+        "label": "NIA · 240-часовой транзит",
+        "url": "https://en.nia.gov.cn/n147418/n147463/c183412/content.html"
+      },
+      {
+        "label": "Fairfield Beijing Airport",
+        "url": "https://www.marriott.com/en-us/hotels/bjspe-fairfield-beijing-capital-airport/overview/"
+      },
+      {
+        "label": "Crowne Plaza Chengdu",
+        "url": "https://www.ihg.com/crowneplaza/hotels/us/en/chengdu/ctuch/hoteldetail"
+      },
+      {
+        "label": "Chengdu Panda Base",
+        "url": "https://www.panda.org.cn/en/"
+      },
+      {
+        "label": "Билеты в Panda Base",
+        "url": "https://m.panda.org.cn/en/service/ticket/"
+      }
     ]
   },
   "dayEnrichment": {
     "sep-21-osaka": {
       "alternatives": [
-        { "name": "Ohatsu Tenjin", "delta": "+25–35 мин", "when": "Если Grand Green посмотрели быстро", "swap": "Небольшое святилище и старые улочки в пешем радиусе Umeda; ничего не перестраивает.", "url": "https://www.google.com/maps/search/?api=1&query=Ohatsu+Tenjin+Osaka" },
-        { "name": "Nakazakichō", "delta": "+45–60 мин", "when": "Если хочется не магазина, а района", "swap": "Ретро-переулки и кофе; заменить часть разведки Umeda, не добавлять сверху.", "url": "https://www.google.com/maps/search/?api=1&query=Nakazakicho+Osaka" },
-        { "name": "HEP FIVE Ferris Wheel", "delta": "+35 мин", "when": "Если ясное небо и есть энергия", "swap": "Быстрый вид на город рядом; пропустить при очереди или усталости.", "url": "https://www.google.com/maps/search/?api=1&query=HEP+FIVE+Ferris+Wheel" }
+        {
+          "name": "Ohatsu Tenjin",
+          "delta": "+25–35 мин",
+          "when": "Если Grand Green посмотрели быстро",
+          "swap": "Небольшое святилище и старые улочки в пешем радиусе Umeda; ничего не перестраивает.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Ohatsu+Tenjin+Osaka"
+        },
+        {
+          "name": "Nakazakichō",
+          "delta": "+45–60 мин",
+          "when": "Если хочется не магазина, а района",
+          "swap": "Ретро-переулки и кофе; заменить часть разведки Umeda, не добавлять сверху.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Nakazakicho+Osaka"
+        },
+        {
+          "name": "HEP FIVE Ferris Wheel",
+          "delta": "+35 мин",
+          "when": "Если ясное небо и есть энергия",
+          "swap": "Быстрый вид на город рядом; пропустить при очереди или усталости.",
+          "url": "https://www.google.com/maps/search/?api=1&query=HEP+FIVE+Ferris+Wheel"
+        }
       ],
       "meals": [
-        { "label": "Ужин · Umeda", "time": "19:00", "note": "Оба варианта рядом и не требуют ехать в туристический Dōtonbori.", "options": [
-          { "name": "Udon-ya Kisuke", "score": "3.73", "dish": "udon tempura", "why": "Сильный локальный рейтинг и мягкий первый ужин после перелёта.", "route": "Nakazakichō/Umeda; очередь — перейти к Sakura.", "url": "https://tabelog.com/en/osaka/A2701/A270101/27002469/", "pick": true },
-          { "name": "Okonomiyaki Sakura", "score": "3.51", "dish": "Osaka okonomiyaki", "why": "Первая обязательная региональная классика без поездки на юг города.", "route": "Umeda; удобный вариант рядом с отелем.", "url": "https://tabelog.com/en/osaka/A2701/A270101/27006469/", "pick": false }
-        ] }
+        {
+          "label": "Ужин · Umeda",
+          "time": "19:00",
+          "note": "Kisuke не подходит: в понедельник после 16:30 закрыт. В первый вечер ресторан сознательно не фиксируем — выбираем сильное место рядом по фактической очереди и энергии.",
+          "options": [
+            {
+              "name": "Без фиксированного ресторана · Umeda",
+              "score": "—",
+              "dish": "суши / рыба / yakitori / рисовый сет",
+              "why": "Это намеренная страховка от повторной ошибки: непроверенное заведение не выдаётся за готовую рекомендацию.",
+              "route": "Свинина — soft preference, а не запрет; выбирать по аппетиту и текущему меню.",
+              "url": "https://www.google.com/maps/search/?api=1&query=Umeda+sushi+grilled+fish",
+              "pick": true
+            }
+          ]
+        }
       ]
     },
     "sep-22-nara": {
       "alternatives": [
-        { "name": "Isuien Garden", "delta": "+35–50 мин", "when": "Если Yoshikien оказался слишком коротким", "swap": "Соседний сад; сначала проверить режим 22.09, затем сократить Naramachi на то же время.", "url": "https://www.google.com/maps/search/?api=1&query=Isuien+Garden+Nara" },
-        { "name": "Nara National Museum", "delta": "+45–75 мин", "when": "Если жара/дождь или хочется больше буддийского искусства", "swap": "Заменяет часть прогулки по парку, не добавляется к полному Naramachi.", "url": "https://www.narahaku.go.jp/english/" },
-        { "name": "Naramachi Kōshi-no-Ie", "delta": "+20–30 мин", "when": "Если Gango-ji посмотрели быстро", "swap": "Бесплатный machiya-интерьер прямо в квартале; без транспортного крюка.", "url": "https://www.google.com/maps/search/?api=1&query=Naramachi+Koshi-no-Ie" }
+        {
+          "name": "Isuien Garden",
+          "delta": "+35–50 мин",
+          "when": "Если Yoshikien оказался слишком коротким",
+          "swap": "Соседний сад; сначала проверить режим 22.09, затем сократить Naramachi на то же время.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Isuien+Garden+Nara"
+        },
+        {
+          "name": "Naramachi Kōshi-no-Ie",
+          "delta": "+20–30 мин",
+          "when": "Если Gango-ji посмотрели быстро",
+          "swap": "Бесплатный machiya-интерьер прямо в квартале; без транспортного крюка.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Naramachi+Koshi-no-Ie"
+        }
       ],
       "meals": [
-        { "label": "Обед · Naramachi", "time": "12:30", "note": "Выбрать один региональный сюжет; Momoshiki — только если очередь не ломает возврат.", "options": [
-          { "name": "Momoshiki", "score": "3.61", "dish": "Yamato beef gyūmabushi", "why": "Редкая местная говядина и сильная оценка.", "route": "Ближе к Kintetsu Nara; заложить больше времени.", "url": "https://tabelog.com/en/nara/A2901/A290101/29012172/", "pick": true },
-          { "name": "Edogawa Naramachi", "score": "3.43", "dish": "unagi", "why": "Спокойный полноценный обед в machiya-квартале.", "route": "По маршруту Naramachi; возможна очередь.", "url": "https://tabelog.com/en/nara/A2901/A290101/29000292/", "pick": false },
-          { "name": "Hirasō Naramachi", "score": "3.20", "dish": "kakinoha-zushi", "why": "Самая характерная для Нары еда и быстрый формат.", "route": "Лучший резерв, если время сжалось.", "url": "https://tabelog.com/en/nara/A2901/A290101/29000753/", "pick": false }
-        ] },
-        { "label": "Ужин · Namba", "time": "18:15", "note": "Okonomiyaki лучше закрыть здесь, если не попробовали в первый вечер.", "options": [
-          { "name": "Fukutaro Honten", "score": "3.72", "dish": "negiyaki / okonomiyaki", "why": "Сильнейший выбор дня и локальная Osaka-классика.", "route": "Namba; очередь — не ждать больше 30 минут.", "url": "https://tabelog.com/en/osaka/A2701/A270202/27002665/", "pick": true },
-          { "name": "Hōzenji Sanpei", "score": "3.46", "dish": "okonomiyaki", "why": "Прямо у вечерней прогулки Hōzenji.", "route": "Минимальный крюк.", "url": "https://tabelog.com/en/osaka/A2701/A270202/27011039/", "pick": false },
-          { "name": "Fukutaro Namba Dining Maison", "score": "3.49", "dish": "okonomiyaki", "why": "Практичный резерв в универмаге при очередях/дожде.", "route": "Удобно после примерки в Takashimaya.", "url": "https://tabelog.com/en/osaka/A2701/A270202/27046834/", "pick": false }
-        ] }
+        {
+          "label": "Обед · Naramachi",
+          "time": "12:30",
+          "note": "Цель — Hirasō и kakinoha-zushi как характерная еда Нары. Перед поездкой обязательно подтвердить праздничный график 22.09; если закрыт — Momoshiki остаётся резервом без изменения маршрута.",
+          "options": [
+            {
+              "name": "Momoshiki",
+              "score": "3.61",
+              "dish": "гюмабуси с говядиной Ямато",
+              "why": "Редкая местная говядина и сильная оценка.",
+              "route": "Резерв, если Hirasō не подтвердит работу; заложить больше времени.",
+              "url": "https://tabelog.com/en/nara/A2901/A290101/29012172/",
+              "pick": false
+            },
+            {
+              "name": "Edogawa Naramachi",
+              "score": "3.43",
+              "dish": "унаги",
+              "why": "Спокойный полноценный обед в квартале матия.",
+              "route": "По маршруту Naramachi; возможна очередь.",
+              "url": "https://tabelog.com/en/nara/A2901/A290101/29000292/",
+              "pick": false
+            },
+            {
+              "name": "Hirasō Naramachi",
+              "score": "3.20",
+              "dish": "какиноха-дзуси",
+              "why": "Целевой локальный опыт: kakinoha-zushi — один из самых характерных вкусов Нары.",
+              "route": "Целевое место только при прямом подтверждении работы 22.09.2026 из-за праздничной недели.",
+              "url": "https://tabelog.com/en/nara/A2901/A290101/29000753/",
+              "pick": true
+            }
+          ]
+        },
+        {
+          "label": "Ужин · Namba",
+          "time": "18:15",
+          "note": "Soft preference: свинина не блокирует сильное место. Если хочется классический Osaka okonomiyaki, можно выбрать его осознанно; если хочется избежать явной свинины — взять seafood/chicken/sushi вариант по фактической очереди.",
+          "options": [
+            {
+              "name": "Namba · сильное место по фактической очереди",
+              "score": "—",
+              "dish": "okonomiyaki / seafood / sushi / chicken",
+              "why": "После длинного дня важнее хорошая еда без транспортного крюка, чем жёсткий фильтр по свинине.",
+              "route": "Классический okonomiyaki часто содержит свиную грудинку — это допустимо в soft-режиме, но должно быть осознанным выбором.",
+              "url": "https://www.google.com/maps/search/?api=1&query=Namba+okonomiyaki+sushi+yakitori",
+              "pick": true
+            }
+          ]
+        }
       ]
     },
     "sep-23-himeji": {
       "alternatives": [
-        { "name": "Himeji City Museum of Art · garden", "delta": "+20–35 мин", "when": "Если замок прошли быстрее", "swap": "Сад и краснокирпичный фасад рядом с замком; внутрь только при запасе.", "url": "https://www.google.com/maps/search/?api=1&query=Himeji+City+Museum+of+Art" },
-        { "name": "Hyogo Prefectural Museum of History", "delta": "+45–60 мин", "when": "Если интересен контекст замка, а Kōko-en сокращён", "swap": "Заменяет Kōko-en, чтобы не опоздать в NMAO.", "url": "https://www.google.com/maps/search/?api=1&query=Hyogo+Prefectural+Museum+of+History" },
-        { "name": "Nakanoshima river walk", "delta": "+20–30 мин", "when": "Если NMAO закончился раньше", "swap": "Прогулка вокруг музея без нового билета; уйти в Umeda по плану.", "url": "https://www.google.com/maps/search/?api=1&query=Nakanoshima+Museum+Osaka" }
+        {
+          "name": "Himeji City Museum of Art · только сад/экстерьер",
+          "delta": "+20–35 мин",
+          "when": "Только короткий внешний осмотр после Kōko-en",
+          "swap": "Здание закрыто на реконструкцию апрель 2026 – декабрь 2027; внутрь не планировать.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Himeji+City+Museum+of+Art"
+        },
+        {
+          "name": "Hyogo Prefectural Museum of History",
+          "delta": "+45–60 мин",
+          "when": "Если интересен контекст замка, а Kōko-en сокращён",
+          "swap": "Заменяет Kōko-en, чтобы не опоздать в NMAO.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Hyogo+Prefectural+Museum+of+History"
+        },
+        {
+          "name": "Nakanoshima river walk",
+          "delta": "+20–30 мин",
+          "when": "Если NMAO закончился раньше",
+          "swap": "Прогулка вокруг музея без нового билета; уйти в Umeda по плану.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Nakanoshima+Museum+Osaka"
+        }
       ],
       "meals": [
-        { "label": "Обед · Himeji", "time": "12:05", "note": "Окно короткое: выбирать по очереди, а не по идеалу.", "options": [
-          { "name": "Sumiyaki Anago Yamayoshi", "score": "3.49", "dish": "grilled anago-don", "why": "Главная локальная специализация и рядом со станцией.", "route": "5 минут от станции; взять вариант навынос при очереди.", "url": "https://tabelog.com/en/hyogo/A2805/A280501/28034320/", "pick": true },
-          { "name": "Maneki Ekisoba", "score": "3.38", "dish": "Himeji ekisoba", "why": "Знаковая станционная лапша и самый надёжный быстрый вариант.", "route": "На платформе/в станции; идеально при сжатом времени.", "url": "https://tabelog.com/en/hyogo/A2805/A280501/28042665/", "pick": false }
-        ] },
-        { "label": "Ужин · Fukushima", "time": "19:20", "note": "Три местных формата без возврата в Dōtonbori.", "options": [
-          { "name": "Moeyo Mensuke", "score": "3.76", "dish": "duck shōyu ramen", "why": "Один из самых сильных ramen-рейтингов Осаки.", "route": "Fukushima; очередь — сразу переключиться на JET.", "url": "https://tabelog.com/en/osaka/A2701/A270108/27091454/", "pick": true },
-          { "name": "Ramen Jinsei JET", "score": "3.76", "dish": "chicken paitan ramen", "why": "Равносильный резерв в том же районе.", "route": "Открыт позднее; практичнее после Umeda Sky.", "url": "https://tabelog.com/en/osaka/A2701/A270108/27050827/", "pick": false },
-          { "name": "Hana Kujira Honten", "score": "3.7+", "dish": "oden", "why": "Другой важный жанр Osaka comfort food.", "route": "Выбирать при короткой очереди и желании не ramen.", "url": "https://tabelog.com/en/osaka/A2701/A270108/27001230/", "pick": false }
-        ] }
+        {
+          "label": "Обед · Himeji",
+          "time": "12:05",
+          "note": "Окно короткое: выбирать по очереди, а не по идеалу.",
+          "options": [
+            {
+              "name": "Sumiyaki Anago Yamayoshi",
+              "score": "3.49",
+              "dish": "анаго-дон на углях",
+              "why": "Главная локальная специализация и рядом со станцией.",
+              "route": "5 минут от станции; взять вариант навынос при очереди.",
+              "url": "https://tabelog.com/en/hyogo/A2805/A280501/28034320/",
+              "pick": true
+            },
+            {
+              "name": "Maneki Ekisoba",
+              "score": "3.38",
+              "dish": "экисоба Химэдзи",
+              "why": "Знаковая станционная лапша и самый надёжный быстрый вариант.",
+              "route": "Станционная точка Maneki no Eki Soba (не штаб-квартира Maneki Shokuhin); использовать при сжатом времени.",
+              "url": "https://tabelog.com/en/hyogo/A2805/A280501/28049150/",
+              "pick": false
+            }
+          ]
+        },
+        {
+          "label": "Ужин · Fukushima",
+          "time": "19:30",
+          "note": "Основной защищённый мясной опыт. Не использовать ramen-резервы из старой версии: состав бульона по свинине не был доказан.",
+          "options": [
+            {
+              "name": "Matsusakagyu Yakiniku M · Umeda Fukushima",
+              "score": "3.32",
+              "dish": "якинику из говядины Мацусака",
+              "why": "Защищённый опыт: омакасэ-тарелка из 5–6 отрубов позволяет сравнить текстуры без перегруженного курса.",
+              "route": "Бронь заранее. Добавить обычный рис и овощи; не брать наборы Premium/Special, где чесночный рис содержит бекон.",
+              "url": "https://tabelog.com/en/osaka/A2701/A270108/27003327/",
+              "pick": true
+            }
+          ]
+        }
       ]
     },
     "sep-24-miyajima": {
       "alternatives": [
-        { "name": "Miyajima History and Folklore Museum", "delta": "+35–50 мин", "when": "Если Daishō-in не зашёл или дождь", "swap": "Заменяет Daishō-in; не трогает 11:45 у Pier 3.", "url": "https://www.google.com/maps/search/?api=1&query=Miyajima+History+and+Folklore+Museum" },
-        { "name": "Five-storied Pagoda viewpoint", "delta": "+15–20 мин", "when": "Если Senjōkaku закрыт/короток", "swap": "Быстрый внешний ракурс рядом; не добавлять подъём дальше.", "url": "https://www.google.com/maps/search/?api=1&query=Five-storied+Pagoda+Miyajima" },
-        { "name": "Orizuru Tower", "delta": "+40–55 мин", "when": "Если музей пройден быстрее и есть эмоциональный ресурс", "swap": "Вид на Atomic Bomb Dome; закончить к 16:45 ради станции.", "url": "https://www.orizurutower.jp/en/" }
+        {
+          "name": "Miyajima History and Folklore Museum",
+          "delta": "+35–50 мин",
+          "when": "Если Daishō-in не зашёл или дождь",
+          "swap": "Заменяет Daishō-in; не трогает 11:45 у Pier 3.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Miyajima+History+and+Folklore+Museum"
+        },
+        {
+          "name": "Five-storied Pagoda viewpoint",
+          "delta": "+15–20 мин",
+          "when": "Если Senjōkaku закрыт/короток",
+          "swap": "Быстрый внешний ракурс рядом; не добавлять подъём дальше.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Five-storied+Pagoda+Miyajima"
+        },
+        {
+          "name": "Orizuru Tower",
+          "delta": "+40–55 мин",
+          "when": "Если музей пройден быстрее и есть эмоциональный ресурс",
+          "swap": "Вид на Atomic Bomb Dome; закончить к 16:45 ради станции.",
+          "url": "https://www.orizurutower.jp/en/"
+        }
       ],
       "meals": [
-        { "label": "Ранний обед · Miyajima", "time": "11:00", "note": "Жёсткий выход к Pier 3 в 11:45: при очереди брать навынос.", "options": [
-          { "name": "Kakiya", "score": "3.56", "dish": "Hiroshima oysters", "why": "Лучший шанс закрыть культовые устрицы региона.", "route": "Заказывать только если посадка быстрая.", "url": "https://tabelog.com/en/hiroshima/A3402/A340202/34003363/", "pick": true },
-          { "name": "Mame-tanuki", "score": "3.49", "dish": "anago-meshi", "why": "Вторая главная специализация Miyajima.", "route": "Уточнить время подачи до заказа.", "url": "https://tabelog.com/en/hiroshima/A3402/A340202/34011633/", "pick": false },
-          { "name": "Mikoto-ya", "score": "3.53", "dish": "anago bento", "why": "Самый безопасный формат при сжатом окне.", "route": "Навынос до sold out; проверить наличие сразу после храма.", "url": "https://tabelog.com/en/hiroshima/A3402/A340202/34026573/", "pick": false }
-        ] },
-        { "label": "Ранний ужин · Hiroshima Station", "time": "16:35", "note": "Все варианты в/у станции, чтобы защитить Sakura 766.", "options": [
-          { "name": "Reichan", "score": "3.49", "dish": "Hiroshima okonomiyaki", "why": "Обязательная региональная тарелка и удобная станционная логистика.", "route": "ekie; выйти из очереди к 17:25.", "url": "https://tabelog.com/en/hiroshima/A3401/A340121/34000061/", "pick": true },
-          { "name": "Denkō Sekka · ekie", "score": "3.49", "dish": "Hiroshima okonomiyaki", "why": "Равный резерв, если у Reichan длинная очередь.", "route": "В том же комплексе.", "url": "https://tabelog.com/en/hiroshima/A3401/A340121/34027532/", "pick": false },
-          { "name": "Tsukemen Karabu", "score": "3.46", "dish": "Hiroshima spicy tsukemen", "why": "Локальная альтернатива okonomiyaki и обычно быстрее.", "route": "Рядом со станцией; выбрать при дефиците времени.", "url": "https://tabelog.com/en/hiroshima/A3401/A340121/34025668/", "pick": false }
-        ] }
+        {
+          "label": "Ранний обед · Miyajima",
+          "time": "11:00",
+          "note": "Жёсткий выход к Pier 3 в 11:45: при очереди брать навынос.",
+          "options": [
+            {
+              "name": "Kakiya",
+              "score": "3.56",
+              "dish": "устрицы Хиросимы",
+              "why": "Лучший шанс закрыть культовые устрицы региона.",
+              "route": "Заказывать только если посадка быстрая.",
+              "url": "https://tabelog.com/en/hiroshima/A3402/A340202/34003363/",
+              "pick": true
+            },
+            {
+              "name": "Mame-tanuki",
+              "score": "3.49",
+              "dish": "анаго-мэси",
+              "why": "Вторая главная специализация Миядзимы.",
+              "route": "Уточнить время подачи до заказа.",
+              "url": "https://tabelog.com/en/hiroshima/A3402/A340202/34011633/",
+              "pick": false
+            },
+            {
+              "name": "Mikoto-ya",
+              "score": "3.53",
+              "dish": "бэнто с анаго",
+              "why": "Самый безопасный формат при сжатом окне.",
+              "route": "Навынос до окончания; проверить наличие сразу после храма.",
+              "url": "https://tabelog.com/en/hiroshima/A3402/A340202/34026573/",
+              "pick": false
+            }
+          ]
+        },
+        {
+          "label": "Ранний ужин · Hiroshima Station",
+          "time": "16:35–17:20",
+          "note": "Tsukemen Karabu закрыт 14:30–18:00 и не подходит перед Sakura 766. Сохраняем быстрый seafood/anago bento: полноценный ресторан перед поездом не втискиваем.",
+          "options": [
+            {
+              "name": "Hiroshima Station · ранний seafood/anago bento",
+              "score": "—",
+              "dish": "anago / seafood bento",
+              "why": "Нужен быстрый формат до поезда 18:33 без риска закрытого ресторана.",
+              "route": "Купить в станции/ekie не позднее 17:20; отдельная pork-free проверка соуса не требуется.",
+              "url": "https://www.google.com/maps/search/?api=1&query=Hiroshima+Station+anago+bento",
+              "pick": true
+            }
+          ]
+        }
       ]
     },
     "sep-25-kyoto": {
       "alternatives": [
-        { "name": "Ninna-ji", "delta": "+45–60 мин", "when": "Если Ryōan-ji сразу не понравился", "swap": "Только замена Ryōan-ji, не дополнительный храм; сохранить обед до 12:45.", "url": "https://www.google.com/maps/search/?api=1&query=Ninna-ji+Kyoto" },
-        { "name": "Kyoto National Museum", "delta": "+45–75 мин", "when": "Если Kawai House прошли быстро или нужен indoor", "swap": "Выбрать один короткий корпус и сократить Gojōzaka.", "url": "https://www.kyohaku.go.jp/eng/" },
-        { "name": "Kennin-ji", "delta": "+35–50 мин", "when": "Если шопинг на спуске не нужен", "swap": "Один храм по пути к Gion вместо трёх магазинных остановок.", "url": "https://www.google.com/maps/search/?api=1&query=Kennin-ji+Kyoto" }
+        {
+          "name": "Ninna-ji",
+          "delta": "+45–60 мин",
+          "when": "Если Ryōan-ji сразу не понравился",
+          "swap": "Только замена Ryōan-ji, не дополнительный храм; сохранить обед до 12:45.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Ninna-ji+Kyoto"
+        },
+        {
+          "name": "Kennin-ji",
+          "delta": "+35–50 мин",
+          "when": "Если шопинг на спуске не нужен",
+          "swap": "Один храм по пути к Gion вместо трёх магазинных остановок.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Kennin-ji+Kyoto"
+        }
       ],
       "meals": [
-        { "label": "Обед · Kinkaku/Ryōanji", "time": "11:30", "note": "Закончить до 12:45; вариант №1 самый маршрутный.", "options": [
-          { "name": "Gontaro Kinkakuji", "score": "3.44", "dish": "soba / nishin noodles", "why": "Киотская лапша и понятная логистика рядом с северным блоком.", "route": "Лучший базовый выбор.", "url": "https://tabelog.com/en/kyoto/A2601/A260501/26002741/", "pick": true },
-          { "name": "Soba Shubo Ichii", "score": "3.61", "dish": "soba and tempura", "why": "Выше рейтинг, но требует чуть больше контроля времени.", "route": "У Wara Tenjin-mae; не ждать долгую посадку.", "url": "https://tabelog.com/en/kyoto/A2601/A260501/26026908/", "pick": false },
-          { "name": "Kyo no Soba Hanamakiya", "score": "3.38", "dish": "soba", "why": "Небольшой резерв рядом с Kinkaku-ji.", "route": "Выбирать по фактической очереди.", "url": "https://tabelog.com/en/kyoto/A2601/A260501/26013673/", "pick": false }
-        ] },
-        { "label": "Ужин · Gion/Ponto-chō", "time": "19:15", "note": "Один дорогой опыт или один простой специалитет — не случайный туристический сет.", "options": [
-          { "name": "Izuu", "score": "3.68", "dish": "saba-zushi", "why": "Историческая киотская специализация и сильный Tabelog.", "route": "Gion; проверить последнюю посадку.", "url": "https://tabelog.com/en/kyoto/A2601/A260301/26000585/", "pick": true },
-          { "name": "Gion Karyo", "score": "3.58", "dish": "kaiseki", "why": "Полноценный высокий гастрономический вечер.", "route": "Только по предварительной брони; высокий бюджет.", "url": "https://tabelog.com/en/kyoto/A2601/A260301/26002441/", "pick": false },
-          { "name": "Gion Okaru", "score": "3.59", "dish": "curry udon", "why": "Неформальный местный late-night вариант после длинного дня.", "route": "Выбирать без брони по очереди.", "url": "https://tabelog.com/en/kyoto/A2601/A260301/26000985/", "pick": false }
-        ] }
+        {
+          "label": "Обед · Shōgoin",
+          "time": "12:50",
+          "note": "Старое окно у Kinkaku/Ryōanji удалено: оно ломало переезд к Handicraft Center. Выбрать место рядом с Shōgoin по фактической очереди.",
+          "options": [
+            {
+              "name": "Shōgoin · простой обед после проверки состава",
+              "score": "—",
+              "dish": "soba / рыба / tofu set",
+              "why": "Не создаём новый непроверенный ресторан вместо старой логистической ошибки.",
+              "route": "Оставить 35–40 минут; soft preference по свинине не требует проверки каждого бульона/соуса.",
+              "url": "https://www.google.com/maps/search/?api=1&query=Shogoin+Kyoto+soba+tofu",
+              "pick": true
+            }
+          ]
+        },
+        {
+          "label": "Ужин · Gion/Ponto-chō",
+          "time": "19:15",
+          "note": "Izuu остаётся базовой логистической опцией. Gion Karyo — только если заранее решаем делать отдельный высокий кайсэки-вечер; soft preference по свинине не блокирует курс.",
+          "options": [
+            {
+              "name": "Izuu",
+              "score": "3.68",
+              "dish": "саба-дзуси",
+              "why": "Историческая киотская специализация и сильный Tabelog.",
+              "route": "Gion; проверить последнюю посадку.",
+              "url": "https://tabelog.com/en/kyoto/A2601/A260301/26000585/",
+              "pick": true
+            },
+            {
+              "name": "Gion Karyo",
+              "score": "3.58",
+              "dish": "кайсэки",
+              "why": "Полноценный высокий гастрономический вечер.",
+              "route": "Только по предварительной брони; при желании сообщить мягкое предпочтение по свинине, не требуя переделывать курс.",
+              "url": "https://tabelog.com/en/kyoto/A2601/A260301/26002441/",
+              "pick": false
+            }
+          ]
+        }
       ]
     },
     "sep-26-kyoto": {
       "alternatives": [
-        { "name": "Otagi Nenbutsu-ji", "delta": "+35–45 мин", "when": "Если приехали в Oku-Saga раньше 13:40", "swap": "Заменяет Hiranoya и часть нижнего Bamboo; не трогает Daikakuji.", "url": "https://www.google.com/maps/search/?api=1&query=Otagi+Nenbutsu-ji" },
-        { "name": "Giō-ji", "delta": "+30–40 мин", "when": "Если Adashino не зашёл", "swap": "Тихий моховой храм ниже по маршруту; это замена, не ещё один храм.", "url": "https://www.google.com/maps/search/?api=1&query=Gio-ji+Kyoto" },
-        { "name": "Seiryō-ji", "delta": "+25–35 мин", "when": "Если Bamboo прошли быстро", "swap": "Короткий спокойный храм на выходе из Saga; только до 16:45.", "url": "https://www.google.com/maps/search/?api=1&query=Seiryo-ji+Kyoto" }
+        {
+          "name": "Otagi Nenbutsu-ji",
+          "delta": "+35–45 мин",
+          "when": "Если приехали в Oku-Saga раньше 13:40",
+          "swap": "Заменяет Hiranoya и часть нижнего Bamboo; не трогает Daikakuji.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Otagi+Nenbutsu-ji"
+        },
+        {
+          "name": "Giō-ji",
+          "delta": "+30–40 мин",
+          "when": "Если Adashino не зашёл",
+          "swap": "Тихий моховой храм ниже по маршруту; это замена, не ещё один храм.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Gio-ji+Kyoto"
+        },
+        {
+          "name": "Seiryō-ji",
+          "delta": "+25–35 мин",
+          "when": "Если Bamboo прошли быстро",
+          "swap": "Короткий спокойный храм на выходе из Saga; только до 16:45.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Seiryo-ji+Kyoto"
+        }
       ],
       "meals": [
-        { "label": "Обед · Oku-Saga", "time": "13:40", "note": "Маршрут важнее ресторана: Hiranoya — только без ожидания.", "options": [
-          { "name": "Hiranoya", "score": "3.66", "dish": "shinko / ayu chazuke", "why": "Исторический чайный дом прямо на маршруте.", "route": "Только если посадка сразу; дорогой полный курс не брать.", "url": "https://tabelog.com/en/kyoto/A2601/A260403/26000808/", "pick": true },
-          { "name": "Arashiyama Yoshimura", "score": "3.51", "dish": "soba", "why": "Надёжная региональная лапша у реки.", "route": "Использовать при изменённом порядке дня/спуске к Arashiyama.", "url": "https://tabelog.com/en/kyoto/A2601/A260403/26000403/", "pick": false },
-          { "name": "Shōrai-an", "score": "3.5+", "dish": "yudōfu / tofu kaiseki", "why": "Киотский tofu как отдельный гастро-опыт.", "route": "Только с бронью 13:30 и только если заранее перестроен день; не спонтанный вариант.", "url": "https://tabelog.com/en/kyoto/A2601/A260403/26003826/", "pick": false }
-        ] },
-        { "label": "Поздний ужин · Shijō", "time": "21:00", "note": "После Moon Viewing нужен быстрый и предсказуемый формат рядом с отелем.", "options": [
-          { "name": "Menya Inoichi Hanare", "score": "3.66", "dish": "dashi ramen", "why": "Киотская лёгкая версия ramen и сильная оценка.", "route": "Проверить last order; очередь ограничить 20 минутами.", "url": "https://tabelog.com/en/kyoto/A2601/A260201/26029810/", "pick": true },
-          { "name": "Wajō Ryōmen Sugari", "score": "3.66", "dish": "motsu tsukemen", "why": "Характерный локальный вариант рядом с Shijō.", "route": "Резерв при удобных часах и короткой очереди.", "url": "https://tabelog.com/en/kyoto/A2601/rstLst/MC0101/", "pick": false },
-          { "name": "Menshō Takamatsu Honten", "score": "3.61", "dish": "tsukemen", "why": "Практичный поздний резерв.", "route": "Выбирать по фактическому last order.", "url": "https://tabelog.com/en/kyoto/A2601/rstLst/MC0101/", "pick": false }
-        ] }
+        {
+          "label": "Обед · Arashiyama",
+          "time": "13:20",
+          "note": "Перенесён до главной Bamboo Grove; Hiranoya остаётся короткой чайной остановкой, а не обязательным полным обедом.",
+          "options": [
+            {
+              "name": "Arashiyama Yoshimura",
+              "score": "3.51",
+              "dish": "соба",
+              "why": "Надёжная региональная лапша у реки.",
+              "route": "Использовать при изменённом порядке дня или спуске к Arashiyama.",
+              "url": "https://tabelog.com/en/kyoto/A2601/A260403/26000403/",
+              "pick": true
+            }
+          ]
+        },
+        {
+          "label": "После Daikakuji · только при голоде",
+          "time": "20:30+",
+          "note": "Menya Inoichi Hanare и Menshō Takamatsu не возвращаем: после лунного вечера окно слишком позднее и ненадёжное по часам.",
+          "options": [
+            {
+              "name": "Отель/konbini · простой подтверждённый набор",
+              "score": "—",
+              "dish": "onigiri / яйца / фрукты / готовый сет",
+              "why": "Не ставим ресторан на границе закрытия после длинного лунного вечера.",
+              "route": "Купить по пути после возвращения; выбирать по аппетиту, soft preference по свинине не является жёстким фильтром.",
+              "url": "https://www.google.com/maps/search/?api=1&query=Shijo+Kyoto+convenience+store",
+              "pick": true
+            }
+          ]
+        }
       ]
     },
     "sep-27-hakone": {
       "alternatives": [
-        { "name": "Gora Park", "delta": "+35–50 мин", "when": "Если Open-Air Museum закончили раньше", "swap": "Сад рядом с Gora; уйти не позже 15:15.", "url": "https://www.google.com/maps/search/?api=1&query=Hakone+Gora+Park" },
-        { "name": "Okada Museum of Art", "delta": "+90–120 мин", "when": "Если сильный дождь и Open-Air Museum не подходит", "swap": "Полная indoor-замена Open-Air, не дополнительный музей.", "url": "https://www.google.com/maps/search/?api=1&query=Okada+Museum+of+Art+Hakone" },
-        { "name": "Tonosawa river walk", "delta": "+20–30 мин", "when": "Если заселились раньше 16:30", "swap": "Короткая прогулка у рёкана; вернуться до onsen/ужина.", "url": "https://www.google.com/maps/search/?api=1&query=Tonosawa+Hakone" }
+        {
+          "name": "Gora Park",
+          "delta": "+35–50 мин",
+          "when": "Если Open-Air Museum закончили раньше",
+          "swap": "Сад рядом с Gora; уйти не позже 15:15.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Hakone+Gora+Park"
+        },
+        {
+          "name": "Художественный музей Окада",
+          "delta": "+90–120 мин",
+          "when": "Если сильный дождь и музей под открытым небом не подходит",
+          "swap": "Полная замена музея под открытым небом, а не дополнительная остановка.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Okada+Museum+of+Art+Hakone"
+        },
+        {
+          "name": "Tonosawa river walk",
+          "delta": "+20–30 мин",
+          "when": "Если заселились раньше 16:30",
+          "swap": "Короткая прогулка у рёкана; вернуться до onsen/ужина.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Tonosawa+Hakone"
+        }
       ],
       "meals": [
-        { "label": "Обед · Hakone-Yumoto/Odawara", "time": "11:15", "note": "Поесть до музея; не рассчитывать на случайное кафе внутри маршрута.", "options": [
-          { "name": "Hatsuhana Honten", "score": "3.49", "dish": "Hakone soba", "why": "Знаковая местная soba и логично по пути через Yumoto.", "route": "Если очередь длинная — сразу Akatsukian.", "url": "https://tabelog.com/en/kanagawa/A1410/A141001/14002450/", "pick": true },
-          { "name": "Hakone Akatsukian", "score": "3.45", "dish": "soba", "why": "Более спокойный резерв с традиционной атмосферой.", "route": "Проверить время автобуса к музею.", "url": "https://tabelog.com/en/kanagawa/A1410/A141001/14008090/", "pick": false },
-          { "name": "Odawara Bar", "score": "3.47", "dish": "local fish set", "why": "Рыба Sagami Bay вместо второй soba.", "route": "Только если едите у Odawara до покупки Freepass.", "url": "https://tabelog.com/en/kanagawa/A1409/", "pick": false }
-        ] },
-        { "label": "Ужин · Shiunso", "time": "18:00", "note": "Фиксированный kaiseki включён в рёкан — альтернативы не планируем, а заранее подтверждаем время и диеты.", "options": [
-          { "name": "Shiunso kaiseki", "score": "включено", "dish": "кайсэки в рёкане", "why": "Это один из ключевых гастрономических опытов поездки.", "route": "Заселение до 18:00; время ужина подтвердить заранее.", "url": "https://www.shiunso.co.jp/english/", "pick": true }
-        ] }
+        {
+          "label": "Ранний обед · в Hikari / с собой",
+          "time": "≈10:00–10:30",
+          "note": "Старый ресторанный слот 11:15 Hakone-Yumoto/Odawara удалён как физически несовместимый с Freepass и музеем 12:15.",
+          "options": [
+            {
+              "name": "Ekiben / onigiri до Odawara",
+              "score": "—",
+              "dish": "ekiben / onigiri по аппетиту",
+              "why": "Сохраняет реальное время на выход в Odawara, Freepass и дорогу к Chōkoku-no-mori.",
+              "route": "Купить в Kyoto Station до Hikari; soft preference по свинине не требует отбрасывать удобный ekiben.",
+              "url": "https://www.google.com/maps/search/?api=1&query=Kyoto+Station+ekiben",
+              "pick": true
+            }
+          ]
+        },
+        {
+          "label": "Ужин · Shiunso",
+          "time": "18:00",
+          "note": "Фиксированный кайсэки включён в рёкан: заранее подтвердить только время. Мягкое предпочтение по свинине можно сообщить, но не требовать переделывать курс.",
+          "options": [
+            {
+              "name": "Shiunso kaiseki",
+              "score": "включено",
+              "dish": "кайсэки в рёкане",
+              "why": "Это один из ключевых гастрономических опытов поездки.",
+              "route": "Заселение до 18:00; время ужина подтвердить письмом. Soft preference не должен ломать авторский курс.",
+              "url": "https://www.shiunso.co.jp/english/",
+              "pick": true
+            }
+          ]
+        }
       ]
     },
     "sep-28-tokyo": {
       "alternatives": [
-        { "name": "Hakone Checkpoint", "delta": "+40–55 мин", "when": "Если Shrine прошли быстро и автобус удобен", "swap": "История Tōkaidō; пропустить Ginza-страховку вечером.", "url": "https://www.google.com/maps/search/?api=1&query=Hakone+Checkpoint" },
-        { "name": "Narukawa Art Museum", "delta": "+45–60 мин", "when": "Если ropeway закрыт или погода у озера нестабильна", "swap": "Indoor и вид на озеро; заменяет часть петли, не добавляется сверху.", "url": "https://www.google.com/maps/search/?api=1&query=Narukawa+Art+Museum" },
-        { "name": "Hama-rikyū Gardens", "delta": "+50–70 мин", "when": "Если в Tokyo приехали до 16:00", "swap": "Сад рядом с Shimbashi; тогда Zōjō-ji оставить внешним осмотром.", "url": "https://www.google.com/maps/search/?api=1&query=Hama-rikyu+Gardens" }
+        {
+          "name": "Hakone Checkpoint",
+          "delta": "+40–55 мин",
+          "when": "Если Shrine прошли быстро и автобус удобен",
+          "swap": "История Tōkaidō; пропустить Ginza-страховку вечером.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Hakone+Checkpoint"
+        },
+        {
+          "name": "Художественный музей Нарукаява",
+          "delta": "+45–60 мин",
+          "when": "Если канатная дорога закрыта или погода у озера нестабильна",
+          "swap": "Помещение и вид на озеро; заменяет часть петли, а не добавляется сверху.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Narukawa+Art+Museum"
+        },
+        {
+          "name": "Hama-rikyū Gardens",
+          "delta": "+50–70 мин",
+          "when": "Если в Tokyo приехали до 16:00",
+          "swap": "Сад рядом с Shimbashi; тогда Zōjō-ji оставить внешним осмотром.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Hama-rikyu+Gardens"
+        }
       ],
       "meals": [
-        { "label": "Обед · Lake Ashi", "time": "12:40", "note": "После круиза выбрать по фактической стороне озера и очереди.", "options": [
-          { "name": "Shinshō Soba", "score": "3.46", "dish": "soba", "why": "Сильный маршрутный вариант в Moto-Hakone.", "route": "1 минута от остановки/музея Narukawa.", "url": "https://tabelog.com/en/kanagawa/A1410/A141001/14003762/", "pick": true },
-          { "name": "Ami-moto Ōba", "score": "3.4+", "dish": "wakasagi smelt", "why": "Самая характерная еда Lake Ashi.", "route": "Короткие часы 11:00–14:00; подходит только по стороне маршрута.", "url": "https://tabelog.com/en/kanagawa/A1410/A141001/14002676/", "pick": false },
-          { "name": "Ashinoko Chaya", "score": "3.29", "dish": "local set / soba", "why": "Оценка ниже, но логистика лучшая при дефиците времени.", "route": "Резерв, когда важнее уехать в Tokyo вовремя.", "url": "https://tabelog.com/en/kanagawa/A1410/A141001/14012018/", "pick": false }
-        ] },
-        { "label": "Ужин · Shinbashi", "time": "19:30", "note": "Три уровня: special occasion, бронируемый mid-range и простая izakaya.", "options": [
-          { "name": "Shimbashi Tsuruhachi", "score": "3.82", "dish": "Edomae sushi", "why": "Высокий гастрономический якорь Tokyo.", "route": "Только бронь; высокий бюджет ¥20–30k.", "url": "https://tabelog.com/en/tokyo/A1301/A130103/13173432/", "pick": true },
-          { "name": "Tori Sato", "score": "3.46", "dish": "yakitori", "why": "Фокусный yakitori-ужин без туристического шоу.", "route": "Лучше бронировать.", "url": "https://tabelog.com/en/tokyo/A1301/A130103/13268602/", "pick": false },
-          { "name": "Shusse Sakaba Daitōryō", "score": "3.53", "dish": "izakaya / motsuyaki", "why": "Живой локальный Shinbashi и гибкий вход.", "route": "Резерв без сложной логистики.", "url": "https://tabelog.com/en/tokyo/A1301/A130103/13094997/", "pick": false }
-        ] }
+        {
+          "label": "Обед · Moto-Hakone",
+          "time": "13:00",
+          "note": "После круиза группа уже в Moto-Hakone. Ami-moto Ōba у Tōgendai удалён: возвращаться через озеро/объезд нельзя.",
+          "options": [
+            {
+              "name": "Shinshō Soba",
+              "score": "3.46",
+              "dish": "соба",
+              "why": "Сильный маршрутный вариант в Moto-Hakone.",
+              "route": "1 минута от остановки или музея Narukawa.",
+              "url": "https://tabelog.com/en/kanagawa/A1410/A141001/14003762/",
+              "pick": true
+            },
+            {
+              "name": "Ashinoko Chaya",
+              "score": "3.29",
+              "dish": "местный сет / соба",
+              "why": "Оценка ниже, но логистика лучшая при дефиците времени.",
+              "route": "Резерв, когда важнее уехать в Токио вовремя.",
+              "url": "https://tabelog.com/en/kanagawa/A1410/A141001/14012018/",
+              "pick": false
+            }
+          ]
+        },
+        {
+          "label": "Ужин · Shinbashi",
+          "time": "19:15",
+          "note": "Imaasa — защищённый сукияки-вечер; суши и якитори остаются только резервами при срыве подтверждения.",
+          "options": [
+            {
+              "name": "Sukiyaki Imaasa",
+              "score": "3.34",
+              "dish": "сукияки из вагю",
+              "why": "Главный токийский ужин и отдельный классический жанр.",
+              "route": "Бронь через форму не позднее чем за 5 дней; подтверждена только после ответа ресторана. Базово курс Take, текущую поставку Мацусака уточнить.",
+              "url": "https://tabelog.com/en/tokyo/A1301/A130103/13007805/",
+              "pick": true
+            },
+            {
+              "name": "Shimbashi Tsuruhachi",
+              "score": "3.82",
+              "dish": "эдомаэ-суши",
+              "why": "Высокий гастрономический резерв Токио.",
+              "route": "Только бронь и высокий бюджет ¥20–30k; больше не основной выбор дня.",
+              "url": "https://tabelog.com/en/tokyo/A1301/A130103/13173432/",
+              "pick": false
+            },
+            {
+              "name": "Tori Sato",
+              "score": "3.46",
+              "dish": "якитори",
+              "why": "Специализированный ужин из птицы без туристического шоу.",
+              "route": "Резерв при срыве Imaasa; лучше бронировать, свинина в дополнительных блюдах не блокирует вариант.",
+              "url": "https://tabelog.com/en/tokyo/A1301/A130103/13268602/",
+              "pick": false
+            }
+          ]
+        }
       ]
     },
     "sep-29-tokyo": {
       "alternatives": [
-        { "name": "Ota Memorial Museum of Art", "delta": "+45–60 мин", "when": "Если Meiji прошли быстро и хочется ukiyo-e", "swap": "Заменяет кофе/часть шопинга до Nezu; проверить выставку и часы.", "url": "https://www.google.com/maps/search/?api=1&query=Ota+Memorial+Museum+of+Art" },
-        { "name": "Taro Okamoto Memorial Museum", "delta": "+35–50 мин", "when": "Если Nezu оказался коротким", "swap": "Дом-студия рядом с Aoyama; убрать один магазин.", "url": "https://www.google.com/maps/search/?api=1&query=Taro+Okamoto+Memorial+Museum" },
-        { "name": "Watari-um", "delta": "+40–55 мин", "when": "Если нужен блок современного искусства", "swap": "Только при сильной текущей выставке; заменить 40 минут шопинга.", "url": "https://www.google.com/maps/search/?api=1&query=Watari-um+Tokyo" }
+        {
+          "name": "Watari-um",
+          "delta": "+40–55 мин",
+          "when": "Если нужен блок современного искусства",
+          "swap": "Только при сильной текущей выставке; заменить 40 минут шопинга.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Watari-um+Tokyo"
+        }
       ],
       "meals": [
-        { "label": "Обед · Aoyama", "time": "12:15", "note": "Полный обед защищён; магазины подстраиваются под него.", "options": [
-          { "name": "Tonkatsu Maisen Aoyama", "score": "3.44", "dish": "tonkatsu", "why": "Знаковое блюдо Tokyo и историческое помещение.", "route": "Лучший базовый выбор; очередь ограничить 25 минутами.", "url": "https://tabelog.com/en/tokyo/A1306/A130602/13001850/", "pick": true },
-          { "name": "Kawakamian Tokyo", "score": "3.54", "dish": "soba", "why": "Сильный и более лёгкий обед.", "route": "Подходит при жаре и длинном вечере.", "url": "https://tabelog.com/en/tokyo/A1306/A130603/13252601/", "pick": false },
-          { "name": "Yamawarau Omotesando", "score": "3.47", "dish": "individual shabu-shabu", "why": "Японский hotpot без длинного вечернего ритуала.", "route": "Удобно по линейному коридору.", "url": "https://tabelog.com/en/tokyo/A1306/A130602/13191836/", "pick": false }
-        ] },
-        { "label": "Ужин · Shibuya/Ebisu", "time": "19:30", "note": "Из Shibuya можно быстро уйти на одну станцию в Ebisu ради лучшей еды.", "options": [
-          { "name": "Torikatsu Chicken", "score": "3.49", "dish": "teishoku / fried chicken", "why": "Нетривиальная Showa-точка, не сделанная под туристов.", "route": "Shibuya; бюджетно и без церемонии.", "url": "https://tabelog.com/en/tokyo/A1303/A130301/13001699/", "pick": true },
-          { "name": "Shusai Soba Shodai", "score": "3.49", "dish": "white curry udon", "why": "Узнаваемое блюдо Ebisu и поздние часы.", "route": "Одна станция; удобный резерв после Sky.", "url": "https://tabelog.com/en/tokyo/A1303/A130302/13118189/", "pick": false },
-          { "name": "Tori Yoshi Ebisu", "score": "3.66", "dish": "yakitori", "why": "Сильный specialist restaurant.", "route": "Только бронь и готовность к более дорогому ужину.", "url": "https://tabelog.com/en/tokyo/A1303/A130302/13175733/", "pick": false }
-        ] }
+        {
+          "label": "Обед · Aoyama",
+          "time": "11:55",
+          "note": "Полный обед защищён; магазины начинаются после него. Свинина — soft preference, не критерий исключения.",
+          "options": [
+            {
+              "name": "Kawakamian Tokyo",
+              "score": "3.54",
+              "dish": "соба",
+              "why": "Сильный и лёгкий базовый обед перед длинным коридором Aoyama.",
+              "route": "Подходит при жаре; заказывать по текущему меню; свинина в добавках не является стоп-фактором.",
+              "url": "https://tabelog.com/en/tokyo/A1306/A130603/13252601/",
+              "pick": true
+            }
+          ]
+        },
+        {
+          "label": "Ужин · Shibuya/Ebisu",
+          "time": "19:30",
+          "note": "Torikatsu остаётся базой как простой сильный вариант без брони. Tori Yoshi не ставим на 19:30 не из-за свинины, а из-за фиксированных посадок; его можно выбирать только под подтверждённый старт.",
+          "options": [
+            {
+              "name": "Torikatsu Chicken",
+              "score": "3.49",
+              "dish": "тэйсёку с жареной курицей",
+              "why": "Нетривиальная точка эпохи Сёва, не сделанная под туристов.",
+              "route": "Shibuya; бюджетно и без церемонии.",
+              "url": "https://tabelog.com/en/tokyo/A1303/A130301/13001699/",
+              "pick": true
+            }
+          ]
+        }
       ]
     },
     "sep-30-tokyo": {
       "alternatives": [
-        { "name": "Ueno Tōshō-gū", "delta": "+25–35 мин", "when": "Если Honkan закончили раньше", "swap": "Святилище прямо в Ueno Park; не двигать обед позже 13:00.", "url": "https://www.google.com/maps/search/?api=1&query=Ueno+Toshogu" },
-        { "name": "Kyu-Yasuda Garden", "delta": "+25–35 мин", "when": "Если Edo-Tokyo прошли быстро", "swap": "Бесплатный сад рядом с Ryōgoku; уйти к Ginza по плану.", "url": "https://www.google.com/maps/search/?api=1&query=Kyu-Yasuda+Garden" },
-        { "name": "Mitsubishi Ichigokan Museum", "delta": "+60–90 мин", "when": "Если шопинг-коридор больше не нужен", "swap": "Полная замена большей части шопинга в Гиндзе; проверить текущую выставку.", "url": "https://www.google.com/maps/search/?api=1&query=Mitsubishi+Ichigokan+Museum" }
+        {
+          "name": "Ueno Tōshō-gū",
+          "delta": "+25–35 мин",
+          "when": "Если Honkan закончили раньше",
+          "swap": "Святилище прямо в Ueno Park; не двигать обед позже 13:00.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Ueno+Toshogu"
+        },
+        {
+          "name": "Kyu-Yasuda Garden",
+          "delta": "+25–35 мин",
+          "when": "Если Edo-Tokyo прошли быстро",
+          "swap": "Бесплатный сад рядом с Ryōgoku; уйти к Ginza по плану.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Kyu-Yasuda+Garden"
+        }
       ],
       "meals": [
-        { "label": "Завтрак · Tsukiji", "time": "07:30", "note": "Одна тарелка, не дегустационный марафон перед музеями.", "options": [
-          { "name": "Kitsuneya", "score": "3.49", "dish": "horumon-don", "why": "Культовый простой завтрак рынка.", "route": "Уличная посадка; пропустить при длинной очереди.", "url": "https://tabelog.com/en/tokyo/A1313/A131301/13007656/", "pick": true },
-          { "name": "Tsukiji Donburi Ichiba", "score": "3.37", "dish": "kaisendon", "why": "Быстрый seafood bowl без дорогого omakase.", "route": "Практичный ранний резерв.", "url": "https://tabelog.com/en/tokyo/A1313/A131301/13020376/", "pick": false },
-          { "name": "Tsukiji Kanno Honten", "score": "3.48", "dish": "maguro-don", "why": "Ещё один локальный seafood формат.", "route": "Выбирать по самой короткой очереди.", "url": "https://tabelog.com/en/tokyo/A1313/A131301/rstLst/RC011105/", "pick": false }
-        ] },
-        { "label": "Обед · Ueno", "time": "12:45", "note": "Inshōtei — опыт; Yabu/Yamabe — быстрые региональные жанры.", "options": [
-          { "name": "Inshōtei", "score": "3.65", "dish": "seasonal Japanese set", "why": "Историческое место внутри Ueno Park без транспортного крюка.", "route": "Нужна бронь; контролировать время.", "url": "https://tabelog.com/en/tokyo/A1311/A131101/13003560/", "pick": true },
-          { "name": "Ueno Yabu Soba", "score": "3.50", "dish": "Edo soba", "why": "Классическая Tokyo soba.", "route": "Удобный резерв без долгого курса.", "url": "https://tabelog.com/en/tokyo/A1311/A131101/13003594/", "pick": false },
-          { "name": "Tonkatsu Yamabe Ueno", "score": "3.55", "dish": "tonkatsu", "why": "Высокая ценность и быстрый формат.", "route": "Выбрать, если Maisen не закрыт накануне.", "url": "https://tabelog.com/en/tokyo/A1311/A131101/13162760/", "pick": false }
-        ] },
-        { "label": "Ужин · Ginza", "time": "19:30", "note": "После шопинга — либо гастро-якорь по брони, либо выдающаяся лапша без церемонии.", "options": [
-          { "name": "Ginza Uchiyama", "score": "Tabelog 100", "dish": "tai chazuke / kaiseki", "why": "Один из главных гастрономических опытов поездки.", "route": "Только предварительная бронь.", "url": "https://tabelog.com/en/tokyo/A1301/A130101/13002322/", "pick": true },
-          { "name": "Ginza Yoshizawa", "score": "3.75", "dish": "Japanese seasonal cuisine", "why": "Сильная высокая кухня без туристического формата.", "route": "Бронь и высокий бюджет.", "url": "https://tabelog.com/en/tokyo/A1301/A130101/13175030/", "pick": false },
-          { "name": "Hashigo Honten", "score": "3.70", "dish": "dandanmen", "why": "Знаковая лапша Ginza и гибкие поздние часы.", "route": "Лучший резерв без брони.", "url": "https://tabelog.com/en/tokyo/A1301/A130101/13002646/", "pick": false }
-        ] },
-        { "label": "Fuji-сценарий · Kawaguchiko", "time": "12:45", "note": "Выбрать только одну миску и сохранить Fuji Excursion No.44.", "options": [
-          { "name": "Hōtō Fudō · station", "score": "3.43", "dish": "Yamanashi hōtō", "why": "Региональная обязательная лапша прямо у станции.", "route": "Самый безопасный вариант перед Oishi Park/поездом.", "url": "https://tabelog.com/en/yamanashi/A1903/A190303/19004308/", "pick": true },
-          { "name": "Kosaku Kawaguchiko", "score": "3.4+", "dish": "hōtō", "why": "Большой локальный выбор и стабильные дневные часы.", "route": "5 минут от Yakuba Iriguchi; учитывать автобус.", "url": "https://tabelog.com/en/yamanashi/A1903/A190303/19000046/", "pick": false },
-          { "name": "Hōtō Fudō · north shore", "score": "3.4+", "dish": "hōtō / horse meat", "why": "Подходит, если уже едете по Red Line к северному берегу.", "route": "Не делать отдельный taxi; только по автобусному маршруту.", "url": "https://tabelog.com/en/yamanashi/A1903/A190303/19000116/", "pick": false }
-        ] }
+        {
+          "label": "Завтрак · Tsukiji",
+          "time": "07:30",
+          "note": "Kitsuneya удалён: по средам закрыт. Tsukiji Kanno link заменён на карточку конкретного заведения.",
+          "options": [
+            {
+              "name": "Tsukiji Donburi Ichiba",
+              "score": "3.37",
+              "dish": "кайсэндон",
+              "why": "Быстрый донбури с морепродуктами без дорогого омакасэ.",
+              "route": "Практичный ранний резерв.",
+              "url": "https://tabelog.com/en/tokyo/A1313/A131301/13020376/",
+              "pick": true
+            },
+            {
+              "name": "Tsukiji Kanno Honten",
+              "score": "3.48",
+              "dish": "магуро-дон",
+              "why": "Ещё один локальный формат с морепродуктами.",
+              "route": "Выбирать по самой короткой очереди.",
+              "url": "https://tabelog.com/en/tokyo/A1313/A131301/13007619/",
+              "pick": false
+            }
+          ]
+        },
+        {
+          "label": "Обед · Ueno",
+          "time": "12:15",
+          "note": "Ueno Yabu Soba не использовать: среда — выходной. Inshōtei подходит только если бронь не ломает переход в Ryōgoku.",
+          "options": [
+            {
+              "name": "Inshōtei",
+              "score": "3.65",
+              "dish": "сезонный японский сет",
+              "why": "Историческое место внутри Ueno Park без транспортного крюка.",
+              "route": "Нужна бронь; контролировать длительность обеда, чтобы сохранить Edo-Tokyo в 14:15.",
+              "url": "https://tabelog.com/en/tokyo/A1311/A131101/13003560/",
+              "pick": true
+            }
+          ]
+        },
+        {
+          "label": "Ужин · Ginza",
+          "time": "19:30",
+          "note": "База — Ginza Kagari как гибкий вариант без фиксированной ранней брони в weather-reserve день. Не считать его pork-free: состав бульона/топпингов зависит от текущего меню. Uchiyama в 19:30 не возвращается из-за last order 19:00.",
+          "options": [
+            {
+              "name": "Ginza Kagari Honten",
+              "score": "3.75",
+              "dish": "tori paitan / ramen по текущему меню",
+              "why": "Сильный Ginza-вариант, который не требует защищать фиксированную бронь в день возможного Fuji-сценария.",
+              "route": "Свинина или pork-derived компоненты не являются стоп-фактором; не маркировать блюдо как pork-free и выбирать по текущему меню/очереди.",
+              "url": "https://tabelog.com/en/tokyo/A1301/A130101/13170325/",
+              "pick": true
+            },
+            {
+              "name": "Ginza Yoshizawa",
+              "score": "3.75",
+              "dish": "сезонная японская кухня",
+              "why": "Высокая кухня как заранее организованный вариант, если Fuji-сценарий точно отменён.",
+              "route": "Только при сознательной предварительной брони; не делать обязательной в weather-reserve день.",
+              "url": "https://tabelog.com/en/tokyo/A1301/A130101/13175030/",
+              "pick": false
+            }
+          ]
+        },
+        {
+          "label": "Сценарий Фудзи · Kawaguchiko",
+          "time": "12:45",
+          "note": "Выбрать только одну миску и сохранить Fuji Excursion No.44.",
+          "options": [
+            {
+              "name": "Hōtō Fudō · station",
+              "score": "3.43",
+              "dish": "хото Яманаси",
+              "why": "Региональная обязательная лапша прямо у станции.",
+              "route": "Самый безопасный вариант перед Oishi Park и поездом.",
+              "url": "https://tabelog.com/en/yamanashi/A1903/A190303/19004308/",
+              "pick": true
+            },
+            {
+              "name": "Kosaku Kawaguchiko",
+              "score": "3.4+",
+              "dish": "хото",
+              "why": "Большой локальный выбор и стабильные дневные часы.",
+              "route": "5 минут от Yakuba Iriguchi; учитывать автобус.",
+              "url": "https://tabelog.com/en/yamanashi/A1903/A190303/19000046/",
+              "pick": false
+            },
+            {
+              "name": "Hōtō Fudō · north shore",
+              "score": "3.4+",
+              "dish": "хото",
+              "why": "Подходит, если уже едете по Red Line к северному берегу.",
+              "route": "Не делать отдельное такси; заказать только хото без мясных добавок.",
+              "url": "https://tabelog.com/en/yamanashi/A1903/A190303/19000116/",
+              "pick": false
+            }
+          ]
+        }
       ]
     },
     "oct-01-asakusa": {
       "alternatives": [
-        { "name": "Edo Taito Traditional Crafts Center", "delta": "+25–35 мин", "when": "Если Sensō-ji прошли быстро", "swap": "Бесплатный контекст ремёсел перед Kappabashi; убрать один магазин.", "url": "https://www.google.com/maps/search/?api=1&query=Edo+Taito+Traditional+Crafts+Center" },
-        { "name": "Taiko Drum Museum", "delta": "+30–40 мин", "when": "Если Nakamise неинтересен", "swap": "Небольшой интерактивный музей на пути к Kappabashi; проверить четверг.", "url": "https://www.google.com/maps/search/?api=1&query=Taiko+Drum+Museum+Tokyo" },
-        { "name": "Sumida Hokusai Museum", "delta": "+60–80 мин", "when": "Если Kappabashi сознательно сокращён", "swap": "Полная замена 2–3 магазинов; выйти к отелю не позже 13:20.", "url": "https://www.google.com/maps/search/?api=1&query=Sumida+Hokusai+Museum" }
+        {
+          "name": "Edo Taito Traditional Crafts Center",
+          "delta": "+25–35 мин",
+          "when": "Если Sensō-ji прошли быстро",
+          "swap": "Бесплатный контекст ремёсел перед Kappabashi; убрать один магазин.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Edo+Taito+Traditional+Crafts+Center"
+        },
+        {
+          "name": "Taiko Drum Museum",
+          "delta": "+30–40 мин",
+          "when": "Если Nakamise неинтересен",
+          "swap": "Небольшой интерактивный музей на пути к Kappabashi; проверить четверг.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Taiko+Drum+Museum+Tokyo"
+        },
+        {
+          "name": "Sumida Hokusai Museum",
+          "delta": "+60–80 мин",
+          "when": "Если Kappabashi сознательно сокращён",
+          "swap": "Полная замена 2–3 магазинов; выйти к отелю не позже 13:20.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Sumida+Hokusai+Museum"
+        }
       ],
       "meals": [
-        { "label": "Обед · Asakusa", "time": "12:20", "note": "Приоритет — выйти к отелю вовремя; Yadoroku может закончить рис раньше.", "options": [
-          { "name": "Onigiri Asakusa Yadoroku", "score": "3.49", "dish": "onigiri", "why": "Старейший onigiri specialist Tokyo и лёгкий обед.", "route": "11:30–14:00 до sold out; проверить сразу.", "url": "https://tabelog.com/en/tokyo/A1311/A131102/13024859/", "pick": true },
-          { "name": "Daikokuya Tempura Honten", "score": "3.49", "dish": "Edo tempura-don", "why": "Классический Asakusa-жанр.", "route": "Только при очереди до 25 минут.", "url": "https://tabelog.com/en/tokyo/A1311/A131102/13003696/", "pick": false },
-          { "name": "Owariya Shiten", "score": "3.49", "dish": "soba", "why": "Надёжный быстрый резерв без туристического сета.", "route": "Четверг открыт по текущему расписанию; перепроверить.", "url": "https://tabelog.com/en/tokyo/A1311/A131102/R13507/rstLst/soba/", "pick": false }
-        ] },
-        { "label": "Поздний ужин · Ginza/Shinbashi", "time": "20:30", "note": "После kabuki нужен вариант без жёсткой брони.", "options": [
-          { "name": "Hashigo Honten", "score": "3.70", "dish": "dandanmen", "why": "Сильная Tokyo-лапша и очень поздние часы.", "route": "Ginza; практичный выбор после спектакля.", "url": "https://tabelog.com/en/tokyo/A1301/A130101/13002646/", "pick": true },
-          { "name": "Ginza Kagari Honten", "score": "3.66", "dish": "chicken paitan ramen", "why": "Отдельный Tokyo ramen-style.", "route": "Проверить last order и очередь.", "url": "https://tabelog.com/en/tokyo/A1301/A130101/R12676/rstLst/RC1101/", "pick": false },
-          { "name": "Shusse Sakaba Daitōryō", "score": "3.53", "dish": "izakaya / motsuyaki", "why": "Локальный Shinbashi у отеля.", "route": "Лучший вариант, если хочется не лапшу.", "url": "https://tabelog.com/en/tokyo/A1301/A130103/13094997/", "pick": false }
-        ] }
+        {
+          "label": "Обед · Asakusa",
+          "time": "12:20",
+          "note": "Приоритет — выйти к отелю вовремя; Yadoroku может закончить рис раньше.",
+          "options": [
+            {
+              "name": "Onigiri Asakusa Yadoroku",
+              "score": "3.49",
+              "dish": "онигири",
+              "why": "Старейший специализированный ресторан онигири в Токио и лёгкий обед.",
+              "route": "11:30–14:00 до окончания риса; проверить сразу.",
+              "url": "https://tabelog.com/en/tokyo/A1311/A131102/13024859/",
+              "pick": true
+            },
+            {
+              "name": "Daikokuya Tempura Honten",
+              "score": "3.49",
+              "dish": "эдоский тэмпура-дон",
+              "why": "Классический жанр Asakusa.",
+              "route": "Только при очереди до 25 минут.",
+              "url": "https://tabelog.com/en/tokyo/A1311/A131102/13003696/",
+              "pick": false
+            },
+            {
+              "name": "Owariya Shiten",
+              "score": "3.49",
+              "dish": "соба",
+              "why": "Надёжный быстрый резерв без туристического сета.",
+              "route": "Четверг открыт по текущему расписанию; перепроверить.",
+              "url": "https://tabelog.com/en/tokyo/A1311/A131102/13008597/",
+              "pick": false
+            }
+          ]
+        },
+        {
+          "label": "Поздний ужин · Ginza/Shinbashi",
+          "time": "20:30",
+          "note": "База — Hashigo на обратной Ginza Line: поздно, без сложной брони и логистически удобно после Nakamuraza. Tantanmen/топпинги могут содержать свинину — в soft-режиме это допустимо и должно быть осознанным выбором.",
+          "options": [
+            {
+              "name": "Hashigo Ginza",
+              "score": "3.68",
+              "dish": "dandanmen / 排骨担々麺 по текущему меню",
+              "why": "Классический поздний Tokyo ramen-style ужин на прямой линии обратно к Shimbashi.",
+              "route": "Не считать pork-free; свинина/свиной компонент допустимы по soft preference. Проверить текущие часы перед поездкой.",
+              "url": "https://tabelog.com/en/tokyo/A1301/A130101/13002572/",
+              "pick": true
+            },
+            {
+              "name": "Tori Sato",
+              "score": "3.46",
+              "dish": "якитори",
+              "why": "Резерв с фокусом на птицу рядом с Shinbashi.",
+              "route": "Использовать только если подтверждена поздняя посадка; pork-free подтверждение больше не требуется.",
+              "url": "https://tabelog.com/en/tokyo/A1301/A130103/13268602/",
+              "pick": false
+            }
+          ]
+        }
       ]
     },
     "oct-02-departure": {
       "alternatives": [
-        { "name": "Atago Shrine", "delta": "+30–40 мин", "when": "Только если багаж собран и выезд подтверждён", "swap": "Короткий локальный подъём рядом с отелем; вернуться к 10:30.", "url": "https://www.google.com/maps/search/?api=1&query=Atago+Shrine+Tokyo" },
-        { "name": "Hama-rikyū Gardens", "delta": "+60–75 мин", "when": "Только при выезде из отеля не позже 11:00", "swap": "Последняя прогулка вместо долгого завтрака; не совмещать с Atago.", "url": "https://www.google.com/maps/search/?api=1&query=Hama-rikyu+Gardens" },
-        { "name": "Смотровая площадка NRT T1", "delta": "+20–30 мин", "when": "Если уже прошли регистрацию и запас времени достаточен", "swap": "Безопасная последняя точка внутри аэропорта; вернуться к выходу на посадку по табло.", "url": "https://www.narita-airport.jp/en/service/airport-observation-deck/" }
+        {
+          "name": "Atago Shrine",
+          "delta": "+30–40 мин",
+          "when": "Только если багаж собран и выезд подтверждён",
+          "swap": "Короткий локальный подъём рядом с отелем; вернуться к 10:30.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Atago+Shrine+Tokyo"
+        },
+        {
+          "name": "Hama-rikyū Gardens",
+          "delta": "+60–75 мин",
+          "when": "Только при выезде из отеля не позже 11:00",
+          "swap": "Последняя прогулка вместо долгого завтрака; не совмещать с Atago.",
+          "url": "https://www.google.com/maps/search/?api=1&query=Hama-rikyu+Gardens"
+        },
+        {
+          "name": "Смотровая площадка NRT T1",
+          "delta": "+20–30 мин",
+          "when": "Если уже прошли регистрацию и запас времени достаточен",
+          "swap": "Безопасная последняя точка внутри аэропорта; вернуться к выходу на посадку по табло.",
+          "url": "https://www.narita-airport.jp/en/service/airport-observation-deck/"
+        }
       ],
       "meals": [
-        { "label": "Поздний обед · NRT T1", "time": "14:00", "note": "Выбирать после регистрации; выход на посадку и её время важнее ресторана.", "options": [
-          { "name": "Kawatoyo · NRT T1", "score": "3.62", "dish": "unagi", "why": "Сильный финальный японский специалитет в аэропорту.", "route": "Только при запасе не меньше 90 минут до boarding.", "url": "https://tabelog.com/en/chiba/A1204/A120401/R7231/rstLst/RC011199/", "pick": true },
-          { "name": "Dashi Chazuke En", "score": "3.25", "dish": "ochazuke", "why": "Лёгкий и быстрый прощальный обед.", "route": "Лучший резерв при ограниченном времени.", "url": "https://tabelog.com/en/chiba/A1204/A120401/12004604/", "pick": false },
-          { "name": "Sushi Kyotatsu", "score": "3.2+", "dish": "sushi", "why": "Практичный аэропортовый вариант японской классики.", "route": "Выбирать только по короткой очереди.", "url": "https://tabelog.com/en/chiba/A1204/A120401/12000918/", "pick": false }
-        ] }
+        {
+          "label": "NRT T1 · решить ДО security",
+          "time": "13:15–15:00",
+          "note": "Не считать три ресторана взаимозаменяемыми после регистрации: Kawatoyo и Dashi Chazuke En — до security; Sushi Kyotatsu — после security.",
+          "options": [
+            {
+              "name": "Kawatoyo · NRT T1",
+              "score": "3.62",
+              "dish": "унаги",
+              "why": "Сильный финальный японский специалитет в аэропорту.",
+              "route": "T1 Central Building 4F · BEFORE SECURITY. Есть только до прохождения контроля.",
+              "url": "https://www.narita-airport.jp/en/shop/shop-search/t1nc4f_kwty/",
+              "pick": false
+            },
+            {
+              "name": "Dashi Chazuke En",
+              "score": "3.25",
+              "dish": "отядзукэ",
+              "why": "Лёгкий и быстрый прощальный обед.",
+              "route": "T1 Central Building 4F · BEFORE SECURITY. Быстрый landside-вариант.",
+              "url": "https://www.narita-airport.jp/en/shop/shop-search/t1cb04_t0000a/",
+              "pick": false
+            },
+            {
+              "name": "Sushi Kyotatsu",
+              "score": "3.2+",
+              "dish": "суши",
+              "why": "Практичный аэропортовый вариант японской классики.",
+              "route": "AFTER SECURITY (international). Выбрать подходящую точку по гейту/спутнику после контроля.",
+              "url": "https://www.narita-airport.jp/en/shop/shop-search/t1_kyotatsu_north/",
+              "pick": false
+            }
+          ]
+        }
       ]
     }
   },
   "foodPassport": [
-    { "id": "osaka-okonomiyaki", "dish": "Okonomiyaki / negiyaki", "region": "Osaka", "day": "21–22.09", "level": "must", "note": "Fukutaro или Sakura" },
-    { "id": "osaka-udon", "dish": "Osaka udon", "region": "Osaka", "day": "21.09", "level": "bonus", "note": "Udon-ya Kisuke" },
-    { "id": "nara-kakinoha", "dish": "Kakinoha-zushi", "region": "Nara", "day": "22.09", "level": "must", "note": "Hirasō; можно взять небольшую порцию" },
-    { "id": "nara-yamato", "dish": "Yamato beef", "region": "Nara", "day": "22.09", "level": "bonus", "note": "Momoshiki" },
-    { "id": "himeji-anago", "dish": "Anago-meshi", "region": "Himeji/Miyajima", "day": "23–24.09", "level": "must", "note": "Yamayoshi или Mame-tanuki" },
-    { "id": "himeji-ekisoba", "dish": "Himeji ekisoba", "region": "Himeji", "day": "23.09", "level": "bonus", "note": "Maneki" },
-    { "id": "hiroshima-oyster", "dish": "Hiroshima oysters", "region": "Miyajima", "day": "24.09", "level": "must", "note": "Kakiya" },
-    { "id": "hiroshima-okonomi", "dish": "Hiroshima okonomiyaki", "region": "Hiroshima", "day": "24.09", "level": "must", "note": "Reichan / Denkō Sekka" },
-    { "id": "kyoto-sabazushi", "dish": "Saba-zushi", "region": "Kyoto", "day": "25.09", "level": "must", "note": "Izuu" },
-    { "id": "kyoto-tofu", "dish": "Yudōfu / yuba", "region": "Kyoto", "day": "25–26.09", "level": "bonus", "note": "Shōrai-an только при заранее изменённом плане" },
-    { "id": "hakone-soba", "dish": "Hakone soba", "region": "Hakone", "day": "27–28.09", "level": "must", "note": "Hatsuhana / Shinshō" },
-    { "id": "hakone-wakasagi", "dish": "Wakasagi", "region": "Lake Ashi", "day": "28.09", "level": "bonus", "note": "Ami-moto Ōba" },
-    { "id": "ryokan-kaiseki", "dish": "Ryokan kaiseki", "region": "Hakone", "day": "27.09", "level": "must", "note": "Shiunso; фиксированный ужин" },
-    { "id": "tokyo-edomae", "dish": "Edomae sushi", "region": "Tokyo", "day": "28.09", "level": "must", "note": "Tsuruhachi по брони" },
-    { "id": "tokyo-tonkatsu", "dish": "Tonkatsu", "region": "Tokyo", "day": "29–30.09", "level": "must", "note": "Maisen / Yamabe" },
-    { "id": "tokyo-yakitori", "dish": "Yakitori", "region": "Tokyo", "day": "28–29.09", "level": "bonus", "note": "Tori Sato / Tori Yoshi" },
-    { "id": "tokyo-tempura", "dish": "Edo tempura", "region": "Tokyo", "day": "01.10", "level": "must", "note": "Daikokuya" },
-    { "id": "tokyo-soba", "dish": "Edo soba", "region": "Tokyo", "day": "30.09", "level": "must", "note": "Ueno Yabu" },
-    { "id": "tokyo-ramen", "dish": "Tokyo ramen / dandanmen", "region": "Tokyo", "day": "30.09–01.10", "level": "must", "note": "Hashigo / Kagari" },
-    { "id": "tokyo-unagi", "dish": "Unagi", "region": "Tokyo/Narita", "day": "02.10", "level": "bonus", "note": "Kawatoyo при запасе времени" },
-    { "id": "fuji-hoto", "dish": "Hōtō", "region": "Yamanashi", "day": "30.09 · Fuji", "level": "must", "note": "Только если выбран Fuji-сценарий" }
+    {
+      "id": "osaka-matsusaka",
+      "dish": "Якинику из говядины Мацусака",
+      "region": "Осака",
+      "day": "23.09",
+      "level": "must",
+      "note": "Matsusaka M; омакасэ-тарелка из 5–6 отрубов"
+    },
+    {
+      "id": "nara-kakinoha",
+      "dish": "Какиноха-дзуси",
+      "region": "Нара",
+      "day": "22.09",
+      "level": "must",
+      "note": "Hirasō Naramachi — целевое место после подтверждения праздничного графика"
+    },
+    {
+      "id": "nara-yamato",
+      "dish": "Говядина Ямато",
+      "region": "Нара",
+      "day": "22.09",
+      "level": "bonus",
+      "note": "Momoshiki"
+    },
+    {
+      "id": "himeji-anago",
+      "dish": "Анаго-мэси",
+      "region": "Химэдзи / Миядзима",
+      "day": "23–24.09",
+      "level": "must",
+      "note": "Yamayoshi или Mame-tanuki"
+    },
+    {
+      "id": "himeji-ekisoba",
+      "dish": "Экисоба Химэдзи",
+      "region": "Химэдзи",
+      "day": "23.09",
+      "level": "bonus",
+      "note": "Maneki"
+    },
+    {
+      "id": "hiroshima-oyster",
+      "dish": "Хиросимские устрицы",
+      "region": "Миядзима",
+      "day": "24.09",
+      "level": "must",
+      "note": "Kakiya"
+    },
+    {
+      "id": "kyoto-sabazushi",
+      "dish": "Саба-дзуси",
+      "region": "Киото",
+      "day": "25.09",
+      "level": "must",
+      "note": "Izuu"
+    },
+    {
+      "id": "kyoto-tofu",
+      "dish": "Юдофу / юба",
+      "region": "Киото",
+      "day": "25–26.09",
+      "level": "bonus",
+      "note": "Shōrai-an только при заранее изменённом плане"
+    },
+    {
+      "id": "hakone-soba",
+      "dish": "Соба Хаконе",
+      "region": "Хаконе",
+      "day": "27–28.09",
+      "level": "must",
+      "note": "Hatsuhana / Shinshō"
+    },
+    {
+      "id": "ryokan-kaiseki",
+      "dish": "Кайсэки в рёкане",
+      "region": "Хаконе",
+      "day": "27.09",
+      "level": "must",
+      "note": "Shiunso; мягкое предпочтение по свинине можно сообщить заранее"
+    },
+    {
+      "id": "tokyo-sukiyaki",
+      "dish": "Сукияки",
+      "region": "Токио",
+      "day": "28.09",
+      "level": "must",
+      "note": "Imaasa; курс Take, поставку Мацусака подтвердить"
+    },
+    {
+      "id": "tokyo-edomae",
+      "dish": "Эдомаэ-суши",
+      "region": "Токио",
+      "day": "28.09",
+      "level": "bonus",
+      "note": "Tsuruhachi только как отдельный резерв по брони"
+    },
+    {
+      "id": "tokyo-yakitori",
+      "dish": "Якитори",
+      "region": "Токио",
+      "day": "28–29.09",
+      "level": "bonus",
+      "note": "Tori Sato — резерв только при подтверждённой поздней посадке"
+    },
+    {
+      "id": "tokyo-tempura",
+      "dish": "Эдоская тэмпура",
+      "region": "Токио",
+      "day": "01.10",
+      "level": "must",
+      "note": "Daikokuya"
+    },
+    {
+      "id": "tokyo-unagi",
+      "dish": "Унаги",
+      "region": "Токио / Нарита",
+      "day": "02.10",
+      "level": "bonus",
+      "note": "Kawatoyo при запасе времени"
+    },
+    {
+      "id": "fuji-hoto",
+      "dish": "Хото",
+      "region": "Яманаси",
+      "day": "30.09 · Фудзи",
+      "level": "must",
+      "note": "Только если выбран сценарий Фудзи"
+    }
   ]
 }
