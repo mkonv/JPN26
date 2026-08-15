@@ -63,6 +63,8 @@ test("static export renders all critical Russian content", async () => {
     readOutput("plan-b/index.html"),
   ]);
   const clean = (html) => html.replaceAll("<!-- -->", "");
+  const enrichment = JSON.parse(await readProject("data/travel-enrichment.json"));
+  const mustCount = enrichment.foodPassport.filter((item) => item.level === "must").length;
 
   assert.doesNotMatch(home, /codex-preview/i);
   assert.match(home, /Пекин → Япония → Чэнду/);
@@ -73,7 +75,7 @@ test("static export renders all critical Russian content", async () => {
   assert.match(china, /FAIRFIELD BY MARRIOTT BEIJING CAPITAL AIRPORT/);
   assert.match(china, /CROWNE PLAZA CHENGDU CITY CENTER/);
   assert.match(food, /Гастрономическое путешествие/);
-  assert.match(clean(food), /9 главных/);
+  assert.match(clean(food), new RegExp(`${mustCount} главных`));
   assert.match(day, /Куда свернуть/);
   assert.match(day, /Где поесть/);
   assert.match(day, /大阪/);
