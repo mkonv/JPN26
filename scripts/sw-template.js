@@ -147,14 +147,17 @@ self.addEventListener("fetch", (event) => {
   if (request.mode === "navigate") {
     event.respondWith((async () => {
       const normalized = normalizedNavigationUrl(request.url);
-      const cached = await matchOwn(normalized);
-      if (cached) return cached;
       try {
-        const response = await fetch(request);
+        // Online: prefer the deployed HTML so a previously installed PWA cannot
+        // pin an old navigation shell after a successful GitHub Pages release.
+        const response = await fetch(new Request(request, { cache: "no-store" }));
         if (response.ok) (await caches.open(RUNTIME_CACHE)).put(normalized, response.clone());
         return response;
       } catch {
-        return await matchOwn(`${self.registration.scope}`) ?? Response.error();
+        // Offline: use this build first, then the previous complete precache.
+        return await matchOwn(normalized)
+          ?? await matchOwn(`${self.registration.scope}`)
+          ?? Response.error();
       }
     })());
     return;

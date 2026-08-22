@@ -64,6 +64,22 @@ try {
     serviceWorkers: "block",
   });
   const page = await context.newPage();
+
+  // Regression guard: the portrait UI must expose Shopping directly and all
+  // secondary guides through the top reference menu.
+  await page.goto(`${origin}${basePath}/`, { waitUntil: "networkidle" });
+  const portraitNav = await page.evaluate(() => ({
+    shoppingVisible: [...document.querySelectorAll(".bottom-nav a")].some((node) =>
+      node.textContent?.includes("Шопинг") && getComputedStyle(node).display !== "none"
+    ),
+    referenceVisible: (() => {
+      const node = document.querySelector(".mobile-reference-menu");
+      return Boolean(node && getComputedStyle(node).display !== "none");
+    })(),
+  }));
+  assert.equal(portraitNav.shoppingVisible, true, "portrait bottom navigation must expose Shopping");
+  assert.equal(portraitNav.referenceVisible, true, "portrait top bar must expose the reference menu");
+
   const routes = offlineManifest.routes.filter((route) => !route.endsWith("404.html"));
   const captures = new Map([
     [`${basePath}/`, "home"],

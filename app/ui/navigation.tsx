@@ -11,6 +11,14 @@ const mainNav = [
   { href: "/pocket", label: "Карман", icon: ShieldCheck },
 ];
 
+const mobileNav = [
+  { href: "/", label: "Главная", icon: Home },
+  { href: "/day", label: "Дни", icon: CalendarDays },
+  { href: "/shopping", label: "Шопинг", icon: ShoppingBag },
+  { href: "/todo", label: "Подготовка", icon: CheckSquare2 },
+  { href: "/pocket", label: "Карман", icon: ShieldCheck },
+];
+
 const referenceNav = [
   { href: "/china", label: "Китай", icon: Plane },
   { href: "/food", label: "Гастрономия", icon: UtensilsCrossed },
@@ -73,7 +81,7 @@ export function MobileNavigation() {
   const isActive = useActiveRoute();
   return (
     <nav className="bottom-nav" aria-label="Основная навигация">
-      {mainNav.map((item) => (
+      {mobileNav.map((item) => (
         <a className={isActive(item.href) ? "active" : ""} href={withBasePath(item.href)} key={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
           <item.icon size={21} strokeWidth={isActive(item.href) ? 2.2 : 1.8} />
           <span>{item.label}</span>
