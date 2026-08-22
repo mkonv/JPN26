@@ -42,7 +42,7 @@ export default function ChinaPage() {
         <div className="china-hotel-cards">
           {hotels.map((hotel) => (
             <article key={hotel.name}>
-              <Hotel size={19} /><div><span>{hotel.city} · {hotel.dates}</span><h3>{hotel.name}</h3><p className="china-local-address">{hotel.localAddress}</p><small>{hotel.address}</small><a href={`tel:${hotel.phone.replace(/\s/g, "")}`}>{hotel.phone}</a><em>{hotel.note}</em></div>
+              <Hotel size={19} /><div><span>{hotel.city} · {hotel.dates}</span><h3>{hotel.name}</h3><p className="china-local-address">{hotel.localAddress}</p><small>{hotel.address}</small><a href={`tel:${hotel.phone.replace(/\s/g, "")}`}>{hotel.phone}</a><div className="place-link-row"><a href={hotel.mapUrl} target="_blank" rel="noreferrer">Amap</a><a href={hotel.appleMapsUrl} target="_blank" rel="noreferrer">Apple Maps</a><a href={hotel.googleMapsUrl} target="_blank" rel="noreferrer">Google Maps</a></div><em>{hotel.note}</em></div>
             </article>
           ))}
         </div>
@@ -71,16 +71,16 @@ function ChinaStop({ stop, eyebrow }: { stop: ChinaStopData; eyebrow: string }) 
       <div className="section-heading"><div><span>{eyebrow}</span><h2>{stop.title}</h2></div></div>
       <p className="parallel-intro">{stop.summary}</p>
       <div className="china-timeline">
-        {stop.timeline.map((item, index) => <article key={`${item.time}-${item.title}`}><span>{index + 1}</span><time>{item.time}</time><div><strong>{item.title}</strong><p>{item.detail}</p></div></article>)}
+        {stop.timeline.map((item, index) => <article key={`${item.time}-${item.title}`}><span>{index + 1}</span><time>{item.time}</time><div><strong>{item.title}</strong><p>{item.detail}</p>{item.mapLinks?.length > 0 && <div className="route-map-links">{item.mapLinks.map((map) => <a className="route-map-link" href={map.url} target="_blank" rel="noreferrer" key={`${item.title}-${map.label}`}>{map.label} <ExternalLink size={13} /></a>)}</div>}</div></article>)}
       </div>
       <div className="china-map-block">
         <div className="china-food-head"><MapPinned size={18} /><div><span>готово для Китая</span><strong>Китайские адреса + Amap</strong></div></div>
-        <div className="china-place-list">{stop.places.map((place) => <a href={place.amap} target="_blank" rel="noreferrer" key={place.name}><div><strong>{place.name}</strong><p>{place.address}</p></div><ExternalLink size={16} /></a>)}</div>
+        <div className="china-place-list">{stop.places.map((place) => <article key={place.name}><div><strong>{place.name}</strong><p>{place.address}</p></div><div className="place-link-row"><a href={place.amap} target="_blank" rel="noreferrer">Amap</a><a href={place.appleMapsUrl} target="_blank" rel="noreferrer">Apple Maps</a><a href={place.googleMapsUrl} target="_blank" rel="noreferrer">Google Maps</a></div></article>)}</div>
       </div>
       <div className="china-food-block">
         <div className="china-food-head"><UtensilsCrossed size={18} /><div><span>soft preference по свинине</span><strong>Сильное место важнее абсолютного запрета</strong></div></div>
         <p className="china-food-warning">{enrichment.meta.foodSafety.summary}</p>
-        <div className="china-food-list">{stop.food.map((item) => <a href={item.url} target="_blank" rel="noreferrer" key={item.name}><div><strong>{item.name}</strong><span>{item.dish}</span><p>{item.fit}</p></div><MapPinned size={17} /></a>)}</div>
+        <div className="china-food-list">{stop.food.map((rawItem) => { const item = rawItem as typeof rawItem & { amapUrl?: string; appleMapsUrl?: string; googleMapsUrl?: string; mapExempt?: boolean }; return <article key={item.name}><div><strong>{item.name}</strong><span>{item.dish}</span><p>{item.fit}</p></div>{(item.amapUrl || item.appleMapsUrl || item.googleMapsUrl) && <div className="place-link-row">{item.amapUrl && <a href={item.amapUrl} target="_blank" rel="noreferrer">Amap</a>}{item.appleMapsUrl && <a href={item.appleMapsUrl} target="_blank" rel="noreferrer">Apple Maps</a>}{item.googleMapsUrl && <a href={item.googleMapsUrl} target="_blank" rel="noreferrer">Google Maps</a>}</div>}</article>; })}</div>
       </div>
       {stop.id === "beijing-stopover" && <div className="china-warning"><AlertTriangle size={18} /><p><strong>Багажная развилка:</strong> не угадывать. В SVO прочитать аэропорт на бирке: PEK — получаем 20.09; KIX — багаж следует дальше. На PEK всё равно подтвердить у стойки транзита.</p></div>}
     </section>

@@ -1,8 +1,8 @@
 {
   "meta": {
     "journeyDates": "19 сентября — 3 октября 2026",
-    "sourceChecked": "15 августа 2026 · полный аудит",
-    "version": "2026.08.15-v6-audit-fixed",
+    "sourceChecked": "22 августа 2026 · weekly delta + Google Maps canonicalization + shopping optionality audit",
+    "version": "2026.08.22-v9-maps-shopping-canonical",
     "tabelogNote": "После аудита ресторан считается рабочим кандидатом только при подтверждённых часах на дату и реалистичной логистике. Свинина — мягкое предпочтение, а не запрет: если сильное место или конкретное блюдо содержит свинину, это явно отмечается, но само по себе не блокирует рекомендацию.",
     "foodSafety": {
       "title": "Свинина — soft preference",
@@ -66,7 +66,9 @@
       "localAddress": "北京市顺义区府前一街17号",
       "phone": "+86 10 6458 5888",
       "note": "Бесплатный круглосуточный трансфер отеля к PEK T2/T3; место посадки уточнить у отеля после прилёта.",
-      "mapUrl": "https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E6%9C%BA%E5%9C%BA%E4%B8%87%E6%9E%AB%E9%85%92%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E9%A1%BA%E4%B9%89%E5%8C%BA%E5%BA%9C%E5%89%8D%E4%B8%80%E8%A1%9717%E5%8F%B7&view=map&src=japan2026"
+      "mapUrl": "https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E6%9C%BA%E5%9C%BA%E4%B8%87%E6%9E%AB%E9%85%92%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E9%A1%BA%E4%B9%89%E5%8C%BA%E5%BA%9C%E5%89%8D%E4%B8%80%E8%A1%9717%E5%8F%B7&view=map&src=japan2026",
+      "googleMapsUrl": "https://www.google.com/maps/place/FAIRFIELD+BY+MARRIOTT+BEIJING+CAPITAL+AIRPORT%2C+No.+17+Fuqian+First+Street%2C+Shunyi+District%2C+Beijing+101312%2C+China/",
+      "appleMapsUrl": "https://maps.apple.com/?q=FAIRFIELD%20BY%20MARRIOTT%20BEIJING%20CAPITAL%20AIRPORT%20No.%2017%20Fuqian%20First%20Street%2C%20Shunyi%20District%2C%20Beijing%20101312%2C%20China"
     },
     {
       "city": "Чэнду",
@@ -76,7 +78,9 @@
       "localAddress": "成都市总府街31号",
       "phone": "+86 28 8678 6666",
       "note": "В центре рядом с Taikoo Li/IFS; собственного трансфера из аэропорта нет.",
-      "mapUrl": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E6%80%BB%E5%BA%9C%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E6%80%BB%E5%BA%9C%E8%A1%9731%E5%8F%B7&view=map&src=japan2026"
+      "mapUrl": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E6%80%BB%E5%BA%9C%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E6%80%BB%E5%BA%9C%E8%A1%9731%E5%8F%B7&view=map&src=japan2026",
+      "googleMapsUrl": "https://www.google.com/maps/place/CROWNE+PLAZA+CHENGDU+CITY+CENTER%2C+No.+31+Zongfu+Street%2C+Chengdu+610016%2C+China/",
+      "appleMapsUrl": "https://maps.apple.com/?q=CROWNE%20PLAZA%20CHENGDU%20CITY%20CENTER%20No.%2031%20Zongfu%20Street%2C%20Chengdu%20610016%2C%20China"
     }
   ],
   "china": {
@@ -95,47 +99,125 @@
         {
           "time": "19.09 · 16:30",
           "title": "Быть в SVO",
-          "detail": "Регистрация HU7986, проверить конечный пункт багажной бирки: PEK или KIX."
+          "detail": "Регистрация HU7986, проверить конечный пункт багажной бирки: PEK или KIX.",
+          "mapLinks": [
+            {
+              "label": "Sheremetyevo Airport Terminal C",
+              "url": "https://www.google.com/maps/place/Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia/"
+            }
+          ]
         },
         {
           "time": "20:05",
           "title": "HU7986 · SVO → PEK",
-          "detail": "Ночной перелёт; паспорт и бронь HU473 держать в ручной клади."
+          "detail": "Ночной перелёт; паспорт и бронь HU473 держать в ручной клади.",
+          "mapLinks": [
+            {
+              "label": "Sheremetyevo Airport Terminal C",
+              "url": "https://www.google.com/maps/place/Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia/"
+            },
+            {
+              "label": "Beijing Capital Airport Terminal 2",
+              "url": "https://www.google.com/maps/place/Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China/"
+            }
+          ]
         },
         {
           "time": "20.09 · 08:55",
           "title": "Прилёт в Пекин",
-          "detail": "Иммиграция/транзитное разрешение. Если багаж оформлен только до PEK — получить его."
+          "detail": "Иммиграция/транзитное разрешение. Если багаж оформлен только до PEK — получить его.",
+          "mapLinks": [
+            {
+              "label": "Beijing Capital Airport Terminal 2",
+              "url": "https://www.google.com/maps/place/Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China/"
+            }
+          ]
         },
         {
           "time": "10:45",
           "title": "Fairfield и багаж",
-          "detail": "Позвонить в отель по Wi-Fi аэропорта и уточнить точку посадки на трансфер T2/T3; оставить вещи."
+          "detail": "Позвонить в отель по Wi-Fi аэропорта и уточнить точку посадки на трансфер T2/T3; оставить вещи.",
+          "mapLinks": [
+            {
+              "label": "Beijing Capital Airport Terminal 2",
+              "url": "https://www.google.com/maps/place/Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China/"
+            },
+            {
+              "label": "Fairfield Beijing Capital Airport",
+              "url": "https://www.google.com/maps/place/Fairfield+by+Marriott+Beijing+Capital+Airport%2C+17+Fuqian+First+Street%2C+Beijing%2C+China/"
+            }
+          ]
         },
         {
           "time": "12:30",
           "title": "Lama Temple + Wudaoying",
-          "detail": "Один район, минимум пересадок; при сильной усталости оставить только храм и обед."
+          "detail": "Один район, минимум пересадок; при сильной усталости оставить только храм и обед.",
+          "mapLinks": [
+            {
+              "label": "Lama Temple",
+              "url": "https://www.google.com/maps/place/Yonghe+Temple%2C+Beijing%2C+China/"
+            },
+            {
+              "label": "Wudaoying Hutong",
+              "url": "https://www.google.com/maps/place/Wudaoying+Hutong%2C+Beijing%2C+China/"
+            }
+          ]
         },
         {
           "time": "15:20",
           "title": "Shichahai + переулки у Drum Tower",
-          "detail": "Прогулка по хутунам; Jingshan — только если есть силы и ясное небо."
+          "detail": "Прогулка по хутунам; Jingshan — только если есть силы и ясное небо.",
+          "mapLinks": [
+            {
+              "label": "Shichahai",
+              "url": "https://www.google.com/maps/place/Shichahai%2C+Beijing%2C+China/"
+            },
+            {
+              "label": "Beijing Drum Tower",
+              "url": "https://www.google.com/maps/place/Beijing+Drum+Tower%2C+Beijing%2C+China/"
+            }
+          ]
         },
         {
           "time": "18:00",
           "title": "Ранний ужин и в отель",
-          "detail": "Цель — быть в Fairfield к 20:00; подготовить документы и будильник."
+          "detail": "Цель — быть в Fairfield к 20:00; подготовить документы и будильник.",
+          "mapLinks": [
+            {
+              "label": "Fairfield Beijing Capital Airport",
+              "url": "https://www.google.com/maps/place/Fairfield+by+Marriott+Beijing+Capital+Airport%2C+17+Fuqian+First+Street%2C+Beijing%2C+China/"
+            }
+          ]
         },
         {
           "time": "21.09 · 06:00",
           "title": "Shuttle к PEK T2",
-          "detail": "Fairfield shuttle отправляется от отеля каждый час ровно в :00. Забронировать минимум за 2 часа; целевой рейс 06:00."
+          "detail": "Fairfield shuttle отправляется от отеля каждый час ровно в :00. Забронировать минимум за 2 часа; целевой рейс 06:00.",
+          "mapLinks": [
+            {
+              "label": "Fairfield Beijing Capital Airport",
+              "url": "https://www.google.com/maps/place/Fairfield+by+Marriott+Beijing+Capital+Airport%2C+17+Fuqian+First+Street%2C+Beijing%2C+China/"
+            },
+            {
+              "label": "Beijing Capital Airport Terminal 2",
+              "url": "https://www.google.com/maps/place/Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China/"
+            }
+          ]
         },
         {
           "time": "08:45",
           "title": "HU473 · PEK T2 → KIX T1",
-          "detail": "Прилёт 12:45; дальше начинается день 1 основного маршрута."
+          "detail": "Прилёт 12:45; дальше начинается день 1 основного маршрута.",
+          "mapLinks": [
+            {
+              "label": "Beijing Capital Airport Terminal 2",
+              "url": "https://www.google.com/maps/place/Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China/"
+            },
+            {
+              "label": "KIX Terminal 1",
+              "url": "https://www.google.com/maps/place/Kansai+International+Airport+Terminal+1%2C+Osaka%2C+Japan/"
+            }
+          ]
         }
       ],
       "food": [
@@ -143,34 +225,48 @@
           "name": "Siji Minfu · Beijing duck",
           "dish": "пекинская утка",
           "fit": "Утка — базовый заказ. Свиные закуски не обязательны; soft preference не требует проверять каждый соус/гарнир.",
-          "url": "https://uri.amap.com/search?keyword=%E5%9B%9B%E5%AD%A3%E6%B0%91%E7%A6%8F%E7%83%A4%E9%B8%AD%E5%BA%97%20%E4%B8%9C%E5%9B%9B%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA&view=map&src=japan2026"
+          "url": "https://uri.amap.com/search?keyword=%E5%9B%9B%E5%AD%A3%E6%B0%91%E7%A6%8F%E7%83%A4%E9%B8%AD%E5%BA%97%20%E4%B8%9C%E5%9B%9B%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA&view=map&src=japan2026",
+          "amapUrl": "https://uri.amap.com/search?keyword=%E5%9B%9B%E5%AD%A3%E6%B0%91%E7%A6%8F%E7%83%A4%E9%B8%AD%E5%BA%97%20%E4%B8%9C%E5%9B%9B%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA&view=map&src=japan2026",
+          "appleMapsUrl": "https://maps.apple.com/?q=Siji%20Minfu%20Roast%20Duck%20Restaurant%20Dongsi%20Beijing",
+          "googleMapsUrl": "https://www.google.com/maps/place/Siji+Minfu+Roast+Duck+Restaurant+Dongsi+branch%2C+Beijing%2C+China/",
+          "mapExempt": false
         }
       ],
       "places": [
         {
           "name": "雍和宫",
           "address": "北京市东城区雍和宫大街12号",
-          "amap": "https://uri.amap.com/search?keyword=%E9%9B%8D%E5%92%8C%E5%AE%AB%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E9%9B%8D%E5%92%8C%E5%AE%AB%E5%A4%A7%E8%A1%9712%E5%8F%B7&view=map&src=japan2026"
+          "amap": "https://uri.amap.com/search?keyword=%E9%9B%8D%E5%92%8C%E5%AE%AB%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E9%9B%8D%E5%92%8C%E5%AE%AB%E5%A4%A7%E8%A1%9712%E5%8F%B7&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/place/%E9%9B%8D%E5%92%8C%E5%AE%AB%2C+%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E9%9B%8D%E5%92%8C%E5%AE%AB%E5%A4%A7%E8%A1%9712%E5%8F%B7/",
+          "appleMapsUrl": "https://maps.apple.com/?q=%E9%9B%8D%E5%92%8C%E5%AE%AB%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E9%9B%8D%E5%92%8C%E5%AE%AB%E5%A4%A7%E8%A1%9712%E5%8F%B7"
         },
         {
           "name": "五道营胡同",
           "address": "北京市东城区五道营胡同",
-          "amap": "https://uri.amap.com/search?keyword=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C&view=map&src=japan2026"
+          "amap": "https://uri.amap.com/search?keyword=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/place/%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C%2C+%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C/",
+          "appleMapsUrl": "https://maps.apple.com/?q=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C"
         },
         {
           "name": "什刹海",
           "address": "北京市西城区什刹海",
-          "amap": "https://uri.amap.com/search?keyword=%E4%BB%80%E5%88%B9%E6%B5%B7%20%E5%8C%97%E4%BA%AC%E5%B8%82%E8%A5%BF%E5%9F%8E%E5%8C%BA&view=map&src=japan2026"
+          "amap": "https://uri.amap.com/search?keyword=%E4%BB%80%E5%88%B9%E6%B5%B7%20%E5%8C%97%E4%BA%AC%E5%B8%82%E8%A5%BF%E5%9F%8E%E5%8C%BA&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/place/%E4%BB%80%E5%88%B9%E6%B5%B7%2C+%E5%8C%97%E4%BA%AC%E5%B8%82%E8%A5%BF%E5%9F%8E%E5%8C%BA%E4%BB%80%E5%88%B9%E6%B5%B7/",
+          "appleMapsUrl": "https://maps.apple.com/?q=%E4%BB%80%E5%88%B9%E6%B5%B7%20%E5%8C%97%E4%BA%AC%E5%B8%82%E8%A5%BF%E5%9F%8E%E5%8C%BA%E4%BB%80%E5%88%B9%E6%B5%B7"
         },
         {
           "name": "北京鼓楼",
           "address": "北京市东城区钟楼湾一带",
-          "amap": "https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E9%BC%93%E6%A5%BC%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA&view=map&src=japan2026"
+          "amap": "https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E9%BC%93%E6%A5%BC%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/place/%E5%8C%97%E4%BA%AC%E9%BC%93%E6%A5%BC%2C+%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E9%92%9F%E6%A5%BC%E6%B9%BE%E4%B8%80%E5%B8%A6/",
+          "appleMapsUrl": "https://maps.apple.com/?q=%E5%8C%97%E4%BA%AC%E9%BC%93%E6%A5%BC%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E9%92%9F%E6%A5%BC%E6%B9%BE%E4%B8%80%E5%B8%A6"
         },
         {
           "name": "北京首都机场万枫酒店",
           "address": "北京市顺义区府前一街17号",
-          "amap": "https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E6%9C%BA%E5%9C%BA%E4%B8%87%E6%9E%AB%E9%85%92%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E9%A1%BA%E4%B9%89%E5%8C%BA%E5%BA%9C%E5%89%8D%E4%B8%80%E8%A1%9717%E5%8F%B7&view=map&src=japan2026"
+          "amap": "https://uri.amap.com/search?keyword=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E6%9C%BA%E5%9C%BA%E4%B8%87%E6%9E%AB%E9%85%92%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E9%A1%BA%E4%B9%89%E5%8C%BA%E5%BA%9C%E5%89%8D%E4%B8%80%E8%A1%9717%E5%8F%B7&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/place/%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E6%9C%BA%E5%9C%BA%E4%B8%87%E6%9E%AB%E9%85%92%E5%BA%97%2C+%E5%8C%97%E4%BA%AC%E5%B8%82%E9%A1%BA%E4%B9%89%E5%8C%BA%E5%BA%9C%E5%89%8D%E4%B8%80%E8%A1%9717%E5%8F%B7/",
+          "appleMapsUrl": "https://maps.apple.com/?q=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E6%9C%BA%E5%9C%BA%E4%B8%87%E6%9E%AB%E9%85%92%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E9%A1%BA%E4%B9%89%E5%8C%BA%E5%BA%9C%E5%89%8D%E4%B8%80%E8%A1%9717%E5%8F%B7"
         }
       ]
     },
@@ -183,62 +279,158 @@
         {
           "time": "02.10 · 16:40",
           "title": "3U3962 · NRT T1 → TFU T1",
-          "detail": "Прилёт 21:00 по билету."
+          "detail": "Прилёт 21:00 по билету.",
+          "mapLinks": [
+            {
+              "label": "Narita Airport Terminal 1",
+              "url": "https://www.google.com/maps/place/Narita+International+Airport+Terminal+1%2C+Chiba%2C+Japan/"
+            },
+            {
+              "label": "Chengdu Tianfu Airport Terminal 1",
+              "url": "https://www.google.com/maps/place/Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "21:00",
           "title": "Иммиграция и багаж",
-          "detail": "Документы на 240-часовой транзит держать готовыми; не планировать ужин с бронью."
+          "detail": "Документы на 240-часовой транзит держать готовыми; не планировать ужин с бронью.",
+          "mapLinks": [
+            {
+              "label": "Chengdu Tianfu Airport Terminal 1",
+              "url": "https://www.google.com/maps/place/Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "22:15",
           "title": "TFU → Crowne Plaza",
-          "detail": "Ночью базовый вариант — заранее заказанный трансфер/DiDi. Бесплатный Panda shuttle отеля относится к утреннему выезду к базе, не к аэропорту."
+          "detail": "Ночью базовый вариант — заранее заказанный трансфер/DiDi. Бесплатный Panda shuttle отеля относится к утреннему выезду к базе, не к аэропорту.",
+          "mapLinks": [
+            {
+              "label": "Chengdu Tianfu Airport Terminal 1",
+              "url": "https://www.google.com/maps/place/Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China/"
+            },
+            {
+              "label": "Crowne Plaza Chengdu City Center",
+              "url": "https://www.google.com/maps/place/Crowne+Plaza+Chengdu+City+Center%2C+31+Zongfu+Street%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "23:25",
           "title": "Заселение",
-          "detail": "Сразу уточнить на ресепшене точное время/место бесплатного Panda shuttle 03.10 и хранение багажа."
+          "detail": "Сразу уточнить на ресепшене точное время/место бесплатного Panda shuttle 03.10 и хранение багажа.",
+          "mapLinks": [
+            {
+              "label": "Crowne Plaza Chengdu City Center",
+              "url": "https://www.google.com/maps/place/Crowne+Plaza+Chengdu+City+Center%2C+31+Zongfu+Street%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "03.10 · по времени отеля",
           "title": "Бесплатный Panda shuttle / резерв DiDi",
-          "detail": "С 23.06.2026 Crowne Plaza заявляет бесплатный шаттл к Panda Base. Время заранее подтвердить у отеля; если не подходит под вход 07:30 — использовать DiDi."
+          "detail": "С 23.06.2026 Crowne Plaza заявляет бесплатный шаттл к Panda Base. Время заранее подтвердить у отеля; если не подходит под вход 07:30 — использовать DiDi.",
+          "mapLinks": [
+            {
+              "label": "Crowne Plaza Chengdu City Center",
+              "url": "https://www.google.com/maps/place/Crowne+Plaza+Chengdu+City+Center%2C+31+Zongfu+Street%2C+Chengdu%2C+China/"
+            },
+            {
+              "label": "Chengdu Panda Base",
+              "url": "https://www.google.com/maps/place/Chengdu+Research+Base+of+Giant+Panda+Breeding%2C+1375+Panda+Avenue%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "07:30",
           "title": "Chengdu Panda Base",
-          "detail": "До 10:00. Сначала активные зоны утром; не обещать возврат в центр уже к 10:15."
+          "detail": "До 10:00. Сначала активные зоны утром; не обещать возврат в центр уже к 10:15.",
+          "mapLinks": [
+            {
+              "label": "Chengdu Panda Base",
+              "url": "https://www.google.com/maps/place/Chengdu+Research+Base+of+Giant+Panda+Breeding%2C+1375+Panda+Avenue%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "10:00",
           "title": "Выход и дорога в центр",
-          "detail": "Реалистичный ориентир возвращения к Crowne Plaza / Taikoo Li — около 10:35–10:50 при нормальном трафике."
+          "detail": "Реалистичный ориентир возвращения к Crowne Plaza / Taikoo Li — около 10:35–10:50 при нормальном трафике.",
+          "mapLinks": [
+            {
+              "label": "Chengdu Panda Base",
+              "url": "https://www.google.com/maps/place/Chengdu+Research+Base+of+Giant+Panda+Breeding%2C+1375+Panda+Avenue%2C+Chengdu%2C+China/"
+            },
+            {
+              "label": "Crowne Plaza Chengdu City Center",
+              "url": "https://www.google.com/maps/place/Crowne+Plaza+Chengdu+City+Center%2C+31+Zongfu+Street%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "10:50",
           "title": "Taikoo Li + Daci Temple",
-          "detail": "Короткий коридор рядом с отелем; первым сокращается при задержке Panda Base."
+          "detail": "Короткий коридор рядом с отелем; первым сокращается при задержке Panda Base.",
+          "mapLinks": [
+            {
+              "label": "Chengdu IFS / Taikoo Li",
+              "url": "https://www.google.com/maps/place/Sino-Ocean+Taikoo+Li+Chengdu%2C+8+Zhongshamao+Street%2C+Chengdu%2C+China/"
+            },
+            {
+              "label": "Daci Temple",
+              "url": "https://www.google.com/maps/place/Daci+Temple%2C+21+Dacisi+Road%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "11:20",
           "title": "Ранний обед",
-          "detail": "Soft preference: dan dan noodles и hongyou chaoshou снова допустимы как знаковые блюда Чэнду, хотя типично могут содержать свинину. Выбрать один быстрый локальный обед у Taikoo Li и не растягивать остановку."
+          "detail": "Soft preference: dan dan noodles и hongyou chaoshou снова допустимы как знаковые блюда Чэнду, хотя типично могут содержать свинину. Выбрать один быстрый локальный обед у Taikoo Li и не растягивать остановку.",
+          "mapLinks": [
+            {
+              "label": "Chengdu IFS / Taikoo Li",
+              "url": "https://www.google.com/maps/place/Sino-Ocean+Taikoo+Li+Chengdu%2C+8+Zhongshamao+Street%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "12:10",
           "title": "Забрать багаж",
-          "detail": "Выехать из отеля около 12:30; не растягивать центр."
+          "detail": "Выехать из отеля около 12:30; не растягивать центр.",
+          "mapLinks": [
+            {
+              "label": "Crowne Plaza Chengdu City Center",
+              "url": "https://www.google.com/maps/place/Crowne+Plaza+Chengdu+City+Center%2C+31+Zongfu+Street%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "14:00",
           "title": "TFU T1",
-          "detail": "Международная регистрация, погранконтроль и запас перед 3U3887."
+          "detail": "Международная регистрация, погранконтроль и запас перед 3U3887.",
+          "mapLinks": [
+            {
+              "label": "Chengdu Tianfu Airport Terminal 1",
+              "url": "https://www.google.com/maps/place/Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China/"
+            }
+          ]
         },
         {
           "time": "17:00",
           "title": "3U3887 · TFU T1 → SVO C",
-          "detail": "Прилёт в Москву 20:20 по билету."
+          "detail": "Прилёт в Москву 20:20 по билету.",
+          "mapLinks": [
+            {
+              "label": "Chengdu Tianfu Airport Terminal 1",
+              "url": "https://www.google.com/maps/place/Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China/"
+            },
+            {
+              "label": "Sheremetyevo Airport Terminal C",
+              "url": "https://www.google.com/maps/place/Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia/"
+            }
+          ]
         }
       ],
       "food": [
@@ -246,36 +438,46 @@
           "name": "Chengdu quick lunch · choose on site near Taikoo Li",
           "dish": "dan dan noodles / hongyou chaoshou / tofu / poultry",
           "fit": "Знаковые dan dan noodles и chaoshou часто содержат свинину; в soft-режиме это допустимо. Не выдавать их за pork-free, выбрать по очереди и времени.",
-          "url": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E5%A4%AA%E5%8F%A4%E9%87%8C%20%E6%8B%85%E6%8B%85%E9%9D%A2%20%E7%BA%A2%E6%B2%B9%E6%8A%84%E6%89%8B&view=map&src=japan2026"
+          "url": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E5%A4%AA%E5%8F%A4%E9%87%8C%20%E6%8B%85%E6%8B%85%E9%9D%A2%20%E7%BA%A2%E6%B2%B9%E6%8A%84%E6%89%8B&view=map&src=japan2026",
+          "mapExempt": true,
+          "mapExemptReason": "Конкретное заведение не фиксируется; выбор на месте у Taikoo Li."
         }
       ],
       "places": [
         {
           "name": "成都大熊猫繁育研究基地",
           "address": "成都市成华区熊猫大道1375号",
-          "amap": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E5%A4%A7%E7%86%8A%E7%8C%AB%E7%B9%81%E8%82%B2%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%20%E6%88%90%E9%83%BD%E5%B8%82%E6%88%90%E5%8D%8E%E5%8C%BA%E7%86%8A%E7%8C%AB%E5%A4%A7%E9%81%931375%E5%8F%B7&view=map&src=japan2026"
+          "amap": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E5%A4%A7%E7%86%8A%E7%8C%AB%E7%B9%81%E8%82%B2%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%20%E6%88%90%E9%83%BD%E5%B8%82%E6%88%90%E5%8D%8E%E5%8C%BA%E7%86%8A%E7%8C%AB%E5%A4%A7%E9%81%931375%E5%8F%B7&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/place/%E6%88%90%E9%83%BD%E5%A4%A7%E7%86%8A%E7%8C%AB%E7%B9%81%E8%82%B2%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%2C+%E6%88%90%E9%83%BD%E5%B8%82%E6%88%90%E5%8D%8E%E5%8C%BA%E7%86%8A%E7%8C%AB%E5%A4%A7%E9%81%931375%E5%8F%B7/",
+          "appleMapsUrl": "https://maps.apple.com/?q=%E6%88%90%E9%83%BD%E5%A4%A7%E7%86%8A%E7%8C%AB%E7%B9%81%E8%82%B2%E7%A0%94%E7%A9%B6%E5%9F%BA%E5%9C%B0%20%E6%88%90%E9%83%BD%E5%B8%82%E6%88%90%E5%8D%8E%E5%8C%BA%E7%86%8A%E7%8C%AB%E5%A4%A7%E9%81%931375%E5%8F%B7"
         },
         {
           "name": "成都远洋太古里",
           "address": "成都市锦江区中纱帽街8号",
-          "amap": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E8%BF%9C%E6%B4%8B%E5%A4%AA%E5%8F%A4%E9%87%8C%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E4%B8%AD%E7%BA%B1%E5%B8%BD%E8%A1%978%E5%8F%B7&view=map&src=japan2026"
+          "amap": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E8%BF%9C%E6%B4%8B%E5%A4%AA%E5%8F%A4%E9%87%8C%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E4%B8%AD%E7%BA%B1%E5%B8%BD%E8%A1%978%E5%8F%B7&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/place/%E6%88%90%E9%83%BD%E8%BF%9C%E6%B4%8B%E5%A4%AA%E5%8F%A4%E9%87%8C%2C+%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E4%B8%AD%E7%BA%B1%E5%B8%BD%E8%A1%978%E5%8F%B7/",
+          "appleMapsUrl": "https://maps.apple.com/?q=%E6%88%90%E9%83%BD%E8%BF%9C%E6%B4%8B%E5%A4%AA%E5%8F%A4%E9%87%8C%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E4%B8%AD%E7%BA%B1%E5%B8%BD%E8%A1%978%E5%8F%B7"
         },
         {
           "name": "大慈寺",
           "address": "成都市锦江区大慈寺路21-23号",
-          "amap": "https://uri.amap.com/search?keyword=%E5%A4%A7%E6%85%88%E5%AF%BA%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E5%A4%A7%E6%85%88%E5%AF%BA%E8%B7%AF21-23%E5%8F%B7&view=map&src=japan2026"
+          "amap": "https://uri.amap.com/search?keyword=%E5%A4%A7%E6%85%88%E5%AF%BA%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E5%A4%A7%E6%85%88%E5%AF%BA%E8%B7%AF21-23%E5%8F%B7&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/place/%E5%A4%A7%E6%85%88%E5%AF%BA%2C+%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E5%A4%A7%E6%85%88%E5%AF%BA%E8%B7%AF21-23%E5%8F%B7/",
+          "appleMapsUrl": "https://maps.apple.com/?q=%E5%A4%A7%E6%85%88%E5%AF%BA%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E5%A4%A7%E6%85%88%E5%AF%BA%E8%B7%AF21-23%E5%8F%B7"
         },
         {
           "name": "成都总府皇冠假日酒店",
           "address": "成都市锦江区总府街31号",
-          "amap": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E6%80%BB%E5%BA%9C%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E6%80%BB%E5%BA%9C%E8%A1%9731%E5%8F%B7&view=map&src=japan2026"
+          "amap": "https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E6%80%BB%E5%BA%9C%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E6%80%BB%E5%BA%9C%E8%A1%9731%E5%8F%B7&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/place/%E6%88%90%E9%83%BD%E6%80%BB%E5%BA%9C%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97%2C+%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E6%80%BB%E5%BA%9C%E8%A1%9731%E5%8F%B7/",
+          "appleMapsUrl": "https://maps.apple.com/?q=%E6%88%90%E9%83%BD%E6%80%BB%E5%BA%9C%E7%9A%87%E5%86%A0%E5%81%87%E6%97%A5%E9%85%92%E5%BA%97%20%E6%88%90%E9%83%BD%E5%B8%82%E9%94%A6%E6%B1%9F%E5%8C%BA%E6%80%BB%E5%BA%9C%E8%A1%9731%E5%8F%B7"
         }
       ]
     },
     "prep": [
       "Установить Alipay и WeChat, привязать зарубежную карту и проверить небольшой платёж до вылета.",
       "Сохранить офлайн английские и китайские адреса обоих отелей и телефоны.",
-      "Для всех китайских точек использовать готовые Amap-ссылки/китайские названия на странице «Китай»; Google Maps не считать рабочей навигацией.",
+      "Для всех китайских точек использовать Amap/Apple Maps как рабочую навигацию; Google Maps сохранять как универсальную bookmark-ссылку, но не считать надёжной навигацией в Китае.",
       "На регистрации в SVO спросить, куда оформлен багаж, и физически проверить код аэропорта на бирке.",
       "Купить утренний билет Chengdu Panda Base; сохранить QR/паспортные данные и правила входа.",
       "У Crowne Plaza заранее подтвердить точное время бесплатного Panda shuttle; если оно не подходит к 07:30, заказать DiDi.",
@@ -312,21 +514,21 @@
           "delta": "+25–35 мин",
           "when": "Если Grand Green посмотрели быстро",
           "swap": "Небольшое святилище и старые улочки в пешем радиусе Umeda; ничего не перестраивает.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Ohatsu+Tenjin+Osaka"
+          "googleMapsUrl": "https://www.google.com/maps/place/Ohatsu+Tenjin%2C+Osaka%2C+Japan/"
         },
         {
           "name": "Nakazakichō",
           "delta": "+45–60 мин",
           "when": "Если хочется не магазина, а района",
           "swap": "Ретро-переулки и кофе; заменить часть разведки Umeda, не добавлять сверху.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Nakazakicho+Osaka"
+          "googleMapsUrl": "https://www.google.com/maps/place/Nakazakich%C5%8D%2C+Osaka%2C+Japan/"
         },
         {
           "name": "HEP FIVE Ferris Wheel",
           "delta": "+35 мин",
           "when": "Если ясное небо и есть энергия",
           "swap": "Быстрый вид на город рядом; пропустить при очереди или усталости.",
-          "url": "https://www.google.com/maps/search/?api=1&query=HEP+FIVE+Ferris+Wheel"
+          "googleMapsUrl": "https://www.google.com/maps/place/HEP+FIVE+Ferris+Wheel%2C+Osaka%2C+Japan/"
         }
       ],
       "meals": [
@@ -341,8 +543,9 @@
               "dish": "суши / рыба / yakitori / рисовый сет",
               "why": "Это намеренная страховка от повторной ошибки: непроверенное заведение не выдаётся за готовую рекомендацию.",
               "route": "Свинина — soft preference, а не запрет; выбирать по аппетиту и текущему меню.",
-              "url": "https://www.google.com/maps/search/?api=1&query=Umeda+sushi+grilled+fish",
-              "pick": true
+              "pick": true,
+              "mapExempt": true,
+              "mapExemptReason": "Конкретный ресторан намеренно не выбран."
             }
           ]
         }
@@ -355,14 +558,14 @@
           "delta": "+35–50 мин",
           "when": "Если Yoshikien оказался слишком коротким",
           "swap": "Соседний сад; сначала проверить режим 22.09, затем сократить Naramachi на то же время.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Isuien+Garden+Nara"
+          "googleMapsUrl": "https://www.google.com/maps/place/Isuien+Garden%2C+Nara%2C+Japan/"
         },
         {
           "name": "Naramachi Kōshi-no-Ie",
           "delta": "+20–30 мин",
           "when": "Если Gango-ji посмотрели быстро",
           "swap": "Бесплатный machiya-интерьер прямо в квартале; без транспортного крюка.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Naramachi+Koshi-no-Ie"
+          "googleMapsUrl": "https://www.google.com/maps/place/Naramachi+K%C5%8Dshi-no-Ie%2C+Nara%2C+Japan/"
         }
       ],
       "meals": [
@@ -378,7 +581,8 @@
               "why": "Редкая местная говядина и сильная оценка.",
               "route": "Резерв, если Hirasō не подтвердит работу; заложить больше времени.",
               "url": "https://tabelog.com/en/nara/A2901/A290101/29012172/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Momoshiki%2C+Nara%2C+Japan/"
             },
             {
               "name": "Edogawa Naramachi",
@@ -387,7 +591,8 @@
               "why": "Спокойный полноценный обед в квартале матия.",
               "route": "По маршруту Naramachi; возможна очередь.",
               "url": "https://tabelog.com/en/nara/A2901/A290101/29000292/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Edogawa+Naramachi%2C+Nara%2C+Japan/"
             },
             {
               "name": "Hirasō Naramachi",
@@ -396,7 +601,8 @@
               "why": "Целевой локальный опыт: kakinoha-zushi — один из самых характерных вкусов Нары.",
               "route": "Целевое место только при прямом подтверждении работы 22.09.2026 из-за праздничной недели.",
               "url": "https://tabelog.com/en/nara/A2901/A290101/29000753/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Hiras%C5%8D+Naramachi%2C+Nara%2C+Japan/"
             }
           ]
         },
@@ -411,8 +617,9 @@
               "dish": "okonomiyaki / seafood / sushi / chicken",
               "why": "После длинного дня важнее хорошая еда без транспортного крюка, чем жёсткий фильтр по свинине.",
               "route": "Классический okonomiyaki часто содержит свиную грудинку — это допустимо в soft-режиме, но должно быть осознанным выбором.",
-              "url": "https://www.google.com/maps/search/?api=1&query=Namba+okonomiyaki+sushi+yakitori",
-              "pick": true
+              "pick": true,
+              "mapExempt": true,
+              "mapExemptReason": "Конкретный ресторан намеренно не выбран."
             }
           ]
         }
@@ -425,21 +632,21 @@
           "delta": "+20–35 мин",
           "when": "Только короткий внешний осмотр после Kōko-en",
           "swap": "Здание закрыто на реконструкцию апрель 2026 – декабрь 2027; внутрь не планировать.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Himeji+City+Museum+of+Art"
+          "googleMapsUrl": "https://www.google.com/maps/place/Himeji+City+Museum+of+Art+%C2%B7+%D1%82%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE+%D1%81%D0%B0%D0%B4%2F%D1%8D%D0%BA%D1%81%D1%82%D0%B5%D1%80%D1%8C%D0%B5%D1%80%2C+Himeji%2FOsaka%2C+Japan/"
         },
         {
           "name": "Hyogo Prefectural Museum of History",
           "delta": "+45–60 мин",
           "when": "Если интересен контекст замка, а Kōko-en сокращён",
           "swap": "Заменяет Kōko-en, чтобы не опоздать в NMAO.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Hyogo+Prefectural+Museum+of+History"
+          "googleMapsUrl": "https://www.google.com/maps/place/Hyogo+Prefectural+Museum+of+History%2C+Himeji%2FOsaka%2C+Japan/"
         },
         {
           "name": "Nakanoshima river walk",
           "delta": "+20–30 мин",
           "when": "Если NMAO закончился раньше",
           "swap": "Прогулка вокруг музея без нового билета; уйти в Umeda по плану.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Nakanoshima+Museum+Osaka"
+          "googleMapsUrl": "https://www.google.com/maps/place/Nakanoshima+river+walk%2C+Himeji%2FOsaka%2C+Japan/"
         }
       ],
       "meals": [
@@ -455,7 +662,8 @@
               "why": "Главная локальная специализация и рядом со станцией.",
               "route": "5 минут от станции; взять вариант навынос при очереди.",
               "url": "https://tabelog.com/en/hyogo/A2805/A280501/28034320/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Sumiyaki+Anago+Yamayoshi%2C+Himeji%2FOsaka%2C+Japan/"
             },
             {
               "name": "Maneki Ekisoba",
@@ -464,7 +672,8 @@
               "why": "Знаковая станционная лапша и самый надёжный быстрый вариант.",
               "route": "Станционная точка Maneki no Eki Soba (не штаб-квартира Maneki Shokuhin); использовать при сжатом времени.",
               "url": "https://tabelog.com/en/hyogo/A2805/A280501/28049150/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Maneki+Ekisoba%2C+Himeji%2FOsaka%2C+Japan/"
             }
           ]
         },
@@ -480,7 +689,8 @@
               "why": "Защищённый опыт: омакасэ-тарелка из 5–6 отрубов позволяет сравнить текстуры без перегруженного курса.",
               "route": "Бронь заранее. Добавить обычный рис и овощи; не брать наборы Premium/Special, где чесночный рис содержит бекон.",
               "url": "https://tabelog.com/en/osaka/A2701/A270108/27003327/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Matsusakagyu+Yakiniku+M+%C2%B7+Umeda+Fukushima%2C+Himeji%2FOsaka%2C+Japan/"
             }
           ]
         }
@@ -493,21 +703,22 @@
           "delta": "+35–50 мин",
           "when": "Если Daishō-in не зашёл или дождь",
           "swap": "Заменяет Daishō-in; не трогает 11:45 у Pier 3.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Miyajima+History+and+Folklore+Museum"
+          "googleMapsUrl": "https://www.google.com/maps/place/Miyajima+History+and+Folklore+Museum%2C+Miyajima%2FHiroshima%2C+Japan/"
         },
         {
           "name": "Five-storied Pagoda viewpoint",
           "delta": "+15–20 мин",
           "when": "Если Senjōkaku закрыт/короток",
           "swap": "Быстрый внешний ракурс рядом; не добавлять подъём дальше.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Five-storied+Pagoda+Miyajima"
+          "googleMapsUrl": "https://www.google.com/maps/place/Five-storied+Pagoda+viewpoint%2C+Miyajima%2FHiroshima%2C+Japan/"
         },
         {
           "name": "Orizuru Tower",
           "delta": "+40–55 мин",
           "when": "Если музей пройден быстрее и есть эмоциональный ресурс",
           "swap": "Вид на Atomic Bomb Dome; закончить к 16:45 ради станции.",
-          "url": "https://www.orizurutower.jp/en/"
+          "url": "https://www.orizurutower.jp/en/",
+          "googleMapsUrl": "https://www.google.com/maps/place/Orizuru+Tower%2C+Miyajima%2FHiroshima%2C+Japan/"
         }
       ],
       "meals": [
@@ -523,7 +734,8 @@
               "why": "Лучший шанс закрыть культовые устрицы региона.",
               "route": "Заказывать только если посадка быстрая.",
               "url": "https://tabelog.com/en/hiroshima/A3402/A340202/34003363/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Kakiya%2C+Miyajima%2FHiroshima%2C+Japan/"
             },
             {
               "name": "Mame-tanuki",
@@ -532,7 +744,8 @@
               "why": "Вторая главная специализация Миядзимы.",
               "route": "Уточнить время подачи до заказа.",
               "url": "https://tabelog.com/en/hiroshima/A3402/A340202/34011633/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Mame-tanuki%2C+Miyajima%2FHiroshima%2C+Japan/"
             },
             {
               "name": "Mikoto-ya",
@@ -541,7 +754,8 @@
               "why": "Самый безопасный формат при сжатом окне.",
               "route": "Навынос до окончания; проверить наличие сразу после храма.",
               "url": "https://tabelog.com/en/hiroshima/A3402/A340202/34026573/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Mikoto-ya%2C+Miyajima%2FHiroshima%2C+Japan/"
             }
           ]
         },
@@ -556,8 +770,9 @@
               "dish": "anago / seafood bento",
               "why": "Нужен быстрый формат до поезда 18:33 без риска закрытого ресторана.",
               "route": "Купить в станции/ekie не позднее 17:20; отдельная pork-free проверка соуса не требуется.",
-              "url": "https://www.google.com/maps/search/?api=1&query=Hiroshima+Station+anago+bento",
-              "pick": true
+              "pick": true,
+              "mapExempt": true,
+              "mapExemptReason": "Конкретный ресторан намеренно не выбран."
             }
           ]
         }
@@ -570,14 +785,14 @@
           "delta": "+45–60 мин",
           "when": "Если Ryōan-ji сразу не понравился",
           "swap": "Только замена Ryōan-ji, не дополнительный храм; сохранить обед до 12:45.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Ninna-ji+Kyoto"
+          "googleMapsUrl": "https://www.google.com/maps/place/Ninna-ji%2C+Kyoto%2C+Japan/"
         },
         {
           "name": "Kennin-ji",
           "delta": "+35–50 мин",
           "when": "Если шопинг на спуске не нужен",
           "swap": "Один храм по пути к Gion вместо трёх магазинных остановок.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Kennin-ji+Kyoto"
+          "googleMapsUrl": "https://www.google.com/maps/place/Kennin-ji%2C+Kyoto%2C+Japan/"
         }
       ],
       "meals": [
@@ -592,8 +807,8 @@
               "dish": "soba / рыба / tofu set",
               "why": "Не создаём новый непроверенный ресторан вместо старой логистической ошибки.",
               "route": "Оставить 35–40 минут; soft preference по свинине не требует проверки каждого бульона/соуса.",
-              "url": "https://www.google.com/maps/search/?api=1&query=Shogoin+Kyoto+soba+tofu",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Sh%C5%8Dgoin+%C2%B7+%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B9+%D0%BE%D0%B1%D0%B5%D0%B4+%D0%BF%D0%BE%D1%81%D0%BB%D0%B5+%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B8+%D1%81%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%B0%2C+Kyoto%2C+Japan/"
             }
           ]
         },
@@ -609,7 +824,8 @@
               "why": "Историческая киотская специализация и сильный Tabelog.",
               "route": "Gion; проверить последнюю посадку.",
               "url": "https://tabelog.com/en/kyoto/A2601/A260301/26000585/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Izuu%2C+Kyoto%2C+Japan/"
             },
             {
               "name": "Gion Karyo",
@@ -618,7 +834,8 @@
               "why": "Полноценный высокий гастрономический вечер.",
               "route": "Только по предварительной брони; при желании сообщить мягкое предпочтение по свинине, не требуя переделывать курс.",
               "url": "https://tabelog.com/en/kyoto/A2601/A260301/26002441/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Gion+Karyo%2C+Kyoto%2C+Japan/"
             }
           ]
         }
@@ -631,21 +848,21 @@
           "delta": "+35–45 мин",
           "when": "Если приехали в Oku-Saga раньше 13:40",
           "swap": "Заменяет Hiranoya и часть нижнего Bamboo; не трогает Daikakuji.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Otagi+Nenbutsu-ji"
+          "googleMapsUrl": "https://www.google.com/maps/place/Otagi+Nenbutsu-ji%2C+Kyoto%2C+Japan/"
         },
         {
           "name": "Giō-ji",
           "delta": "+30–40 мин",
           "when": "Если Adashino не зашёл",
           "swap": "Тихий моховой храм ниже по маршруту; это замена, не ещё один храм.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Gio-ji+Kyoto"
+          "googleMapsUrl": "https://www.google.com/maps/place/Gi%C5%8D-ji%2C+Kyoto%2C+Japan/"
         },
         {
           "name": "Seiryō-ji",
           "delta": "+25–35 мин",
           "when": "Если Bamboo прошли быстро",
           "swap": "Короткий спокойный храм на выходе из Saga; только до 16:45.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Seiryo-ji+Kyoto"
+          "googleMapsUrl": "https://www.google.com/maps/place/Seiry%C5%8D-ji%2C+Kyoto%2C+Japan/"
         }
       ],
       "meals": [
@@ -661,7 +878,8 @@
               "why": "Надёжная региональная лапша у реки.",
               "route": "Использовать при изменённом порядке дня или спуске к Arashiyama.",
               "url": "https://tabelog.com/en/kyoto/A2601/A260403/26000403/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Arashiyama+Yoshimura%2C+Kyoto%2C+Japan/"
             }
           ]
         },
@@ -676,8 +894,9 @@
               "dish": "onigiri / яйца / фрукты / готовый сет",
               "why": "Не ставим ресторан на границе закрытия после длинного лунного вечера.",
               "route": "Купить по пути после возвращения; выбирать по аппетиту, soft preference по свинине не является жёстким фильтром.",
-              "url": "https://www.google.com/maps/search/?api=1&query=Shijo+Kyoto+convenience+store",
-              "pick": true
+              "pick": true,
+              "mapExempt": true,
+              "mapExemptReason": "Конкретный ресторан намеренно не выбран."
             }
           ]
         }
@@ -690,21 +909,21 @@
           "delta": "+35–50 мин",
           "when": "Если Open-Air Museum закончили раньше",
           "swap": "Сад рядом с Gora; уйти не позже 15:15.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Hakone+Gora+Park"
+          "googleMapsUrl": "https://www.google.com/maps/place/Gora+Park%2C+Hakone%2C+Japan/"
         },
         {
           "name": "Художественный музей Окада",
           "delta": "+90–120 мин",
           "when": "Если сильный дождь и музей под открытым небом не подходит",
           "swap": "Полная замена музея под открытым небом, а не дополнительная остановка.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Okada+Museum+of+Art+Hakone"
+          "googleMapsUrl": "https://www.google.com/maps/place/%D0%A5%D1%83%D0%B4%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9+%D0%BC%D1%83%D0%B7%D0%B5%D0%B9+%D0%9E%D0%BA%D0%B0%D0%B4%D0%B0%2C+Hakone%2C+Japan/"
         },
         {
           "name": "Tonosawa river walk",
           "delta": "+20–30 мин",
           "when": "Если заселились раньше 16:30",
           "swap": "Короткая прогулка у рёкана; вернуться до onsen/ужина.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Tonosawa+Hakone"
+          "googleMapsUrl": "https://www.google.com/maps/place/Tonosawa+river+walk%2C+Hakone%2C+Japan/"
         }
       ],
       "meals": [
@@ -719,8 +938,9 @@
               "dish": "ekiben / onigiri по аппетиту",
               "why": "Сохраняет реальное время на выход в Odawara, Freepass и дорогу к Chōkoku-no-mori.",
               "route": "Купить в Kyoto Station до Hikari; soft preference по свинине не требует отбрасывать удобный ekiben.",
-              "url": "https://www.google.com/maps/search/?api=1&query=Kyoto+Station+ekiben",
-              "pick": true
+              "pick": true,
+              "mapExempt": true,
+              "mapExemptReason": "Конкретный ресторан намеренно не выбран."
             }
           ]
         },
@@ -736,7 +956,8 @@
               "why": "Это один из ключевых гастрономических опытов поездки.",
               "route": "Заселение до 18:00; время ужина подтвердить письмом. Soft preference не должен ломать авторский курс.",
               "url": "https://www.shiunso.co.jp/english/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Shiunso+kaiseki%2C+Hakone%2C+Japan/"
             }
           ]
         }
@@ -749,21 +970,21 @@
           "delta": "+40–55 мин",
           "when": "Если Shrine прошли быстро и автобус удобен",
           "swap": "История Tōkaidō; пропустить Ginza-страховку вечером.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Hakone+Checkpoint"
+          "googleMapsUrl": "https://www.google.com/maps/place/Hakone+Checkpoint%2C+Hakone%2FTokyo%2C+Japan/"
         },
         {
           "name": "Художественный музей Нарукаява",
           "delta": "+45–60 мин",
           "when": "Если канатная дорога закрыта или погода у озера нестабильна",
           "swap": "Помещение и вид на озеро; заменяет часть петли, а не добавляется сверху.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Narukawa+Art+Museum"
+          "googleMapsUrl": "https://www.google.com/maps/place/%D0%A5%D1%83%D0%B4%D0%BE%D0%B6%D0%B5%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9+%D0%BC%D1%83%D0%B7%D0%B5%D0%B9+%D0%9D%D0%B0%D1%80%D1%83%D0%BA%D0%B0%D1%8F%D0%B2%D0%B0%2C+Hakone%2FTokyo%2C+Japan/"
         },
         {
           "name": "Hama-rikyū Gardens",
           "delta": "+50–70 мин",
           "when": "Если в Tokyo приехали до 16:00",
           "swap": "Сад рядом с Shimbashi; тогда Zōjō-ji оставить внешним осмотром.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Hama-rikyu+Gardens"
+          "googleMapsUrl": "https://www.google.com/maps/place/Hama-riky%C5%AB+Gardens%2C+Hakone%2FTokyo%2C+Japan/"
         }
       ],
       "meals": [
@@ -779,7 +1000,8 @@
               "why": "Сильный маршрутный вариант в Moto-Hakone.",
               "route": "1 минута от остановки или музея Narukawa.",
               "url": "https://tabelog.com/en/kanagawa/A1410/A141001/14003762/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Shinsh%C5%8D+Soba%2C+Hakone%2FTokyo%2C+Japan/"
             },
             {
               "name": "Ashinoko Chaya",
@@ -788,7 +1010,8 @@
               "why": "Оценка ниже, но логистика лучшая при дефиците времени.",
               "route": "Резерв, когда важнее уехать в Токио вовремя.",
               "url": "https://tabelog.com/en/kanagawa/A1410/A141001/14012018/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Ashinoko+Chaya%2C+Hakone%2FTokyo%2C+Japan/"
             }
           ]
         },
@@ -804,7 +1027,8 @@
               "why": "Главный токийский ужин и отдельный классический жанр.",
               "route": "Бронь через форму не позднее чем за 5 дней; подтверждена только после ответа ресторана. Базово курс Take, текущую поставку Мацусака уточнить.",
               "url": "https://tabelog.com/en/tokyo/A1301/A130103/13007805/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Sukiyaki+Imaasa%2C+Hakone%2FTokyo%2C+Japan/"
             },
             {
               "name": "Shimbashi Tsuruhachi",
@@ -813,7 +1037,8 @@
               "why": "Высокий гастрономический резерв Токио.",
               "route": "Только бронь и высокий бюджет ¥20–30k; больше не основной выбор дня.",
               "url": "https://tabelog.com/en/tokyo/A1301/A130103/13173432/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Shimbashi+Tsuruhachi%2C+Hakone%2FTokyo%2C+Japan/"
             },
             {
               "name": "Tori Sato",
@@ -822,7 +1047,8 @@
               "why": "Специализированный ужин из птицы без туристического шоу.",
               "route": "Резерв при срыве Imaasa; лучше бронировать, свинина в дополнительных блюдах не блокирует вариант.",
               "url": "https://tabelog.com/en/tokyo/A1301/A130103/13268602/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Tori+Sato%2C+Hakone%2FTokyo%2C+Japan/"
             }
           ]
         }
@@ -835,7 +1061,7 @@
           "delta": "+40–55 мин",
           "when": "Если нужен блок современного искусства",
           "swap": "Только при сильной текущей выставке; заменить 40 минут шопинга.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Watari-um+Tokyo"
+          "googleMapsUrl": "https://www.google.com/maps/place/Watari-um%2C+Tokyo%2C+Japan/"
         }
       ],
       "meals": [
@@ -851,7 +1077,8 @@
               "why": "Сильный и лёгкий базовый обед перед длинным коридором Aoyama.",
               "route": "Подходит при жаре; заказывать по текущему меню; свинина в добавках не является стоп-фактором.",
               "url": "https://tabelog.com/en/tokyo/A1306/A130603/13252601/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Kawakamian+Tokyo%2C+Tokyo%2C+Japan/"
             }
           ]
         },
@@ -867,7 +1094,8 @@
               "why": "Нетривиальная точка эпохи Сёва, не сделанная под туристов.",
               "route": "Shibuya; бюджетно и без церемонии.",
               "url": "https://tabelog.com/en/tokyo/A1303/A130301/13001699/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Torikatsu+Chicken%2C+Tokyo%2C+Japan/"
             }
           ]
         }
@@ -880,14 +1108,14 @@
           "delta": "+25–35 мин",
           "when": "Если Honkan закончили раньше",
           "swap": "Святилище прямо в Ueno Park; не двигать обед позже 13:00.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Ueno+Toshogu"
+          "googleMapsUrl": "https://www.google.com/maps/place/Ueno+T%C5%8Dsh%C5%8D-g%C5%AB%2C+Tokyo%2C+Japan/"
         },
         {
           "name": "Kyu-Yasuda Garden",
           "delta": "+25–35 мин",
           "when": "Если Edo-Tokyo прошли быстро",
           "swap": "Бесплатный сад рядом с Ryōgoku; уйти к Ginza по плану.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Kyu-Yasuda+Garden"
+          "googleMapsUrl": "https://www.google.com/maps/place/Kyu-Yasuda+Garden%2C+Tokyo%2C+Japan/"
         }
       ],
       "meals": [
@@ -903,7 +1131,8 @@
               "why": "Быстрый донбури с морепродуктами без дорогого омакасэ.",
               "route": "Практичный ранний резерв.",
               "url": "https://tabelog.com/en/tokyo/A1313/A131301/13020376/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Tsukiji+Donburi+Ichiba%2C+Tokyo%2C+Japan/"
             },
             {
               "name": "Tsukiji Kanno Honten",
@@ -912,7 +1141,8 @@
               "why": "Ещё один локальный формат с морепродуктами.",
               "route": "Выбирать по самой короткой очереди.",
               "url": "https://tabelog.com/en/tokyo/A1313/A131301/13007619/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Tsukiji+Kanno+Honten%2C+Tokyo%2C+Japan/"
             }
           ]
         },
@@ -928,7 +1158,8 @@
               "why": "Историческое место внутри Ueno Park без транспортного крюка.",
               "route": "Нужна бронь; контролировать длительность обеда, чтобы сохранить Edo-Tokyo в 14:15.",
               "url": "https://tabelog.com/en/tokyo/A1311/A131101/13003560/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Insh%C5%8Dtei%2C+Tokyo%2C+Japan/"
             }
           ]
         },
@@ -944,7 +1175,8 @@
               "why": "Сильный Ginza-вариант, который не требует защищать фиксированную бронь в день возможного Fuji-сценария.",
               "route": "Свинина или pork-derived компоненты не являются стоп-фактором; не маркировать блюдо как pork-free и выбирать по текущему меню/очереди.",
               "url": "https://tabelog.com/en/tokyo/A1301/A130101/13170325/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Ginza+Kagari+Honten%2C+Tokyo%2C+Japan/"
             },
             {
               "name": "Ginza Yoshizawa",
@@ -953,7 +1185,8 @@
               "why": "Высокая кухня как заранее организованный вариант, если Fuji-сценарий точно отменён.",
               "route": "Только при сознательной предварительной брони; не делать обязательной в weather-reserve день.",
               "url": "https://tabelog.com/en/tokyo/A1301/A130101/13175030/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Ginza+Yoshizawa%2C+Tokyo%2C+Japan/"
             }
           ]
         },
@@ -969,7 +1202,8 @@
               "why": "Региональная обязательная лапша прямо у станции.",
               "route": "Самый безопасный вариант перед Oishi Park и поездом.",
               "url": "https://tabelog.com/en/yamanashi/A1903/A190303/19004308/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/H%C5%8Dt%C5%8D+Fud%C5%8D+%C2%B7+station%2C+Tokyo%2C+Japan/"
             },
             {
               "name": "Kosaku Kawaguchiko",
@@ -978,7 +1212,8 @@
               "why": "Большой локальный выбор и стабильные дневные часы.",
               "route": "5 минут от Yakuba Iriguchi; учитывать автобус.",
               "url": "https://tabelog.com/en/yamanashi/A1903/A190303/19000046/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Kosaku+Kawaguchiko%2C+Tokyo%2C+Japan/"
             },
             {
               "name": "Hōtō Fudō · north shore",
@@ -987,7 +1222,8 @@
               "why": "Подходит, если уже едете по Red Line к северному берегу.",
               "route": "Не делать отдельное такси; заказать только хото без мясных добавок.",
               "url": "https://tabelog.com/en/yamanashi/A1903/A190303/19000116/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/H%C5%8Dt%C5%8D+Fud%C5%8D+%C2%B7+north+shore%2C+Tokyo%2C+Japan/"
             }
           ]
         }
@@ -999,22 +1235,22 @@
           "name": "Edo Taito Traditional Crafts Center",
           "delta": "+25–35 мин",
           "when": "Если Sensō-ji прошли быстро",
-          "swap": "Бесплатный контекст ремёсел перед Kappabashi; убрать один магазин.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Edo+Taito+Traditional+Crafts+Center"
+          "swap": "Бесплатный контекст ремёсел рядом с Asakusa; использовать только при реальном запасе.",
+          "googleMapsUrl": "https://www.google.com/maps/place/Edo+Taito+Traditional+Crafts+Center%2C+Tokyo%2C+Japan/"
         },
         {
           "name": "Taiko Drum Museum",
           "delta": "+30–40 мин",
           "when": "Если Nakamise неинтересен",
-          "swap": "Небольшой интерактивный музей на пути к Kappabashi; проверить четверг.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Taiko+Drum+Museum+Tokyo"
+          "swap": "Небольшой интерактивный музей как отдельную короткую замену; проверить четверг.",
+          "googleMapsUrl": "https://www.google.com/maps/place/Taiko+Drum+Museum%2C+Tokyo%2C+Japan/"
         },
         {
           "name": "Sumida Hokusai Museum",
           "delta": "+60–80 мин",
-          "when": "Если Kappabashi сознательно сокращён",
-          "swap": "Полная замена 2–3 магазинов; выйти к отелю не позже 13:20.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Sumida+Hokusai+Museum"
+          "when": "Если свободное утро целиком отдаётся музею",
+          "swap": "Полная замена свободного окна; выйти к отелю не позже 13:20.",
+          "googleMapsUrl": "https://www.google.com/maps/place/Sumida+Hokusai+Museum%2C+Tokyo%2C+Japan/"
         }
       ],
       "meals": [
@@ -1030,7 +1266,8 @@
               "why": "Старейший специализированный ресторан онигири в Токио и лёгкий обед.",
               "route": "11:30–14:00 до окончания риса; проверить сразу.",
               "url": "https://tabelog.com/en/tokyo/A1311/A131102/13024859/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Onigiri+Asakusa+Yadoroku%2C+Tokyo%2C+Japan/"
             },
             {
               "name": "Daikokuya Tempura Honten",
@@ -1039,7 +1276,8 @@
               "why": "Классический жанр Asakusa.",
               "route": "Только при очереди до 25 минут.",
               "url": "https://tabelog.com/en/tokyo/A1311/A131102/13003696/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Daikokuya+Tempura+Honten%2C+Tokyo%2C+Japan/"
             },
             {
               "name": "Owariya Shiten",
@@ -1048,7 +1286,8 @@
               "why": "Надёжный быстрый резерв без туристического сета.",
               "route": "Четверг открыт по текущему расписанию; перепроверить.",
               "url": "https://tabelog.com/en/tokyo/A1311/A131102/13008597/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Owariya+Shiten%2C+Tokyo%2C+Japan/"
             }
           ]
         },
@@ -1064,7 +1303,8 @@
               "why": "Классический поздний Tokyo ramen-style ужин на прямой линии обратно к Shimbashi.",
               "route": "Не считать pork-free; свинина/свиной компонент допустимы по soft preference. Проверить текущие часы перед поездкой.",
               "url": "https://tabelog.com/en/tokyo/A1301/A130101/13002572/",
-              "pick": true
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/place/Hashigo+Ginza%2C+Tokyo%2C+Japan/"
             },
             {
               "name": "Tori Sato",
@@ -1073,7 +1313,8 @@
               "why": "Резерв с фокусом на птицу рядом с Shinbashi.",
               "route": "Использовать только если подтверждена поздняя посадка; pork-free подтверждение больше не требуется.",
               "url": "https://tabelog.com/en/tokyo/A1301/A130103/13268602/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Tori+Sato%2C+Tokyo%2C+Japan/"
             }
           ]
         }
@@ -1086,21 +1327,22 @@
           "delta": "+30–40 мин",
           "when": "Только если багаж собран и выезд подтверждён",
           "swap": "Короткий локальный подъём рядом с отелем; вернуться к 10:30.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Atago+Shrine+Tokyo"
+          "googleMapsUrl": "https://www.google.com/maps/place/Atago+Shrine%2C+Tokyo%2FNarita%2C+Japan/"
         },
         {
           "name": "Hama-rikyū Gardens",
           "delta": "+60–75 мин",
           "when": "Только при выезде из отеля не позже 11:00",
           "swap": "Последняя прогулка вместо долгого завтрака; не совмещать с Atago.",
-          "url": "https://www.google.com/maps/search/?api=1&query=Hama-rikyu+Gardens"
+          "googleMapsUrl": "https://www.google.com/maps/place/Hama-riky%C5%AB+Gardens%2C+Tokyo%2FNarita%2C+Japan/"
         },
         {
           "name": "Смотровая площадка NRT T1",
           "delta": "+20–30 мин",
           "when": "Если уже прошли регистрацию и запас времени достаточен",
           "swap": "Безопасная последняя точка внутри аэропорта; вернуться к выходу на посадку по табло.",
-          "url": "https://www.narita-airport.jp/en/service/airport-observation-deck/"
+          "url": "https://www.narita-airport.jp/en/service/airport-observation-deck/",
+          "googleMapsUrl": "https://www.google.com/maps/place/%D0%A1%D0%BC%D0%BE%D1%82%D1%80%D0%BE%D0%B2%D0%B0%D1%8F+%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D0%BA%D0%B0+NRT+T1%2C+Tokyo%2FNarita%2C+Japan/"
         }
       ],
       "meals": [
@@ -1116,7 +1358,8 @@
               "why": "Сильный финальный японский специалитет в аэропорту.",
               "route": "T1 Central Building 4F · BEFORE SECURITY. Есть только до прохождения контроля.",
               "url": "https://www.narita-airport.jp/en/shop/shop-search/t1nc4f_kwty/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Kawatoyo+%C2%B7+NRT+T1%2C+Tokyo%2FNarita%2C+Japan/"
             },
             {
               "name": "Dashi Chazuke En",
@@ -1125,7 +1368,8 @@
               "why": "Лёгкий и быстрый прощальный обед.",
               "route": "T1 Central Building 4F · BEFORE SECURITY. Быстрый landside-вариант.",
               "url": "https://www.narita-airport.jp/en/shop/shop-search/t1cb04_t0000a/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Dashi+Chazuke+En%2C+Tokyo%2FNarita%2C+Japan/"
             },
             {
               "name": "Sushi Kyotatsu",
@@ -1134,7 +1378,8 @@
               "why": "Практичный аэропортовый вариант японской классики.",
               "route": "AFTER SECURITY (international). Выбрать подходящую точку по гейту/спутнику после контроля.",
               "url": "https://www.narita-airport.jp/en/shop/shop-search/t1_kyotatsu_north/",
-              "pick": false
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/place/Sushi+Kyotatsu%2C+Tokyo%2FNarita%2C+Japan/"
             }
           ]
         }

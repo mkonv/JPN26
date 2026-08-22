@@ -66,6 +66,7 @@ def load_json(name: str):
 
 TRIP = load_json("trip.json")
 EXTRA = load_json("travel-enrichment.json")
+SHOPPING = load_json("shopping-guide.json")
 
 
 def clean(value) -> str:
@@ -239,9 +240,13 @@ def timeline_table(items: list[dict], color=CORAL):
     for item in items:
         detail = item.get("detail", "")
         title = item.get("title", "")
+        maps = item.get("mapLinks") or ([{"label": "Google Maps", "url": item["mapUrl"]}] if item.get("mapUrl") else [])
+        map_html = ""
+        if maps:
+            map_html = "<br/><font size='6.3'>" + " · ".join(link_text(m.get("label", "Google Maps"), m["url"]) for m in maps) + "</font>"
         data.append([
             Paragraph(clean(item.get("time", "")), ParagraphStyle("TLTime", fontName="DejaVu-Bold", fontSize=7.2, leading=10, textColor=color)),
-            Paragraph(f"<b>{clean(title)}</b><br/><font color='#66716C' size='6.7'>{clean(detail)}</font>", ParagraphStyle("TLBody", fontName="DejaVu", fontSize=8, leading=10.5, textColor=INK)),
+            Paragraph(f"<b>{clean(title)}</b><br/><font color='#66716C' size='6.7'>{clean(detail)}</font>{map_html}", ParagraphStyle("TLBody", fontName="DejaVu", fontSize=8, leading=10.5, textColor=INK)),
         ])
     table = Table(data, colWidths=[22 * mm, CONTENT_W - 22 * mm], splitByRow=1, hAlign="LEFT")
     table.setStyle(TableStyle([
@@ -325,15 +330,25 @@ def china_stop(stop: dict, title: str, color=CHINA):
             output.extend([KeepTogether(card([
                 Paragraph(clean(place["name"]), STYLES["cn"]),
                 Paragraph(clean(place["address"]), STYLES["cn"]),
-                rich(link_text("Открыть в Amap", place["amap"]), "small")
+                rich(link_text('Amap', place['amap']) + ' · ' + link_text('Apple Maps', place['appleMapsUrl']) + ' · ' + link_text('Google Maps', place['googleMapsUrl']), 'small')
             ], background=LAKE_SOFT, border=HexColor("#C3CFD6"))), spacer(1)])
         output.append(spacer(2))
     food_cards = []
     for item in stop["food"]:
-        food_cards.append(card([
+        food_body = [
             rich(f"<b>{clean(item['name'])}</b> · <font color='#D85A42'>{clean(item['dish'])}</font>", "body"),
             p(item["fit"], "small")
-        ], background=HexColor("#F5E9DF"), border=HexColor("#E5CFC0")))
+        ]
+        food_links = []
+        if item.get("amapUrl"):
+            food_links.append(link_text("Amap", item["amapUrl"]))
+        if item.get("appleMapsUrl"):
+            food_links.append(link_text("Apple Maps", item["appleMapsUrl"]))
+        if item.get("googleMapsUrl"):
+            food_links.append(link_text("Google Maps", item["googleMapsUrl"]))
+        if food_links:
+            food_body.append(rich(" · ".join(food_links), "small"))
+        food_cards.append(card(food_body, background=HexColor("#F5E9DF"), border=HexColor("#E5CFC0")))
     output.extend([card([
         p(EXTRA["meta"]["foodSafety"]["title"], "card_title"),
         p(EXTRA["meta"]["foodSafety"]["summary"], "small"),
@@ -378,7 +393,7 @@ def day_story(day: dict):
             rich(f"<font color='#D85A42'><b>{index}. {clean(item['name'])}</b></font> · {clean(item['delta'])}", "body"),
             rich(f"<b>КОГДА:</b> {clean(item['when'])}", "small"),
             rich(f"<b>КАК ВСТРОИТЬ:</b> {clean(item['swap'])}", "small"),
-            rich(link_text("Открыть место онлайн", item["url"]), "small")
+            rich(link_text('Google Maps', item['googleMapsUrl']) + ((" · " + link_text('Источник', item['url'])) if item.get('url') else ''), 'small')
         ], background=HexColor("#F0F4EE"), border=HexColor("#CBD7CD"))), spacer(1.5)])
 
     output.extend([
@@ -396,7 +411,7 @@ def day_story(day: dict):
         for option in meal["options"]:
             marker = "БАЗА" if option.get("pick") else "ЗАМЕНА"
             score = option["score"] if str(option["score"]).startswith("Tabelog") or option["score"] == "включено" else ("проверить на месте" if option["score"] == "—" else f"Tabelog {option['score']}")
-            name = link_text(option["name"], option["url"]) if option.get("url") else clean(option["name"])
+            name = link_text(option['name'], option.get('googleMapsUrl') or option.get('url')) if (option.get('googleMapsUrl') or option.get('url')) else clean(option['name'])
             option_rows.append([
                 Paragraph(clean(marker), ParagraphStyle("MealMarker", fontName="DejaVu-Bold", fontSize=5.5, leading=8, textColor=CORAL if marker == "БАЗА" else MUTED)),
                 rich(f"<b>{name}</b> · {clean(score)}<br/><font color='#D85A42'>{clean(option['dish'])}</font><br/><font color='#66716C' size='6.4'>{clean(option['why'])} {clean(option['route'])}</font>", "small"),
@@ -415,14 +430,34 @@ def day_story(day: dict):
             p(meal["note"], "small"), spacer(1), options
         ], background=HexColor("#F8EFE8"), border=HexColor("#E5CEC0"), left_bar=CORAL)), spacer(2)])
 
-    if day.get("shopping"):
-        shop = day["shopping"]
-        output.extend([spacer(2), label("Шопинг параллельно маршруту"), spacer(1), card([
-            rich(f"<b>{clean(shop['window'])}</b><br/>{clean(shop['goal'])}", "body"),
-            spacer(1), p(" -> ".join(shop["stops"]), "small"),
-            spacer(1), rich(f"<b>СТОП-ПРАВИЛО:</b> {clean(shop['rule'])}", "small")
-        ], background=HexColor("#EFE7EF"), border=HexColor("#D5C6D4"), left_bar=HexColor("#6E536B"))])
+    return output
 
+
+def shopping_guide():
+    output = [PageBreak(), OutlineHeading("Shopping guide", 0, STYLES["h1"]),
+              p(SHOPPING["meta"]["principle"], "body"), spacer(4)]
+    for city in SHOPPING["cities"]:
+        output.extend([OutlineHeading(city["name"], 1, STYLES["h2"]), spacer(1)])
+        for cluster in city["clusters"]:
+            rows = []
+            for store in cluster["stores"]:
+                rows.append([rich(
+                    f"<b>{clean(store['name'])}</b><br/>"
+                    f"<font color='#66716C' size='6.4'>{clean(store['address'])}<br/>{clean(store['hours'])}</font><br/>"
+                    f"<font size='7'>{clean(store['products'])}</font><br/>"
+                    f"{link_text('Google Maps', store['googleMapsUrl'])} · {link_text('Источник', store['url'])}" +
+                    (f" · {link_text('Amap', store['amapUrl'])}" if store.get('amapUrl') else '') +
+                    (f" · {link_text('Apple Maps', store['appleMapsUrl'])}" if store.get('appleMapsUrl') else ''), "small")])
+            table = Table(rows, colWidths=[CONTENT_W], splitByRow=1)
+            table.setStyle(TableStyle([
+                ("BACKGROUND", (0,0), (-1,-1), CARD), ("BOX", (0,0), (-1,-1), 0.6, HexColor("#D5C6D4")),
+                ("LINEBELOW", (0,0), (-1,-2), 0.35, LINE), ("VALIGN", (0,0), (-1,-1), "TOP"),
+                ("LEFTPADDING", (0,0), (-1,-1), 2.5*mm), ("RIGHTPADDING", (0,0), (-1,-1), 2.5*mm),
+                ("TOPPADDING", (0,0), (-1,-1), 2.2*mm), ("BOTTOMPADDING", (0,0), (-1,-1), 2.2*mm),
+            ]))
+            output.extend([KeepTogether(card([p(cluster["name"], "card_title"), p(cluster["note"], "tiny")],
+                                               background=HexColor("#EFE7EF"), border=HexColor("#D5C6D4"), left_bar=HexColor("#6E536B"))),
+                           spacer(1), table, spacer(3)])
     return output
 
 
@@ -464,7 +499,10 @@ def pocket_pages():
         body = [p(f"{hotel['city']} · {hotel['dates']}", "label"), p(hotel["name"], "card_title")]
         if hotel.get("localAddress"):
             body.extend([Paragraph(hotel["localAddress"], STYLES["cn"])])
-        body.extend([p(hotel["address"], "small"), rich(f"<b>{clean(hotel['phone'])}</b>", "body")])
+        body.extend([p(hotel['address'], 'small'), rich(f"<b>{clean(hotel['phone'])}</b>", 'body')])
+        map_url = hotel.get('googleMapsUrl') or hotel.get('mapUrl')
+        if map_url:
+            body.append(rich(link_text('Google Maps', map_url), 'small'))
         if hotel.get("note"):
             body.append(p(hotel["note"], "tiny"))
         output.extend([KeepTogether(card(body)), spacer(1.5)])
@@ -492,7 +530,7 @@ def build_story():
         hero_block("ВИКТОРИЯ + МИША · МОБИЛЬНАЯ ВЕРСИЯ", "Япония 2026", "19 сентября - 3 октября · Пекин -> Осака -> Киото -> Хаконе -> Токио -> Чэнду -> Москва", PINE, ["15 календарных дней", "12 дней в Японии", "4 перелёта"]),
         spacer(6),
         label("Для поездки, а не для журнального столика"), spacer(1),
-        p("Откройте оглавление PDF в приложении Файлы или Книги и сразу перейдите к сегодняшнему дню. Основной маршрут идёт первым; альтернативы, еда и шопинг вынесены в параллельный слой и не заслоняют следующий якорь.", "body"),
+        p("Откройте оглавление PDF в приложении Файлы или Книги и сразу перейдите к сегодняшнему дню. Основной маршрут идёт первым; альтернативы и еда вынесены в параллельный слой, а shopping guide сгруппирован отдельно по городам и районам.", "body"),
         spacer(4),
         card([rich("<b>1. Маршрут:</b> следовать плану по времени.<br/><b>2. Освободилось время:</b> выбрать одну альтернативу рядом.<br/><b>3. Еда:</b> взять базовый вариант, ссылку открывать для проверки часов.<br/><b>4. Задержка:</b> защищать якорь и применять правило сокращения.", "body")], background=PINE_SOFT, border=HexColor("#C5D6CF"), left_bar=PINE),
         spacer(6),
@@ -538,6 +576,7 @@ def build_story():
     story.append(sources)
 
     story.extend(food_passport())
+    story.extend(shopping_guide())
     story.extend(pocket_pages())
     return story
 

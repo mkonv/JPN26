@@ -72,6 +72,7 @@ try {
     [`${basePath}/todo/`, "todo"],
     [`${basePath}/food/`, "food"],
     [`${basePath}/china/`, "china"],
+    [`${basePath}/shopping/`, "shopping"],
   ]);
 
   for (const route of routes) {
@@ -94,7 +95,7 @@ try {
   }
 
   await context.close();
-  console.log(`Mobile QA: ${routes.length} страниц без горизонтального overflow; 6 ключевых экранов сохранены.`);
+  console.log(`Mobile QA: ${routes.length} страниц без горизонтального overflow; ${captures.size} ключевых экранов сохранены.`);
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));

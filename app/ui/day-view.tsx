@@ -6,7 +6,8 @@ import { SecretReveal } from "./secret-reveal";
 import { SiteLink } from "./site-link";
 
 type Day = (typeof trip.days)[number];
-type TimelineItem = Day["timeline"][number];
+type TimelineMapLink = { label: string; url: string };
+type TimelineItem = Day["timeline"][number] & { mapUrl?: string; mapLinks?: TimelineMapLink[]; mapExempt?: boolean; mapExemptReason?: string };
 type DayAlternate = {
   title: string;
   corrected?: boolean;
@@ -112,11 +113,15 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
         <div className="route-timeline">
           {day.timeline.map((item: TimelineItem) => {
             const Icon = kindIcon[item.kind] ?? MapPinned;
+            const mapLinks = item.mapLinks ?? (item.mapUrl ? [{ label: "Google Maps", url: item.mapUrl }] : []);
             return (
               <article className={`route-item ${item.kind}`} key={`${item.time}-${item.title}`}>
                 <time>{item.time}</time>
                 <div className="route-marker"><Icon size={14} /></div>
-                <div><h3>{item.title}</h3><p>{item.detail}</p></div>
+                <div>
+                  <h3>{item.title}</h3><p>{item.detail}</p>
+                  {mapLinks.length > 0 && <div className="route-map-links">{mapLinks.map((map) => <a className="route-map-link" href={map.url} target="_blank" rel="noreferrer" key={`${item.title}-${map.label}`}>{map.label} <ExternalLink size={13} /></a>)}</div>}
+                </div>
               </article>
             );
           })}
@@ -137,7 +142,7 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
               <div className="alternative-detail">
                 {index === 0 && <p className="alternative-trigger"><strong>Когда:</strong> {item.when}</p>}
                 <p><strong>Как встроить:</strong> {item.swap}</p>
-                <a href={item.url} target="_blank" rel="noreferrer">Открыть место онлайн <ExternalLink size={15} /></a>
+                <div className="place-link-row"><a href={item.googleMapsUrl} target="_blank" rel="noreferrer">Google Maps <MapPinned size={15} /></a>{"url" in item && item.url && <a href={item.url} target="_blank" rel="noreferrer">Источник <ExternalLink size={15} /></a>}</div>
               </div>
             </details>
           ))}
@@ -167,7 +172,7 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
                         <h3>{option.name}</h3>
                         <p><b>{option.dish}.</b> {option.why}</p>
                         <div className="restaurant-route"><MapPinned size={15} /><span>{option.route}</span></div>
-                        <a href={option.url} target="_blank" rel="noreferrer">{option.url.includes("tabelog") ? "Карточка Tabelog" : "Официальный сайт"} <ExternalLink size={14} /></a>
+                        <div className="place-link-row">{"googleMapsUrl" in option && option.googleMapsUrl && <a href={option.googleMapsUrl} target="_blank" rel="noreferrer">Google Maps <MapPinned size={14} /></a>}{"url" in option && option.url && <a href={option.url} target="_blank" rel="noreferrer">{option.url.includes("tabelog") ? "Карточка Tabelog" : "Официальный сайт"} <ExternalLink size={14} /></a>}</div>
                       </article>
                     ))}
                   </div>

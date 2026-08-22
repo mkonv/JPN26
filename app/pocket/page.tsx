@@ -18,6 +18,7 @@ type PocketHotel = {
   localAddress?: string;
   note?: string;
   mapUrl?: string;
+  googleMapsUrl?: string;
 };
 
 export default function PocketPage() {
@@ -44,7 +45,7 @@ export default function PocketPage() {
               {hotel.note && <p className="hotel-note">{hotel.note}</p>}
               <div className="hotel-actions">
                 <a href={`tel:${hotel.phone.replace(/\s/g, "")}`}><Phone size={16} /> Позвонить</a>
-                <a href={hotel.mapUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hotel.address)}`} target="_blank" rel="noreferrer"><MapPin size={16} /> Карта</a>
+                <a href={hotel.googleMapsUrl ?? hotel.mapUrl ?? `https://www.google.com/maps/place/${encodeURIComponent(hotel.name + ", " + hotel.address)}/`} target="_blank" rel="noreferrer"><MapPin size={16} /> Карта</a>
                 <CopyButton value={`${hotel.name}\n${hotel.localAddress ? `${hotel.localAddress}\n` : ""}${hotel.address}\n${hotel.phone}`} />
               </div>
             </article>
