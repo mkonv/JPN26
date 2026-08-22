@@ -1,4 +1,5 @@
 import { ExternalLink, MapPin } from "lucide-react";
+import { googleMapsHref } from "@/lib/google-maps.mjs";
 
 type Store = { name: string; address: string; hours: string; products: string; url: string; googleMapsUrl: string; amapUrl?: string; appleMapsUrl?: string };
 type Cluster = { name: string; note: string; stores: Store[] };
@@ -24,7 +25,7 @@ export function ShoppingPlanner({ cities, principle }: { cities: City[]; princip
                       <div><strong>{store.name}</strong></div>
                       <address>{store.address}</address><small>{store.hours}</small><p>{store.products}</p>
                       <div className="shopping-store-links">
-                        <a href={store.googleMapsUrl} target="_blank" rel="noreferrer"><MapPin size={14} /> Google Maps</a>
+                        <a href={googleMapsHref(store.googleMapsUrl, `${store.name}, ${store.address}`)} target="_blank" rel="noreferrer"><MapPin size={14} /> Google Maps</a>
                         {store.amapUrl && <a href={store.amapUrl} target="_blank" rel="noreferrer">Amap <ExternalLink size={13} /></a>}
                         {store.appleMapsUrl && <a href={store.appleMapsUrl} target="_blank" rel="noreferrer">Apple Maps <ExternalLink size={13} /></a>}
                         <a href={store.url} target="_blank" rel="noreferrer">Источник <ExternalLink size={13} /></a>

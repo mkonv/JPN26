@@ -1,6 +1,7 @@
 import { AlertTriangle, ArrowLeft, ArrowRight, Check, ChevronDown, Clock3, Compass, ExternalLink, Gauge, MapPinned, RotateCcw, ShoppingBag, Sunrise, Ticket, TrainFront, UtensilsCrossed } from "lucide-react";
 import trip from "@/data/trip.json";
 import enrichment from "@/data/travel-enrichment.json";
+import { googleMapsHref } from "@/lib/google-maps.mjs";
 import { NowStepper } from "./now-stepper";
 import { SecretReveal } from "./secret-reveal";
 import { SiteLink } from "./site-link";
@@ -120,7 +121,7 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
                 <div className="route-marker"><Icon size={14} /></div>
                 <div>
                   <h3>{item.title}</h3><p>{item.detail}</p>
-                  {mapLinks.length > 0 && <div className="route-map-links">{mapLinks.map((map) => <a className="route-map-link" href={map.url} target="_blank" rel="noreferrer" key={`${item.title}-${map.label}`}>{map.label} <ExternalLink size={13} /></a>)}</div>}
+                  {mapLinks.length > 0 && <div className="route-map-links">{mapLinks.map((map) => <a className="route-map-link" href={googleMapsHref(map.url, map.label)} target="_blank" rel="noreferrer" key={`${item.title}-${map.label}`}>{map.label} <ExternalLink size={13} /></a>)}</div>}
                 </div>
               </article>
             );
@@ -142,7 +143,7 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
               <div className="alternative-detail">
                 {index === 0 && <p className="alternative-trigger"><strong>Когда:</strong> {item.when}</p>}
                 <p><strong>Как встроить:</strong> {item.swap}</p>
-                <div className="place-link-row"><a href={item.googleMapsUrl} target="_blank" rel="noreferrer">Google Maps <MapPinned size={15} /></a>{"url" in item && item.url && <a href={item.url} target="_blank" rel="noreferrer">Источник <ExternalLink size={15} /></a>}</div>
+                <div className="place-link-row"><a href={googleMapsHref(item.googleMapsUrl, item.name)} target="_blank" rel="noreferrer">Google Maps <MapPinned size={15} /></a>{"url" in item && item.url && <a href={item.url} target="_blank" rel="noreferrer">Источник <ExternalLink size={15} /></a>}</div>
               </div>
             </details>
           ))}
@@ -172,7 +173,7 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
                         <h3>{option.name}</h3>
                         <p><b>{option.dish}.</b> {option.why}</p>
                         <div className="restaurant-route"><MapPinned size={15} /><span>{option.route}</span></div>
-                        <div className="place-link-row">{"googleMapsUrl" in option && option.googleMapsUrl && <a href={option.googleMapsUrl} target="_blank" rel="noreferrer">Google Maps <MapPinned size={14} /></a>}{"url" in option && option.url && <a href={option.url} target="_blank" rel="noreferrer">{option.url.includes("tabelog") ? "Карточка Tabelog" : "Официальный сайт"} <ExternalLink size={14} /></a>}</div>
+                        <div className="place-link-row">{"googleMapsUrl" in option && option.googleMapsUrl && <a href={googleMapsHref(option.googleMapsUrl, option.name)} target="_blank" rel="noreferrer">Google Maps <MapPinned size={14} /></a>}{"url" in option && option.url && <a href={option.url} target="_blank" rel="noreferrer">{option.url.includes("tabelog") ? "Карточка Tabelog" : "Официальный сайт"} <ExternalLink size={14} /></a>}</div>
                       </article>
                     ))}
                   </div>

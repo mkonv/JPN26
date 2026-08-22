@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { CopyButton } from "@/app/ui/copy-button";
 import { OfflinePanel } from "@/app/ui/offline-panel";
 import { SecretReveal } from "@/app/ui/secret-reveal";
+import { googleMapsHref } from "@/lib/google-maps.mjs";
 import { CloudSun, ExternalLink, Hotel, MapPin, Phone, ShieldCheck } from "lucide-react";
 import trip from "@/data/trip.json";
 import enrichment from "@/data/travel-enrichment.json";
@@ -37,19 +38,23 @@ export default function PocketPage() {
       <section className="page-section first-section">
         <div className="section-heading"><div><span>ночёвки</span><h2>Отели</h2></div></div>
         <div className="hotel-list">
-          {hotels.map((hotel) => (
-            <article key={hotel.name}>
-              <div className="hotel-head"><Hotel size={19} /><div><span>{hotel.city} · {hotel.dates}</span><h2>{hotel.name}</h2></div></div>
-              <p>{hotel.address}</p>
-              {hotel.localAddress && <p className="hotel-local-address">{hotel.localAddress}</p>}
-              {hotel.note && <p className="hotel-note">{hotel.note}</p>}
-              <div className="hotel-actions">
-                <a href={`tel:${hotel.phone.replace(/\s/g, "")}`}><Phone size={16} /> Позвонить</a>
-                <a href={hotel.googleMapsUrl ?? hotel.mapUrl ?? `https://www.google.com/maps/place/${encodeURIComponent(hotel.name + ", " + hotel.address)}/`} target="_blank" rel="noreferrer"><MapPin size={16} /> Карта</a>
-                <CopyButton value={`${hotel.name}\n${hotel.localAddress ? `${hotel.localAddress}\n` : ""}${hotel.address}\n${hotel.phone}`} />
-              </div>
-            </article>
-          ))}
+          {hotels.map((hotel) => {
+            const rawMapUrl = hotel.googleMapsUrl ?? hotel.mapUrl ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${hotel.name}, ${hotel.address}`)}`;
+            const mapUrl = googleMapsHref(rawMapUrl, `${hotel.name}, ${hotel.address}`);
+            return (
+              <article key={hotel.name}>
+                <div className="hotel-head"><Hotel size={19} /><div><span>{hotel.city} · {hotel.dates}</span><h2>{hotel.name}</h2></div></div>
+                <p>{hotel.address}</p>
+                {hotel.localAddress && <p className="hotel-local-address">{hotel.localAddress}</p>}
+                {hotel.note && <p className="hotel-note">{hotel.note}</p>}
+                <div className="hotel-actions">
+                  <a href={`tel:${hotel.phone.replace(/\s/g, "")}`}><Phone size={16} /> Позвонить</a>
+                  <a href={mapUrl} target="_blank" rel="noreferrer"><MapPin size={16} /> Карта</a>
+                  <CopyButton value={`${hotel.name}\n${hotel.localAddress ? `${hotel.localAddress}\n` : ""}${hotel.address}\n${hotel.phone}`} />
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
       <section className="page-section emergency-section">
