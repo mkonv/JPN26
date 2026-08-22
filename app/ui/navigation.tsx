@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { CalendarDays, CheckSquare2, Home, Map, Plane, ShieldCheck, ShoppingBag, TrainFront, UtensilsCrossed } from "lucide-react";
+import { CalendarDays, CheckSquare2, ChevronDown, Home, Map, Plane, ShieldCheck, ShoppingBag, TrainFront, UtensilsCrossed } from "lucide-react";
 import { withBasePath } from "@/app/site-path";
 
 const mainNav = [
@@ -44,6 +44,28 @@ export function DesktopNavigation() {
         ))}
       </nav>
     </>
+  );
+}
+
+export function MobileReferenceMenu() {
+  const isActive = useActiveRoute();
+  const hasActiveReference = referenceNav.some((item) => isActive(item.href));
+
+  return (
+    <details className={`mobile-reference-menu${hasActiveReference ? " active" : ""}`}>
+      <summary aria-label="Открыть справочники">
+        <span>{hasActiveReference ? referenceNav.find((item) => isActive(item.href))?.label : "Разделы"}</span>
+        <ChevronDown size={15} />
+      </summary>
+      <nav className="mobile-reference-popover" aria-label="Справочники">
+        {referenceNav.map((item) => (
+          <a className={isActive(item.href) ? "active" : ""} href={withBasePath(item.href)} key={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
+            <item.icon size={18} />
+            <span>{item.label}</span>
+          </a>
+        ))}
+      </nav>
+    </details>
   );
 }
 

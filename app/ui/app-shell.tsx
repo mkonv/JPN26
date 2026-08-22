@@ -1,6 +1,6 @@
 import trip from "@/data/trip.json";
 import { withBasePath } from "@/app/site-path";
-import { DesktopNavigation, MobileNavigation } from "./navigation";
+import { DesktopNavigation, MobileNavigation, MobileReferenceMenu } from "./navigation";
 import { ToriiMark } from "./japanese-mark";
 import { ServiceWorkerRegistration } from "./service-worker-registration";
 
@@ -20,7 +20,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <div className="mobile-canvas">
         <header className="mobile-topbar">
           <a href={withBasePath("/")} className="mobile-brand"><span className="brand-seal"><ToriiMark /></span><strong>Япония 2026</strong></a>
-          <span className="topbar-date">19.09—03.10</span>
+          <MobileReferenceMenu />
         </header>
         <main>{children}</main>
         <MobileNavigation />
