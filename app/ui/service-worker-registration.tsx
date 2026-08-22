@@ -10,11 +10,17 @@ export function ServiceWorkerRegistration() {
   const [updated, setUpdated] = useState(false);
 
   useEffect(() => {
+    let updateNoticeTimer: number | undefined;
     if (sessionStorage.getItem(UPDATED_FLAG) === "1") {
       sessionStorage.removeItem(UPDATED_FLAG);
-      setUpdated(true);
+      updateNoticeTimer = window.setTimeout(() => setUpdated(true), 0);
     }
-    if (!("serviceWorker" in navigator)) return;
+
+    if (!("serviceWorker" in navigator)) {
+      return () => {
+        if (updateNoticeTimer !== undefined) window.clearTimeout(updateNoticeTimer);
+      };
+    }
 
     let cancelled = false;
     const hadController = Boolean(navigator.serviceWorker.controller);
@@ -48,6 +54,7 @@ export function ServiceWorkerRegistration() {
 
     return () => {
       cancelled = true;
+      if (updateNoticeTimer !== undefined) window.clearTimeout(updateNoticeTimer);
       navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
       document.removeEventListener("visibilitychange", onVisible);
     };
