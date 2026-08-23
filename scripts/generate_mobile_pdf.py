@@ -7,6 +7,7 @@ import json
 import re
 from pathlib import Path
 from typing import Iterable
+from urllib.parse import parse_qs, quote_plus, unquote, urlparse
 
 from reportlab.lib import colors
 from reportlab.lib.colors import HexColor
@@ -72,14 +73,58 @@ SHOPPING = load_json("shopping-guide.json")
 def clean(value) -> str:
     """Escape text for ReportLab and enforce PDF-safe ASCII hyphens."""
     text = str(value)
+    # The bundled SC face lacks the Japanese simplified glyph 麺; its
+    # traditional form 麵 is semantically equivalent and present in the font.
+    text = text.replace("麺", "麵")
     for old, new in (("–", "-"), ("—", "-"), ("‑", "-"), ("−", "-"), ("→", "->")):
         text = text.replace(old, new)
     text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    # ReportLab does not provide automatic font fallback. Wrap any CJK run so
+    # mixed Latin/Cyrillic lines (addresses, dish names) keep valid Unicode
+    # glyphs instead of extracting as NUL characters.
+    text = re.sub(
+        r"([\u3000-\u303f\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uac00-\ud7af]+)",
+        r'<font name="NotoSansSC">\1</font>',
+        text,
+    )
     return text
 
 
+def canonical_google_maps_url(raw_url: str, fallback_query: str = "") -> str:
+    """Use Google's documented Maps URL API for text and Place-ID bookmarks."""
+    if not raw_url:
+        return raw_url
+    try:
+        parsed = urlparse(raw_url)
+    except ValueError:
+        return raw_url
+    if parsed.hostname not in {"google.com", "www.google.com"} or not parsed.path.startswith("/maps/"):
+        return raw_url
+    if parsed.path.startswith("/maps/search"):
+        return raw_url
+    if parsed.path.rstrip("/") == "/maps/place":
+        query = parse_qs(parsed.query).get("q", [""])[0]
+        if query.startswith("place_id:"):
+            place_id = query.removeprefix("place_id:").strip()
+            label = fallback_query.strip() or place_id
+            if place_id and label:
+                return f"https://www.google.com/maps/search/?api=1&query={quote_plus(label)}&query_place_id={quote_plus(place_id)}"
+        return raw_url
+    prefix = "/maps/place/"
+    if not parsed.path.startswith(prefix):
+        return raw_url
+    remainder = parsed.path[len(prefix):].rstrip("/")
+    if not remainder or "/@" in remainder or "/data=" in remainder:
+        return raw_url
+    query = unquote(remainder.replace("+", " ")).strip()
+    if not query:
+        return raw_url
+    return f"https://www.google.com/maps/search/?api=1&query={quote_plus(query)}"
+
+
 def link_text(text: str, url: str, color: str = "#345C73") -> str:
-    return f'<link href="{clean(url)}" color="{color}"><u>{clean(text)}</u></link>'
+    safe_url = canonical_google_maps_url(url, text)
+    return f'<link href="{clean(safe_url)}" color="{color}"><u>{clean(text)}</u></link>'
 
 
 pdfmetrics.registerFont(TTFont("DejaVu", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"))
@@ -283,6 +328,44 @@ def decision_card(decision: dict):
     return table
 
 
+def photo_spot_cards(day: dict):
+    spots = day.get("photoSpots", [])
+    if not spots:
+        return []
+    guide = EXTRA["photoGuide"]
+    output = [
+        label("Фототочки дня"),
+        spacer(1),
+        p(guide["principle"], "small"),
+        spacer(1),
+        card([
+            rich(f"<b>FUJI WATCH:</b> {clean(guide['fujiWatch'])}", "tiny"),
+            rich(f"<b>ВАЖНО:</b> {clean(guide['exclusion'])}", "tiny"),
+        ], background=LAKE_SOFT, border=HexColor("#B9CCD5"), left_bar=LAKE),
+        spacer(2),
+    ]
+    for spot in spots:
+        priority = spot["priority"]
+        accent = CORAL if priority == "PHOTO MUST" else LAKE if priority == "FUJI WATCH" else PINE_2
+        accent_hex = "#D85A42" if priority == "PHOTO MUST" else "#345C73" if priority == "FUJI WATCH" else "#225D4F"
+        signature = " · SIGNATURE SHOT" if spot.get("signature") else ""
+        map_line = None
+        if spot.get("googleMapsUrl"):
+            map_line = rich(link_text("Google Maps", spot["googleMapsUrl"]), "small")
+        elif spot.get("mapExemptReason"):
+            map_line = rich(f"<b>БЕЗ ОТДЕЛЬНОЙ ТОЧКИ:</b> {clean(spot['mapExemptReason'])}", "tiny")
+        body = [
+            rich(f"<font color='{accent_hex}'><b>{clean(priority + signature)}</b></font>", "tiny"),
+            p(spot["name"], "card_title"),
+            p(spot["shot"], "small"),
+            rich(f"<b>СВЕТ / МОМЕНТ:</b> {clean(spot['timing'])}", "tiny"),
+        ]
+        if map_line:
+            body.extend([spacer(0.6), map_line])
+        output.extend([KeepTogether(card(body, background=HexColor("#F4F7F3"), border=HexColor("#C9D7CE"), left_bar=accent)), spacer(1.5)])
+    return output
+
+
 def flight_cards():
     output = []
     for flight in EXTRA["flights"]:
@@ -387,7 +470,11 @@ def day_story(day: dict):
         alt = day["alternate"]
         output.extend([spacer(4), label("Полный альтернативный сценарий"), spacer(1), p(alt["title"], "h3"), p(alt.get("note", ""), "small"), spacer(1), timeline_table(alt["timeline"], LAKE)])
 
-    output.extend([PageBreak(), OutlineHeading(f"День {day['number']} - параллельные треки", 1, STYLES["h2"]), p(day["dateLabel"], "label"), spacer(2), label("Если освободилось время"), spacer(1), p("Выберите только один вариант рядом. В каждой карточке указано, когда он подходит и что заменяет.", "small"), spacer(2)])
+    output.extend([PageBreak(), OutlineHeading(f"День {day['number']} - параллельные треки", 1, STYLES["h2"]), p(day["dateLabel"], "label"), spacer(2)])
+    output.extend(photo_spot_cards(day))
+    if day.get("photoSpots"):
+        output.append(spacer(2))
+    output.extend([label("Если освободилось время"), spacer(1), p("Выберите только один вариант рядом. В каждой карточке указано, когда он подходит и что заменяет.", "small"), spacer(2)])
     for index, item in enumerate(enriched["alternatives"], start=1):
         output.extend([KeepTogether(card([
             rich(f"<font color='#D85A42'><b>{index}. {clean(item['name'])}</b></font> · {clean(item['delta'])}", "body"),

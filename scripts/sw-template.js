@@ -8,7 +8,7 @@ const PRECACHE_CACHE = `${PRECACHE_PREFIX}${BUILD_ID}`;
 const RUNTIME_CACHE = `${RUNTIME_PREFIX}${BUILD_ID}`;
 const STAGING_CACHE = `${PRECACHE_CACHE}-install`;
 const SCOPE_PATH = new URL(self.registration.scope).pathname.replace(/\/$/, "");
-const DEBUG_STATE = { stage: "boot", index: 0, url: "", error: "" };
+const DEBUG_STATE = { stage: "boot", index: 0, url: "", error: "", skipWaiting: "idle" };
 self.__JAPAN_PWA_DEBUG = DEBUG_STATE;
 
 function isInsideGuide(url) {
@@ -118,9 +118,22 @@ function normalizedNavigationUrl(requestUrl) {
 
 self.addEventListener("install", (event) => {
   DEBUG_STATE.stage = "installing";
-  event.waitUntil(precacheAll().then(() => {
+  // Request activation immediately; the worker still cannot activate until
+  // the atomic precache promise below fulfills. Setting the flag before the
+  // longer cache fill avoids a completed worker getting stranded in waiting.
+  DEBUG_STATE.skipWaiting = "requested";
+  const activationRequest = self.skipWaiting().then(() => {
+    DEBUG_STATE.skipWaiting = "resolved";
+  }).catch((error) => {
+    DEBUG_STATE.skipWaiting = "failed";
+    DEBUG_STATE.error = error instanceof Error ? error.message : String(error);
+    throw error;
+  });
+  event.waitUntil(Promise.all([precacheAll(), activationRequest]).then(async () => {
+    // Repeat after the cache fill for browsers that defer the first request
+    // while the worker is still performing a long install transaction.
+    await self.skipWaiting();
     DEBUG_STATE.stage = "installed";
-    return self.skipWaiting();
   }));
 });
 
@@ -129,6 +142,10 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("message", (event) => {
+  if (event.data?.type === "SKIP_WAITING") {
+    event.waitUntil(self.skipWaiting());
+    return;
+  }
   if (!event.data?.type || !event.ports[0]) return;
   const reply = event.ports[0];
   if (event.data.type === "GET_STATUS") {

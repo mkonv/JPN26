@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowLeft, ArrowRight, Check, ChevronDown, Clock3, Compass, ExternalLink, Gauge, MapPinned, RotateCcw, ShoppingBag, Sunrise, Ticket, TrainFront, UtensilsCrossed } from "lucide-react";
+import { AlertTriangle, ArrowLeft, ArrowRight, Camera, Check, ChevronDown, Clock3, Compass, ExternalLink, Gauge, MapPinned, RotateCcw, ShoppingBag, Sunrise, Ticket, TrainFront, UtensilsCrossed } from "lucide-react";
 import trip from "@/data/trip.json";
 import enrichment from "@/data/travel-enrichment.json";
 import { googleMapsHref } from "@/lib/google-maps.mjs";
@@ -31,11 +31,22 @@ type DayDecision = {
   fallback: string;
 };
 type DaySecret = { label: string; value: string };
+type DayPhotoSpot = {
+  name: string;
+  priority: "PHOTO MUST" | "PHOTO GOOD" | "SECONDARY ICONIC" | "FUJI WATCH";
+  shot: string;
+  timing: string;
+  signature?: boolean;
+  googleMapsUrl?: string;
+  mapExempt?: boolean;
+  mapExemptReason?: string;
+};
 type DayWithOptionalData = Day & {
   alternate?: DayAlternate;
   shopping?: DayShopping;
   decision?: DayDecision;
   secrets?: DaySecret[];
+  photoSpots?: DayPhotoSpot[];
 };
 type DayEnrichment = (typeof enrichment.dayEnrichment)[keyof typeof enrichment.dayEnrichment];
 
@@ -56,6 +67,7 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
   const shopping = optional.shopping;
   const decision = optional.decision;
   const secrets = optional.secrets;
+  const photoSpots = optional.photoSpots;
   const dayColor = day.city.includes("Киото") ? "moss" : day.city.includes("Хаконе") ? "lake" : day.city.includes("Токио") || day.city.includes("Fuji") ? "ink" : "coral";
   const cityJapanese = day.city.includes("Киото") ? "京都" : day.city.includes("Хаконе") ? "箱根" : day.city.includes("Токио") ? "東京" : day.city.includes("Нара") ? "奈良" : day.city.includes("Хиросима") ? "広島" : day.city.includes("Осака") ? "大阪" : "日本";
 
@@ -128,6 +140,32 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
           })}
         </div>
       </section>
+
+      {photoSpots && photoSpots.length > 0 && (
+        <section className="page-section photo-section" id="photo-spots">
+          <div className="section-heading"><div><span>параллельный слой</span><h2>Фототочки дня</h2></div><Camera size={22} /></div>
+          <p className="parallel-intro">{enrichment.photoGuide.principle}</p>
+          <div className="photo-guide-notes">
+            <p><strong>Fuji Watch:</strong> {enrichment.photoGuide.fujiWatch}</p>
+            <p><strong>Важно:</strong> {enrichment.photoGuide.exclusion}</p>
+          </div>
+          <div className="photo-spot-grid">
+            {photoSpots.map((spot) => (
+              <article className={`photo-spot-card ${spot.priority.toLowerCase().replaceAll(" ", "-")}`} key={spot.name}>
+                <div className="photo-spot-top">
+                  <span>{spot.priority}</span>
+                  {spot.signature && <em>SIGNATURE SHOT</em>}
+                </div>
+                <h3>{spot.name}</h3>
+                <p>{spot.shot}</p>
+                <small>{spot.timing}</small>
+                {spot.googleMapsUrl && <a href={googleMapsHref(spot.googleMapsUrl, spot.name)} target="_blank" rel="noreferrer">Google Maps <MapPinned size={14} /></a>}
+                {!spot.googleMapsUrl && spot.mapExemptReason && <div className="photo-map-exempt">Без отдельной точки: {spot.mapExemptReason}</div>}
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="page-section discovery-section" id="alternatives">
         <div className="section-heading"><div><span>параллельный трек</span><h2>Если освободилось время</h2></div></div>

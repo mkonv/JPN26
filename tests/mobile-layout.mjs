@@ -69,16 +69,20 @@ try {
   // secondary guides through the top reference menu.
   await page.goto(`${origin}${basePath}/`, { waitUntil: "networkidle" });
   const portraitNav = await page.evaluate(() => ({
-    shoppingVisible: [...document.querySelectorAll(".bottom-nav a")].some((node) =>
-      node.textContent?.includes("Шопинг") && getComputedStyle(node).display !== "none"
-    ),
+    bottomLabels: [...document.querySelectorAll(".bottom-nav a")]
+      .filter((node) => getComputedStyle(node).display !== "none")
+      .map((node) => node.textContent?.trim()),
     referenceVisible: (() => {
       const node = document.querySelector(".mobile-reference-menu");
       return Boolean(node && getComputedStyle(node).display !== "none");
     })(),
+    referenceLabel: document.querySelector(".mobile-reference-menu summary")?.textContent?.trim(),
+    referenceLabels: [...document.querySelectorAll(".mobile-reference-popover a")].map((node) => node.textContent?.trim()),
   }));
-  assert.equal(portraitNav.shoppingVisible, true, "portrait bottom navigation must expose Shopping");
+  assert.deepEqual(portraitNav.bottomLabels, ["Главная", "Дни", "Шопинг", "Подготовка", "Карман"], "portrait bottom navigation must expose all five primary items");
   assert.equal(portraitNav.referenceVisible, true, "portrait top bar must expose the reference menu");
+  assert.equal(portraitNav.referenceLabel, "Разделы", "portrait reference menu needs the compact Разделы label");
+  assert.deepEqual(portraitNav.referenceLabels, ["Китай", "Гастрономия", "План Б", "Транспорт"], "portrait reference menu must contain the four secondary guides");
 
   const routes = offlineManifest.routes.filter((route) => !route.endsWith("404.html"));
   const captures = new Map([
@@ -99,10 +103,21 @@ try {
       document: document.documentElement.scrollWidth,
       body: document.body.scrollWidth,
       headingFonts: [...document.querySelectorAll("h1, h2, h3")].map((node) => getComputedStyle(node).fontFamily),
+      h1Count: document.querySelectorAll("h1").length,
+      duplicateIds: [...document.querySelectorAll("[id]")].map((node) => node.id).filter((id, index, ids) => ids.indexOf(id) !== index),
+      imagesWithoutAlt: [...document.querySelectorAll("img")].filter((node) => !node.hasAttribute("alt")).length,
+      unnamedControls: [...document.querySelectorAll("a, button, summary, input")].filter((node) => {
+        const input = node instanceof HTMLInputElement ? node.placeholder : "";
+        return !(node.getAttribute("aria-label") || node.getAttribute("title") || node.textContent?.trim() || input);
+      }).length,
     }));
     assert.ok(layout.document <= layout.viewport, `${route} document overflows: ${layout.document}px > ${layout.viewport}px`);
     assert.ok(layout.body <= layout.viewport, `${route} body overflows: ${layout.body}px > ${layout.viewport}px`);
     assert.ok(layout.headingFonts.every((font) => !/Georgia|Mincho/i.test(font)), `${route} uses a serif/Mincho font for Russian headings`);
+    assert.ok(layout.h1Count >= 1, `${route} needs a visible level-one heading`);
+    assert.deepEqual(layout.duplicateIds, [], `${route} contains duplicate element IDs`);
+    assert.equal(layout.imagesWithoutAlt, 0, `${route} contains images without alt text`);
+    assert.equal(layout.unnamedControls, 0, `${route} contains unnamed interactive controls`);
 
     const capture = captures.get(route);
     if (capture) {
@@ -111,7 +126,30 @@ try {
   }
 
   await context.close();
-  console.log(`Mobile QA: ${routes.length} страниц без горизонтального overflow; ${captures.size} ключевых экранов сохранены.`);
+
+  const landscapeContext = await browser.newContext({
+    viewport: { width: 852, height: 393 },
+    deviceScaleFactor: 1,
+    isMobile: true,
+    hasTouch: true,
+    serviceWorkers: "block",
+  });
+  const landscapePage = await landscapeContext.newPage();
+  for (const route of routes) {
+    const response = await landscapePage.goto(`${origin}${route}`, { waitUntil: "networkidle" });
+    assert.equal(response?.status(), 200, `${route} should open directly in landscape`);
+    const layout = await landscapePage.evaluate(() => ({
+      viewport: window.innerWidth,
+      document: document.documentElement.scrollWidth,
+      body: document.body.scrollWidth,
+    }));
+    assert.ok(layout.document <= layout.viewport, `${route} landscape document overflows: ${layout.document}px > ${layout.viewport}px`);
+    assert.ok(layout.body <= layout.viewport, `${route} landscape body overflows: ${layout.body}px > ${layout.viewport}px`);
+  }
+  await landscapePage.goto(`${origin}${basePath}/day/sep-25-kyoto/`, { waitUntil: "networkidle" });
+  await landscapePage.screenshot({ path: join(screenshotsDir, "landscape-day-kyoto.png"), fullPage: true });
+  await landscapeContext.close();
+  console.log(`Mobile QA: ${routes.length} страниц PASS в portrait 393×852 и landscape 852×393; ${captures.size + 1} ключевых экранов сохранены.`);
 } finally {
   await browser.close();
   await new Promise((resolve) => server.close(resolve));

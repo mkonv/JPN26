@@ -5,10 +5,10 @@
     "dates": "19 сентября — 3 октября 2026",
     "timezone": "Asia/Tokyo",
     "currency": "JPY",
-    "sourceChecked": "22 августа 2026 · недельная дельта + shopping rebuild + общий аудит",
-    "version": "2026.08.22-v8-shopping-rebuild",
+    "sourceChecked": "23 августа 2026 · подтверждённая недельная дельта + photo guide + release audit",
+    "version": "2026.08.23-v10-confirmed-delta",
     "principles": [
-      "Полный аудит 22.08.2026 и подтверждённые решения пользователя — канонический baseline",
+      "Полный аудит 23.08.2026 и подтверждённые решения пользователя — канонический baseline",
       "Жёсткие якоря важнее полноты списка; невозможные стыковки и закрытые точки не возвращаются",
       "Такси — не базовый сценарий, кроме явно обозначенных аварийных/китайских сегментов",
       "Свинина — soft preference, не запрет: сильное место или более простая логистика могут иметь приоритет; наличие свинины помечается явно",
@@ -48,7 +48,7 @@
       "name": "HOTEL HANKYU GRAN RESPIRE OSAKA",
       "address": "Grand Green Osaka South Building, 5-54 Ofukacho, Kita-ku, Osaka 530-0011",
       "phone": "+81 6 6372 8506",
-      "googleMapsUrl": "https://www.google.com/maps/place/HOTEL+HANKYU+GRAN+RESPIRE+OSAKA%2C+Grand+Green+Osaka+South+Building%2C+5-54+Ofukacho%2C+Kita-ku%2C+Osaka+530-0011/"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=HOTEL+HANKYU+GRAN+RESPIRE+OSAKA%2C+Grand+Green+Osaka+South+Building%2C+5-54+Ofukacho%2C+Kita-ku%2C+Osaka+530-0011"
     },
     {
       "city": "Киото",
@@ -56,7 +56,7 @@
       "name": "THE GENERAL KYOTO SHIJO SHINMACHI",
       "address": "392 Mukadeyacho, Shinmachi-dori, Nishikikoji-agaru, Nakagyo-ku, Kyoto 604-8214",
       "phone": "+81 75 746 2877",
-      "googleMapsUrl": "https://www.google.com/maps/place/THE+GENERAL+KYOTO+SHIJO+SHINMACHI%2C+392+Mukadeyacho%2C+Shinmachi-dori%2C+Nishikikoji-agaru%2C+Nakagyo-ku%2C+Kyoto+604-8214/"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=THE+GENERAL+KYOTO+SHIJO+SHINMACHI%2C+392+Mukadeyacho%2C+Shinmachi-dori%2C+Nishikikoji-agaru%2C+Nakagyo-ku%2C+Kyoto+604-8214"
     },
     {
       "city": "Хаконе",
@@ -64,7 +64,7 @@
       "name": "KAKUINOYADO SHIUNSO",
       "address": "92 Tonosawa, Hakone-machi, Ashigarashimo-gun, Kanagawa 250-0315",
       "phone": "+81 460 85 8511",
-      "googleMapsUrl": "https://www.google.com/maps/place/KAKUINOYADO+SHIUNSO%2C+92+Tonosawa%2C+Hakone-machi%2C+Ashigarashimo-gun%2C+Kanagawa+250-0315/"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KAKUINOYADO+SHIUNSO%2C+92+Tonosawa%2C+Hakone-machi%2C+Ashigarashimo-gun%2C+Kanagawa+250-0315"
     },
     {
       "city": "Токио",
@@ -72,7 +72,7 @@
       "name": "HOTEL 1899 TOKYO",
       "address": "6-4-1 Shinbashi, Minato-ku, Tokyo 105-0004",
       "phone": "+81 3 3432 1899",
-      "googleMapsUrl": "https://www.google.com/maps/place/HOTEL+1899+TOKYO%2C+6-4-1+Shinbashi%2C+Minato-ku%2C+Tokyo+105-0004/"
+      "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=HOTEL+1899+TOKYO%2C+6-4-1+Shinbashi%2C+Minato-ku%2C+Tokyo+105-0004"
     }
   ],
   "days": [
@@ -107,19 +107,19 @@
           "mapLinks": [
             {
               "label": "KIX Terminal 1",
-              "url": "https://www.google.com/maps/place/Kansai+International+Airport+Terminal+1%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport+Terminal+1%2C+Osaka%2C+Japan"
             }
           ]
         },
         {
           "time": "после выхода",
-          "title": "ICOCA + HARUKA",
-          "detail": "Сначала закончить формальности. Получить ICOCA и физический discounted HARUKA One-way Ticket по паспорту, номеру брони, 4-значному коду и физической карте оплаты; WEST QR не используем.",
+          "title": "ICOCA + физические JR-West билеты",
+          "detail": "После формальностей получить ICOCA, два физических discounted HARUKA One-way Tickets и физический Kansai–Hiroshima Area Pass. Нужны паспорта, номера броней, 4-значные коды и физическая карта оплаты; WEST QR не используем.",
           "kind": "task",
           "mapLinks": [
             {
               "label": "KIX Terminal 1",
-              "url": "https://www.google.com/maps/place/Kansai+International+Airport+Terminal+1%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport+Terminal+1%2C+Osaka%2C+Japan"
             }
           ]
         },
@@ -131,11 +131,11 @@
           "mapLinks": [
             {
               "label": "KIX Terminal 1",
-              "url": "https://www.google.com/maps/place/Kansai+International+Airport+Terminal+1%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport+Terminal+1%2C+Osaka%2C+Japan"
             },
             {
               "label": "Osaka Station",
-              "url": "https://www.google.com/maps/place/Osaka+Station%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Osaka+Station%2C+Osaka%2C+Japan"
             }
           ]
         },
@@ -147,7 +147,7 @@
           "mapLinks": [
             {
               "label": "Hotel Hankyu Gran Respire Osaka",
-              "url": "https://www.google.com/maps/place/Hotel+Hankyu+Gran+Respire+Osaka%2C+5-54+Ofukacho%2C+Kita+Ward%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+Hankyu+Gran+Respire+Osaka%2C+5-54+Ofukacho%2C+Kita+Ward%2C+Osaka%2C+Japan"
             }
           ]
         },
@@ -159,7 +159,7 @@
           "mapLinks": [
             {
               "label": "Grand Green Osaka",
-              "url": "https://www.google.com/maps/place/Grand+Green+Osaka%2C+Ofukacho%2C+Kita+Ward%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Grand+Green+Osaka%2C+Ofukacho%2C+Kita+Ward%2C+Osaka%2C+Japan"
             }
           ]
         },
@@ -185,15 +185,19 @@
       "date": "2026-09-22",
       "dateLabel": "22 сентября · вторник",
       "city": "Нара → Осака",
-      "title": "Нара до толпы",
-      "summary": "Ранний храмовый маршрут, Нарамати днём и короткий шопинг-коридор в Namba.",
+      "title": "Нара после завтрака",
+      "summary": "Спокойный завтрак в Hotel Hankyu, прямой поезд около 07:55, храмовый маршрут Нары и вечерний Namba.",
       "load": "высокая",
       "distance": "15–17 км",
-      "wake": "05:15",
-      "principle": "Утро — культуре; Namba вечером — только одна примерка или один страхующий магазин.",
+      "wake": "06:30",
+      "principle": "Экстремально ранний старт отменён: сначала завтрак 07:00–07:30, затем прямой Yamatoji Rapid; основную программу Нары сохраняем без гонки.",
       "anchors": [
         {
-          "time": "07:30",
+          "time": "07:00–07:30",
+          "label": "Завтрак"
+        },
+        {
+          "time": "09:20",
           "label": "Tōdai-ji"
         },
         {
@@ -203,131 +207,213 @@
       ],
       "timeline": [
         {
-          "time": "≈05:55",
+          "time": "07:00–07:30",
+          "title": "Завтрак в Hotel Hankyu",
+          "detail": "Спокойно позавтракать в отеле; вариант с выходом до завтрака окончательно снят.",
+          "kind": "food",
+          "mapLinks": [
+            {
+              "label": "Hotel Hankyu Gran Respire Osaka",
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+Hankyu+Gran+Respire+Osaka%2C+5-54+Ofukacho%2C+Kita+Ward%2C+Osaka"
+            }
+          ]
+        },
+        {
+          "time": "около 07:55",
           "title": "JR Osaka → Nara",
-          "detail": "JR Osaka → Nara по Yamatoji Line. Это целевой ориентир, не подтверждённый номер поезда: финальный departure выбрать по расписанию сентября 2026 и pass.",
+          "detail": "Цель — прямой Yamatoji Rapid после завтрака, прибытие около 08:50. Reserved seat не нужен; накануне проверить фактическую минуту и платформу в JR-West.",
           "kind": "move",
           "mapLinks": [
             {
               "label": "Osaka Station",
-              "url": "https://www.google.com/maps/place/Osaka+Station%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Osaka+Station%2C+Osaka%2C+Japan"
             },
             {
               "label": "JR Nara Station",
-              "url": "https://www.google.com/maps/place/JR+Nara+Station%2C+Nara%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=JR+Nara+Station%2C+Nara%2C+Japan"
             }
           ]
         },
         {
-          "time": "07:30",
-          "title": "Tōdai-ji",
-          "detail": "Главный ранний якорь до групп.",
+          "time": "около 08:50",
+          "title": "JR Nara → Tōdai-ji",
+          "detail": "Без прогулочного крюка: ближайший подходящий автобус или короткое такси по фактической ситуации, чтобы начать осмотр около 09:20.",
+          "kind": "move",
+          "mapLinks": [
+            {
+              "label": "JR Nara Station",
+              "url": "https://www.google.com/maps/search/?api=1&query=JR+Nara+Station%2C+Nara%2C+Japan"
+            },
+            {
+              "label": "Tōdai-ji",
+              "url": "https://www.google.com/maps/search/?api=1&query=Todai-ji%2C+Nara%2C+Japan"
+            }
+          ]
+        },
+        {
+          "time": "09:20",
+          "title": "Tōdai-ji и Nandaimon",
+          "detail": "Главный якорь дня; оставить время на масштаб ворот и Daibutsuden, не пытаться вернуть старый старт 07:30.",
           "kind": "anchor",
           "mapLinks": [
             {
               "label": "Tōdai-ji",
-              "url": "https://www.google.com/maps/place/Todai-ji%2C+Nara%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Todai-ji%2C+Nara%2C+Japan"
+            },
+            {
+              "label": "Nandaimon",
+              "url": "https://www.google.com/maps/search/?api=1&query=Todai-ji+Nandaimon%2C+Nara%2C+Japan"
             }
           ]
         },
         {
-          "time": "08:35",
+          "time": "10:20",
           "title": "Nigatsudō",
-          "detail": "Терраса и утренний свет; не удлинять подъём.",
+          "detail": "Терраса и панорама Нары; это защищённая фототочка, но подъём не удлинять.",
           "kind": "flex",
           "mapLinks": [
             {
               "label": "Nigatsudō",
-              "url": "https://www.google.com/maps/place/Nigatsu-do%2C+Nara%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Nigatsudo+Hall%2C+Todai-ji%2C+Nara%2C+Japan"
             }
           ]
         },
         {
-          "time": "09:15",
-          "title": "Олени в Nara Park · переход к Kasuga Taisha",
-          "detail": "Пеший переход через Nara Park к святилищу; Kasugayama остаётся ландшафтным ориентиром, а не отдельной навигационной точкой.",
+          "time": "10:55",
+          "title": "Nara Park → Kasuga Taisha",
+          "detail": "Пеший переход через парк к святилищу; Kasugayama остаётся ландшафтным контекстом, а не отдельной навигационной точкой.",
           "kind": "flex",
           "mapLinks": [
             {
               "label": "Nara Park",
-              "url": "https://www.google.com/maps/place/Nara+Park%2C+Kasuganocho%2C+Nara%2C+630-8212%2C+Japan/"
-            }
-          ]
-        },
-        {
-          "time": "10:15",
-          "title": "Kasuga Taisha",
-          "detail": "Спокойный осмотр без дополнительного музейного круга.",
-          "kind": "anchor",
-          "mapLinks": [
+              "url": "https://www.google.com/maps/search/?api=1&query=Nara+Park%2C+Nara%2C+Japan"
+            },
             {
               "label": "Kasuga Taisha",
-              "url": "https://www.google.com/maps/place/Kasuga+Taisha%2C+Nara%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kasuga+Taisha%2C+Nara%2C+Japan"
             }
           ]
         },
         {
           "time": "11:35",
-          "title": "Yoshikien",
-          "detail": "Короткая пауза в саду.",
-          "kind": "flex",
+          "title": "Kasuga Taisha",
+          "detail": "Подход через каменные фонари и спокойный осмотр без дополнительного музейного круга.",
+          "kind": "anchor",
           "mapLinks": [
             {
-              "label": "Yoshikien Garden",
-              "url": "https://www.google.com/maps/place/Yoshikien+Garden%2C+Nara%2C+Japan/"
+              "label": "Kasuga Taisha",
+              "url": "https://www.google.com/maps/search/?api=1&query=Kasuga+Taisha%2C+Nara%2C+Japan"
             }
           ]
         },
         {
-          "time": "12:30",
-          "title": "Naramachi",
-          "detail": "Обед, Gango-ji и квартал machiya — по энергии.",
+          "time": "12:40",
+          "title": "Yoshikien",
+          "detail": "Короткая пауза у пруда и отражений; при задержке сократить, но не добавлять новый сад поверх программы.",
+          "kind": "flex",
+          "mapLinks": [
+            {
+              "label": "Yoshikien Garden",
+              "url": "https://www.google.com/maps/search/?api=1&query=Yoshikien+Garden%2C+Nara%2C+Japan"
+            }
+          ]
+        },
+        {
+          "time": "13:25",
+          "title": "Naramachi и обед",
+          "detail": "Hirasō только после подтверждения работы 22.09; Gango-ji и квартал machiya — по энергии после обеда.",
           "kind": "food",
           "mapLinks": [
             {
               "label": "Gangō-ji",
-              "url": "https://www.google.com/maps/place/Gango-ji+Temple%2C+Nara%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Gango-ji+Temple%2C+Nara%2C+Japan"
             },
             {
               "label": "Naramachi Kōshi-no-Ie",
-              "url": "https://www.google.com/maps/place/Naramachi+Koshinoie%2C+Nara%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Naramachi+Koshinoie%2C+Nara%2C+Japan"
             }
           ]
         },
         {
           "time": "15:45",
           "title": "Nara → Namba",
-          "detail": "JR Yamatoji Rapid через Tennoji: считать прибытие в район Namba ориентировочно 16:35–16:50, а не 16:15.",
+          "detail": "JR Yamatoji Rapid через Tennoji; ориентир прибытия в район Namba 16:35–16:50, точную минуту проверить накануне.",
           "kind": "move",
           "mapLinks": [
             {
               "label": "JR Nara Station",
-              "url": "https://www.google.com/maps/place/JR+Nara+Station%2C+Nara%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=JR+Nara+Station%2C+Nara%2C+Japan"
             },
             {
               "label": "JR Namba Station",
-              "url": "https://www.google.com/maps/place/JR+Namba+Station%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=JR+Namba+Station%2C+Osaka%2C+Japan"
             }
           ]
         },
         {
           "time": "17:40",
-          "title": "Hōzenji и Dōtonbori",
-          "detail": "Вечерняя прогулка и ужин до 21:00.",
+          "title": "Hōzenji Yokocho и Dōtonbori",
+          "detail": "Hōzenji Yokocho — главная вечерняя фототочка; Dōtonbori остаётся вторичным iconic-кадром без защиты отдельного времени.",
           "kind": "flex",
           "mapLinks": [
             {
-              "label": "Hōzen-ji",
-              "url": "https://www.google.com/maps/place/Hozenji+Temple%2C+Osaka%2C+Japan/"
+              "label": "Hōzenji Yokocho",
+              "url": "https://www.google.com/maps/search/?api=1&query=Hozenji+Yokocho%2C+Osaka%2C+Japan"
             },
             {
               "label": "Dōtonbori",
-              "url": "https://www.google.com/maps/place/Dotonbori%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Dotonbori%2C+Osaka%2C+Japan"
             }
           ]
         }
       ],
-      "links": []
+      "links": [],
+      "photoSpots": [
+        {
+          "name": "Nigatsudō terrace",
+          "priority": "PHOTO MUST",
+          "shot": "Панорама Nara, крыши храмов и дальние горы.",
+          "timing": "После Tōdai-ji; защищать 10–15 минут.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nigatsudo+Hall%2C+Todai-ji%2C+Nara%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Tōdai-ji / Nandaimon",
+          "priority": "PHOTO GOOD",
+          "shot": "Масштаб ворот, олени и перспектива к Daibutsuden.",
+          "timing": "В основном осмотре, без отдельного крюка.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Todai-ji+Nandaimon%2C+Nara%2C+Japan"
+        },
+        {
+          "name": "Kasuga Taisha approach",
+          "priority": "PHOTO GOOD",
+          "shot": "Каменные фонари в лесу, олени и vermilion/бронзовые фонари.",
+          "timing": "На переходе от Nara Park.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kasuga+Taisha%2C+Nara%2C+Japan"
+        },
+        {
+          "name": "Yoshikien",
+          "priority": "PHOTO GOOD",
+          "shot": "Пруд, отражения и садовая композиция.",
+          "timing": "Коротко; первой сокращается при задержке.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Yoshikien+Garden%2C+Nara%2C+Japan"
+        },
+        {
+          "name": "Hōzenji Yokocho",
+          "priority": "PHOTO GOOD",
+          "shot": "Узкая каменная улица, фонари и вывески; особенно выразительно на мокром камне.",
+          "timing": "Blue hour / вечер.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hozenji+Yokocho%2C+Osaka%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Dōtonbori",
+          "priority": "SECONDARY ICONIC",
+          "shot": "Канал, неон и Glico.",
+          "timing": "Снять по пути; отдельное время не защищать.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Dotonbori%2C+Osaka%2C+Japan"
+        }
+      ]
     },
     {
       "id": "sep-23-himeji",
@@ -336,22 +422,22 @@
       "dateLabel": "23 сентября · среда",
       "city": "Химэдзи → Осака",
       "title": "Белая цапля и современное искусство",
-      "summary": "Himeji первым входом, затем Aki Sasamoto в NMAO и закат над Osaka.",
+      "summary": "Забронированный Hikari 731 к Himeji, замок первым входом, NMAO, Umeda Sky и ужин в 20:00.",
       "load": "высокая",
       "distance": "14–16 км",
       "wake": "06:00",
-      "principle": "Замок и ужин в 19:30 — защищённые якоря; вечерний шопинг — только один возврат.",
+      "principle": "Замок, оба забронированных поезда и ужин в 20:00 — защищённые якоря; не возвращать неопределённые номера поездов.",
       "anchors": [
+        {
+          "time": "07:34",
+          "label": "Hikari 731"
+        },
         {
           "time": "09:00",
           "label": "Himeji"
         },
         {
-          "time": "17:10",
-          "label": "Umeda Sky"
-        },
-        {
-          "time": "19:30",
+          "time": "20:00",
           "label": "Matsusaka M"
         }
       ],
@@ -364,27 +450,27 @@
           "mapLinks": [
             {
               "label": "Hotel Hankyu Gran Respire Osaka",
-              "url": "https://www.google.com/maps/place/Hotel+Hankyu+Gran+Respire+Osaka%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+Hankyu+Gran+Respire+Osaka%2C+Osaka%2C+Japan"
             },
             {
               "label": "Shin-Osaka Station",
-              "url": "https://www.google.com/maps/place/Shin-Osaka+Station%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Shin-Osaka+Station%2C+Osaka%2C+Japan"
             }
           ]
         },
         {
-          "time": "≈07:30",
-          "title": "Синкансэн Sanyō",
-          "detail": "Целевое окно: выбрать конкретный поезд при резервировании seat ticket по pass так, чтобы прибыть в Himeji не позже 08:10. Не считать 07:30 подтверждённым рейсом без номера.",
+          "time": "07:34–08:03",
+          "title": "Hikari 731 · reserved",
+          "detail": "Shin-Osaka 07:34 → Himeji 08:03. Car 14, seats 3-D и 3-E; оформлено по Kansai–Hiroshima Area Pass без отдельного полного тарифа.",
           "kind": "move",
           "mapLinks": [
             {
               "label": "Shin-Osaka Station",
-              "url": "https://www.google.com/maps/place/Shin-Osaka+Station%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Shin-Osaka+Station%2C+Osaka%2C+Japan"
             },
             {
               "label": "Himeji Station",
-              "url": "https://www.google.com/maps/place/Himeji+Station%2C+Hyogo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Himeji+Station%2C+Hyogo%2C+Japan"
             }
           ]
         },
@@ -396,7 +482,7 @@
           "mapLinks": [
             {
               "label": "Ōtemae-dōri",
-              "url": "https://www.google.com/maps/place/Otemae-dori%2C+Himeji%2C+Hyogo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Otemae-dori%2C+Himeji%2C+Hyogo%2C+Japan"
             }
           ]
         },
@@ -408,7 +494,7 @@
           "mapLinks": [
             {
               "label": "Himeji Castle",
-              "url": "https://www.google.com/maps/place/Himeji+Castle%2C+Hyogo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Himeji+Castle%2C+Hyogo%2C+Japan"
             }
           ]
         },
@@ -420,35 +506,35 @@
           "mapLinks": [
             {
               "label": "Kōko-en",
-              "url": "https://www.google.com/maps/place/Koko-en+Garden%2C+Himeji%2C+Hyogo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Koko-en+Garden%2C+Himeji%2C+Hyogo%2C+Japan"
             }
           ]
         },
         {
           "time": "12:05",
-          "title": "Обед и возврат",
-          "detail": "Не задерживаться: NMAO закрывает вход в 16:30.",
+          "title": "Быстрый обед → Hikari 710",
+          "detail": "К платформе без задержки: Himeji 13:11 → Shin-Osaka 13:46, Car 14, seats 6-D и 6-E; reservation оформлена по pass.",
           "kind": "move",
           "mapLinks": [
             {
               "label": "Himeji Station",
-              "url": "https://www.google.com/maps/place/Himeji+Station%2C+Hyogo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Himeji+Station%2C+Hyogo%2C+Japan"
             },
             {
               "label": "Shin-Osaka Station",
-              "url": "https://www.google.com/maps/place/Shin-Osaka+Station%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Shin-Osaka+Station%2C+Osaka%2C+Japan"
             }
           ]
         },
         {
-          "time": "14:15",
+          "time": "около 14:25",
           "title": "Aki Sasamoto · NMAO",
           "detail": "Life Laboratory, ¥1,800; музей открыт 10:00–17:00, последний вход 16:30.",
           "kind": "anchor",
           "mapLinks": [
             {
               "label": "NMAO",
-              "url": "https://www.google.com/maps/place/The+National+Museum+of+Art+Osaka%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=The+National+Museum+of+Art+Osaka%2C+Osaka%2C+Japan"
             }
           ]
         },
@@ -460,19 +546,19 @@
           "mapLinks": [
             {
               "label": "Umeda Sky Building",
-              "url": "https://www.google.com/maps/place/Umeda+Sky+Building%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Umeda+Sky+Building%2C+Osaka%2C+Japan"
             }
           ]
         },
         {
-          "time": "19:30",
+          "time": "20:00",
           "title": "Matsusakagyu Yakiniku M · Fukushima",
-          "detail": "Бронь заранее. Заказать омакасэ-тарелку из 5–6 отрубов говядины Мацусака, обычный рис и овощи. Не брать наборы Premium/Special: чесночный рис в них содержит бекон.",
+          "detail": "TableCheck: Accepted, 23.09.2026, 2 человека. Прийти всей компанией вовремя; стол держат 15 минут. Заказать омакасэ-тарелку из 5–6 отрубов, обычный рис и овощи; Premium/Special не брать из-за bacon в garlic rice.",
           "kind": "food",
           "mapLinks": [
             {
-              "label": "Matsusakagyu Yakiniku M Fukushima",
-              "url": "https://www.google.com/maps/place/Matsusakagyu+Yakiniku+M+Fukushima%2C+Osaka%2C+Japan/"
+              "label": "Yakiniku M Fukushima Honten",
+              "url": "https://www.google.com/maps/search/?api=1&query=Yakiniku+M+Fukushima+Honten%2C+6-3-7+Fukushima%2C+Fukushima-ku%2C+Osaka"
             }
           ]
         }
@@ -500,6 +586,46 @@
         {
           "label": "Matsusaka M · бронь",
           "url": "https://myconciergejapan.com/restaurants/yakiniku-m-fukushima/"
+        }
+      ],
+      "photoSpots": [
+        {
+          "name": "Ōtemae-dōri castle axis",
+          "priority": "PHOTO MUST",
+          "shot": "Осевой вид на Белую цаплю с длинной городской перспективой.",
+          "timing": "08:15–08:35 до входа.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Otemae-dori%2C+Himeji%2C+Hyogo%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Himeji Castle",
+          "priority": "PHOTO MUST",
+          "shot": "Белые ярусы, стены и главная башня; искать чистые диагонали, не только фронтальный кадр.",
+          "timing": "Первый вход 09:00.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Himeji+Castle%2C+Hyogo%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Kōko-en",
+          "priority": "PHOTO GOOD",
+          "shot": "Сад как спокойный контрапункт архитектуре замка.",
+          "timing": "После замка; сокращать при задержке.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Koko-en+Garden%2C+Himeji%2C+Hyogo%2C+Japan"
+        },
+        {
+          "name": "NMAO exterior",
+          "priority": "PHOTO GOOD",
+          "shot": "Стальные линии здания и Nakanoshima.",
+          "timing": "До/после выставки без отдельного крюка.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=The+National+Museum+of+Art+Osaka%2C+Osaka%2C+Japan"
+        },
+        {
+          "name": "Umeda Sky Building",
+          "priority": "PHOTO MUST",
+          "shot": "Городская геометрия и Osaka в blue hour.",
+          "timing": "Закатный слот; rooftop зависит от погоды.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Umeda+Sky+Building%2C+Osaka%2C+Japan",
+          "signature": true
         }
       ]
     },
@@ -534,11 +660,11 @@
           "mapLinks": [
             {
               "label": "Osaka Station",
-              "url": "https://www.google.com/maps/place/Osaka+Station%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Osaka+Station%2C+Osaka%2C+Japan"
             },
             {
               "label": "Shin-Osaka Station",
-              "url": "https://www.google.com/maps/place/Shin-Osaka+Station%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Shin-Osaka+Station%2C+Osaka%2C+Japan"
             }
           ]
         },
@@ -550,11 +676,11 @@
           "mapLinks": [
             {
               "label": "Shin-Osaka Station",
-              "url": "https://www.google.com/maps/place/Shin-Osaka+Station%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Shin-Osaka+Station%2C+Osaka%2C+Japan"
             },
             {
               "label": "Hiroshima Station",
-              "url": "https://www.google.com/maps/place/Hiroshima+Station%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hiroshima+Station%2C+Hiroshima%2C+Japan"
             }
           ]
         },
@@ -566,15 +692,15 @@
           "mapLinks": [
             {
               "label": "Hiroshima Station",
-              "url": "https://www.google.com/maps/place/Hiroshima+Station%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hiroshima+Station%2C+Hiroshima%2C+Japan"
             },
             {
               "label": "Miyajimaguchi Station",
-              "url": "https://www.google.com/maps/place/Miyajimaguchi+Station%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Miyajimaguchi+Station%2C+Hiroshima%2C+Japan"
             },
             {
               "label": "Miyajima Ferry Terminal",
-              "url": "https://www.google.com/maps/place/Miyajima+Ferry+Terminal%2C+Hatsukaichi%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Miyajima+Ferry+Terminal%2C+Hatsukaichi%2C+Hiroshima%2C+Japan"
             }
           ]
         },
@@ -586,7 +712,7 @@
           "mapLinks": [
             {
               "label": "Itsukushima Shrine",
-              "url": "https://www.google.com/maps/place/Itsukushima+Shrine%2C+Miyajima%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Itsukushima+Shrine%2C+Miyajima%2C+Hiroshima%2C+Japan"
             }
           ]
         },
@@ -598,11 +724,11 @@
           "mapLinks": [
             {
               "label": "Senjōkaku",
-              "url": "https://www.google.com/maps/place/Senjokaku+Pavilion%2C+Miyajima%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Senjokaku+Pavilion%2C+Miyajima%2C+Hiroshima%2C+Japan"
             },
             {
               "label": "Daishō-in",
-              "url": "https://www.google.com/maps/place/Daisho-in+Temple%2C+Miyajima%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Daisho-in+Temple%2C+Miyajima%2C+Hiroshima%2C+Japan"
             }
           ]
         },
@@ -614,7 +740,7 @@
           "mapLinks": [
             {
               "label": "Miyajima Pier 3",
-              "url": "https://www.google.com/maps/place/Miyajima+Pier+3%2C+Hatsukaichi%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Miyajima+Pier+3%2C+Hatsukaichi%2C+Hiroshima%2C+Japan"
             }
           ]
         },
@@ -626,11 +752,11 @@
           "mapLinks": [
             {
               "label": "Miyajima Pier 3",
-              "url": "https://www.google.com/maps/place/Miyajima+Pier+3%2C+Hatsukaichi%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Miyajima+Pier+3%2C+Hatsukaichi%2C+Hiroshima%2C+Japan"
             },
             {
               "label": "Hiroshima Peace Memorial Park Pier",
-              "url": "https://www.google.com/maps/place/Hiroshima+Peace+Memorial+Park+Pier%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hiroshima+Peace+Memorial+Park+Pier%2C+Hiroshima%2C+Japan"
             }
           ]
         },
@@ -642,7 +768,7 @@
           "mapLinks": [
             {
               "label": "Hiroshima Peace Memorial Museum",
-              "url": "https://www.google.com/maps/place/Hiroshima+Peace+Memorial+Museum%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hiroshima+Peace+Memorial+Museum%2C+Hiroshima%2C+Japan"
             }
           ]
         },
@@ -654,11 +780,11 @@
           "mapLinks": [
             {
               "label": "Hiroshima Peace Memorial Park",
-              "url": "https://www.google.com/maps/place/Hiroshima+Peace+Memorial+Park%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hiroshima+Peace+Memorial+Park%2C+Hiroshima%2C+Japan"
             },
             {
               "label": "Atomic Bomb Dome",
-              "url": "https://www.google.com/maps/place/Atomic+Bomb+Dome%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Atomic+Bomb+Dome%2C+Hiroshima%2C+Japan"
             }
           ]
         },
@@ -670,11 +796,11 @@
           "mapLinks": [
             {
               "label": "Hiroshima Station",
-              "url": "https://www.google.com/maps/place/Hiroshima+Station%2C+Hiroshima%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hiroshima+Station%2C+Hiroshima%2C+Japan"
             },
             {
               "label": "Shin-Osaka Station",
-              "url": "https://www.google.com/maps/place/Shin-Osaka+Station%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Shin-Osaka+Station%2C+Osaka%2C+Japan"
             }
           ]
         },
@@ -686,7 +812,7 @@
           "mapLinks": [
             {
               "label": "Hotel Hankyu Gran Respire Osaka",
-              "url": "https://www.google.com/maps/place/Hotel+Hankyu+Gran+Respire+Osaka%2C+Osaka%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+Hankyu+Gran+Respire+Osaka%2C+Osaka%2C+Japan"
             }
           ]
         }
@@ -715,6 +841,38 @@
           "label": "JR-West route search",
           "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/route-search/"
         }
+      ],
+      "photoSpots": [
+        {
+          "name": "Itsukushima O-torii · ferry approach",
+          "priority": "PHOTO MUST",
+          "shot": "Тории в воде с нарастающим островом в фоне.",
+          "timing": "С борта JR ferry; занять безопасную внешнюю позицию.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Itsukushima+Shrine+Otorii%2C+Miyajima%2C+Hiroshima%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Itsukushima Shrine corridors",
+          "priority": "PHOTO GOOD",
+          "shot": "Vermilion-коридоры, вода и рамки проёмов.",
+          "timing": "В основном осмотре; не задерживать поток.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Itsukushima+Shrine%2C+Miyajima%2C+Hiroshima%2C+Japan"
+        },
+        {
+          "name": "Senjōkaku + Five-storied Pagoda",
+          "priority": "PHOTO GOOD",
+          "shot": "Контраст дерева, пагоды и склона.",
+          "timing": "На пути к Daishō-in.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Senjokaku+Pavilion%2C+Miyajima%2C+Hiroshima%2C+Japan"
+        },
+        {
+          "name": "Atomic Bomb Dome",
+          "priority": "PHOTO GOOD",
+          "shot": "Документальный кадр через реку; без постановочных поз.",
+          "timing": "После музея, в спокойном темпе.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Atomic+Bomb+Dome%2C+Hiroshima%2C+Japan",
+          "signature": true
+        }
       ]
     },
     {
@@ -724,168 +882,230 @@
       "dateLabel": "25 сентября · пятница",
       "city": "Киото",
       "title": "Север, керамика и сумерки Gion",
-      "summary": "Kinkaku-ji и Ryōan-ji утром, ремесленная ось Gojo–Higashiyama и закатный спуск к Gion.",
+      "summary": "Спокойное утро и завтрак в Osaka, выезд 09:15–09:30, северные храмы и линейный вечер Gojo–Higashiyama–Gion.",
       "load": "высокая",
       "distance": "13–15 км",
-      "wake": "06:10",
-      "principle": "Три цели P1 встроены по пути; дополнительные магазины не должны сдвигать Kiyomizu и вечер в Gion.",
+      "wake": "07:00",
+      "principle": "Ранний переезд отменён: после завтрака выходим из отеля около 09:15–09:30; сохраняем Kinkaku-ji и восточный вечер, а при задержке сокращаем Ryōan-ji, не время сна.",
       "anchors": [
         {
-          "time": "09:00",
+          "time": "09:15–09:30",
+          "label": "Выезд"
+        },
+        {
+          "time": "11:50",
           "label": "Kinkaku-ji"
         },
         {
-          "time": "15:20",
+          "time": "16:40",
           "label": "Kiyomizu"
         }
       ],
       "timeline": [
         {
-          "time": "06:50",
-          "title": "Выезд и Осака → Киото",
-          "detail": "JR Special Rapid. Использовать проездной, затем метро/автобус.",
-          "kind": "move",
+          "time": "07:00–08:30",
+          "title": "Завтрак и спокойное утро в Osaka",
+        "detail": "Позавтракать в Hotel Hankyu, спокойно собрать вещи и сохранить позднее окно выезда.",
+          "kind": "food",
           "mapLinks": [
             {
-              "label": "Osaka Station",
-              "url": "https://www.google.com/maps/place/Osaka+Station%2C+Osaka%2C+Japan/"
-            },
-            {
-              "label": "Kyoto Station",
-              "url": "https://www.google.com/maps/place/Kyoto+Station%2C+Kyoto%2C+Japan/"
+              "label": "Hotel Hankyu Gran Respire Osaka",
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+Hankyu+Gran+Respire+Osaka%2C+5-54+Ofukacho%2C+Kita+Ward%2C+Osaka"
             }
           ]
         },
         {
-          "time": "08:00",
+          "time": "09:15–09:30",
+          "title": "Hotel → Osaka Station → Kyoto",
+          "detail": "Выйти из отеля в целевом окне и сесть на следующий удобный JR Special Rapid. Не фиксировать номер поезда заранее; заложить прибытие в Kyoto около 10:20–10:35.",
+          "kind": "move",
+          "mapLinks": [
+            {
+              "label": "Hotel Hankyu Gran Respire Osaka",
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+Hankyu+Gran+Respire+Osaka%2C+Osaka%2C+Japan"
+            },
+            {
+              "label": "Osaka Station",
+              "url": "https://www.google.com/maps/search/?api=1&query=Osaka+Station%2C+Osaka%2C+Japan"
+            },
+            {
+              "label": "Kyoto Station",
+              "url": "https://www.google.com/maps/search/?api=1&query=Kyoto+Station%2C+Kyoto%2C+Japan"
+            }
+          ]
+        },
+        {
+          "time": "около 10:45",
           "title": "Багаж в The General",
-          "detail": "Оформить Yamato: большой багаж сразу в Hotel 1899; в Хаконе взять одну небольшую сумку.",
+          "detail": "Оставить ручной багаж и оформить Yamato: большой багаж сразу в Hotel 1899; в Hakone взять одну небольшую сумку.",
           "kind": "task",
           "mapLinks": [
             {
               "label": "The General Kyoto Shijo Shinmachi",
-              "url": "https://www.google.com/maps/place/The+General+Kyoto+Shijo+Shinmachi%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=The+General+Kyoto+Shijo+Shinmachi%2C+392+Mukadeyacho%2C+Kyoto"
             }
           ]
         },
         {
-          "time": "09:00",
+          "time": "11:50",
           "title": "Kinkaku-ji",
-          "detail": "Первый северный якорь.",
+          "detail": "Главный северный якорь. Официальный режим 09:00–17:00 позволяет поздний старт, но не растягивать обход.",
           "kind": "anchor",
           "mapLinks": [
             {
               "label": "Kinkaku-ji",
-              "url": "https://www.google.com/maps/place/Kinkaku-ji%2C+Kyoto%2C+Japan/"
-            }
-          ]
-        },
-        {
-          "time": "10:15",
-          "title": "Ryōan-ji",
-          "detail": "Каменный сад; закончить примерно к 10:55 и сразу уходить к восточному блоку.",
-          "kind": "anchor",
-          "mapLinks": [
-            {
-              "label": "Ryōan-ji",
-              "url": "https://www.google.com/maps/place/Ryoan-ji%2C+Kyoto%2C+Japan/"
-            }
-          ]
-        },
-        {
-          "time": "11:00",
-          "title": "Ryōan-ji → Shōgoin",
-          "detail": "Длинный поперечный переезд через город. Не ставить сюда полноценный обед и Handicraft Center одновременно.",
-          "kind": "move",
-          "mapLinks": [
-            {
-              "label": "Ryōan-ji",
-              "url": "https://www.google.com/maps/place/Ryoan-ji%2C+Kyoto%2C+Japan/"
-            },
-            {
-              "label": "Shōgoin",
-              "url": "https://www.google.com/maps/place/Shogoin+Monzeki+Temple%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kinkaku-ji%2C+Kyoto%2C+Japan"
             }
           ]
         },
         {
           "time": "12:50",
-          "title": "Обед у Shōgoin",
-          "detail": "Около 35–40 минут. Закончить к 13:30; ресторан выбирается по фактической очереди и проверенному составу.",
-          "kind": "food",
+          "title": "Ryōan-ji",
+          "detail": "Каменный сад; в сентябре официальный режим 08:00–17:00. При задержке это первая крупная точка на сокращение.",
+          "kind": "anchor",
           "mapLinks": [
             {
-              "label": "Shōgoin",
-              "url": "https://www.google.com/maps/place/Shogoin+Monzeki+Temple%2C+Kyoto%2C+Japan/"
+              "label": "Ryōan-ji",
+              "url": "https://www.google.com/maps/search/?api=1&query=Ryoan-ji%2C+Kyoto%2C+Japan"
             }
           ]
         },
         {
-          "time": "14:05",
+          "time": "13:35",
+          "title": "Короткий обед",
+          "detail": "35–40 минут в северо-западном блоке; конкретное место выбрать по очереди и не строить ложную Google Maps-точку для общего района.",
+          "kind": "food",
+          "mapExempt": true,
+          "mapExemptReason": "Конкретный ресторан намеренно не фиксируется."
+        },
+        {
+          "time": "14:15",
+          "title": "Север Kyoto → Gojōzaka",
+          "detail": "Длинный поперечный переезд. Не добавлять Handicraft Center или новый shopping-крюк в обязательный тайминг.",
+          "kind": "move",
+          "mapLinks": [
+            {
+              "label": "Ryōan-ji",
+              "url": "https://www.google.com/maps/search/?api=1&query=Ryoan-ji%2C+Kyoto%2C+Japan"
+            },
+            {
+              "label": "Kawai Kanjirō House",
+              "url": "https://www.google.com/maps/search/?api=1&query=Kawai+Kanjiro+Memorial+House%2C+Kyoto%2C+Japan"
+            }
+          ]
+        },
+        {
+          "time": "15:20",
           "title": "Kawai Kanjirō House",
-          "detail": "Реалистичный старт после Shōgoin и переезда; не обещать прежние 13:30.",
+          "detail": "Открыто до 17:00, последний вход 16:30; закончить около 16:00.",
           "kind": "anchor",
           "mapLinks": [
             {
               "label": "Kawai Kanjirō House",
-              "url": "https://www.google.com/maps/place/Kawai+Kanjiro+Memorial+House%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kawai+Kanjiro+Memorial+House%2C+Kyoto%2C+Japan"
             }
           ]
         },
         {
-          "time": "15:00",
+          "time": "16:10",
           "title": "Gojōzaka → Yasaka Pagoda (Hōkan-ji)",
-          "detail": "Начало линейного маршрута через Higashiyama: ориентир Gojōzaka, затем точная цель — Yasaka Pagoda / Hōkan-ji.",
+          "detail": "Линейный маршрут: Gojōzaka — отдельная точка старта, Yasaka Pagoda / Hōkan-ji — отдельная точная цель.",
           "kind": "flex",
           "mapLinks": [
             {
               "label": "Gojōzaka",
-              "url": "https://www.google.com/maps/place/?q=place_id:ChIJ02puJ8kIAWARAWQYCS5Iy24"
+              "url": "https://www.google.com/maps/search/?api=1&query=Gojozaka%2C+Higashiyama+Ward%2C+Kyoto&query_place_id=ChIJ02puJ8kIAWARAWQYCS5Iy24"
             },
             {
               "label": "Yasaka Pagoda · Hōkan-ji",
-              "url": "https://www.google.com/maps/place/Yasaka+Pagoda+Hokan-ji+Temple%2C+Yasaka+Kamimachi%2C+Higashiyama+Ward%2C+Kyoto%2C+605-0827%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Yasaka+Pagoda+Hokan-ji+Temple%2C+Kyoto%2C+Japan"
             }
           ]
         },
         {
-          "time": "15:35",
+          "time": "16:40",
           "title": "Kiyomizu-dera",
-          "detail": "Не затягивать выше по склону.",
+          "detail": "Войти с запасом до закрытия около 18:00; не затягивать выше по склону.",
           "kind": "anchor",
           "mapLinks": [
             {
               "label": "Kiyomizu-dera",
-              "url": "https://www.google.com/maps/place/Kiyomizu-dera%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera%2C+Kyoto%2C+Japan"
             }
           ]
         },
         {
-          "time": "17:40",
+          "time": "18:20",
           "title": "Gion: Hanamikoji → Yasaka Shrine",
-          "detail": "Спокойный проход по Gion через Hanamikoji Street к Yasaka Shrine; shopping-точки не входят в обязательный тайминг.",
+          "detail": "Спокойный проход через Hanamikoji к Yasaka Shrine; shopping-точки не входят в обязательный тайминг.",
           "kind": "flex",
           "mapLinks": [
             {
               "label": "Hanamikoji Street",
-              "url": "https://www.google.com/maps/place/Hanamikoji+Street%2C+Gionmachi+Minamigawa%2C+Higashiyama+Ward%2C+Kyoto%2C+605-0074%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hanamikoji+Street%2C+Gion%2C+Kyoto%2C+Japan"
             },
             {
               "label": "Yasaka Shrine",
-              "url": "https://www.google.com/maps/place/?q=place_id:ChIJfa-7YQAJAWARlnXKvS6perU"
+              "url": "https://www.google.com/maps/search/?api=1&query=Yasaka+Shrine%2C+Kyoto%2C+Japan&query_place_id=ChIJfa-7YQAJAWARlnXKvS6perU"
             }
           ]
         },
         {
-          "time": "19:15",
+          "time": "19:30",
           "title": "Ужин Gion / Ponto-chō",
-          "detail": "Gion Karyo — только если заранее забронирован. Свинина не является запретом; при желании заранее сообщить мягкое предпочтение, но не ломать меню ради него.",
+          "detail": "Gion Karyo — только при отдельной подтверждённой брони. Свинина остаётся soft preference, не запретом.",
           "kind": "food",
           "mapExempt": true,
-          "mapExemptReason": "Конкретный ресторан не фиксируется; Gion Karyo только при отдельной подтверждённой брони."
+          "mapExemptReason": "Конкретный ресторан не фиксируется."
         }
       ],
-      "links": []
+      "links": [],
+      "decision": {
+        "title": "Если переезд или Yamato заняли больше времени",
+        "trigger": "Из The General выходим позже 11:15 или Kinkaku-ji заканчиваем после 12:45.",
+        "protect": "Kinkaku-ji, Kawai Kanjirō House до last entry, Kiyomizu-dera и вечерний Gion.",
+        "cut": "Ryōan-ji целиком либо сократить его до 25–30 минут; не переносить выезд обратно на раннее утро.",
+        "fallback": "Ехать из Kinkaku-ji сразу к Gojōzaka/Kawai и продолжать линейный восточный маршрут."
+      },
+      "photoSpots": [
+        {
+          "name": "Kinkaku-ji reflection",
+          "priority": "PHOTO MUST",
+          "shot": "Золотой павильон и отражение в Kyōko-chi.",
+          "timing": "Сразу у первой обзорной точки; защищать короткое окно.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kinkaku-ji%2C+Kyoto%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Ryōan-ji rock garden",
+          "priority": "PHOTO GOOD",
+          "shot": "Ритм камней и пустоты с низкой точки.",
+          "timing": "Коротко; не задерживать людей на веранде.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Ryoan-ji%2C+Kyoto%2C+Japan"
+        },
+        {
+          "name": "Yasaka Pagoda street view",
+          "priority": "PHOTO MUST",
+          "shot": "Слоистая перспектива Higashiyama к Hōkan-ji.",
+          "timing": "Поздний день; не перекрывать узкую улицу.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Yasaka+Pagoda+Hokan-ji+Temple%2C+Kyoto%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Kiyomizu-dera terrace",
+          "priority": "PHOTO GOOD",
+          "shot": "Деревянная конструкция, склон и Kyoto в глубине.",
+          "timing": "До закрытия, без отдельного ожидания заката.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera%2C+Kyoto%2C+Japan"
+        },
+        {
+          "name": "Hanamikoji Street",
+          "priority": "PHOTO GOOD",
+          "shot": "Фасады и вечерний свет; никаких навязчивых крупных планов maiko/geiko.",
+          "timing": "На пути к Yasaka Shrine.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hanamikoji+Street%2C+Gion%2C+Kyoto%2C+Japan"
+        }
+      ]
     },
     {
       "id": "sep-26-kyoto",
@@ -918,7 +1138,7 @@
           "mapLinks": [
             {
               "label": "Fushimi Inari Taisha",
-              "url": "https://www.google.com/maps/place/Fushimi+Inari+Taisha%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -930,11 +1150,11 @@
           "mapLinks": [
             {
               "label": "JR Inari Station",
-              "url": "https://www.google.com/maps/place/Inari+Station%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Inari+Station%2C+Kyoto%2C+Japan"
             },
             {
               "label": "Katsura Station",
-              "url": "https://www.google.com/maps/place/Katsura+Station%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Katsura+Station%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -946,7 +1166,7 @@
           "mapLinks": [
             {
               "label": "Katsura Imperial Villa",
-              "url": "https://www.google.com/maps/place/Katsura+Imperial+Villa%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Katsura+Imperial+Villa%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -958,15 +1178,15 @@
           "mapLinks": [
             {
               "label": "Katsura Imperial Villa",
-              "url": "https://www.google.com/maps/place/Katsura+Imperial+Villa%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Katsura+Imperial+Villa%2C+Kyoto%2C+Japan"
             },
             {
               "label": "Katsura Station",
-              "url": "https://www.google.com/maps/place/Katsura+Station%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Katsura+Station%2C+Kyoto%2C+Japan"
             },
             {
               "label": "Arashiyama Station Hankyu",
-              "url": "https://www.google.com/maps/place/Hankyu+Arashiyama+Station%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hankyu+Arashiyama+Station%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -986,7 +1206,7 @@
           "mapLinks": [
             {
               "label": "Arashiyama Bamboo Grove",
-              "url": "https://www.google.com/maps/place/Arashiyama+Bamboo+Forest%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Forest%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -998,7 +1218,7 @@
           "mapLinks": [
             {
               "label": "Saga Toriimoto Preserved Street",
-              "url": "https://www.google.com/maps/place/Saga+Toriimoto+Preserved+Street%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Saga+Toriimoto+Preserved+Street%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -1010,7 +1230,7 @@
           "mapLinks": [
             {
               "label": "Hiranoya",
-              "url": "https://www.google.com/maps/place/Hiranoya%2C+Saga+Toriimoto%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hiranoya%2C+Saga+Toriimoto%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -1022,7 +1242,7 @@
           "mapLinks": [
             {
               "label": "Adashino Nenbutsu-ji",
-              "url": "https://www.google.com/maps/place/Adashino+Nenbutsu-ji%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Adashino+Nenbutsu-ji%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -1034,11 +1254,11 @@
           "mapLinks": [
             {
               "label": "Adashino Nenbutsu-ji",
-              "url": "https://www.google.com/maps/place/Adashino+Nenbutsu-ji%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Adashino+Nenbutsu-ji%2C+Kyoto%2C+Japan"
             },
             {
               "label": "Daikaku-ji",
-              "url": "https://www.google.com/maps/place/Daikaku-ji%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Daikaku-ji%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -1050,7 +1270,7 @@
           "mapLinks": [
             {
               "label": "Daikaku-ji",
-              "url": "https://www.google.com/maps/place/Daikaku-ji%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Daikaku-ji%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -1062,7 +1282,7 @@
           "mapLinks": [
             {
               "label": "Daikaku-ji",
-              "url": "https://www.google.com/maps/place/Daikaku-ji%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Daikaku-ji%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -1105,6 +1325,45 @@
           "label": "Daikakuji · Moon Viewing",
           "url": "https://www.daikakuji.or.jp/r8kangetsukokuchi/"
         }
+      ],
+      "photoSpots": [
+        {
+          "name": "Fushimi Inari torii corridor",
+          "priority": "PHOTO MUST",
+          "shot": "Повторяющийся vermilion-ритм без попытки идти до вершины.",
+          "timing": "Раннее утро до основного потока.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha%2C+Kyoto%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Katsura Imperial Villa",
+          "priority": "PHOTO GOOD",
+          "shot": "Линии сада и архитектуры только там, где разрешает сопровождающий.",
+          "timing": "Не останавливаться отдельно и не отставать от группы.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Katsura+Imperial+Villa%2C+Kyoto%2C+Japan"
+        },
+        {
+          "name": "Arashiyama Bamboo Grove",
+          "priority": "SECONDARY ICONIC",
+          "shot": "Вертикали бамбука.",
+          "timing": "Кадр по пути; не защищать время при толпе.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Forest%2C+Kyoto%2C+Japan"
+        },
+        {
+          "name": "Adashino Nenbutsu-ji bamboo path",
+          "priority": "PHOTO GOOD",
+          "shot": "Более камерный бамбуковый проход и каменные фигуры.",
+          "timing": "После Toriimoto.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Adashino+Nenbutsu-ji%2C+Kyoto%2C+Japan"
+        },
+        {
+          "name": "Daikaku-ji · Ōsawa Pond",
+          "priority": "PHOTO MUST",
+          "shot": "Луна, отражение в пруду и храмовый силуэт.",
+          "timing": "В рамках подтверждённого moon-viewing evening.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Osawa+Pond+Daikaku-ji%2C+Kyoto%2C+Japan",
+          "signature": true
+        }
       ]
     },
     {
@@ -1138,7 +1397,7 @@
           "mapLinks": [
             {
               "label": "The General Kyoto Shijo Shinmachi",
-              "url": "https://www.google.com/maps/place/The+General+Kyoto+Shijo+Shinmachi%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=The+General+Kyoto+Shijo+Shinmachi%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -1150,11 +1409,11 @@
           "mapLinks": [
             {
               "label": "Shijo Station",
-              "url": "https://www.google.com/maps/place/Shijo+Station%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Shijo+Station%2C+Kyoto%2C+Japan"
             },
             {
               "label": "Kyoto Station",
-              "url": "https://www.google.com/maps/place/Kyoto+Station%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kyoto+Station%2C+Kyoto%2C+Japan"
             }
           ]
         },
@@ -1166,11 +1425,11 @@
           "mapLinks": [
             {
               "label": "Kyoto Station",
-              "url": "https://www.google.com/maps/place/Kyoto+Station%2C+Kyoto%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kyoto+Station%2C+Kyoto%2C+Japan"
             },
             {
               "label": "Odawara Station",
-              "url": "https://www.google.com/maps/place/Odawara+Station%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Odawara+Station%2C+Kanagawa%2C+Japan"
             }
           ]
         },
@@ -1182,7 +1441,7 @@
           "mapLinks": [
             {
               "label": "Odawara Station",
-              "url": "https://www.google.com/maps/place/Odawara+Station%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Odawara+Station%2C+Kanagawa%2C+Japan"
             }
           ]
         },
@@ -1194,7 +1453,7 @@
           "mapLinks": [
             {
               "label": "Hakone Open-Air Museum",
-              "url": "https://www.google.com/maps/place/The+Hakone+Open-Air+Museum%2C+Hakone%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=The+Hakone+Open-Air+Museum%2C+Hakone%2C+Japan"
             }
           ]
         },
@@ -1206,11 +1465,11 @@
           "mapLinks": [
             {
               "label": "Tonosawa Station",
-              "url": "https://www.google.com/maps/place/Tonosawa+Station%2C+Hakone%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Tonosawa+Station%2C+Hakone%2C+Kanagawa%2C+Japan"
             },
             {
               "label": "Kakuinoyado Shiunso",
-              "url": "https://www.google.com/maps/place/Kakuinoyado+Shiunso%2C+92+Tonosawa%2C+Hakone%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kakuinoyado+Shiunso%2C+92+Tonosawa%2C+Hakone%2C+Japan"
             }
           ]
         },
@@ -1222,7 +1481,7 @@
           "mapLinks": [
             {
               "label": "Kakuinoyado Shiunso",
-              "url": "https://www.google.com/maps/place/Kakuinoyado+Shiunso%2C+92+Tonosawa%2C+Hakone%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kakuinoyado+Shiunso%2C+92+Tonosawa%2C+Hakone%2C+Japan"
             }
           ]
         }
@@ -1243,6 +1502,24 @@
         {
           "label": "Shiunso FAQ",
           "url": "https://www.shiunso.co.jp/english/faq/"
+        }
+      ],
+      "photoSpots": [
+        {
+          "name": "Hikari 642 · Fuji-side window",
+          "priority": "FUJI WATCH",
+          "shot": "Фудзи из seat E в Ordinary Reserved D+E; стекло протереть заранее, не вставать в проходе.",
+          "timing": "После выхода из Kyoto; видимость зависит от погоды.",
+          "signature": true,
+          "mapExempt": true,
+          "mapExemptReason": "Это кадр из поезда, не отдельная остановка; Shin-Fuji не добавляется в маршрут."
+        },
+        {
+          "name": "Hakone Open-Air Museum",
+          "priority": "PHOTO GOOD",
+          "shot": "Скульптуры на фоне долины и геометрия открытого пространства.",
+          "timing": "В основном визите, без удлинения ради каждого объекта.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hakone+Open-Air+Museum%2C+Hakone%2C+Japan"
         }
       ]
     },
@@ -1281,7 +1558,7 @@
           "mapLinks": [
             {
               "label": "Kakuinoyado Shiunso",
-              "url": "https://www.google.com/maps/place/Kakuinoyado+Shiunso%2C+92+Tonosawa%2C+Hakone%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kakuinoyado+Shiunso%2C+92+Tonosawa%2C+Hakone%2C+Japan"
             }
           ]
         },
@@ -1293,11 +1570,11 @@
           "mapLinks": [
             {
               "label": "Kakuinoyado Shiunso",
-              "url": "https://www.google.com/maps/place/Kakuinoyado+Shiunso%2C+92+Tonosawa%2C+Hakone%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Kakuinoyado+Shiunso%2C+92+Tonosawa%2C+Hakone%2C+Japan"
             },
             {
               "label": "Hakone-Yumoto Station",
-              "url": "https://www.google.com/maps/place/Hakone-Yumoto+Station%2C+Hakone%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hakone-Yumoto+Station%2C+Hakone%2C+Japan"
             }
           ]
         },
@@ -1309,15 +1586,15 @@
           "mapLinks": [
             {
               "label": "Tonosawa Station",
-              "url": "https://www.google.com/maps/place/Tonosawa+Station%2C+Hakone%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Tonosawa+Station%2C+Hakone%2C+Kanagawa%2C+Japan"
             },
             {
               "label": "Gora Station",
-              "url": "https://www.google.com/maps/place/Gora+Station%2C+Hakone%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Gora+Station%2C+Hakone%2C+Kanagawa%2C+Japan"
             },
             {
               "label": "Sounzan Station",
-              "url": "https://www.google.com/maps/place/Sounzan+Station%2C+Hakone%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Sounzan+Station%2C+Hakone%2C+Kanagawa%2C+Japan"
             }
           ]
         },
@@ -1329,7 +1606,7 @@
           "mapLinks": [
             {
               "label": "Ōwakudani",
-              "url": "https://www.google.com/maps/place/Owakudani%2C+Hakone%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Owakudani%2C+Hakone%2C+Japan"
             }
           ]
         },
@@ -1341,11 +1618,11 @@
           "mapLinks": [
             {
               "label": "Sounzan Station",
-              "url": "https://www.google.com/maps/place/Sounzan+Station%2C+Hakone%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Sounzan+Station%2C+Hakone%2C+Kanagawa%2C+Japan"
             },
             {
               "label": "Togendai Port",
-              "url": "https://www.google.com/maps/place/Togendai+Port%2C+Hakone%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Togendai+Port%2C+Hakone%2C+Kanagawa%2C+Japan"
             }
           ]
         },
@@ -1357,11 +1634,11 @@
           "mapLinks": [
             {
               "label": "Togendai Port",
-              "url": "https://www.google.com/maps/place/Togendai+Port%2C+Hakone%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Togendai+Port%2C+Hakone%2C+Kanagawa%2C+Japan"
             },
             {
               "label": "Moto-Hakone Port",
-              "url": "https://www.google.com/maps/place/Moto-Hakone+Port%2C+Hakone%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Moto-Hakone+Port%2C+Hakone%2C+Kanagawa%2C+Japan"
             }
           ]
         },
@@ -1373,7 +1650,7 @@
           "mapLinks": [
             {
               "label": "Hakone Shrine",
-              "url": "https://www.google.com/maps/place/Hakone+Shrine%2C+Hakone%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hakone+Shrine%2C+Hakone%2C+Japan"
             }
           ]
         },
@@ -1385,7 +1662,7 @@
           "mapLinks": [
             {
               "label": "Moto-Hakone Port",
-              "url": "https://www.google.com/maps/place/Moto-Hakone+Port%2C+Hakone%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Moto-Hakone+Port%2C+Hakone%2C+Kanagawa%2C+Japan"
             }
           ]
         },
@@ -1397,19 +1674,19 @@
           "mapLinks": [
             {
               "label": "Moto-Hakone Port",
-              "url": "https://www.google.com/maps/place/Moto-Hakone+Port%2C+Hakone%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Moto-Hakone+Port%2C+Hakone%2C+Kanagawa%2C+Japan"
             },
             {
               "label": "Hakone-Yumoto Station",
-              "url": "https://www.google.com/maps/place/Hakone-Yumoto+Station%2C+Hakone%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hakone-Yumoto+Station%2C+Hakone%2C+Japan"
             },
             {
               "label": "Odawara Station",
-              "url": "https://www.google.com/maps/place/Odawara+Station%2C+Kanagawa%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Odawara+Station%2C+Kanagawa%2C+Japan"
             },
             {
               "label": "Shimbashi Station",
-              "url": "https://www.google.com/maps/place/Shimbashi+Station%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Shimbashi+Station%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1421,7 +1698,7 @@
           "mapLinks": [
             {
               "label": "Hotel 1899 Tokyo",
-              "url": "https://www.google.com/maps/place/Hotel+1899+Tokyo%2C+6-4-1+Shinbashi%2C+Minato+City%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+1899+Tokyo%2C+6-4-1+Shinbashi%2C+Minato+City%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1433,11 +1710,11 @@
           "mapLinks": [
             {
               "label": "Zōjō-ji",
-              "url": "https://www.google.com/maps/place/Zojo-ji+Temple%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Zojo-ji+Temple%2C+Tokyo%2C+Japan"
             },
             {
               "label": "Tokyo Tower",
-              "url": "https://www.google.com/maps/place/Tokyo+Tower%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Tokyo+Tower%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1449,7 +1726,7 @@
           "mapLinks": [
             {
               "label": "Sukiyaki Imaasa Shinbashi",
-              "url": "https://www.google.com/maps/place/Imaasa+Shinbashi%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Imaasa+Shinbashi%2C+Tokyo%2C+Japan"
             }
           ]
         }
@@ -1477,6 +1754,38 @@
         {
           "label": "Imaasa · бронь",
           "url": "https://sukiyaki.imaasa.com/reserve/"
+        }
+      ],
+      "photoSpots": [
+        {
+          "name": "Ōwakudani",
+          "priority": "FUJI WATCH",
+          "shot": "Фудзи над вулканическим ландшафтом при ясной видимости.",
+          "timing": "Сразу по прибытии; решение по погоде в 07:00.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Owakudani%2C+Hakone%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Lake Ashi · cruise deck",
+          "priority": "FUJI WATCH",
+          "shot": "Фудзи над озером с палубы, если облачность позволяет.",
+          "timing": "Tōgendai → Moto-Hakone; не блокировать проход.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Lake+Ashi%2C+Hakone%2C+Japan"
+        },
+        {
+          "name": "Hakone Shrine lakeside torii",
+          "priority": "PHOTO GOOD",
+          "shot": "Красные ворота, вода и лес.",
+          "timing": "Без длинной очереди ради постановочного кадра.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hakone+Shrine+Heiwa+no+Torii%2C+Hakone%2C+Japan"
+        },
+        {
+          "name": "Zōjō-ji + Tokyo Tower",
+          "priority": "PHOTO MUST",
+          "shot": "Слоистый кадр старого храма и красной башни.",
+          "timing": "Blue hour перед ужином.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Zojo-ji+Temple%2C+Tokyo%2C+Japan",
+          "signature": true
         }
       ]
     },
@@ -1511,7 +1820,7 @@
           "mapLinks": [
             {
               "label": "Meiji Jingū",
-              "url": "https://www.google.com/maps/place/Meiji+Jingu%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Meiji+Jingu%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1523,11 +1832,11 @@
           "mapLinks": [
             {
               "label": "Harajuku Station",
-              "url": "https://www.google.com/maps/place/Harajuku+Station%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Harajuku+Station%2C+Tokyo%2C+Japan"
             },
             {
               "label": "Nezu Museum",
-              "url": "https://www.google.com/maps/place/Nezu+Museum%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Nezu+Museum%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1539,7 +1848,7 @@
           "mapLinks": [
             {
               "label": "Nezu Museum",
-              "url": "https://www.google.com/maps/place/Nezu+Museum%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Nezu+Museum%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1559,15 +1868,15 @@
           "mapLinks": [
             {
               "label": "Prada Aoyama",
-              "url": "https://www.google.com/maps/place/Prada+Tokyo+Aoyama%2C+5-2-6+Minamiaoyama%2C+Minato+City%2C+Tokyo+107-0062%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Prada+Tokyo+Aoyama%2C+5-2-6+Minamiaoyama%2C+Minato+City%2C+Tokyo+107-0062%2C+Japan"
             },
             {
               "label": "SunnyHills Minami-Aoyama",
-              "url": "https://www.google.com/maps/place/SunnyHills+Minami+Aoyama%2C+3-10-20+Minamiaoyama%2C+Minato+City%2C+Tokyo+107-0062%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=SunnyHills+Minami+Aoyama%2C+3-10-20+Minamiaoyama%2C+Minato+City%2C+Tokyo+107-0062%2C+Japan"
             },
             {
               "label": "Omotesando Hills",
-              "url": "https://www.google.com/maps/place/Omotesando+Hills%2C+4-12-10+Jingumae%2C+Shibuya%2C+Tokyo+150-0001%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Omotesando+Hills%2C+4-12-10+Jingumae%2C+Shibuya%2C+Tokyo+150-0001%2C+Japan"
             }
           ]
         },
@@ -1579,7 +1888,7 @@
           "mapLinks": [
             {
               "label": "Shibuya Scramble Crossing",
-              "url": "https://www.google.com/maps/place/Shibuya+Scramble+Crossing%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Shibuya+Scramble+Crossing%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1591,7 +1900,7 @@
           "mapLinks": [
             {
               "label": "Shibuya Sky",
-              "url": "https://www.google.com/maps/place/Shibuya+Sky%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Shibuya+Sky%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1616,6 +1925,59 @@
         {
           "label": "uka",
           "url": "https://uka.co.jp/salons/ukacojp_store/"
+        }
+      ],
+      "photoSpots": [
+        {
+          "name": "Meiji Jingū approach",
+          "priority": "PHOTO GOOD",
+          "shot": "Лесная ось, torii и масштаб подхода.",
+          "timing": "Утро; не ждать пустого кадра слишком долго.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Meiji+Jingu%2C+Tokyo%2C+Japan"
+        },
+        {
+          "name": "Nezu Museum garden",
+          "priority": "PHOTO MUST",
+          "shot": "Современная архитектура, каменная дорожка и сад.",
+          "timing": "В купленном слоте 10:00–11:00.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Nezu+Museum%2C+Tokyo%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Prada Aoyama",
+          "priority": "PHOTO GOOD",
+          "shot": "Ромбовидная стеклянная оболочка и отражения.",
+          "timing": "Первый anchor архитектурной оси.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Prada+Aoyama%2C+Tokyo%2C+Japan"
+        },
+        {
+          "name": "SunnyHills Minami-Aoyama",
+          "priority": "PHOTO GOOD",
+          "shot": "Деревянная решётка Kuma и узкая уличная перспектива.",
+          "timing": "Между Prada и Omotesando Hills.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=SunnyHills+Minami-Aoyama%2C+Tokyo%2C+Japan"
+        },
+        {
+          "name": "Omotesando Hills",
+          "priority": "PHOTO GOOD",
+          "shot": "Линейный фасад и внутренняя спираль.",
+          "timing": "Третий anchor архитектурной оси.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Omotesando+Hills%2C+Tokyo%2C+Japan"
+        },
+        {
+          "name": "Shibuya Crossing",
+          "priority": "SECONDARY ICONIC",
+          "shot": "Пешеходный поток и городской масштаб.",
+          "timing": "Коротко перед Shibuya Sky.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Shibuya+Scramble+Crossing%2C+Tokyo%2C+Japan"
+        },
+        {
+          "name": "Shibuya Sky",
+          "priority": "PHOTO MUST",
+          "shot": "Tokyo на закате/blue hour с чистым горизонтом.",
+          "timing": "Целевой слот 16:20 или 16:40; правила хранения соблюдать.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Shibuya+Sky%2C+Tokyo%2C+Japan",
+          "signature": true
         }
       ]
     },
@@ -1650,7 +2012,7 @@
           "mapLinks": [
             {
               "label": "Tsukiji Outer Market",
-              "url": "https://www.google.com/maps/place/Tsukiji+Outer+Market%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Tsukiji+Outer+Market%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1662,7 +2024,7 @@
           "mapLinks": [
             {
               "label": "Tokyo National Museum",
-              "url": "https://www.google.com/maps/place/Tokyo+National+Museum%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Tokyo+National+Museum%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1674,7 +2036,7 @@
           "mapLinks": [
             {
               "label": "Tokyo National Museum",
-              "url": "https://www.google.com/maps/place/Tokyo+National+Museum%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Tokyo+National+Museum%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1686,7 +2048,7 @@
           "mapLinks": [
             {
               "label": "Tokyo National Museum Honkan",
-              "url": "https://www.google.com/maps/place/Tokyo+National+Museum+Honkan%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Tokyo+National+Museum+Honkan%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1706,7 +2068,7 @@
           "mapLinks": [
             {
               "label": "Edo-Tokyo Museum",
-              "url": "https://www.google.com/maps/place/Edo-Tokyo+Museum%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Edo-Tokyo+Museum%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1774,6 +2136,31 @@
           "label": "Wako",
           "url": "https://www.ginza.jp/en/landmark/9743"
         }
+      ],
+      "photoSpots": [
+        {
+          "name": "Tokyo National Museum · Honkan",
+          "priority": "PHOTO GOOD",
+          "shot": "Симметрия главного корпуса и детали залов, где съёмка разрешена.",
+          "timing": "Базовый Tokyo-сценарий.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tokyo+National+Museum+Honkan%2C+Tokyo%2C+Japan"
+        },
+        {
+          "name": "Chureito Pagoda viewpoint",
+          "priority": "PHOTO MUST",
+          "shot": "Пагода, город и Fuji в одном слое.",
+          "timing": "Только Fuji-сценарий и только при чистой видимости.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Chureito+Pagoda%2C+Fujiyoshida%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Oishi Park · Lake Kawaguchi",
+          "priority": "FUJI WATCH",
+          "shot": "Fuji над озером с сезонным передним планом.",
+          "timing": "После обеда, только при устойчивой видимости.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Oishi+Park%2C+Fujikawaguchiko%2C+Japan",
+          "signature": true
+        }
       ]
     },
     {
@@ -1807,11 +2194,11 @@
           "mapLinks": [
             {
               "label": "Hotel 1899 Tokyo",
-              "url": "https://www.google.com/maps/place/Hotel+1899+Tokyo%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+1899+Tokyo%2C+Tokyo%2C+Japan"
             },
             {
               "label": "Asakusa Station",
-              "url": "https://www.google.com/maps/place/Asakusa+Station%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Asakusa+Station%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1823,11 +2210,11 @@
           "mapLinks": [
             {
               "label": "Sensō-ji",
-              "url": "https://www.google.com/maps/place/Senso-ji%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Senso-ji%2C+Tokyo%2C+Japan"
             },
             {
               "label": "Asakusa Shrine",
-              "url": "https://www.google.com/maps/place/Asakusa+Shrine%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Asakusa+Shrine%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1839,7 +2226,7 @@
           "mapLinks": [
             {
               "label": "Asakusa Culture Tourist Information Center",
-              "url": "https://www.google.com/maps/place/Asakusa+Culture+Tourist+Information+Center%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Asakusa+Culture+Tourist+Information+Center%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1851,7 +2238,7 @@
           "mapLinks": [
             {
               "label": "Nakamise Shopping Street",
-              "url": "https://www.google.com/maps/place/Nakamise+Shopping+Street%2C+Asakusa%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Nakamise+Shopping+Street%2C+Asakusa%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1879,11 +2266,11 @@
           "mapLinks": [
             {
               "label": "Asakusa Station",
-              "url": "https://www.google.com/maps/place/Asakusa+Station%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Asakusa+Station%2C+Tokyo%2C+Japan"
             },
             {
               "label": "Hotel 1899 Tokyo",
-              "url": "https://www.google.com/maps/place/Hotel+1899+Tokyo%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+1899+Tokyo%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1895,7 +2282,7 @@
           "mapLinks": [
             {
               "label": "Heisei Nakamuraza",
-              "url": "https://www.google.com/maps/place/Heisei+Nakamuraza+Asakusa%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Heisei+Nakamuraza+Asakusa%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1907,7 +2294,7 @@
           "mapLinks": [
             {
               "label": "Heisei Nakamuraza",
-              "url": "https://www.google.com/maps/place/Heisei+Nakamuraza+Asakusa%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Heisei+Nakamuraza+Asakusa%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1919,7 +2306,7 @@
           "mapLinks": [
             {
               "label": "Tokyo Skytree",
-              "url": "https://www.google.com/maps/place/Tokyo+Skytree%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Tokyo+Skytree%2C+Tokyo%2C+Japan"
             }
           ]
         }
@@ -1930,7 +2317,46 @@
           "value": ""
         }
       ],
-      "links": []
+      "links": [],
+      "photoSpots": [
+        {
+          "name": "Kaminarimon + Sensō-ji",
+          "priority": "PHOTO MUST",
+          "shot": "Фонарь, ворота и ось Nakamise до плотного потока.",
+          "timing": "Раннее утро.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kaminarimon%2C+Senso-ji%2C+Tokyo%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Hōzōmon + five-story pagoda",
+          "priority": "PHOTO GOOD",
+          "shot": "Красные ворота и пагода в диагональной композиции.",
+          "timing": "Во время основного осмотра.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Hozomon+Gate%2C+Senso-ji%2C+Tokyo%2C+Japan"
+        },
+        {
+          "name": "Asakusa Culture Center overlook",
+          "priority": "PHOTO MUST",
+          "shot": "Крыши Nakamise и Sensō-ji сверху.",
+          "timing": "Короткая обзорная остановка.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Asakusa+Culture+Tourist+Information+Center%2C+Tokyo%2C+Japan",
+          "signature": true
+        },
+        {
+          "name": "Heisei Nakamuraza exterior",
+          "priority": "PHOTO GOOD",
+          "shot": "Театральный фасад и вечерняя публика.",
+          "timing": "До входа, не задерживая получение билета.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Heisei+Nakamuraza+Asakusa%2C+Tokyo%2C+Japan"
+        },
+        {
+          "name": "Tokyo Skytree",
+          "priority": "SECONDARY ICONIC",
+          "shot": "Башня над Asakusa; только если остаётесь после спектакля.",
+          "timing": "Не защищать временем.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tokyo+Skytree%2C+Tokyo%2C+Japan"
+        }
+      ]
     },
     {
       "id": "oct-02-departure",
@@ -1979,7 +2405,7 @@
           "mapLinks": [
             {
               "label": "Hotel 1899 Tokyo",
-              "url": "https://www.google.com/maps/place/Hotel+1899+Tokyo%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+1899+Tokyo%2C+Tokyo%2C+Japan"
             }
           ]
         },
@@ -1991,15 +2417,15 @@
           "mapLinks": [
             {
               "label": "Hotel 1899 Tokyo",
-              "url": "https://www.google.com/maps/place/Hotel+1899+Tokyo%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Hotel+1899+Tokyo%2C+Tokyo%2C+Japan"
             },
             {
               "label": "Tokyo Station",
-              "url": "https://www.google.com/maps/place/Tokyo+Station%2C+Tokyo%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Tokyo+Station%2C+Tokyo%2C+Japan"
             },
             {
               "label": "Narita Airport Terminal 1",
-              "url": "https://www.google.com/maps/place/Narita+International+Airport+Terminal+1%2C+Chiba%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Narita+International+Airport+Terminal+1%2C+Chiba%2C+Japan"
             }
           ]
         },
@@ -2011,7 +2437,7 @@
           "mapLinks": [
             {
               "label": "Narita Airport Terminal 1",
-              "url": "https://www.google.com/maps/place/Narita+International+Airport+Terminal+1%2C+Chiba%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Narita+International+Airport+Terminal+1%2C+Chiba%2C+Japan"
             }
           ]
         },
@@ -2023,7 +2449,7 @@
           "mapLinks": [
             {
               "label": "Narita Airport Terminal 1",
-              "url": "https://www.google.com/maps/place/Narita+International+Airport+Terminal+1%2C+Chiba%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Narita+International+Airport+Terminal+1%2C+Chiba%2C+Japan"
             }
           ]
         },
@@ -2035,11 +2461,11 @@
           "mapLinks": [
             {
               "label": "Narita Airport Terminal 1",
-              "url": "https://www.google.com/maps/place/Narita+International+Airport+Terminal+1%2C+Chiba%2C+Japan/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Narita+International+Airport+Terminal+1%2C+Chiba%2C+Japan"
             },
             {
               "label": "Chengdu Tianfu Airport Terminal 1",
-              "url": "https://www.google.com/maps/place/Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China"
             }
           ]
         },
@@ -2051,11 +2477,11 @@
           "mapLinks": [
             {
               "label": "Chengdu Tianfu Airport Terminal 1",
-              "url": "https://www.google.com/maps/place/Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China"
             },
             {
               "label": "Crowne Plaza Chengdu City Center",
-              "url": "https://www.google.com/maps/place/Crowne+Plaza+Chengdu+City+Center%2C+31+Zongfu+Street%2C+Chengdu%2C+China/"
+              "url": "https://www.google.com/maps/search/?api=1&query=Crowne+Plaza+Chengdu+City+Center%2C+31+Zongfu+Street%2C+Chengdu%2C+China"
             }
           ]
         }
@@ -2094,14 +2520,14 @@
     {
       "id": "matsusaka-m",
       "group": "Еда · бронировать заранее",
-      "status": "action",
-      "deadline": "Сейчас",
-      "sortDate": "2026-08-15",
-      "title": "Matsusakagyu Yakiniku M · 23.09 19:30",
-      "price": "По меню · без наборов Premium/Special",
-      "action": "Забронировать филиал Umeda Fukushima. План заказа: омакасэ-тарелка из 5–6 отрубов, обычный рис и овощи; фиксированные Premium/Special course не брать из-за bacon в составе.",
-      "offline": "Подтверждение брони + адрес филиала + выбранный план заказа",
-      "url": "https://myconciergejapan.com/restaurants/yakiniku-m-fukushima/"
+      "status": "done",
+      "deadline": "Готово",
+      "sortDate": "2026-08-23",
+      "title": "Yakiniku M Fukushima Honten · 23.09 20:00",
+      "price": "По меню · бронь Accepted",
+      "action": "TableCheck подтверждает стол на 23.09.2026 в 20:00 для 2 человек. Прийти всей компанией вовремя; бронь освобождают через 15 минут опоздания.",
+      "offline": "TableCheck confirmation · Accepted + адрес 6-3-7 Fukushima",
+      "url": "https://www.tablecheck.com/en/shops/matsusakamfukushima/reserve"
     },
     {
       "id": "haruka",
@@ -2126,14 +2552,26 @@
       "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/jrwest-rail-pass/kansai_hiroshima/"
     },
     {
-      "id": "himeji-seats",
+      "id": "kix-physical-pickup",
+      "group": "Билеты, транспорт и подготовка",
       "status": "action",
-      "deadline": "23 августа · проверить продажу/расписание",
+      "deadline": "21 сентября · после выхода в KIX",
+      "sortDate": "2026-09-21",
+      "title": "KIX · получить HARUKA и Kansai–Hiroshima Pass",
+      "price": "Уже оплачено",
+      "action": "Получить 2 физических HARUKA One-way Tickets и физический Kansai–Hiroshima Area Pass. Нужны паспорта, номера броней, 4-значные коды и физическая карта оплаты; WEST QR не использовать.",
+      "offline": "Паспорта + обе брони + коды + карта оплаты",
+      "url": "https://www.westjr.co.jp/global/en/ticket/receive/"
+    },
+    {
+      "id": "himeji-seats",
+      "status": "done",
+      "deadline": "Готово",
       "sortDate": "2026-08-23",
-      "title": "Места на синкансэн · Химэдзи 23.09",
-      "price": "Включено в JR-West Pass",
-      "action": "Зарезервировать seat ticket по Kansai-Hiroshima Area Pass на поезд с прибытием в Himeji не позже 08:10 и обратный около 13:00; отдельный полный тариф не покупать.",
-      "offline": "Номера поездов, вагон/места, билеты на места",
+      "title": "Himeji reserved seats · 23.09",
+      "price": "Включено в Kansai–Hiroshima Area Pass · оформлено",
+      "action": "Туда: Hikari 731, Shin-Osaka 07:34 → Himeji 08:03, Car 14, seats 3-D/3-E. Обратно: Hikari 710, Himeji 13:11 → Shin-Osaka 13:46, Car 14, seats 6-D/6-E.",
+      "offline": "Оба seat tickets + номера поездов, вагон и места",
       "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/route-search/"
     },
     {
@@ -2148,14 +2586,14 @@
       "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/route-search/"
     },
     {
-      "id": "regional-timetables",
-      "sortDate": "2026-08-23",
-      "deadline": "23 августа · вместе с Himeji reservation",
-      "title": "Зафиксировать поезда Nara / Himeji · 22–23.09",
-      "price": "Без доплаты сверх действующего pass, где применимо",
-      "action": "После проверки расписания сентября 2026: Himeji — оформить seat reservations по Kansai-Hiroshima Area Pass туда и обратно; Nara — зафиксировать конкретный Yamatoji Rapid. Для Nara отдельный билет не покупать, если поездка покрывается действующим pass.",
-      "offline": "Номера поездов, минуты, платформы; для Himeji — seat tickets/вагон/места",
-      "status": "action",
+      "id": "nara-live-train",
+      "sortDate": "2026-09-21",
+      "deadline": "21 сентября · вечером",
+      "title": "Yamatoji Rapid · Nara 22.09",
+      "price": "Reserved seat не нужен",
+      "action": "Проверить в JR-West точную минуту и платформу прямого поезда Osaka → Nara около 07:55 после завтрака; ориентир прибытия около 08:50.",
+      "offline": "Скрин live timetable / платформа",
+      "status": "watch",
       "group": "Билеты, транспорт и подготовка",
       "url": "https://www.westjr.co.jp/global/en/timetable/"
     },
@@ -2442,7 +2880,12 @@
     {
       "title": "Kansai-Hiroshima Area Pass",
       "when": "22–26 сентября",
-      "detail": "¥17,000 на 5 дней. Ordinary Reserved Seat на Sanyō Shinkansen в зоне pass включён: оформить seat ticket до посадки, но не покупать отдельный полный тариф. В покрытых поездках использовать pass, не ICOCA."
+      "detail": "Куплен на 22–26 сентября за ¥17,000 на человека. В KIX получить физический pass. Ordinary Reserved Seat на Sanyō Shinkansen в зоне pass оформляется без отдельного полного тарифа; Himeji туда/обратно уже зарезервирован."
+    },
+    {
+      "title": "Himeji · reserved seats",
+      "when": "23 сентября",
+      "detail": "Hikari 731 07:34–08:03, Car 14, 3-D/3-E; Hikari 710 13:11–13:46, Car 14, 6-D/6-E. Оба сегмента оформлены по pass."
     },
     {
       "title": "Kyoto Subway & Bus 1-Day Pass",
@@ -2504,7 +2947,7 @@
       }
     ],
     "rules": [
-      "Паспорт нужен для Katsura и получения ряда JR-West билетов.",
+      "Паспорта, физическая карта оплаты, номера броней и 4-значные коды нужны в KIX для получения HARUKA и Kansai–Hiroshima Pass; паспорт также нужен для Katsura.",
       "Внешний аккумулятор — только ручная кладь.",
       "Сохранить QR как файлы/в Wallet, но для Himeji держать и живое подтверждение.",
       "На Shibuya Sky сумки и свободные предметы оставляются в ячейке хранения.",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "checked": "22 августа 2026",
+    "checked": "23 августа 2026",
     "principle": "Maximum convenient optionality per city. Shopping не привязан к дням и не меняет sightseeing-маршрут: город → 2–4 компактных района → магазины. Повторение утверждённого бренда между городами — плюс. Перед выходом проверить официальный источник, внеплановые закрытия и наличие конкретной модели.",
     "structure": "город → компактный район → магазин → точный адрес/режим → product-note → Google Maps"
   },
@@ -19,7 +19,7 @@
               "hours": "11:00–19:00",
               "products": "Prospex, Presage, King Seiko, Astron; приоритет JDM и boutique editions.",
               "url": "https://www.seikowatches.com/jp-ja/stores/86605",
-              "googleMapsUrl": "https://www.google.com/maps/place/Seiko+Boutique+Osaka+Shinsaibashi%2C+1F+Osaka+Toyota+Building%2C+4-3-11+Minamisenba%2C+Chuo-ku%2C+Osaka+542-0081/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Seiko+Boutique+Osaka+Shinsaibashi%2C+1F+Osaka+Toyota+Building%2C+4-3-11+Minamisenba%2C+Chuo-ku%2C+Osaka+542-0081"
             },
             {
               "name": "CITIZEN FLAGSHIP STORE OSAKA",
@@ -27,7 +27,7 @@
               "hours": "11:00–19:00 · нерегулярные выходные",
               "products": "The CITIZEN, Attesa, Series 8, Campanola; Eco-Drive и Super Titanium.",
               "url": "https://flagshipstore.citizen.jp/en/location/osaka/",
-              "googleMapsUrl": "https://www.google.com/maps/place/CITIZEN+FLAGSHIP+STORE+OSAKA%2C+1-1-5+Shinsaibashisuji%2C+Chuo-ku%2C+Osaka/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=CITIZEN+FLAGSHIP+STORE+OSAKA%2C+1-1-5+Shinsaibashisuji%2C+Chuo-ku%2C+Osaka"
             },
             {
               "name": "ASICS OSAKA SHINSAIBASHI",
@@ -35,7 +35,7 @@
               "hours": "11:00–20:00",
               "products": "SportStyle + performance; японские расцветки по наличию.",
               "url": "https://www.asics.com/jp/ja-jp/mk/store/asics-osaka-shinsaibashi",
-              "googleMapsUrl": "https://www.google.com/maps/place/ASICS+OSAKA+SHINSAIBASHI%2C+1-8-1+Shinsaibashisuji%2C+Chuo-ku%2C+Osaka+542-0085/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=ASICS+OSAKA+SHINSAIBASHI%2C+1-8-1+Shinsaibashisuji%2C+Chuo-ku%2C+Osaka+542-0085"
             },
             {
               "name": "Onitsuka Tiger Namba",
@@ -43,7 +43,7 @@
               "hours": "11:00–20:00 · возможны очереди/номерки",
               "products": "Mexico 66 и NIPPON MADE; сначала японские материалы/отделка и локальные цвета.",
               "url": "https://www.onitsukatiger.com/jp/en-gl/brand/yellow-collection/store",
-              "googleMapsUrl": "https://www.google.com/maps/place/Onitsuka+Tiger+Namba%2C+1-8-14+Dotonbori%2C+Chuo-ku%2C+Osaka+542-0071/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Onitsuka+Tiger+Namba%2C+1-8-14+Dotonbori%2C+Chuo-ku%2C+Osaka+542-0071"
             },
             {
               "name": "KANEKO GANKYO-TEN Namba Skyo",
@@ -51,7 +51,7 @@
               "hours": "11:00–20:00",
               "products": "Sabae-made eyewear; широко смотреть titanium / beta-titanium, включая KV, не ограничиваясь одним SKU.",
               "url": "https://www.kaneko-optical.co.jp/en/shop_list_area/05?article_data_field_area=area_05",
-              "googleMapsUrl": "https://www.google.com/maps/place/KANEKO+GANKYO-TEN+Namba+Skyo%2C+Namba+Skyo+2F%2C+5-1-60+Namba%2C+Chuo-ku%2C+Osaka/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KANEKO+GANKYO-TEN+Namba+Skyo%2C+Namba+Skyo+2F%2C+5-1-60+Namba%2C+Chuo-ku%2C+Osaka"
             }
           ]
         },
@@ -65,7 +65,7 @@
               "hours": "по режиму Grand Front Osaka",
               "products": "MR-G, MT-G, Full Metal, Master of G и японские релизы.",
               "url": "https://gshock.casio.com/jp/store/",
-              "googleMapsUrl": "https://www.google.com/maps/place/G-SHOCK+STORE+OSAKA%2C+Grand+Front+Osaka+North+Building+1F%2C+3-1+Ofukacho%2C+Kita-ku%2C+Osaka/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=G-SHOCK+STORE+OSAKA%2C+Grand+Front+Osaka+North+Building+1F%2C+3-1+Ofukacho%2C+Kita-ku%2C+Osaka"
             },
             {
               "name": "KANEKO GANKYO-TEN Grand Front Osaka",
@@ -73,7 +73,7 @@
               "hours": "11:00–21:00",
               "products": "Sabae-made titanium / beta-titanium; удобная альтернатива Namba.",
               "url": "https://www.kaneko-optical.co.jp/en/news/detail/osaka-renewal",
-              "googleMapsUrl": "https://www.google.com/maps/place/KANEKO+GANKYO-TEN+Grand+Front+Osaka%2C+Grand+Front+Osaka+South+Building+3F%2C+4-20+Ofukacho%2C+Kita-ku%2C+Osaka+530-0011/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KANEKO+GANKYO-TEN+Grand+Front+Osaka%2C+Grand+Front+Osaka+South+Building+3F%2C+4-20+Ofukacho%2C+Kita-ku%2C+Osaka+530-0011"
             },
             {
               "name": "Onitsuka Tiger NU Chayamachi",
@@ -81,7 +81,7 @@
               "hours": "11:00–21:00 · возможны очереди/номерки",
               "products": "Mexico 66, NIPPON MADE и сезонные модели; удобный дубль Namba.",
               "url": "https://nu-chayamachi.com/shop/onitsukatiger/",
-              "googleMapsUrl": "https://www.google.com/maps/place/Onitsuka+Tiger+NU+Chayamachi%2C+NU+Chayamachi+1F%2C+10-12+Chayamachi%2C+Kita-ku%2C+Osaka+530-0013/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Onitsuka+Tiger+NU+Chayamachi%2C+NU+Chayamachi+1F%2C+10-12+Chayamachi%2C+Kita-ku%2C+Osaka+530-0013"
             },
             {
               "name": "UNIQLO UMEDA",
@@ -89,7 +89,7 @@
               "hours": "10:00–21:00",
               "products": "Глобальный флагман; приоритет японским/локальным эксклюзивам и специальным коллекциям, а не базе.",
               "url": "https://map.uniqlo.com/jp/ja/detail/10101654",
-              "googleMapsUrl": "https://www.google.com/maps/place/UNIQLO+UMEDA%2C+LINKS+UMEDA+1F%E2%80%932F%2C+1-1+Ofukacho%2C+Kita-ku%2C+Osaka+530-0011/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=UNIQLO+UMEDA%2C+LINKS+UMEDA+1F%E2%80%932F%2C+1-1+Ofukacho%2C+Kita-ku%2C+Osaka+530-0011"
             },
             {
               "name": "KAPITAL · Osaka ABCD / Bazaar",
@@ -97,7 +97,7 @@
               "hours": "по режиму Hankyu Men’s Osaka · наличие проверить",
               "products": "Сначала crazy KOUNTRY / embroidery / remake / patchwork / BORO / sashiko; затем Century Denim.",
               "url": "https://www.kapital.jp/shop/search/search_again.html",
-              "googleMapsUrl": "https://www.google.com/maps/place/KAPITAL+%C2%B7+Osaka+ABCD+%2F+Bazaar%2C+Hankyu+Men%E2%80%99s+Osaka+5F%2C+7-10+Kakudacho%2C+Kita-ku%2C+Osaka+530-0017/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KAPITAL+%C2%B7+Osaka+ABCD+%2F+Bazaar%2C+Hankyu+Men%E2%80%99s+Osaka+5F%2C+7-10+Kakudacho%2C+Kita-ku%2C+Osaka+530-0017"
             }
           ]
         }
@@ -117,7 +117,7 @@
               "hours": "11:00–20:00",
               "products": "Сначала crazy KOUNTRY / embroidery / remake / patchwork / BORO / sashiko; затем Century Denim.",
               "url": "https://www.kapital.jp/shop/search/search_again.html",
-              "googleMapsUrl": "https://www.google.com/maps/place/KAPITAL+K.K-POPPO+STORE%2C+352+Iseyacho%2C+Gokomachi-dori+Rokkaku-sagaru%2C+Nakagyo-ku%2C+Kyoto+604-8066/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KAPITAL+K.K-POPPO+STORE%2C+352+Iseyacho%2C+Gokomachi-dori+Rokkaku-sagaru%2C+Nakagyo-ku%2C+Kyoto+604-8066"
             },
             {
               "name": "KANEKO GANKYO-TEN Kyoto",
@@ -125,7 +125,7 @@
               "hours": "11:00–20:00",
               "products": "Sabae-made eyewear; titanium / beta-titanium, включая KV, но смотреть весь металлический ассортимент.",
               "url": "https://www.kaneko-optical.co.jp/en/shop_list_area/05?article_data_field_area=area_05",
-              "googleMapsUrl": "https://www.google.com/maps/place/KANEKO+GANKYO-TEN+Kyoto%2C+Stella+Gokomachi+1F%2C+378+Funayacho%2C+Nakagyo-ku%2C+Kyoto/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KANEKO+GANKYO-TEN+Kyoto%2C+Stella+Gokomachi+1F%2C+378+Funayacho%2C+Nakagyo-ku%2C+Kyoto"
             },
             {
               "name": "KANEKO GANKYO-TEN Kyoto Takashimaya SC",
@@ -133,7 +133,7 @@
               "hours": "10:30–20:00 · по режиму комплекса",
               "products": "Удобный дубль Kaneko в том же центральном блоке; широкий Sabae assortment.",
               "url": "https://www.kaneko-optical.co.jp/en/shop_detail/144",
-              "googleMapsUrl": "https://www.google.com/maps/place/KANEKO+GANKYO-TEN+Kyoto+Takashimaya+SC%2C+Kyoto+Takashimaya+SC+%5BT8%5D+3F%2C+35+Otabicho%2C+Shimogyo-ku%2C+Kyoto+600-8002/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KANEKO+GANKYO-TEN+Kyoto+Takashimaya+SC%2C+Kyoto+Takashimaya+SC+%5BT8%5D+3F%2C+35+Otabicho%2C+Shimogyo-ku%2C+Kyoto+600-8002"
             },
             {
               "name": "UNIQLO Kyoto Kawaramachi",
@@ -141,7 +141,7 @@
               "hours": "11:00–21:00",
               "products": "Крупная центральная точка; японские/локальные предложения и UT, без отдельного крюка.",
               "url": "https://map.uniqlo.com/jp/ja/detail/10101641/1000",
-              "googleMapsUrl": "https://www.google.com/maps/place/UNIQLO+Kyoto+Kawaramachi%2C+Mina+Kyoto+B1F%E2%80%933F%2C+58+Daikokucho%2C+Nakagyo-ku%2C+Kyoto+604-8031/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=UNIQLO+Kyoto+Kawaramachi%2C+Mina+Kyoto+B1F%E2%80%933F%2C+58+Daikokucho%2C+Nakagyo-ku%2C+Kyoto+604-8031"
             },
             {
               "name": "Onitsuka Tiger Kyoto",
@@ -149,7 +149,7 @@
               "hours": "11:00–21:00 · возможны очереди/номерки",
               "products": "Mexico 66 и сезонные коллекции; Kyoto подтверждён брендом как текущая retail-точка.",
               "url": "https://www.opa-club.com/Kawaramachi/shop/6482",
-              "googleMapsUrl": "https://www.google.com/maps/place/Onitsuka+Tiger+Kyoto%2C+385+Komeyacho%2C+Nakagyo-ku%2C+Kyoto+604-8505/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Onitsuka+Tiger+Kyoto%2C+385+Komeyacho%2C+Nakagyo-ku%2C+Kyoto+604-8505"
             }
           ]
         },
@@ -163,7 +163,7 @@
               "hours": "10:00–18:00",
               "products": "My Ring: выбрать металл/фактуру; если удобная точка встретится в другом городе, дубль допустим.",
               "url": "https://www.kochentertainment.com/glanta/en/shop/kyoto2/",
-              "googleMapsUrl": "https://www.google.com/maps/place/gl%C3%A4nta+Kyoto+Ninenzaka%2C+351-3+Masuyacho%2C+Higashiyama-ku%2C+Kyoto+605-0826/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=gl%C3%A4nta+Kyoto+Ninenzaka%2C+351-3+Masuyacho%2C+Higashiyama-ku%2C+Kyoto+605-0826"
             },
             {
               "name": "Kintakedo",
@@ -171,7 +171,7 @@
               "hours": "10:00–20:00 · закрыто по четвергам",
               "products": "Кандзаси и hair ornaments; традиционные материалы и сезонные формы.",
               "url": "https://www.gion.or.jp/gion_shop_detail/%E9%87%91%E7%AB%B9%E5%A0%82",
-              "googleMapsUrl": "https://www.google.com/maps/place/Kintakedo%2C+263+Gionmachi+Kitagawa%2C+Higashiyama-ku%2C+Kyoto+605-0073/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kintakedo%2C+263+Gionmachi+Kitagawa%2C+Higashiyama-ku%2C+Kyoto+605-0073"
             },
             {
               "name": "Kazurasei Gion Main Store",
@@ -179,7 +179,7 @@
               "hours": "10:00–19:00 · закрыто по средам, кроме праздников",
               "products": "Кандзаси, tsuge combs и hair ornaments; второй профильный магазин рядом.",
               "url": "https://www.kazurasei.co.jp/f/company",
-              "googleMapsUrl": "https://www.google.com/maps/place/Kazurasei+Gion+Main+Store%2C+285+Gionmachi+Kitagawa%2C+Higashiyama-ku%2C+Kyoto+605-0073/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kazurasei+Gion+Main+Store%2C+285+Gionmachi+Kitagawa%2C+Higashiyama-ku%2C+Kyoto+605-0073"
             }
           ]
         }
@@ -199,7 +199,7 @@
               "hours": "11:00–19:00",
               "products": "Seiko 5 Sports, Prospex, Presage, King Seiko, Astron, Lukia.",
               "url": "https://www.seikowatches.com/jp-ja/stores/special/seikodreamsquare/en/index",
-              "googleMapsUrl": "https://www.google.com/maps/place/Seiko+Dream+Square%2C+4-4-10+Ginza%2C+Chuo-ku%2C+Tokyo+104-0061/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Seiko+Dream+Square%2C+4-4-10+Ginza%2C+Chuo-ku%2C+Tokyo+104-0061"
             },
             {
               "name": "CITIZEN FLAGSHIP STORE TOKYO",
@@ -207,7 +207,7 @@
               "hours": "10:30–20:30",
               "products": "The CITIZEN, Attesa, Series 8, Campanola, Super Titanium.",
               "url": "https://flagshipstore.citizen.jp/en/location/tokyo/",
-              "googleMapsUrl": "https://www.google.com/maps/place/CITIZEN+FLAGSHIP+STORE+TOKYO%2C+GINZA+SIX+1F%2C+6-10-1+Ginza%2C+Chuo-ku%2C+Tokyo/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=CITIZEN+FLAGSHIP+STORE+TOKYO%2C+GINZA+SIX+1F%2C+6-10-1+Ginza%2C+Chuo-ku%2C+Tokyo"
             },
             {
               "name": "KANEKO GANKYO-TEN Ginza",
@@ -215,7 +215,7 @@
               "hours": "11:00–20:00",
               "products": "Sabae-made titanium / beta-titanium; удобный дубль Aoyama.",
               "url": "https://www.kaneko-optical.co.jp/en/shop_list_area/01/payment/taxfree",
-              "googleMapsUrl": "https://www.google.com/maps/place/KANEKO+GANKYO-TEN+Ginza%2C+6-8-4+Ginza%2C+Chuo-ku%2C+Tokyo/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KANEKO+GANKYO-TEN+Ginza%2C+6-8-4+Ginza%2C+Chuo-ku%2C+Tokyo"
             },
             {
               "name": "UNIQLO Ginza",
@@ -223,7 +223,7 @@
               "hours": "11:00–21:00",
               "products": "LifeWear/UT и Ginza collaborations; выбирать японские эксклюзивы.",
               "url": "https://www.uniqlo.com/jp/ja/contents/corp/press-release/2021/09/21090811_ginza.html",
-              "googleMapsUrl": "https://www.google.com/maps/place/UNIQLO+Ginza%2C+Ginza+Komatsu+East+Building+1F%E2%80%9312F%2C+6-9-5+Ginza%2C+Chuo-ku%2C+Tokyo/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=UNIQLO+Ginza%2C+Ginza+Komatsu+East+Building+1F%E2%80%9312F%2C+6-9-5+Ginza%2C+Chuo-ku%2C+Tokyo"
             },
             {
               "name": "PORTER CLASSIC GINZA",
@@ -231,7 +231,7 @@
               "hours": "12:00–20:00 · кроме закрытий здания",
               "products": "Главный приоритет PC KENDO; также PC SASHIKO, hand-work и Ginza exclusives.",
               "url": "https://porterclassic.com/pages/porter-classic-ginza",
-              "googleMapsUrl": "https://www.google.com/maps/place/PORTER+CLASSIC+GINZA%2C+GINZA+FIVE+2F%2C+5-1+Ginza%2C+Chuo-ku%2C+Tokyo+104-0061/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=PORTER+CLASSIC+GINZA%2C+GINZA+FIVE+2F%2C+5-1+Ginza%2C+Chuo-ku%2C+Tokyo+104-0061"
             }
           ]
         },
@@ -245,7 +245,7 @@
               "hours": "11:00–20:00",
               "products": "MR-G, MT-G, Full Metal, Master of G и JDM releases.",
               "url": "https://gshock.casio.com/jp/store/",
-              "googleMapsUrl": "https://www.google.com/maps/place/G-SHOCK+STORE+MARUNOUCHI%2C+KITTE+Marunouchi+3F%2C+2-7-2+Marunouchi%2C+Chiyoda-ku%2C+Tokyo/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=G-SHOCK+STORE+MARUNOUCHI%2C+KITTE+Marunouchi+3F%2C+2-7-2+Marunouchi%2C+Chiyoda-ku%2C+Tokyo"
             },
             {
               "name": "CLASSIC GENTLEMAN PORTER CLASSIC TOKYO MARUNOUCHI",
@@ -253,7 +253,7 @@
               "hours": "11:00–21:00 · вс/праздники до 20:00",
               "products": "PC KENDO / PC SASHIKO и tailoring; dedicated Porter Classic point.",
               "url": "https://porterclassic.com/pages/classic-gentleman-porter-classic-tokyo-marunouchi",
-              "googleMapsUrl": "https://www.google.com/maps/place/CLASSIC+GENTLEMAN+PORTER+CLASSIC+TOKYO+MARUNOUCHI%2C+Shin-Marunouchi+Building+1F%2C+1-5-1+Marunouchi%2C+Chiyoda-ku%2C+Tokyo/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=CLASSIC+GENTLEMAN+PORTER+CLASSIC+TOKYO+MARUNOUCHI%2C+Shin-Marunouchi+Building+1F%2C+1-5-1+Marunouchi%2C+Chiyoda-ku%2C+Tokyo"
             },
             {
               "name": "KANEKO GANKYO-TEN Marunouchi Nakadori",
@@ -261,7 +261,7 @@
               "hours": "11:00–20:00",
               "products": "Sabae eyewear; удобная альтернатива Ginza/Aoyama без отдельного крюка.",
               "url": "https://www.kaneko-optical.co.jp/en/shop_list_area/01/payment/taxfree",
-              "googleMapsUrl": "https://www.google.com/maps/place/KANEKO+GANKYO-TEN+Marunouchi+Nakadori%2C+Marunouchi+Nakadori+Building+1F%2C+2-2-3+Marunouchi%2C+Chiyoda-ku%2C+Tokyo/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KANEKO+GANKYO-TEN+Marunouchi+Nakadori%2C+Marunouchi+Nakadori+Building+1F%2C+2-2-3+Marunouchi%2C+Chiyoda-ku%2C+Tokyo"
             },
             {
               "name": "SUWADA · Daimaru Tokyo 9F",
@@ -269,7 +269,7 @@
               "hours": "по режиму Daimaru Tokyo · наличие проверить заранее",
               "products": "Precision lifetime tools; особенно Classic nail nipper.",
               "url": "https://www.suwada.co.jp/shop_ja",
-              "googleMapsUrl": "https://www.google.com/maps/place/SUWADA+%C2%B7+Daimaru+Tokyo+9F%2C+Daimaru+Tokyo+9F%2C+1-9-1+Marunouchi%2C+Chiyoda-ku%2C+Tokyo/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=SUWADA+%C2%B7+Daimaru+Tokyo+9F%2C+Daimaru+Tokyo+9F%2C+1-9-1+Marunouchi%2C+Chiyoda-ku%2C+Tokyo"
             }
           ]
         },
@@ -283,7 +283,7 @@
               "hours": "11:00–20:00 · проверить перед визитом",
               "products": "Только cas:pace: MagSafe и moving/quicksand cases; сверить iPhone 15 Pro.",
               "url": "https://cas-pace.com/en/pages/cas-pace-tokyo",
-              "googleMapsUrl": "https://www.google.com/maps/place/cas%3Apace+Tokyo%2C+Kuwahara+Building+1FB%2C+3-24-3+Jingumae%2C+Shibuya-ku%2C+Tokyo+150-0001/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=cas%3Apace+Tokyo%2C+Kuwahara+Building+1FB%2C+3-24-3+Jingumae%2C+Shibuya-ku%2C+Tokyo+150-0001"
             },
             {
               "name": "Onitsuka Tiger OMOTESANDO NIPPON MADE",
@@ -291,7 +291,7 @@
               "hours": "11:00–20:00",
               "products": "NIPPON MADE / Mexico 66 Deluxe; ручная отделка, японские материалы и локальные модели.",
               "url": "https://www.onitsukatiger.com/jp/magazine/our-stores/?lang=en",
-              "googleMapsUrl": "https://www.google.com/maps/place/Onitsuka+Tiger+OMOTESANDO+NIPPON+MADE%2C+4-25-13+Jingumae%2C+Shibuya-ku%2C+Tokyo+150-0001/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Onitsuka+Tiger+OMOTESANDO+NIPPON+MADE%2C+4-25-13+Jingumae%2C+Shibuya-ku%2C+Tokyo+150-0001"
             },
             {
               "name": "ASICS FLAGSHIP HARAJUKU",
@@ -299,7 +299,7 @@
               "hours": "11:00–19:00",
               "products": "SportStyle + performance; японские расцветки и лимитированные релизы по наличию.",
               "url": "https://www.asics.com/jp/ja-jp/mk/store/asics-flagship-harajuku",
-              "googleMapsUrl": "https://www.google.com/maps/place/ASICS+FLAGSHIP+HARAJUKU%2C+1F%2C+1-5-8+Jingumae%2C+Shibuya-ku%2C+Tokyo+150-0001/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=ASICS+FLAGSHIP+HARAJUKU%2C+1F%2C+1-5-8+Jingumae%2C+Shibuya-ku%2C+Tokyo+150-0001"
             }
           ]
         },
@@ -313,7 +313,7 @@
               "hours": "пн–сб 11:00–19:00 · вс/праздники закрыто",
               "products": "Salon Editions, Bunkyo Tokyo/Classic и previews; наличие покупки не гарантировано.",
               "url": "https://kuronotokyo.com/pages/kurono-tokyo-aoyama-salon",
-              "googleMapsUrl": "https://www.google.com/maps/place/Kurono+Tokyo+Aoyama+Salon%2C+2-10-22+Kita-Aoyama%2C+Minato-ku%2C+Tokyo+107-0061/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kurono+Tokyo+Aoyama+Salon%2C+2-10-22+Kita-Aoyama%2C+Minato-ku%2C+Tokyo+107-0061"
             },
             {
               "name": "MASUNAGA1905 TOKYO AOYAMA",
@@ -321,7 +321,7 @@
               "hours": "11:00–20:00 · закрыто 1-й, 3-й и 5-й вторник",
               "products": "Широко смотреть titanium / beta-titanium, ориентир GMS titanium, но не ограничиваться серией.",
               "url": "https://masunaga1905.com/en/officialstores/tokyo-aoyama/",
-              "googleMapsUrl": "https://www.google.com/maps/place/MASUNAGA1905+TOKYO+AOYAMA%2C+2-12-34+Kita-Aoyama%2C+Minato-ku%2C+Tokyo+107-0061/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=MASUNAGA1905+TOKYO+AOYAMA%2C+2-12-34+Kita-Aoyama%2C+Minato-ku%2C+Tokyo+107-0061"
             },
             {
               "name": "KANEKO GANKYO-TEN Aoyama",
@@ -329,7 +329,7 @@
               "hours": "11:00–20:00",
               "products": "KV titanium/beta-titanium и другие металлические Sabae серии.",
               "url": "https://www.kaneko-optical.co.jp/shop_detail/72",
-              "googleMapsUrl": "https://www.google.com/maps/place/KANEKO+GANKYO-TEN+Aoyama%2C+3-13-20+Minami-Aoyama%2C+Minato-ku%2C+Tokyo+107-0062/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KANEKO+GANKYO-TEN+Aoyama%2C+3-13-20+Minami-Aoyama%2C+Minato-ku%2C+Tokyo+107-0062"
             },
             {
               "name": "Gyokusendo Kogai",
@@ -337,7 +337,7 @@
               "hours": "ср–вс 11:00–18:30 · пн–вт закрыто",
               "products": "Heirloom-useful tsuiki copperware: tea caddy / teapot и другие функциональные вещи.",
               "url": "https://www.gyokusendo.com/en/about/kogai",
-              "googleMapsUrl": "https://www.google.com/maps/place/Gyokusendo+Kogai%2C+2-18-10+Nishiazabu%2C+Minato-ku%2C+Tokyo+106-0031/"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Gyokusendo+Kogai%2C+2-18-10+Nishiazabu%2C+Minato-ku%2C+Tokyo+106-0031"
             }
           ]
         }
@@ -359,7 +359,7 @@
               "url": "https://uri.amap.com/search?keyword=%E8%93%9D%E5%85%89%E9%A6%99%E6%A7%9F%E5%B9%BF%E5%9C%BA%20%E6%88%90%E9%83%BD%20%E5%8F%91%E7%B0%AA&view=map&src=japan2026",
               "amapUrl": "https://uri.amap.com/search?keyword=%E8%93%9D%E5%85%89%E9%A6%99%E6%A7%9F%E5%B9%BF%E5%9C%BA%20%E6%88%90%E9%83%BD%20%E5%8F%91%E7%B0%AA&view=map&src=japan2026",
               "appleMapsUrl": "https://maps.apple.com/?q=Champagne%20Plaza&address=101%20Hongxing%20Rd%20Section%203%2C%20Jinjiang%20District%2C%20Chengdu%2C%20Sichuan%2C%20China",
-              "googleMapsUrl": "https://www.google.com/maps/place/?q=place_id:ChIJlUPGRkDF7zYR3ZFC2alpOwc"
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Chengdu+Hanfu+Street+%C2%B7+Champagne+Plaza+hairpin&query_place_id=ChIJlUPGRkDF7zYR3ZFC2alpOwc"
             }
           ]
         }

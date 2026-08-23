@@ -27,6 +27,8 @@ const referenceNav = [
   { href: "/shopping", label: "Шопинг", icon: ShoppingBag },
 ];
 
+const mobileReferenceNav = referenceNav.filter((item) => item.href !== "/shopping");
+
 function useActiveRoute() {
   const pathname = usePathname();
   return (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -57,16 +59,16 @@ export function DesktopNavigation() {
 
 export function MobileReferenceMenu() {
   const isActive = useActiveRoute();
-  const hasActiveReference = referenceNav.some((item) => isActive(item.href));
+  const hasActiveReference = mobileReferenceNav.some((item) => isActive(item.href));
 
   return (
     <details className={`mobile-reference-menu${hasActiveReference ? " active" : ""}`}>
       <summary aria-label="Открыть справочники">
-        <span>{hasActiveReference ? referenceNav.find((item) => isActive(item.href))?.label : "Разделы"}</span>
+        <span>{hasActiveReference ? mobileReferenceNav.find((item) => isActive(item.href))?.label : "Разделы"}</span>
         <ChevronDown size={15} />
       </summary>
       <nav className="mobile-reference-popover" aria-label="Справочники">
-        {referenceNav.map((item) => (
+        {mobileReferenceNav.map((item) => (
           <a className={isActive(item.href) ? "active" : ""} href={withBasePath(item.href)} key={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
             <item.icon size={18} />
             <span>{item.label}</span>

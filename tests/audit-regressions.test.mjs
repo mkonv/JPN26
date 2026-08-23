@@ -23,8 +23,9 @@ test("audit baseline: Fuji seats, SmartEX, pass and HARUKA are synchronized", as
   assert.match(ht.action, /после 08:00/);
   assert.doesNotMatch(ht.action, /после 14:00|после 10:00/);
   const pass = trip.transport.find((x) => x.title === "Kansai-Hiroshima Area Pass");
-  assert.match(pass.detail, /включён/);
-  assert.match(pass.detail, /не покупать отдельный полный тариф/);
+  assert.match(pass.detail, /Куплен на 22–26 сентября/);
+  assert.match(pass.detail, /получить физический pass/);
+  assert.match(pass.detail, /без отдельного полного тарифа/);
   const haruka = trip.transport.find((x) => x.title.startsWith("HARUKA"));
   assert.match(haruka.detail, /физический билет/);
   assert.match(haruka.detail, /WEST QR не используем/);
@@ -106,10 +107,14 @@ test("final food policy: operational errors stay blocked, pork is soft preferenc
   assert.match(hiraso.route, /22\.09\.2026/);
   const hirasoTask = trip.bookingTasks.find((x) => x.id === "hiraso-hours");
   assert.equal(hirasoTask.status, "verify");
-  const railTask = trip.bookingTasks.find((x) => x.id === "regional-timetables");
-  assert.equal(railTask.status, "action");
-  assert.match(railTask.action, /Himeji.*seat reservations/s);
-  assert.match(railTask.action, /Nara.*отдельный билет не покупать/s);
+  const railTask = trip.bookingTasks.find((x) => x.id === "nara-live-train");
+  assert.equal(railTask.status, "watch");
+  assert.match(railTask.action, /около 07:55/);
+  assert.match(railTask.action, /прибытия около 08:50/);
+  const himejiSeats = trip.bookingTasks.find((x) => x.id === "himeji-seats");
+  assert.equal(himejiSeats.status, "done");
+  assert.match(himejiSeats.action, /Hikari 731.*Car 14.*3-D\/3-E/s);
+  assert.match(himejiSeats.action, /Hikari 710.*Car 14.*6-D\/6-E/s);
 });
 
 test("audit baseline: bad restaurant links and China map/shuttle errors are corrected", async () => {
@@ -191,60 +196,130 @@ test("technical hardening: decision marker has non-text contrast and China wordi
   assert.doesNotMatch(china, /Только после проверки состава/);
 });
 
-test("release gate: every concrete POI has an exact Google Maps place link", async () => {
+test("confirmed delta: passes, reserved seats, dinner and later starts stay fixed", async () => {
+  const trip = await readJson("data/trip.json");
+  const extra = await readJson("data/travel-enrichment.json");
+  const pickup = trip.bookingTasks.find((x) => x.id === "kix-physical-pickup");
+  assert.equal(pickup.status, "action");
+  assert.match(pickup.action, /получить 2 физических HARUKA/i);
+  assert.match(pickup.action, /физический Kansai–Hiroshima Area Pass/);
+  assert.doesNotMatch(pickup.action, /купить|оплатить/i);
+
+  const himeji = getDay(trip, "sep-23-himeji");
+  assert.match(himeji.timeline.find((x) => x.title.includes("Hikari 731")).detail, /Car 14.*3-D и 3-E/);
+  assert.match(himeji.timeline.find((x) => x.title.includes("Hikari 710")).detail, /Car 14.*6-D и 6-E/);
+  const dinner = trip.bookingTasks.find((x) => x.id === "matsusaka-m");
+  assert.equal(dinner.status, "done");
+  assert.match(dinner.title, /23\.09 20:00/);
+  assert.match(dinner.price, /Accepted/);
+  const dinnerMeal = extra.dayEnrichment["sep-23-himeji"].meals.find((x) => x.label.includes("Fukushima"));
+  assert.equal(dinnerMeal.time, "20:00");
+  assert.match(dinnerMeal.note, /2 человека/);
+  assert.match(dinnerMeal.note, /15 минут/);
+
+  const nara = getDay(trip, "sep-22-nara");
+  assert.equal(nara.timeline[0].time, "07:00–07:30");
+  assert.equal(nara.timeline[1].time, "около 07:55");
+  assert.equal(nara.timeline[2].time, "около 08:50");
+  assert.doesNotMatch(JSON.stringify(nara), /05:55/);
+  const kyoto = getDay(trip, "sep-25-kyoto");
+  assert.ok(kyoto.timeline.some((x) => x.time === "09:15–09:30"));
+  assert.doesNotMatch(JSON.stringify(kyoto), /06:50/);
+});
+
+test("photo canon: priorities, Nara list, Fuji Watch and map classification are complete", async () => {
+  const trip = await readJson("data/trip.json");
+  const extra = await readJson("data/travel-enrichment.json");
+  const priorities = new Set(["PHOTO MUST", "PHOTO GOOD", "SECONDARY ICONIC", "FUJI WATCH"]);
+  const allSpots = trip.days.flatMap((day) => (day.photoSpots ?? []).map((spot) => ({ day: day.id, ...spot })));
+  assert.ok(allSpots.length >= 30);
+  for (const spot of allSpots) {
+    assert.ok(priorities.has(spot.priority), `unknown photo priority: ${spot.day} / ${spot.name}`);
+    assert.ok(spot.googleMapsUrl || spot.mapExempt === true, `photo map classification missing: ${spot.day} / ${spot.name}`);
+    assert.ok(spot.shot && spot.timing, `photo guidance missing: ${spot.day} / ${spot.name}`);
+  }
+  const nara = getDay(trip, "sep-22-nara").photoSpots;
+  assert.deepEqual(nara.map((x) => [x.name, x.priority]), [
+    ["Nigatsudō terrace", "PHOTO MUST"],
+    ["Tōdai-ji / Nandaimon", "PHOTO GOOD"],
+    ["Kasuga Taisha approach", "PHOTO GOOD"],
+    ["Yoshikien", "PHOTO GOOD"],
+    ["Hōzenji Yokocho", "PHOTO GOOD"],
+    ["Dōtonbori", "SECONDARY ICONIC"],
+  ]);
+  assert.ok(allSpots.some((x) => x.priority === "FUJI WATCH"));
+  assert.ok(allSpots.some((x) => x.signature === true));
+  assert.match(extra.photoGuide.exclusion, /Shin-Fuji.*не добавлен/);
+  assert.ok(!allSpots.some((x) => /^Shin-Fuji$/i.test(x.name)), "Shin-Fuji must not become a stop");
+  const trainFuji = allSpots.find((x) => x.name.includes("Hikari 642"));
+  assert.equal(trainFuji.mapExempt, true);
+  assert.match(trainFuji.mapExemptReason, /не отдельная остановка/);
+});
+
+test("release gate: every concrete POI uses the documented Google Maps URL API", async () => {
   const trip = await readJson("data/trip.json");
   const extra = await readJson("data/travel-enrichment.json");
   const shopping = await readJson("data/shopping-guide.json");
-  const isDirectGooglePlace = (url) => typeof url === "string" && /^https:\/\/www\.google\.com\/maps\/place\//.test(url) && !url.includes("/maps/search/");
+  const isCanonicalGoogleMap = (raw) => {
+    if (typeof raw !== "string") return false;
+    const url = new URL(raw);
+    if (url.origin !== "https://www.google.com") return false;
+    if (url.pathname.startsWith("/maps/search")) {
+      return url.searchParams.get("api") === "1" && Boolean(url.searchParams.get("query"));
+    }
+    return url.pathname.startsWith("/maps/place/") && url.pathname.includes("/@") && url.pathname.includes("/data=");
+  };
 
-  for (const hotel of trip.hotels) assert.ok(isDirectGooglePlace(hotel.googleMapsUrl), `hotel map must be direct: ${hotel.name}`);
-  for (const hotel of extra.additionalHotels) assert.ok(isDirectGooglePlace(hotel.googleMapsUrl), `China hotel Google bookmark must be direct: ${hotel.name}`);
+  for (const hotel of trip.hotels) assert.ok(isCanonicalGoogleMap(hotel.googleMapsUrl), `hotel map must be canonical: ${hotel.name}`);
+  for (const hotel of extra.additionalHotels) assert.ok(isCanonicalGoogleMap(hotel.googleMapsUrl), `China hotel Google bookmark must be canonical: ${hotel.name}`);
 
   for (const day of trip.days) {
     for (const item of day.timeline) {
       assert.ok((item.mapLinks?.length ?? 0) > 0 || item.mapExempt === true, `timeline POI classification missing: ${day.id} / ${item.title}`);
-      for (const map of item.mapLinks ?? []) assert.ok(isDirectGooglePlace(map.url), `timeline map must be direct: ${day.id} / ${item.title} / ${map.label}`);
+      for (const map of item.mapLinks ?? []) assert.ok(isCanonicalGoogleMap(map.url), `timeline map must be canonical: ${day.id} / ${item.title} / ${map.label}`);
     }
+    for (const spot of day.photoSpots ?? []) if (spot.googleMapsUrl) assert.ok(isCanonicalGoogleMap(spot.googleMapsUrl), `photo map must be canonical: ${day.id} / ${spot.name}`);
   }
 
   for (const [dayId, day] of Object.entries(extra.dayEnrichment)) {
-    for (const alt of day.alternatives) assert.ok(isDirectGooglePlace(alt.googleMapsUrl), `alternative map must be direct: ${dayId} / ${alt.name}`);
+    for (const alt of day.alternatives) assert.ok(isCanonicalGoogleMap(alt.googleMapsUrl), `alternative map must be canonical: ${dayId} / ${alt.name}`);
     for (const meal of day.meals) for (const option of meal.options) {
-      assert.ok(isDirectGooglePlace(option.googleMapsUrl) || option.mapExempt === true, `meal POI classification missing: ${dayId} / ${option.name}`);
-      if (option.googleMapsUrl) assert.ok(isDirectGooglePlace(option.googleMapsUrl), `meal map must be direct: ${dayId} / ${option.name}`);
+      assert.ok(isCanonicalGoogleMap(option.googleMapsUrl) || option.mapExempt === true, `meal POI classification missing: ${dayId} / ${option.name}`);
+      if (option.googleMapsUrl) assert.ok(isCanonicalGoogleMap(option.googleMapsUrl), `meal map must be canonical: ${dayId} / ${option.name}`);
     }
   }
 
   for (const city of shopping.cities) for (const cluster of city.clusters) for (const store of cluster.stores) {
-    assert.ok(isDirectGooglePlace(store.googleMapsUrl), `shopping map must be direct: ${city.name} / ${store.name}`);
+    assert.ok(isCanonicalGoogleMap(store.googleMapsUrl), `shopping map must be canonical: ${city.name} / ${store.name}`);
   }
 
   for (const side of [extra.china.outbound, extra.china.return]) {
     for (const place of side.places) {
       assert.ok(place.amap?.startsWith("https://uri.amap.com/"), `China Amap missing: ${place.name}`);
       assert.ok(place.appleMapsUrl?.startsWith("https://maps.apple.com/"), `China Apple Maps missing: ${place.name}`);
-      assert.ok(isDirectGooglePlace(place.googleMapsUrl), `China Google bookmark must be direct: ${place.name}`);
+      assert.ok(isCanonicalGoogleMap(place.googleMapsUrl), `China Google bookmark must be canonical: ${place.name}`);
     }
     for (const item of side.timeline) {
       assert.ok((item.mapLinks?.length ?? 0) > 0 || item.mapExempt === true, `China timeline map classification missing: ${item.title}`);
-      for (const map of item.mapLinks ?? []) assert.ok(isDirectGooglePlace(map.url), `China timeline Google bookmark must be direct: ${item.title}`);
+      for (const map of item.mapLinks ?? []) assert.ok(isCanonicalGoogleMap(map.url), `China timeline Google bookmark must be canonical: ${item.title}`);
     }
     for (const food of side.food) {
       assert.ok((food.amapUrl && food.appleMapsUrl && food.googleMapsUrl) || food.mapExempt === true, `China food map classification missing: ${food.name}`);
-      if (food.googleMapsUrl) assert.ok(isDirectGooglePlace(food.googleMapsUrl), `China food Google bookmark must be direct: ${food.name}`);
+      if (food.googleMapsUrl) assert.ok(isCanonicalGoogleMap(food.googleMapsUrl), `China food Google bookmark must be canonical: ${food.name}`);
     }
   }
 
   const serialized = JSON.stringify({ trip, extra, shopping });
-  assert.doesNotMatch(serialized, /google\.com\/maps\/search\//, "generic Google Maps search URLs must not remain in canonical data");
+  assert.doesNotMatch(serialized, /google\.com\/maps\/place\/(?!\?q=place_id:)[^\"?]+/, "hand-built /maps/place/<text> URLs must not remain in canonical data");
 });
 
 test("release gate: approved ambiguous-map resolutions are fixed", async () => {
   const trip = await readJson("data/trip.json");
   const shopping = await readJson("data/shopping-guide.json");
   const nara = getDay(trip, "sep-22-nara").timeline.find((x) => x.title.includes("Nara Park"));
-  assert.equal(nara.mapLinks.length, 1);
-  assert.match(nara.mapLinks[0].label, /Nara Park/);
+  assert.ok(nara.mapLinks.some((x) => x.label === "Nara Park"));
+  assert.ok(nara.mapLinks.some((x) => x.label === "Kasuga Taisha"));
+  assert.ok(!nara.mapLinks.some((x) => /Kasugayama/i.test(x.label)), "Kasugayama stays context, not a separate navigation target");
   const kyoto = getDay(trip, "sep-25-kyoto");
   assert.equal(kyoto.timeline.find((x) => x.title.includes("Yasaka Pagoda")).mapLinks.length, 2);
   assert.equal(kyoto.timeline.find((x) => x.title.includes("Hanamikoji")).mapLinks.length, 2);
@@ -254,7 +329,7 @@ test("release gate: approved ambiguous-map resolutions are fixed", async () => {
   assert.equal(freeAsakusa.mapExempt, true);
   const hairpin = shopping.cities.find((c) => c.id === "chengdu").clusters[0].stores[0];
   assert.match(hairpin.name, /Champagne Plaza/);
-  assert.match(hairpin.googleMapsUrl, /place_id:ChIJlUPGRkDF7zYR3ZFC2alpOwc/);
+  assert.match(hairpin.googleMapsUrl, /query_place_id=ChIJlUPGRkDF7zYR3ZFC2alpOwc/);
   assert.match(hairpin.amapUrl, /uri\.amap\.com/);
   assert.match(hairpin.appleMapsUrl, /maps\.apple\.com/);
 });
