@@ -16,6 +16,8 @@ NEXT_PUBLIC_BASE_PATH=/JPN26 npm run check
 npx playwright install chromium
 NEXT_PUBLIC_BASE_PATH=/JPN26 npm run test:offline
 NEXT_PUBLIC_BASE_PATH=/JPN26 npm run test:mobile
+npm run pdf
+npm run pdf:validate
 ```
 
 `/JPN26` — имя репозитория в адресе GitHub Pages. Для другого project site замените значение; для корневого домена оставьте переменную пустой.

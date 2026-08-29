@@ -5,8 +5,8 @@
     "dates": "19 сентября — 3 октября 2026",
     "timezone": "Asia/Tokyo",
     "currency": "JPY",
-    "sourceChecked": "23 августа 2026 · подтверждённая недельная дельта + photo guide + release audit",
-    "version": "2026.08.23-v10-confirmed-delta",
+    "sourceChecked": "29 августа 2026 · подтверждённая транспортная дельта; полный baseline-аудит 23.08",
+    "version": "2026.08.29-v11-confirmed-seats",
     "principles": [
       "Полный аудит 23.08.2026 и подтверждённые решения пользователя — канонический baseline",
       "Жёсткие якоря важнее полноты списка; невозможные стыковки и закрытые точки не возвращаются",
@@ -671,7 +671,7 @@
         {
           "time": "06:00",
           "title": "Mizuho 601",
-          "detail": "Shin-Osaka → Hiroshima, прибытие 07:25. Место по JR-West Pass.",
+          "detail": "Shin-Osaka → Hiroshima, прибытие 07:25. Ordinary Reserved: Car 4, seats 9-A и 9-B; оформлено по Kansai–Hiroshima Area Pass без отдельного полного тарифа.",
           "kind": "anchor",
           "mapLinks": [
             {
@@ -791,7 +791,7 @@
         {
           "time": "18:33",
           "title": "Sakura 766",
-          "detail": "Hiroshima → Shin-Osaka 19:59; не переносить.",
+          "detail": "Hiroshima → Shin-Osaka 19:59. Ordinary Reserved: Car 4, seats 8-A и 8-B; оформлено по Kansai–Hiroshima Area Pass. Не переносить.",
           "kind": "anchor",
           "mapLinks": [
             {
@@ -1420,7 +1420,7 @@
         {
           "time": "08:33",
           "title": "Hikari 642 → Odawara",
-          "detail": "Прибытие 10:38. Ordinary Reserved: места D+E, E — окно со стороны Фудзи. SmartEX подтверждает поезд, время и места по раннему бронированию после 08:00 за месяц до поездки. Проверить назначение после этого подтверждения; отдельные пороги 14:00/10:00 в план не закладывать.",
+          "detail": "Прибытие 10:38. SmartEX подтверждён: Ordinary Reserved, Car 6, seats 9-D и 9-E; 9-E — окно со стороны Фудзи. IC Card for Boarding пока не назначены.",
           "kind": "anchor",
           "mapLinks": [
             {
@@ -1489,7 +1489,7 @@
       "links": [
         {
           "label": "SmartEX",
-          "url": "https://smart-ex.jp/en/reservation/useful/accept_time/"
+          "url": "https://smart-ex.jp/en/entraining/"
         },
         {
           "label": "Hakone Freepass",
@@ -1508,7 +1508,7 @@
         {
           "name": "Hikari 642 · Fuji-side window",
           "priority": "FUJI WATCH",
-          "shot": "Фудзи из seat E в Ordinary Reserved D+E; стекло протереть заранее, не вставать в проходе.",
+          "shot": "Фудзи из подтверждённого места 9-E в Car 6; стекло протереть заранее, не вставать в проходе.",
           "timing": "После выхода из Kyoto; видимость зависит от погоды.",
           "signature": true,
           "mapExempt": true,
@@ -2576,13 +2576,13 @@
     },
     {
       "id": "hiroshima-seats",
-      "status": "action",
-      "deadline": "24 августа · 10:00 JST",
+      "status": "done",
+      "deadline": "Готово",
       "sortDate": "2026-08-24",
       "title": "Места на синкансэн · Хиросима 24.09",
-      "price": "Включено в JR-West Pass",
-      "action": "Оформить reserved seat tickets по pass: Mizuho 601 06:00 → 07:25; Sakura 766 18:33 → 19:59. Отдельный полный тариф не покупать.",
-      "offline": "Вагон/места + билеты на места",
+      "price": "Включено в Kansai–Hiroshima Area Pass · оформлено",
+      "action": "Оба сегмента подтверждены. Туда: Mizuho 601, Shin-Osaka 06:00 → Hiroshima 07:25, Car 4, seats 9-A/9-B. Обратно: Sakura 766, Hiroshima 18:33 → Shin-Osaka 19:59, Car 4, seats 8-A/8-B.",
+      "offline": "Оба reserved seat tickets + номера поездов, вагон и места",
       "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/route-search/"
     },
     {
@@ -2599,14 +2599,14 @@
     },
     {
       "id": "hikari",
-      "status": "verify",
-      "deadline": "27 августа · SmartEX confirmation day",
-      "sortDate": "2026-08-27",
+      "status": "watch",
+      "deadline": "До 27 сентября · выбрать boarding method",
+      "sortDate": "2026-09-26",
       "title": "Hikari 642 Kyoto → Odawara · 27.09",
       "price": "¥24,200 / 2 человека · оплачено",
-      "action": "Ordinary Reserved: D+E, E — окно со стороны Фудзи. SmartEX подтверждает поезд, время и места по раннему бронированию после 08:00 за месяц до поездки. После подтверждения проверить D+E; отдельные пороги 14:00/10:00 в план не закладывать. Оплаченная сумма ¥24,200 за двоих — каноническая.",
-      "offline": "SmartEX QR/IC привязка + поезд, вагон и место",
-      "url": "https://smart-ex.jp/en/reservation/useful/accept_time/"
+      "action": "SmartEX подтверждён: Kyoto 08:33 → Odawara 10:38, Ordinary Reserved, Car 6, seats 9-D/9-E; 9-E — Fuji-side window. IC Card for Boarding пока не назначены: перед поездкой назначить по одной транспортной IC-карте каждому пассажиру либо сохранить и распределить два отдельных QR-Tickets.",
+      "offline": "SmartEX confirmation + Car 6, 9-D/9-E + два QR-Tickets или назначенные IC-карты",
+      "url": "https://smart-ex.jp/en/entraining/"
     },
     {
       "id": "fuji",
@@ -2888,6 +2888,11 @@
       "detail": "Hikari 731 07:34–08:03, Car 14, 3-D/3-E; Hikari 710 13:11–13:46, Car 14, 6-D/6-E. Оба сегмента оформлены по pass."
     },
     {
+      "title": "Hiroshima · reserved seats",
+      "when": "24 сентября",
+      "detail": "Mizuho 601 06:00–07:25, Car 4, 9-A/9-B; Sakura 766 18:33–19:59, Car 4, 8-A/8-B. Оба сегмента оформлены по Kansai–Hiroshima Area Pass."
+    },
+    {
       "title": "Kyoto Subway & Bus 1-Day Pass",
       "when": "25 сентября",
       "detail": "¥1,100 с человека; 26 сентября — ICOCA из-за нестандартных участков."
@@ -2895,7 +2900,7 @@
     {
       "title": "SmartEX",
       "when": "27 сентября",
-      "detail": "Отдельно от JR-West Pass. Для Hikari 642: D+E, E у окна Fuji-side. При early booking поезд, время и места подтверждаются после 08:00 за месяц; после подтверждения проверить D+E. Отдельные пороги 14:00/10:00 не использовать."
+      "detail": "Отдельно от JR-West Pass. Hikari 642 подтверждён: Kyoto 08:33 → Odawara 10:38, Ordinary Reserved, Car 6, 9-D/9-E; 9-E — Fuji-side window. Оплачено ¥24,200 за двоих. IC Card for Boarding пока не назначены; доступны назначение IC либо отдельные QR-Tickets."
     },
     {
       "title": "Hakone Freepass",

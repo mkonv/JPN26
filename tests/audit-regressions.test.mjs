@@ -14,14 +14,18 @@ function allActiveRestaurantNames(extra) {
 test("audit baseline: Fuji seats, SmartEX, pass and HARUKA are synchronized", async () => {
   const trip = await readJson("data/trip.json");
   const h = getDay(trip, "sep-27-hakone").timeline.find((x) => x.title.includes("Hikari 642"));
-  assert.match(h.detail, /D\+E/);
-  assert.match(h.detail, /E — окно/);
+  assert.match(h.detail, /Car 6/);
+  assert.match(h.detail, /9-D и 9-E/);
+  assert.match(h.detail, /9-E — окно/);
   assert.doesNotMatch(h.detail, /A\+B/);
   const ht = trip.bookingTasks.find((x) => x.id === "hikari");
   assert.equal(ht.price, "¥24,200 / 2 человека · оплачено");
-  assert.match(ht.action, /после 08:00/);
-  assert.match(ht.action, /после 08:00/);
-  assert.doesNotMatch(ht.action, /после 14:00|после 10:00/);
+  assert.equal(ht.status, "watch");
+  assert.match(ht.action, /SmartEX подтверждён/);
+  assert.match(ht.action, /Car 6, seats 9-D\/9-E/);
+  assert.match(ht.action, /IC Card for Boarding пока не назначены/);
+  assert.match(ht.action, /QR-Tickets/);
+  assert.doesNotMatch(ht.action, /после 08:00|после 14:00|после 10:00/);
   const pass = trip.transport.find((x) => x.title === "Kansai-Hiroshima Area Pass");
   assert.match(pass.detail, /Куплен на 22–26 сентября/);
   assert.match(pass.detail, /получить физический pass/);
@@ -32,6 +36,23 @@ test("audit baseline: Fuji seats, SmartEX, pass and HARUKA are synchronized", as
   const harukaTask = trip.bookingTasks.find((x) => x.id === "haruka");
   assert.match(harukaTask.action, /discounted HARUKA One-way Ticket/);
   assert.match(harukaTask.action, /WEST QR не используем/);
+});
+
+test("confirmed Hiroshima reserved seats stay closed and synchronized", async () => {
+  const trip = await readJson("data/trip.json");
+  const day = getDay(trip, "sep-24-miyajima");
+  const outbound = day.timeline.find((x) => x.title === "Mizuho 601");
+  const inbound = day.timeline.find((x) => x.title === "Sakura 766");
+  assert.match(outbound.detail, /Car 4, seats 9-A и 9-B/);
+  assert.match(inbound.detail, /Car 4, seats 8-A и 8-B/);
+  const task = trip.bookingTasks.find((x) => x.id === "hiroshima-seats");
+  assert.equal(task.status, "done");
+  assert.match(task.price, /оформлено/);
+  assert.match(task.action, /Mizuho 601.*Car 4.*9-A\/9-B/s);
+  assert.match(task.action, /Sakura 766.*Car 4.*8-A\/8-B/s);
+  const transport = trip.transport.find((x) => x.title === "Hiroshima · reserved seats");
+  assert.match(transport.detail, /Mizuho 601.*9-A\/9-B/);
+  assert.match(transport.detail, /Sakura 766.*8-A\/8-B/);
 });
 
 test("audit baseline: impossible timetable joins and closed alternatives are gone", async () => {

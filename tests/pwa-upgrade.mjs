@@ -122,11 +122,11 @@ try {
   // panel legitimately talks to the active worker while it mounts; beginning
   // an update during those message events creates a browser-dependent
   // activation race and does not represent a settled installed application.
-  await page.goto(`${origin}${basePath}/day/sep-22-nara/`, { waitUntil: "networkidle" });
+  await page.goto(`${origin}${basePath}/day/sep-24-miyajima/`, { waitUntil: "networkidle" });
   await ensureControlled(page);
   const oldShell = await page.locator("body").innerText();
-  assert.match(oldShell, /Нара до толпы/);
-  assert.doesNotMatch(oldShell, /Нара после завтрака/);
+  assert.match(oldShell, /Место по JR-West Pass/);
+  assert.doesNotMatch(oldShell, /Car 4, seats 9-A и 9-B/);
   const oldCache = await page.evaluate(async ({ buildId, urls }) => {
     const name = `japan-2026-precache-${buildId}`;
     const cache = await caches.open(name);
@@ -139,6 +139,10 @@ try {
   // Switch the server in place. The browser context, storage, caches and
   // registration remain untouched throughout the upgrade.
   activeOut = candidateOut;
+  const appReload = page.waitForEvent("framenavigated", {
+    predicate: (frame) => frame === page.mainFrame(),
+    timeout: upgradeTimeout,
+  }).then(() => true).catch(() => false);
   const controllerChange = await page.evaluate(async (timeout) => {
     const changed = new Promise((resolve) => {
       navigator.serviceWorker.addEventListener("controllerchange", () => resolve(true), { once: true });
@@ -164,7 +168,10 @@ try {
     throw new Error(`candidate worker did not take control: ${JSON.stringify({ registrations, workers, missingRequests })}`);
   }
 
-  await page.reload({ waitUntil: "domcontentloaded" });
+  // The production registration handler reloads on controllerchange. Wait for
+  // that navigation and only reload explicitly when a browser suppresses it.
+  if (!await appReload) await page.reload({ waitUntil: "domcontentloaded" });
+  else await page.waitForLoadState("domcontentloaded");
   await ensureControlled(page);
   const newStatus = await workerStatus(page);
   assert.equal(newStatus.ready, true);
@@ -172,10 +179,10 @@ try {
   assert.equal(newStatus.version, candidateManifest.version);
   assert.equal(newStatus.cached, newStatus.total);
 
-  await page.goto(`${origin}${basePath}/day/sep-22-nara/`, { waitUntil: "domcontentloaded" });
+  await page.goto(`${origin}${basePath}/day/sep-24-miyajima/`, { waitUntil: "domcontentloaded" });
   const shell = await page.locator("body").innerText();
-  assert.match(shell, /Нара после завтрака/);
-  assert.match(shell, /около 07:55/);
+  assert.match(shell, /Car 4, seats 9-A и 9-B/);
+  assert.match(shell, /Car 4, seats 8-A и 8-B/);
 
   const ownCaches = await page.evaluate(async () => (await caches.keys()).filter((name) => name.startsWith("japan-2026-precache-") && !name.endsWith("-install")));
   assert.ok(ownCaches.length >= 2, "the complete previous precache must remain as upgrade fallback");

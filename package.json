@@ -1,6 +1,6 @@
 {
   "name": "japan-2026-github-pages",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -16,6 +16,7 @@
     "check": "npm run lint && npm run build && npm test",
     "lint": "eslint . --ignore-pattern out --ignore-pattern .next",
     "pdf": "python3 scripts/generate_mobile_pdf.py",
+    "pdf:validate": "python3 scripts/validate_mobile_pdf.py",
     "security:audit": "node scripts/check-npm-audit.mjs"
   },
   "dependencies": {

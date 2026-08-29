@@ -1,8 +1,8 @@
 {
   "meta": {
     "journeyDates": "19 сентября — 3 октября 2026",
-    "sourceChecked": "23 августа 2026 · confirmed weekly delta + canonical Google Maps + photo guide",
-    "version": "2026.08.23-v10-confirmed-delta",
+    "sourceChecked": "29 августа 2026 · confirmed transport delta; full baseline audit 23.08",
+    "version": "2026.08.29-v11-confirmed-seats",
     "tabelogNote": "После аудита ресторан считается рабочим кандидатом только при подтверждённых часах на дату и реалистичной логистике. Свинина — мягкое предпочтение, а не запрет: если сильное место или конкретное блюдо содержит свинину, это явно отмечается, но само по себе не блокирует рекомендацию.",
     "foodSafety": {
       "title": "Свинина — soft preference",

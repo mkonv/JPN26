@@ -89,10 +89,12 @@ try {
     [`${basePath}/`, "home"],
     [`${basePath}/day/`, "days"],
     [`${basePath}/day/sep-25-kyoto/`, "day-kyoto"],
+    [`${basePath}/day/sep-24-miyajima/`, "day-hiroshima"],
     [`${basePath}/todo/`, "todo"],
     [`${basePath}/food/`, "food"],
     [`${basePath}/china/`, "china"],
     [`${basePath}/shopping/`, "shopping"],
+    [`${basePath}/transport/`, "transport"],
   ]);
 
   for (const route of routes) {
