@@ -17,10 +17,10 @@ export default function PocketPage() {
   const secrets: PocketSecret[] = trip.days.flatMap((day) => (day as typeof day & {secrets?:PocketSecret[]}).secrets ?? []);
   const hotels: PocketHotel[] = [enrichment.additionalHotels[0], ...trip.hotels, enrichment.additionalHotels[1]];
   return <>
-    <header className="page-hero simple-hero pocket-hero"><div className="hero-kicker"><ShieldCheck size={15}/> utility hub</div><h1>Нужное<br/>за десять секунд.</h1><p>Сначала аварийное и сегодняшнее, ниже — полный справочник.</p></header>
+    <header className="page-hero simple-hero pocket-hero"><div className="hero-kicker"><ShieldCheck size={15}/> быстрый доступ</div><h1>Карман.</h1><p>Отели, SOS, билеты, коды и погода.</p></header>
 
     <section className="page-section first-section pocket-quick">
-      <div className="section-heading"><div><span>quick access</span><h2>Сверху — самое нужное</h2></div></div>
+      <div className="section-heading"><div><span>быстрый доступ</span><h2>Самое нужное</h2></div></div>
       <PocketTodayHotel days={trip.days} hotels={hotels} />
       <div className="pocket-quick-grid">
         <SiteLink href="/transport"><Ticket size={19}/><span><strong>Билеты и транспорт</strong><small>рейсы, поезда, проход</small></span><ArrowRight size={15}/></SiteLink>

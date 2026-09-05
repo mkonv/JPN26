@@ -11,7 +11,7 @@ export default function FoodPage() {
   return (
     <>
       <header className="page-hero simple-hero food-hero">
-        <div className="hero-kicker"><UtensilsCrossed size={15} /> параллельный маршрут</div>
+        <div className="hero-kicker"><UtensilsCrossed size={15} /> гастрономия</div>
         <h1>Япония<br />через еду.</h1>
         <p>{mustCount} главных блюд + бонусы. Конкретные 2–3 ресторана привязаны к каждому реальному окну обеда и ужина.</p>
       </header>

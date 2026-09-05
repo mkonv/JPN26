@@ -18,9 +18,9 @@ export default function HomePage() {
       <TodayDashboard days={trip.days} tasks={trip.bookingTasks} />
 
       <section className="page-section home-shortcuts">
-        <div className="section-heading"><div><span>быстрый вход</span><h2>Три главных действия</h2></div></div>
+        <div className="section-heading"><div><span>быстрый вход</span><h2>Куда перейти</h2></div></div>
         <div className="shortcut-grid">
-          <SiteLink href="/day"><MapPinned size={20}/><span><strong>Маршрут</strong><small>15 дней одной лентой</small></span><ArrowRight size={16}/></SiteLink>
+          <SiteLink href="/day"><MapPinned size={20}/><span><strong>Маршрут</strong><small>все дни поездки</small></span><ArrowRight size={16}/></SiteLink>
           <SiteLink href="/pocket"><ShieldCheck size={20}/><span><strong>Карман</strong><small>отель, SOS, билеты</small></span><ArrowRight size={16}/></SiteLink>
           <SiteLink href="/guides"><BookOpen size={20}/><span><strong>Гиды</strong><small>еда и шопинг</small></span><ArrowRight size={16}/></SiteLink>
         </div>

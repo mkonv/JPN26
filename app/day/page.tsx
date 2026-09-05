@@ -9,9 +9,9 @@ export default function DaysPage() {
   return (
     <>
       <header className="page-hero simple-hero days-hero">
-        <div className="hero-kicker"><MapPinned size={15} /> единая хронология</div>
-        <h1>15 дней.<br />Один маршрут.</h1>
-        <p>Москва → Пекин → Япония → Чэнду → Москва. Китайские дни больше не живут отдельным маршрутом.</p>
+        <div className="hero-kicker"><MapPinned size={15} /> 19 сентября — 3 октября</div>
+        <h1>Маршрут<br />по дням.</h1>
+        <p>Москва → Пекин → Япония → Чэнду → Москва</p>
       </header>
       <section className="page-section first-section">
         <div className="city-ribbon route-ribbon" aria-label="Города поездки">

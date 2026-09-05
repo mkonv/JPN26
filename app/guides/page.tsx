@@ -12,9 +12,9 @@ export default function GuidesPage() {
   return (
     <>
       <header className="page-hero simple-hero guides-hero">
-        <div className="hero-kicker"><BookOpen size={15} /> параллельные слои</div>
-        <h1>Гиды,<br />которые не ломают маршрут.</h1>
-        <p>Гастрономия и шопинг живут на одном уровне. Внутри конкретного дня показывается только контекстный subset.</p>
+        <div className="hero-kicker"><BookOpen size={15} /> еда и покупки</div>
+        <h1>Гастрономия<br />и шопинг.</h1>
+        <p>Рестораны, главные блюда и проверенные магазины по городам.</p>
       </header>
       <section className="page-section first-section guide-hub-grid">
         <SiteLink href="/food" className="guide-hub-card food">
