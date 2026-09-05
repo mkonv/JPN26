@@ -50,3 +50,16 @@ test("IA 05.09: DayView ordering keeps main route ahead of Plan B and contextual
   assert.ok(pos('id="food"') < pos('id="shopping"'));
   assert.ok(pos('id="shopping"') < pos('id="photo-spots"'));
 });
+
+
+test("visual system: route load colors and Pocket typography use shared semantic rules", async () => {
+  const route = await text("app/day/page.tsx");
+  const css = await text("app/globals.css");
+  assert.match(route, /loadTone\(day\.load\)/);
+  assert.match(route, /load-chip/);
+  for (const tone of ["easy", "medium", "high"]) assert.match(css, new RegExp(`\\.day-meta-row \\.load-chip\\.${tone}`));
+  for (const token of ["--type-label", "--type-meta", "--type-body", "--type-body-strong", "--type-card-title", "--type-section-title"]) assert.match(css, new RegExp(token));
+  assert.match(css, /\.pocket-quick-grid strong \{ font-size: var\(--type-body-strong\)/);
+  assert.match(css, /\.pocket-rules p \{[^}]*font-size: var\(--type-body\)/);
+  assert.match(css, /\.hotel-head h2 \{[^}]*font-size: var\(--type-card-title\)/);
+});

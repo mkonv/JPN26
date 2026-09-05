@@ -5,6 +5,13 @@ import { SiteLink } from "@/app/ui/site-link";
 
 export const metadata: Metadata = { title: "Маршрут" };
 
+function loadTone(load: string) {
+  const value = load.toLowerCase();
+  if (value.includes("лёг")) return "easy";
+  if (value === "средняя") return "medium";
+  return "high";
+}
+
 export default function DaysPage() {
   return (
     <>
@@ -27,7 +34,7 @@ export default function DaysPage() {
                 <ArrowRight size={19} />
               </div>
               <p>{day.summary}</p>
-              <div className="day-meta-row"><span><Gauge size={14} /> {day.load}</span><span><MapPinned size={14} /> {day.distance}</span><span><Sunrise size={14} /> {day.wake}</span></div>
+              <div className="day-meta-row"><span className={`load-chip ${loadTone(day.load)}`}><Gauge size={14} /> {day.load}</span><span><MapPinned size={14} /> {day.distance}</span><span><Sunrise size={14} /> {day.wake}</span></div>
               <div className="anchor-pills">{day.anchors.map((anchor) => <span key={`${anchor.time}-${anchor.label}`}><strong>{anchor.time}</strong> {anchor.label}</span>)}</div>
             </SiteLink>
           ))}
