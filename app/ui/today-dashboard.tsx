@@ -17,11 +17,14 @@ function localIsoDate() {
 
 export function TodayDashboard({ days, tasks }: { days: Day[]; tasks: Task[] }) {
   const [today, setToday] = useState("2026-09-05");
-  useEffect(() => setToday(localIsoDate()), []);
+  useEffect(() => {
+    const timer = window.setTimeout(() => setToday(localIsoDate()), 0);
+    return () => window.clearTimeout(timer);
+  }, []);
   const current = days.find((day) => day.date === today);
   const preTrip = today < days[0].date;
   const postTrip = today > days.at(-1)!.date;
-  const open = useMemo(() => tasks.filter((task) => task.status !== "done").sort((a,b)=>a.sortDate.localeCompare(b.sortDate)).slice(0,4), [tasks,today]);
+  const open = useMemo(() => tasks.filter((task) => task.status !== "done").sort((a,b)=>a.sortDate.localeCompare(b.sortDate)).slice(0,4), [tasks]);
 
   if (current) return (
     <section className="page-section first-section today-dashboard in-trip" aria-label="Сегодня">

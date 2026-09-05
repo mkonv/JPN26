@@ -27,7 +27,10 @@ function pickHotel(city:string, hotels:HotelItem[]) {
 
 export function PocketTodayHotel({ days, hotels }: { days:Day[]; hotels:HotelItem[] }) {
   const [today,setToday]=useState("2026-09-05");
-  useEffect(()=>setToday(localIsoDate()),[]);
+  useEffect(() => {
+    const timer = window.setTimeout(() => setToday(localIsoDate()), 0);
+    return () => window.clearTimeout(timer);
+  }, []);
   const day=days.find((d)=>d.date===today);
   const hotel=day ? pickHotel(day.city,hotels) : undefined;
   if (!hotel) return <a href="#hotels" className="today-hotel-quick"><Hotel size={19}/><span><strong>Отели</strong><small>адреса, телефон, карта</small></span></a>;

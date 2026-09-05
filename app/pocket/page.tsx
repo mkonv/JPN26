@@ -21,6 +21,7 @@ export default function PocketPage() {
 
     <section className="page-section first-section pocket-quick">
       <div className="section-heading"><div><span>quick access</span><h2>Сверху — самое нужное</h2></div></div>
+      <PocketTodayHotel days={trip.days} hotels={hotels} />
       <div className="pocket-quick-grid">
         <SiteLink href="/transport"><Ticket size={19}/><span><strong>Билеты и транспорт</strong><small>рейсы, поезда, проход</small></span><ArrowRight size={15}/></SiteLink>
         <SiteLink href="/plan-b"><Map size={19}/><span><strong>Plan B</strong><small>аварийные сценарии</small></span><ArrowRight size={15}/></SiteLink>

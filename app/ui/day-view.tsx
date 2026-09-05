@@ -65,7 +65,6 @@ const kindIcon: Record<string, React.ComponentType<{ size?: number }>> = {
 export function DayView({ day, previous, next, enriched, tabelogNote }: { day: Day; previous: Day | null; next: Day | null; enriched: DayEnrichment; tabelogNote: string }) {
   const optional = day as DayWithOptionalData;
   const alternate = optional.alternate;
-  const shopping = optional.shopping;
   const decision = optional.decision;
   const secrets = optional.secrets;
   const photoSpots = optional.photoSpots;
