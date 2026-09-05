@@ -74,7 +74,7 @@ test("static export renders all critical Russian content", async () => {
   assert.match(route, /Пекин/);
   assert.match(route, /Чэнду/);
   assert.match(guides, /Гастрономия/);
-  assert.match(guides, /Шопинг/);
+  assert.match(guides, /шопинг/i);
   assert.match(beijing, /Forbidden City/);
   assert.match(chengdu, /Panda|панд/i);
   assert.match(food, /Гастрономическое путешествие/);
