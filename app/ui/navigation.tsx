@@ -1,81 +1,32 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { CalendarDays, CheckSquare2, ChevronDown, Home, Map, Plane, ShieldCheck, ShoppingBag, TrainFront, UtensilsCrossed } from "lucide-react";
+import { BookOpen, CalendarClock, CheckSquare2, Home, ShieldCheck } from "lucide-react";
 import { withBasePath } from "@/app/site-path";
 
-const mainNav = [
-  { href: "/", label: "Главная", icon: Home },
-  { href: "/day", label: "Дни", icon: CalendarDays },
-  { href: "/todo", label: "Подготовка", icon: CheckSquare2 },
-  { href: "/pocket", label: "Карман", icon: ShieldCheck },
+const navItems = [
+  { href: "/", label: "Сегодня", icon: Home, matches: ["/"] },
+  { href: "/day", label: "Маршрут", icon: CalendarClock, matches: ["/day"] },
+  { href: "/guides", label: "Гиды", icon: BookOpen, matches: ["/guides", "/food", "/shopping"] },
+  { href: "/pocket", label: "Карман", icon: ShieldCheck, matches: ["/pocket", "/transport", "/plan-b"] },
+  { href: "/todo", label: "Подготовка", icon: CheckSquare2, matches: ["/todo"] },
 ];
-
-const mobileNav = [
-  { href: "/", label: "Главная", icon: Home },
-  { href: "/day", label: "Дни", icon: CalendarDays },
-  { href: "/shopping", label: "Шопинг", icon: ShoppingBag },
-  { href: "/todo", label: "Подготовка", icon: CheckSquare2 },
-  { href: "/pocket", label: "Карман", icon: ShieldCheck },
-];
-
-const referenceNav = [
-  { href: "/china", label: "Китай", icon: Plane },
-  { href: "/food", label: "Гастрономия", icon: UtensilsCrossed },
-  { href: "/plan-b", label: "План Б", icon: Map },
-  { href: "/transport", label: "Транспорт", icon: TrainFront },
-  { href: "/shopping", label: "Шопинг", icon: ShoppingBag },
-];
-
-const mobileReferenceNav = referenceNav.filter((item) => item.href !== "/shopping");
 
 function useActiveRoute() {
   const pathname = usePathname();
-  return (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
+  return (item: (typeof navItems)[number]) => item.matches.some((prefix) => prefix === "/" ? pathname === "/" : pathname.startsWith(prefix));
 }
 
 export function DesktopNavigation() {
   const isActive = useActiveRoute();
   return (
-    <>
-      <nav className="rail-nav" aria-label="Главная навигация">
-        {mainNav.map((item) => (
-          <a className={isActive(item.href) ? "active" : ""} href={withBasePath(item.href)} key={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
-            <item.icon size={18} /><span>{item.label}</span>
-          </a>
-        ))}
-      </nav>
-      <div className="rail-divider" />
-      <nav className="rail-nav secondary" aria-label="Справочники">
-        {referenceNav.map((item) => (
-          <a className={isActive(item.href) ? "active" : ""} href={withBasePath(item.href)} key={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
-            <item.icon size={17} /><span>{item.label}</span>
-          </a>
-        ))}
-      </nav>
-    </>
-  );
-}
-
-export function MobileReferenceMenu() {
-  const isActive = useActiveRoute();
-  const hasActiveReference = mobileReferenceNav.some((item) => isActive(item.href));
-
-  return (
-    <details className={`mobile-reference-menu${hasActiveReference ? " active" : ""}`}>
-      <summary aria-label="Открыть справочники">
-        <span>{hasActiveReference ? mobileReferenceNav.find((item) => isActive(item.href))?.label : "Разделы"}</span>
-        <ChevronDown size={15} />
-      </summary>
-      <nav className="mobile-reference-popover" aria-label="Справочники">
-        {mobileReferenceNav.map((item) => (
-          <a className={isActive(item.href) ? "active" : ""} href={withBasePath(item.href)} key={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
-            <item.icon size={18} />
-            <span>{item.label}</span>
-          </a>
-        ))}
-      </nav>
-    </details>
+    <nav className="rail-nav" aria-label="Главная навигация">
+      {navItems.map((item) => (
+        <a className={isActive(item) ? "active" : ""} href={withBasePath(item.href)} key={item.href} aria-current={isActive(item) ? "page" : undefined}>
+          <item.icon size={18} /><span>{item.label}</span>
+        </a>
+      ))}
+    </nav>
   );
 }
 
@@ -83,9 +34,9 @@ export function MobileNavigation() {
   const isActive = useActiveRoute();
   return (
     <nav className="bottom-nav" aria-label="Основная навигация">
-      {mobileNav.map((item) => (
-        <a className={isActive(item.href) ? "active" : ""} href={withBasePath(item.href)} key={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
-          <item.icon size={21} strokeWidth={isActive(item.href) ? 2.2 : 1.8} />
+      {navItems.map((item) => (
+        <a className={isActive(item) ? "active" : ""} href={withBasePath(item.href)} key={item.href} aria-current={isActive(item) ? "page" : undefined}>
+          <item.icon size={20} strokeWidth={isActive(item) ? 2.2 : 1.8} />
           <span>{item.label}</span>
         </a>
       ))}

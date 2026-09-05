@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { ArrowRight, CreditCard, ExternalLink, TrainFront } from "lucide-react";
 import trip from "@/data/trip.json";
 
-export const metadata: Metadata = { title: "Транспорт" };
+export const metadata: Metadata = { title: "Билеты и транспорт" };
 
 export default function TransportPage() {
   return (
     <>
       <header className="page-hero simple-hero transport-hero">
         <div className="hero-kicker"><TrainFront size={15} /> билеты и турникеты</div>
-        <h1>Что показывать<br />и когда.</h1>
+        <h1>Билеты и транспорт.<br />Что показывать и когда.</h1>
         <p>Самая частая ошибка — смешать проездной, билет на место и ICOCA. Здесь только рабочая схема.</p>
       </header>
       <section className="page-section first-section">

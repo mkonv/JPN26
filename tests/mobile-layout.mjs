@@ -65,24 +65,14 @@ try {
   });
   const page = await context.newPage();
 
-  // Regression guard: the portrait UI must expose Shopping directly and all
-  // secondary guides through the top reference menu.
+  // IA regression guard: desktop/mobile share the same five semantic top-level sections.
   await page.goto(`${origin}${basePath}/`, { waitUntil: "networkidle" });
   const portraitNav = await page.evaluate(() => ({
     bottomLabels: [...document.querySelectorAll(".bottom-nav a")]
       .filter((node) => getComputedStyle(node).display !== "none")
       .map((node) => node.textContent?.trim()),
-    referenceVisible: (() => {
-      const node = document.querySelector(".mobile-reference-menu");
-      return Boolean(node && getComputedStyle(node).display !== "none");
-    })(),
-    referenceLabel: document.querySelector(".mobile-reference-menu summary")?.textContent?.trim(),
-    referenceLabels: [...document.querySelectorAll(".mobile-reference-popover a")].map((node) => node.textContent?.trim()),
   }));
-  assert.deepEqual(portraitNav.bottomLabels, ["Главная", "Дни", "Шопинг", "Подготовка", "Карман"], "portrait bottom navigation must expose all five primary items");
-  assert.equal(portraitNav.referenceVisible, true, "portrait top bar must expose the reference menu");
-  assert.equal(portraitNav.referenceLabel, "Разделы", "portrait reference menu needs the compact Разделы label");
-  assert.deepEqual(portraitNav.referenceLabels, ["Китай", "Гастрономия", "План Б", "Транспорт"], "portrait reference menu must contain the four secondary guides");
+  assert.deepEqual(portraitNav.bottomLabels, ["Сегодня", "Маршрут", "Гиды", "Карман", "Подготовка"], "portrait bottom navigation must match the canonical IA");
 
   const routes = offlineManifest.routes.filter((route) => !route.endsWith("404.html"));
   const captures = new Map([
@@ -91,10 +81,13 @@ try {
     [`${basePath}/day/sep-25-kyoto/`, "day-kyoto"],
     [`${basePath}/day/sep-24-miyajima/`, "day-hiroshima"],
     [`${basePath}/todo/`, "todo"],
+    [`${basePath}/guides/`, "guides"],
     [`${basePath}/food/`, "food"],
-    [`${basePath}/china/`, "china"],
     [`${basePath}/shopping/`, "shopping"],
+    [`${basePath}/pocket/`, "pocket"],
     [`${basePath}/transport/`, "transport"],
+    [`${basePath}/day/sep-20-beijing/`, "day-beijing"],
+    [`${basePath}/day/oct-03-chengdu/`, "day-chengdu"],
   ]);
 
   for (const route of routes) {

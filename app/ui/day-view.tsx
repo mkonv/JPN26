@@ -1,6 +1,7 @@
 import { AlertTriangle, ArrowLeft, ArrowRight, Camera, Check, ChevronDown, Clock3, Compass, ExternalLink, Gauge, MapPinned, RotateCcw, ShoppingBag, Sunrise, Ticket, TrainFront, UtensilsCrossed } from "lucide-react";
 import trip from "@/data/trip.json";
 import enrichment from "@/data/travel-enrichment.json";
+import shoppingGuide from "@/data/shopping-guide.json";
 import { googleMapsHref } from "@/lib/google-maps.mjs";
 import { NowStepper } from "./now-stepper";
 import { SecretReveal } from "./secret-reveal";
@@ -68,13 +69,14 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
   const decision = optional.decision;
   const secrets = optional.secrets;
   const photoSpots = optional.photoSpots;
-  const dayColor = day.city.includes("Киото") ? "moss" : day.city.includes("Хаконе") ? "lake" : day.city.includes("Токио") || day.city.includes("Fuji") ? "ink" : "coral";
-  const cityJapanese = day.city.includes("Киото") ? "京都" : day.city.includes("Хаконе") ? "箱根" : day.city.includes("Токио") ? "東京" : day.city.includes("Нара") ? "奈良" : day.city.includes("Хиросима") ? "広島" : day.city.includes("Осака") ? "大阪" : "日本";
+  const shoppingCity = day.city.includes("Осака") || day.city.includes("Нара") ? shoppingGuide.cities.find((city) => city.id === "osaka") : day.city.includes("Киото") ? shoppingGuide.cities.find((city) => city.id === "kyoto") : day.city.includes("Токио") || day.city.includes("Фудзи") ? shoppingGuide.cities.find((city) => city.id === "tokyo") : day.city.includes("Чэнду") ? shoppingGuide.cities.find((city) => city.id === "chengdu") : undefined;
+  const dayColor = day.city.includes("Киото") ? "moss" : day.city.includes("Хаконе") ? "lake" : day.city.includes("Токио") || day.city.includes("Фудзи") || day.city.includes("Fuji") ? "ink" : day.city.includes("Пекин") || day.city.includes("Чэнду") || day.city.includes("Москва") ? "china" : "coral";
+  const cityJapanese = day.city.includes("Киото") ? "京都" : day.city.includes("Хаконе") ? "箱根" : day.city.includes("Токио") ? "東京" : day.city.includes("Нара") ? "奈良" : day.city.includes("Хиросима") ? "広島" : day.city.includes("Осака") ? "大阪" : day.city.includes("Пекин") ? "北京" : day.city.includes("Чэнду") ? "成都" : day.city.includes("Москва") ? "旅" : "日本";
 
   return (
     <>
       <header className={`day-detail-hero ${dayColor}`}>
-        <div className="day-detail-top"><span>день {day.number} из 12</span><span>{day.city}</span></div>
+        <div className="day-detail-top"><span>день {day.number} из {trip.days.length}</span><span>{day.city}</span></div>
         <span className="day-japanese" aria-hidden="true">{cityJapanese}</span>
         <p>{day.dateLabel}</p>
         <h1>{day.title}</h1>
@@ -92,10 +94,30 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
         <a href="#route"><Clock3 size={18} /><span><small>по умолчанию</small><strong>Маршрут</strong></span></a>
         <a href="#alternatives"><Compass size={18} /><span><small>если быстрее</small><strong>Куда свернуть</strong></span></a>
         <a href="#food"><UtensilsCrossed size={18} /><span><small>2–3 выбора</small><strong>Где поесть</strong></span></a>
-        {shopping && <a href="#shopping"><ShoppingBag size={18} /><span><small>окно дня</small><strong>Шопинг</strong></span></a>}
+        {shoppingCity && <a href="#shopping"><ShoppingBag size={18} /><span><small>окно дня</small><strong>Шопинг</strong></span></a>}
       </nav>
 
       <NowStepper date={day.date} timeline={day.timeline} />
+
+      <section className="page-section" id="route">
+        <div className="section-heading"><div><span>полный день</span><h2>Маршрут по времени</h2></div></div>
+        <div className="route-timeline">
+          {day.timeline.map((item: TimelineItem) => {
+            const Icon = kindIcon[item.kind] ?? MapPinned;
+            const mapLinks = item.mapLinks ?? (item.mapUrl ? [{ label: "Google Maps", url: item.mapUrl }] : []);
+            return (
+              <article className={`route-item ${item.kind}`} key={`${item.time}-${item.title}`}>
+                <time>{item.time}</time>
+                <div className="route-marker"><Icon size={14} /></div>
+                <div>
+                  <h3>{item.title}</h3><p>{item.detail}</p>
+                  {(mapLinks.length > 0 || item.kind === "move") && <div className="route-map-links">{mapLinks.map((map) => <a className="route-map-link" href={googleMapsHref(map.url, map.label)} target="_blank" rel="noreferrer" key={`${item.title}-${map.label}`}>{map.label} <ExternalLink size={13} /></a>)}{item.kind === "move" && <SiteLink className="route-map-link transport-context-link" href="/transport">Билет / правила <Ticket size={13}/></SiteLink>}</div>}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
 
       {decision && (
         <section className="page-section decision-section">
@@ -113,57 +135,16 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
 
       {alternate && (
         <section className="page-section alternate-section">
-          <div className="section-heading"><div><span>альтернативный день</span><h2>{alternate.title}</h2></div></div>
-          {alternate.corrected && <div className="correction-note"><Check size={17} /> {alternate.note}</div>}
-          <div className="alternate-timeline">
-            {alternate.timeline.map((item) => <article key={`${item.time}-${item.title}`}><time>{item.time}</time><div><strong>{item.title}</strong><p>{item.detail}</p></div></article>)}
-          </div>
-        </section>
-      )}
-
-      <section className="page-section" id="route">
-        <div className="section-heading"><div><span>полный день</span><h2>Маршрут по времени</h2></div></div>
-        <div className="route-timeline">
-          {day.timeline.map((item: TimelineItem) => {
-            const Icon = kindIcon[item.kind] ?? MapPinned;
-            const mapLinks = item.mapLinks ?? (item.mapUrl ? [{ label: "Google Maps", url: item.mapUrl }] : []);
-            return (
-              <article className={`route-item ${item.kind}`} key={`${item.time}-${item.title}`}>
-                <time>{item.time}</time>
-                <div className="route-marker"><Icon size={14} /></div>
-                <div>
-                  <h3>{item.title}</h3><p>{item.detail}</p>
-                  {mapLinks.length > 0 && <div className="route-map-links">{mapLinks.map((map) => <a className="route-map-link" href={googleMapsHref(map.url, map.label)} target="_blank" rel="noreferrer" key={`${item.title}-${map.label}`}>{map.label} <ExternalLink size={13} /></a>)}</div>}
-                </div>
-              </article>
-            );
-          })}
-        </div>
-      </section>
-
-      {photoSpots && photoSpots.length > 0 && (
-        <section className="page-section photo-section" id="photo-spots">
-          <div className="section-heading"><div><span>параллельный слой</span><h2>Фототочки дня</h2></div><Camera size={22} /></div>
-          <p className="parallel-intro">{enrichment.photoGuide.principle}</p>
-          <div className="photo-guide-notes">
-            <p><strong>Fuji Watch:</strong> {enrichment.photoGuide.fujiWatch}</p>
-            <p><strong>Важно:</strong> {enrichment.photoGuide.exclusion}</p>
-          </div>
-          <div className="photo-spot-grid">
-            {photoSpots.map((spot) => (
-              <article className={`photo-spot-card ${spot.priority.toLowerCase().replaceAll(" ", "-")}`} key={spot.name}>
-                <div className="photo-spot-top">
-                  <span>{spot.priority}</span>
-                  {spot.signature && <em>SIGNATURE SHOT</em>}
-                </div>
-                <h3>{spot.name}</h3>
-                <p>{spot.shot}</p>
-                <small>{spot.timing}</small>
-                {spot.googleMapsUrl && <a href={googleMapsHref(spot.googleMapsUrl, spot.name)} target="_blank" rel="noreferrer">Google Maps <MapPinned size={14} /></a>}
-                {!spot.googleMapsUrl && spot.mapExemptReason && <div className="photo-map-exempt">Без отдельной точки: {spot.mapExemptReason}</div>}
-              </article>
-            ))}
-          </div>
+          <details className="planb-toggle">
+            <summary><span><small>Основной маршрут выше</small><strong>Открыть Plan B</strong></span><ChevronDown size={18} /></summary>
+            <div className="planb-toggle-body">
+              <div className="section-heading"><div><span>альтернативный день</span><h2>{alternate.title}</h2></div></div>
+              {alternate.corrected && <div className="correction-note"><Check size={17} /> {alternate.note}</div>}
+              <div className="alternate-timeline">
+                {alternate.timeline.map((item) => <article key={`${item.time}-${item.title}`}><time>{item.time}</time><div><strong>{item.title}</strong><p>{item.detail}</p></div></article>)}
+              </div>
+            </div>
+          </details>
         </section>
       )}
 
@@ -194,12 +175,12 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
         <article className="food-safety-card"><AlertTriangle size={18} /><div><strong>{enrichment.meta.foodSafety.title}</strong><p>{enrichment.meta.foodSafety.summary}</p><code>{enrichment.meta.foodSafety.ja}</code></div></article>
         <div className="meal-groups">
           {enriched.meals.map((meal) => {
-            const best = meal.options.find((option) => option.pick) ?? meal.options[0];
+            const best = meal.options.find((option) => option.pick);
             return (
               <details className="meal-group" key={`${meal.time}-${meal.label}`}>
                 <summary>
                   <time>{meal.time}</time>
-                  <span><small>{meal.label}</small><strong>{best.name}</strong><em>{meal.options.length === 1 ? "фиксировано" : `Открыть ${meal.options.length} варианта`}</em></span>
+                  <span><small>{meal.label}</small><strong>{best?.name ?? "Без фиксированного выбора"}</strong><em>{meal.options.length === 1 ? "фиксировано" : `Открыть ${meal.options.length} варианта`}</em></span>
                   <ChevronDown size={18} />
                 </summary>
                 <div className="meal-detail">
@@ -223,17 +204,37 @@ export function DayView({ day, previous, next, enriched, tabelogNote }: { day: D
         <div className="tabelog-note">{tabelogNote}</div>
       </section>
 
-      {shopping && (
+      {shoppingCity && (
         <section className="page-section shopping-section" id="shopping">
-          <div className="section-heading"><div><span>параллельный трек</span><h2>Шопинг без перегруза</h2></div></div>
-          <article className="shopping-window"><ShoppingBag size={20} /><div><span>окно</span><strong>{shopping.window}</strong><p>{shopping.goal}</p></div></article>
-          {shopping.presets && (
-            <div className="preset-cards">
-              {shopping.presets.map((preset) => <article key={preset.name}><div><strong>{preset.name}</strong><span>{preset.minutes} мин</span></div><p>{preset.stops.join(" → ")}</p></article>)}
-            </div>
-          )}
-          <div className="stop-chips">{shopping.stops.map((stop) => <span key={stop}>{stop}</span>)}</div>
-          <div className="shopping-rule"><strong>Стоп-правило</strong><p>{shopping.rule}</p></div>
+          <div className="section-heading"><div><span>контекст дня</span><h2>Шопинг рядом с маршрутом</h2></div><SiteLink href="/shopping">Весь гид <ArrowRight size={16}/></SiteLink></div>
+          <p className="parallel-intro">Не обязательная остановка и не новый тайминг. Ниже только городские кластеры, которые удобно держать под рукой, если останется время.</p>
+          <div className="context-shopping-grid">{shoppingCity.clusters.slice(0,2).map((cluster)=><article key={cluster.name}><span>район</span><h3>{cluster.name}</h3><p>{cluster.note}</p><div className="stop-chips">{cluster.stores.slice(0,4).map((store)=><span key={store.name}>{store.name}</span>)}</div></article>)}</div>
+        </section>
+      )}
+
+      {photoSpots && photoSpots.length > 0 && (
+        <section className="page-section photo-section" id="photo-spots">
+          <div className="section-heading"><div><span>параллельный слой</span><h2>Фототочки дня</h2></div><Camera size={22} /></div>
+          <p className="parallel-intro">{enrichment.photoGuide.principle}</p>
+          <div className="photo-guide-notes">
+            <p><strong>Fuji Watch:</strong> {enrichment.photoGuide.fujiWatch}</p>
+            <p><strong>Важно:</strong> {enrichment.photoGuide.exclusion}</p>
+          </div>
+          <div className="photo-spot-grid">
+            {photoSpots.map((spot) => (
+              <article className={`photo-spot-card ${spot.priority.toLowerCase().replaceAll(" ", "-")}`} key={spot.name}>
+                <div className="photo-spot-top">
+                  <span>{spot.priority}</span>
+                  {spot.signature && <em>SIGNATURE SHOT</em>}
+                </div>
+                <h3>{spot.name}</h3>
+                <p>{spot.shot}</p>
+                <small>{spot.timing}</small>
+                {spot.googleMapsUrl && <a href={googleMapsHref(spot.googleMapsUrl, spot.name)} target="_blank" rel="noreferrer">Google Maps <MapPinned size={14} /></a>}
+                {!spot.googleMapsUrl && spot.mapExemptReason && <div className="photo-map-exempt">Без отдельной точки: {spot.mapExemptReason}</div>}
+              </article>
+            ))}
+          </div>
         </section>
       )}
 

@@ -68,6 +68,30 @@ def main() -> None:
         raise RuntimeError(f"Critical PDF facts missing: {missing_text}")
     if "SmartEX confirmation day" in normalized:
         raise RuntimeError("Stale SmartEX confirmation task remains in the PDF")
+    if "ИЗ 12" in normalized:
+        raise RuntimeError("Stale 12-day counter remains in the PDF")
+    if "ДЕНЬ 15 ИЗ 15" not in normalized:
+        raise RuntimeError("Dynamic 15-day counter is missing from the PDF")
+    forbidden_content = (
+        "вечерняя бронь Imaasa в 19:15 защищена",
+        "Imaasa - защищённый сукияки-вечер",
+        "Бронь обязательна. Курс Take",
+    )
+    stale = [item for item in forbidden_content if item in normalized]
+    if stale:
+        raise RuntimeError(f"Stale content-integrity text remains in PDF: {stale}")
+    required_integrity = (
+        "Без обязательной брони. Imaasa",
+        "Hiroshige · TNM 30.09 · Plan B",
+        "Edo-Tokyo Museum · 30.09 · Plan B",
+        "Fairfield -> PEK T2",
+        "PEK -> KIX",
+        "Kanzan-no-Yu",
+        "В Японии такси не является базовым транспортом",
+    )
+    missing_integrity = [item for item in required_integrity if item not in normalized]
+    if missing_integrity:
+        raise RuntimeError(f"Content-integrity fixes missing from PDF: {missing_integrity}")
     if "\x00" in text or "�" in text:
         raise RuntimeError("Broken or replacement glyphs found in extracted PDF text")
 
@@ -83,7 +107,7 @@ def main() -> None:
     ]
     if invalid_uris:
         raise RuntimeError(f"Invalid URI annotations: {invalid_uris[:5]}")
-    if len(uris) < 400 or len(set(uris)) < 300:
+    if len(uris) < 380 or len(set(uris)) < 280:
         raise RuntimeError(f"Unexpectedly sparse PDF links: {len(uris)} / {len(set(uris))} unique")
 
     expected_google_maps: set[str] = set()

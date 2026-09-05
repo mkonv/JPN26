@@ -89,7 +89,8 @@ test("audit baseline: shopping is independent of days and NRT security split is 
   assert.ok(trip.days.every((day) => day.timeline.every((item) => item.kind !== "shopping")));
   assert.match(shopping.meta.structure, /город.*район.*магазин/s);
   const d30 = getDay(trip, "sep-30-tokyo");
-  assert.equal(d30.timeline.find((x) => x.title === "Edo-Tokyo Museum").time, "14:15");
+  assert.equal(d30.timeline.find((x) => x.title.includes("Chureito") || x.title.includes("Arakurayama")).time, "09:20");
+  assert.match(d30.principle, /Fuji|Фудзи|Kawaguchiko/i);
   assert.ok(!trip.bookingTasks.some((x) => x.id === "jando-popup"));
   const dep = getDay(trip, "oct-02-departure");
   assert.match(dep.timeline.find((x) => x.title === "NRT · терминал 1").detail, /before security/);
@@ -99,9 +100,9 @@ test("audit baseline: shopping is independent of days and NRT security split is 
 test("shopping allowlist and confirmed bookings are enforced", async () => {
   const trip = await readJson("data/trip.json");
   const shopping = await readText("data/shopping-guide.json");
-  const required = ["Seiko", "G-SHOCK", "CITIZEN", "Kurono", "Onitsuka", "ASICS", "PORTER CLASSIC", "PC KENDO", "UNIQLO", "KAPITAL", "cas:pace", "glänta", "MASUNAGA", "KANEKO", "Gyokusendo", "SUWADA", "Kintakedo", "Kazurasei", "hairpin"];
+  const required = ["Seiko", "G-SHOCK", "CITIZEN", "Onitsuka", "ASICS", "PORTER CLASSIC", "PC KENDO", "UNIQLO", "KAPITAL", "TCB", "cas:pace", "glänta", "MASUNAGA", "KANEKO", "Gyokusendo", "SUWADA", "Kintakedo", "Kazurasei", "hairpin"];
   for (const item of required) assert.match(shopping, new RegExp(item, "i"), `${item} must be present`);
-  const forbidden = ["TCB", "INDEN-YA", "JOTARO SAITO", "J.ANDO", "Hakuhodo", "Scotch Grain", "AURALEE", "PLEATS PLEASE", "HOMME PLISS", "PORTER EXCHANGE", "KUOE", "Kappabashi", "KAMA-ASA"];
+  const forbidden = ["Kurono", "INDEN-YA", "JOTARO SAITO", "J.ANDO", "Hakuhodo", "Scotch Grain", "AURALEE", "PLEATS PLEASE", "HOMME PLISS", "PORTER EXCHANGE", "KUOE", "Kappabashi", "KAMA-ASA"];
   for (const item of forbidden) assert.doesNotMatch(shopping, new RegExp(item.replace(".", "\\."), "i"), `${item} must stay removed`);
   assert.equal(trip.bookingTasks.find((x) => x.id === "nezu").status, "done");
   const haruka = trip.bookingTasks.find((x) => x.id === "haruka");
@@ -146,9 +147,9 @@ test("audit baseline: bad restaurant links and China map/shuttle errors are corr
   assert.match(tsukiji.url, /13007619/);
   const owariya = extra.dayEnrichment["oct-01-asakusa"].meals.flatMap((m) => m.options).find((o) => o.name === "Owariya Shiten");
   assert.match(owariya.url, /13008597/);
-  const shuttle = extra.china.outbound.timeline.find((x) => x.title === "Shuttle к PEK T2");
-  assert.equal(shuttle.time, "21.09 · 06:00");
-  assert.match(shuttle.detail, /минимум за 2 часа/);
+  const beijing = getDay(await readJson("data/trip.json"), "sep-20-beijing");
+  assert.ok(beijing.timeline.some((x) => /Forbidden City|Palace Museum/.test(x.title)));
+  assert.ok(beijing.timeline.some((x) => /Jingmo/.test(x.title)));
   assert.ok(extra.china.outbound.places.every((x) => x.amap.includes("uri.amap.com")));
   assert.ok(extra.china.return.places.every((x) => x.amap.includes("uri.amap.com")));
   assert.ok(!extra.china.outbound.food.some((x) => /Yao Ji/i.test(x.name)));
@@ -185,7 +186,7 @@ test("technical hardening: privacy, China maps, dependency baseline and CI gates
   const nextConfig = await readText("next.config.ts");
 
   assert.ok(extra.additionalHotels.every((hotel) => hotel.mapUrl?.startsWith("https://uri.amap.com/")), "China hotel cards need explicit Amap URLs");
-  assert.match(pocket, /hotel\.mapUrl \?\?/);
+  assert.match(pocket, /hotel\.googleMapsUrl\?\?hotel\.mapUrl/);
   assert.doesNotMatch(secrets, /localStorage|useLocalStorageValue|japan-private-code/);
   assert.match(secrets, /Введите код на эту сессию/);
   assert.match(layout, /index: false/);
@@ -210,11 +211,12 @@ test("technical hardening: PWA hashes worker code, precaches fonts and uses a st
 
 test("technical hardening: decision marker has non-text contrast and China wording matches soft preference", async () => {
   const css = await readText("app/globals.css");
-  const china = await readText("app/china/page.tsx");
+  const pocket = await readText("app/pocket/page.tsx");
+  const dayView = await readText("app/ui/day-view.tsx");
   assert.match(css, /\.route-item\.decision \.route-marker \{[^}]*color: #2d2412;/s);
   assert.ok(contrastRatio("#c9962f", "#2d2412") >= 3, "decision route icon must meet 3:1 non-text contrast");
-  assert.match(china, /soft preference по свинине/);
-  assert.doesNotMatch(china, /Только после проверки состава/);
+  assert.doesNotMatch(pocket, /Только после проверки состава/);
+  assert.match(dayView, /foodSafety\.summary/);
 });
 
 test("confirmed delta: passes, reserved seats, dinner and later starts stay fixed", async () => {
@@ -353,4 +355,62 @@ test("release gate: approved ambiguous-map resolutions are fixed", async () => {
   assert.match(hairpin.googleMapsUrl, /query_place_id=ChIJlUPGRkDF7zYR3ZFC2alpOwc/);
   assert.match(hairpin.amapUrl, /uri\.amap\.com/);
   assert.match(hairpin.appleMapsUrl, /maps\.apple\.com/);
+});
+
+
+test("05.09 content integrity: Imaasa is optional everywhere, Tokyo Plan-B watches are restored", async () => {
+  const trip = await readJson("data/trip.json");
+  const extra = await readJson("data/travel-enrichment.json");
+  const d28 = getDay(trip, "sep-28-tokyo");
+  assert.doesNotMatch(d28.principle, /бронь Imaasa.*защищ/i);
+  assert.ok(!d28.anchors.some((x) => /Imaasa/i.test(x.label)));
+  const dinner = d28.timeline.find((x) => x.title === "Ужин · Shinbashi");
+  assert.ok(dinner);
+  assert.match(dinner.detail, /Без обязательной брони/);
+  assert.ok(!trip.bookingTasks.some((x) => x.id === "imaasa"));
+  const dinnerMeal = extra.dayEnrichment["sep-28-tokyo"].meals.find((m) => /Shinbashi/.test(m.label));
+  assert.match(dinnerMeal.note, /Защищённого ресторана нет/);
+  const imaasa = dinnerMeal.options.find((x) => x.name === "Sukiyaki Imaasa");
+  assert.equal(imaasa.pick, false);
+  assert.match(imaasa.route, /не является To Do/i);
+  const h = trip.bookingTasks.find((x) => x.id === "hiroshige");
+  const e = trip.bookingTasks.find((x) => x.id === "edo");
+  assert.equal(h.status, "watch");
+  assert.equal(e.status, "watch");
+  assert.match(h.title, /Plan B/);
+  assert.match(e.title, /Plan B/);
+  assert.match(h.action, /только если.*остаться в Tokyo/i);
+  assert.match(e.action, /только после решения не ехать к Fuji/i);
+});
+
+test("05.09 content integrity: 21.09 keeps shuttle and concise flight event, details stay in Transport", async () => {
+  const trip = await readJson("data/trip.json");
+  const d21 = getDay(trip, "sep-21-osaka");
+  assert.equal(d21.timeline[0].title, "Fairfield → PEK T2");
+  assert.equal(d21.timeline[1].title, "PEK → KIX");
+  assert.match(d21.timeline[0].detail, /18\.09/);
+  assert.match(d21.timeline[1].detail, /Билеты и транспорт/);
+  assert.doesNotMatch(d21.timeline[1].title + " " + d21.timeline[1].detail, /HU473|T2|T1/);
+  const flight = trip.transport.find((x) => /HU473/.test(x.title));
+  assert.match(flight.detail, /PEK T2 → KIX T1/);
+});
+
+test("05.09 content integrity: Shiunso, taxi rule and Beijing Amap coverage are synchronized", async () => {
+  const trip = await readJson("data/trip.json");
+  const extra = await readJson("data/travel-enrichment.json");
+  const shi = trip.bookingTasks.find((x) => x.id === "shiunso");
+  assert.match(shi.action, /Бесплатную приватную ванну заранее не бронировать/);
+  assert.match(shi.action, /Kanzan-no-Yu/);
+  const taxi = trip.transport.find((x) => x.title === "Такси / DiDi");
+  assert.match(taxi.detail, /В Японии такси не является базовым транспортом/);
+  assert.ok(trip.pocket.rules.some((x) => /такси не является базовым транспортом/.test(x)));
+  const names = extra.china.outbound.places.map((x) => x.name);
+  assert.ok(names.includes("故宫博物院"));
+  assert.ok(names.includes("景山公园"));
+  const beijing = getDay(trip, "sep-20-beijing");
+  for (const label of ["Amap · Forbidden City", "Amap · Jingshan", "Amap · Jingmo"]) {
+    const link = beijing.links.find((x) => x.label === label);
+    assert.ok(link);
+    assert.match(link.url, /^https:\/\/uri\.amap\.com\/search\?/);
+  }
 });

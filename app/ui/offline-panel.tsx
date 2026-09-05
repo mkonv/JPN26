@@ -58,7 +58,7 @@ function readyRegistration(timeoutMs = 15000) {
   });
 }
 
-export function OfflinePanel() {
+export function OfflinePanel({ mode = "full" }: { mode?: "full" | "status" }) {
   const [state, setState] = useState<"checking" | "idle" | "saving" | "ready" | "error">("checking");
   const [status, setStatus] = useState<WorkerStatus | null>(null);
   const [persistent, setPersistent] = useState<boolean | null>(null);
@@ -130,22 +130,22 @@ export function OfflinePanel() {
         </div>
         <div><strong>{ready ? "Офлайн-копия готова" : "Подготовить офлайн-копию"}</strong><span>{statusLine}</span></div>
       </div>
-      <p>Сайт проверит все 12 дней, Китай, гастрономию, подготовку и справочники на этом iPhone. Внешние сайты мест всё равно открываются только при наличии сети.</p>
-      <button className="primary-button" onClick={saveOffline} disabled={state === "saving" || (!online && !ready)}>
+      {mode === "full" && <p>Сайт проверит все 15 дней единого маршрута, гиды, Карман и Подготовку на этом iPhone. Внешние сайты мест всё равно открываются только при наличии сети.</p>}
+      {mode === "full" && <button className="primary-button" onClick={saveOffline} disabled={state === "saving" || (!online && !ready)}>
         {state === "saving" ? <RefreshCw className="spin" size={18} /> : <CloudDownload size={18} />}
         {state === "saving" ? "Проверяю и сохраняю…" : ready ? "Проверить и обновить копию" : "Сохранить весь маршрут"}
-      </button>
+      </button>}
       {state === "error" && <div className="inline-error">{error || "Не удалось сохранить. Откройте сайт в Safari при стабильной сети и повторите."}</div>}
-      {ready && (
+      {ready && mode === "full" && (
         <div className={`storage-note ${persistent ? "persistent" : ""}`}>
           <ShieldCheck size={16} />
           <span>{persistent ? "iPhone подтвердил постоянное хранение копии." : "Копия проверена; iPhone может освободить её только при очистке данных или нехватке места."}</span>
         </div>
       )}
-      <details className="ios-help">
+      {mode === "full" && <details className="ios-help">
         <summary><Smartphone size={17} /> Добавить на экран «Домой»</summary>
         <ol><li>Откройте сайт в Safari.</li><li>Нажмите «Поделиться».</li><li>Выберите «На экран Домой».</li><li>Запустите приложение и проверьте зелёный статус офлайн-копии.</li></ol>
-      </details>
+      </details>}
     </article>
   );
 }

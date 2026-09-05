@@ -451,7 +451,7 @@ def day_story(day: dict):
     hero_details = [f"{day['load']} · {day['distance']}", f"подъём {day['wake']}"]
     output = [PageBreak(), OutlineHeading(f"День {day['number']}. {day['title']}", 0, STYLES["h1"])]
     output.extend([
-        hero_block(f"ДЕНЬ {day['number']} ИЗ 12 · {day['dateLabel']}", day["title"], f"{day['city']} · {day['summary']}", day_color, hero_details),
+        hero_block(f"ДЕНЬ {day['number']} ИЗ {len(TRIP['days'])} · {day['dateLabel']}", day["title"], f"{day['city']} · {day['summary']}", day_color, hero_details),
         spacer(3),
         label("Принцип дня"), spacer(1),
         card([p(day["principle"], "body")], background=CORAL_SOFT, border=HexColor("#E7C4BA"), left_bar=CORAL),
@@ -495,8 +495,9 @@ def day_story(day: dict):
     ])
     for meal in enriched["meals"]:
         option_rows = []
+        has_pick = any(option.get("pick") for option in meal["options"])
         for option in meal["options"]:
-            marker = "БАЗА" if option.get("pick") else "ЗАМЕНА"
+            marker = "БАЗА" if option.get("pick") else ("ЗАМЕНА" if has_pick else "ВАРИАНТ")
             score = option["score"] if str(option["score"]).startswith("Tabelog") or option["score"] == "включено" else ("проверить на месте" if option["score"] == "—" else f"Tabelog {option['score']}")
             name = link_text(option['name'], option.get('googleMapsUrl') or option.get('url')) if (option.get('googleMapsUrl') or option.get('url')) else clean(option['name'])
             option_rows.append([
@@ -608,16 +609,21 @@ def pocket_pages():
     ]
     for i, rule in enumerate(rules, 1):
         output.extend([KeepTogether(card([rich(f"<b>{i}.</b> {clean(rule)}", "body")], background=HexColor("#F8F6F0"))), spacer(1.3)])
+    output.extend([spacer(3), label("Китай · Amap навигация"), spacer(1)])
+    china_places = [*EXTRA["china"]["outbound"].get("places", []), *EXTRA["china"]["return"].get("places", [])]
+    for place in china_places:
+        if place.get("amap"):
+            output.extend([KeepTogether(card([p(place["name"], "card_title"), p(place.get("address", ""), "small"), rich(link_text("Amap", place["amap"]), "small"), rich(link_text("Google Maps bookmark", place.get("googleMapsUrl", "")), "small") if place.get("googleMapsUrl") else spacer(0)], background=LAKE_SOFT, border=HexColor("#C3CFD6"))), spacer(1.0)])
     return output
 
 
 def build_story():
     story = []
     story.extend([
-        hero_block("ВИКТОРИЯ + МИША · МОБИЛЬНАЯ ВЕРСИЯ", "Япония 2026", "19 сентября - 3 октября · Пекин -> Осака -> Киото -> Хаконе -> Токио -> Чэнду -> Москва", PINE, ["15 календарных дней", "12 дней в Японии", "4 перелёта"]),
+        hero_block("ВИКТОРИЯ + МИША · МОБИЛЬНАЯ ВЕРСИЯ", "Япония 2026", "19 сентября - 3 октября · Москва -> Пекин -> Осака -> Киото -> Хаконе -> Токио -> Чэнду -> Москва", PINE, ["15 календарных дней", "единый маршрут", "4 перелёта"]),
         spacer(6),
         label("Для поездки, а не для журнального столика"), spacer(1),
-        p("Откройте оглавление PDF в приложении Файлы или Книги и сразу перейдите к сегодняшнему дню. Основной маршрут идёт первым; альтернативы и еда вынесены в параллельный слой, а shopping guide сгруппирован отдельно по городам и районам.", "body"),
+        p("Откройте оглавление PDF в приложении Файлы или Книги и сразу перейдите к сегодняшнему дню. Все 15 календарных дней идут одной хронологией. Внутри дня основной маршрут идёт первым; Plan B раскрывается после него, затем идут альтернативы, еда, shopping и фото.", "body"),
         spacer(4),
         card([rich("<b>1. Маршрут:</b> следовать плану по времени.<br/><b>2. Освободилось время:</b> выбрать одну альтернативу рядом.<br/><b>3. Еда:</b> взять базовый вариант, ссылку открывать для проверки часов.<br/><b>4. Задержка:</b> защищать якорь и применять правило сокращения.", "body")], background=PINE_SOFT, border=HexColor("#C5D6CF"), left_bar=PINE),
         spacer(6),
@@ -639,10 +645,8 @@ def build_story():
         p(rule["title"], "h3"), p(rule["summary"], "body"), spacer(2), rich(f"<b>СОХРАНИТЬ:</b> {clean(rule['protect'])}", "small"), rich(f"<b>ПЕРЕПРОВЕРИТЬ:</b> {clean(rule['check'])}", "small"), spacer(2), rich(link_text("Официальные правила NIA", EXTRA["china"]["links"][0]["url"]), "small")
     ], background=LAKE_SOFT, border=HexColor("#BECED6"), left_bar=CHINA)])
 
-    story.extend(china_stop(EXTRA["china"]["outbound"], "Остановка в Пекине"))
     for day in TRIP["days"]:
         story.extend(day_story(day))
-    story.extend(china_stop(EXTRA["china"]["return"], "Остановка в Чэнду"))
 
     story.extend([PageBreak(), OutlineHeading("Подготовка к Китаю", 0, STYLES["h1"]), p("Сделать до обеих промежуточных остановок.", "body"), spacer(4)])
     for index, item in enumerate(EXTRA["china"]["prep"], 1):

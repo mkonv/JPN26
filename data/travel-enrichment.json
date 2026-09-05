@@ -1,15 +1,16 @@
 {
   "meta": {
     "journeyDates": "19 сентября — 3 октября 2026",
-    "sourceChecked": "29 августа 2026 · confirmed transport delta; full baseline audit 23.08",
-    "version": "2026.08.29-v11-confirmed-seats",
+    "sourceChecked": "5 сентября 2026",
+    "version": "2026.09.05-v13-content-integrity-fix",
     "tabelogNote": "После аудита ресторан считается рабочим кандидатом только при подтверждённых часах на дату и реалистичной логистике. Свинина — мягкое предпочтение, а не запрет: если сильное место или конкретное блюдо содержит свинину, это явно отмечается, но само по себе не блокирует рекомендацию.",
     "foodSafety": {
       "title": "Свинина — soft preference",
       "summary": "По возможности выбираем блюда без явной свинины, но это не строгий запрет. Бульон, даси, соус, лард или сильное локальное блюдо со свининой допустимы; главное — не выдавать такое блюдо за pork-free и отмечать состав, когда он известен.",
       "ja": "豚肉はできれば避けたいですが、絶対ではありません。豚肉、ベーコン、ラード、豚骨スープが入っている場合は教えてください。",
       "ru": "Свинину по возможности предпочитаю не брать, но строгого запрета нет. Пожалуйста, скажите, если в блюде есть свинина, бекон, свиной жир или tonkotsu-бульон."
-    }
+    },
+    "checked": "5 сентября 2026"
   },
   "flights": [
     {
@@ -93,159 +94,132 @@
     "outbound": {
       "id": "beijing-stopover",
       "dateLabel": "19–21 сентября · Москва → Пекин → Осака",
-      "title": "Пекин без гонки после ночного рейса",
-      "summary": "Один компактный культурный коридор, ранний возврат в отель у аэропорта и защищённый HU473 утром.",
+      "title": "Пекин · Palace Museum → Jingshan → Gulou → Shichahai",
+      "summary": "Основной маршрут 20.09 теперь строится вокруг Forbidden City; Lama Temple — только Plan B, Wudaoying и Tiananmen Square не входят в базовый сценарий.",
       "timeline": [
         {
-          "time": "19.09 · 16:30",
-          "title": "Быть в SVO",
-          "detail": "Регистрация HU7986, проверить конечный пункт багажной бирки: PEK или KIX.",
+          "time": "08:55",
+          "title": "Прилёт в PEK",
+          "detail": "Оформить транзитный въезд. Если багаж только до PEK — получить его.",
+          "kind": "anchor",
           "mapLinks": [
             {
-              "label": "Sheremetyevo Airport Terminal C",
-              "url": "https://www.google.com/maps/search/?api=1&query=Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia"
-            }
-          ]
-        },
-        {
-          "time": "20:05",
-          "title": "HU7986 · SVO → PEK",
-          "detail": "Ночной перелёт; паспорт и бронь HU473 держать в ручной клади.",
-          "mapLinks": [
-            {
-              "label": "Sheremetyevo Airport Terminal C",
-              "url": "https://www.google.com/maps/search/?api=1&query=Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia"
-            },
-            {
-              "label": "Beijing Capital Airport Terminal 2",
+              "label": "PEK",
               "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China"
             }
           ]
         },
         {
-          "time": "20.09 · 08:55",
-          "title": "Прилёт в Пекин",
-          "detail": "Иммиграция/транзитное разрешение. Если багаж оформлен только до PEK — получить его.",
+          "time": "≈10:30",
+          "title": "Fairfield · оставить багаж",
+          "detail": "Использовать shuttle/DiDi по фактической ситуации; не тратить sightseeing-время на лишние пересадки.",
+          "kind": "move",
           "mapLinks": [
             {
-              "label": "Beijing Capital Airport Terminal 2",
-              "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China"
-            }
-          ]
-        },
-        {
-          "time": "10:45",
-          "title": "Fairfield и багаж",
-          "detail": "Позвонить в отель по Wi-Fi аэропорта и уточнить точку посадки на трансфер T2/T3; оставить вещи.",
-          "mapLinks": [
-            {
-              "label": "Beijing Capital Airport Terminal 2",
-              "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China"
-            },
-            {
-              "label": "Fairfield Beijing Capital Airport",
+              "label": "Fairfield",
               "url": "https://www.google.com/maps/search/?api=1&query=Fairfield+by+Marriott+Beijing+Capital+Airport%2C+17+Fuqian+First+Street%2C+Beijing%2C+China"
             }
           ]
         },
         {
-          "time": "12:30",
-          "title": "Lama Temple + Wudaoying",
-          "detail": "Один район, минимум пересадок; при сильной усталости оставить только храм и обед.",
+          "time": "12:15–15:00",
+          "title": "Forbidden City / Palace Museum",
+          "detail": "Базовый сценарий — afternoon entry. Билет купить сразу при открытии окна продаж; паспортные данные двух взрослых.",
+          "kind": "anchor",
           "mapLinks": [
             {
-              "label": "Lama Temple",
-              "url": "https://www.google.com/maps/search/?api=1&query=Yonghe+Temple%2C+Beijing%2C+China"
-            },
-            {
-              "label": "Wudaoying Hutong",
-              "url": "https://www.google.com/maps/search/?api=1&query=Wudaoying+Hutong%2C+Beijing%2C+China"
+              "label": "Forbidden City",
+              "url": "https://www.google.com/maps/search/?api=1&query=Palace+Museum+Forbidden+City%2C+Beijing%2C+China"
             }
           ]
         },
         {
-          "time": "15:20",
-          "title": "Shichahai + переулки у Drum Tower",
-          "detail": "Прогулка по хутунам; Jingshan — только если есть силы и ясное небо.",
+          "time": "15:05",
+          "title": "Jingshan Park",
+          "detail": "Подняться к панораме Forbidden City, если погода и силы позволяют; при задержке в музее сократить.",
+          "kind": "flex",
           "mapLinks": [
             {
-              "label": "Shichahai",
-              "url": "https://www.google.com/maps/search/?api=1&query=Shichahai%2C+Beijing%2C+China"
-            },
+              "label": "Jingshan Park",
+              "url": "https://www.google.com/maps/search/?api=1&query=Jingshan+Park%2C+Beijing%2C+China"
+            }
+          ]
+        },
+        {
+          "time": "16:15",
+          "title": "Drum Tower / Gulou → хутуны",
+          "detail": "Линейно уйти на север через Gulou и соседние хутуны без Wudaoying.",
+          "kind": "flex",
+          "mapLinks": [
             {
-              "label": "Beijing Drum Tower",
+              "label": "Drum Tower",
               "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Drum+Tower%2C+Beijing%2C+China"
             }
           ]
         },
         {
-          "time": "18:00",
-          "title": "Ранний ужин и в отель",
-          "detail": "Цель — быть в Fairfield к 20:00; подготовить документы и будильник.",
+          "time": "17:25",
+          "title": "Shichahai / Houhai",
+          "detail": "Прогулка к закату; не добавлять отдельный крюк на Tiananmen Square.",
+          "kind": "anchor",
           "mapLinks": [
             {
-              "label": "Fairfield Beijing Capital Airport",
-              "url": "https://www.google.com/maps/search/?api=1&query=Fairfield+by+Marriott+Beijing+Capital+Airport%2C+17+Fuqian+First+Street%2C+Beijing%2C+China"
+              "label": "Shichahai",
+              "url": "https://www.google.com/maps/search/?api=1&query=Shichahai%2C+Beijing%2C+China"
             }
           ]
         },
         {
-          "time": "21.09 · 06:00",
-          "title": "Shuttle к PEK T2",
-          "detail": "Fairfield shuttle отправляется от отеля каждый час ровно в :00. Забронировать минимум за 2 часа; целевой рейс 06:00.",
+          "time": "18:30–18:45",
+          "title": "Ужин · Jingmo Beijing Restaurant",
+          "detail": "Предпочтительный ресторан: 京茉北京小馆·茉莉烤鸭(南锣鼓巷·鼓楼店), No. 98 Gulou East Street. Желательно заранее забронировать стол и утку.",
+          "kind": "food",
           "mapLinks": [
             {
-              "label": "Fairfield Beijing Capital Airport",
-              "url": "https://www.google.com/maps/search/?api=1&query=Fairfield+by+Marriott+Beijing+Capital+Airport%2C+17+Fuqian+First+Street%2C+Beijing%2C+China"
-            },
-            {
-              "label": "Beijing Capital Airport Terminal 2",
-              "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China"
+              "label": "Jingmo",
+              "url": "https://www.google.com/maps/search/?api=1&query=Jingmo+Beijing+Restaurant+98+Gulou+East+Street%2C+Beijing%2C+China"
             }
           ]
         },
         {
-          "time": "08:45",
-          "title": "HU473 · PEK T2 → KIX T1",
-          "detail": "Прилёт 12:45; дальше начинается день 1 основного маршрута.",
+          "time": "≈20:30–21:00",
+          "title": "Вернуться в Fairfield",
+          "detail": "Подготовить ранний выезд в PEK T2 утром.",
+          "kind": "return",
           "mapLinks": [
             {
-              "label": "Beijing Capital Airport Terminal 2",
-              "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China"
-            },
-            {
-              "label": "KIX Terminal 1",
-              "url": "https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport+Terminal+1%2C+Osaka%2C+Japan"
+              "label": "Fairfield",
+              "url": "https://www.google.com/maps/search/?api=1&query=Fairfield+by+Marriott+Beijing+Capital+Airport%2C+17+Fuqian+First+Street%2C+Beijing%2C+China"
             }
           ]
         }
       ],
       "food": [
         {
-          "name": "Siji Minfu · Beijing duck",
+          "name": "Jingmo Beijing Restaurant / 京茉北京小馆·茉莉烤鸭(南锣鼓巷·鼓楼店)",
           "dish": "пекинская утка",
-          "fit": "Утка — базовый заказ. Свиные закуски не обязательны; soft preference не требует проверять каждый соус/гарнир.",
-          "url": "https://uri.amap.com/search?keyword=%E5%9B%9B%E5%AD%A3%E6%B0%91%E7%A6%8F%E7%83%A4%E9%B8%AD%E5%BA%97%20%E4%B8%9C%E5%9B%9B%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA&view=map&src=japan2026",
-          "amapUrl": "https://uri.amap.com/search?keyword=%E5%9B%9B%E5%AD%A3%E6%B0%91%E7%A6%8F%E7%83%A4%E9%B8%AD%E5%BA%97%20%E4%B8%9C%E5%9B%9B%E5%BA%97%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA&view=map&src=japan2026",
-          "appleMapsUrl": "https://maps.apple.com/?q=Siji%20Minfu%20Roast%20Duck%20Restaurant%20Dongsi%20Beijing",
-          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Siji+Minfu+Roast+Duck+Restaurant+Dongsi+branch%2C+Beijing%2C+China",
+          "fit": "Целевой ужин около 18:30–18:45 после Shichahai; стол и утку желательно организовать заранее.",
+          "url": "https://uri.amap.com/search?keyword=%E4%BA%AC%E8%8C%89%E5%8C%97%E4%BA%AC%E5%B0%8F%E9%A6%86%20%E9%BC%93%E6%A5%BC%E4%B8%9C%E5%A4%A7%E8%A1%9798%E5%8F%B7&view=map&src=japan2026",
+          "amapUrl": "https://uri.amap.com/search?keyword=%E4%BA%AC%E8%8C%89%E5%8C%97%E4%BA%AC%E5%B0%8F%E9%A6%86%20%E9%BC%93%E6%A5%BC%E4%B8%9C%E5%A4%A7%E8%A1%9798%E5%8F%B7&view=map&src=japan2026",
+          "appleMapsUrl": "https://maps.apple.com/?q=Jingmo%20Beijing%20Restaurant%2098%20Gulou%20East%20Street%20Beijing",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jingmo+Beijing+Restaurant+98+Gulou+East+Street%2C+Beijing%2C+China",
           "mapExempt": false
         }
       ],
       "places": [
         {
-          "name": "雍和宫",
-          "address": "北京市东城区雍和宫大街12号",
-          "amap": "https://uri.amap.com/search?keyword=%E9%9B%8D%E5%92%8C%E5%AE%AB%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E9%9B%8D%E5%92%8C%E5%AE%AB%E5%A4%A7%E8%A1%9712%E5%8F%B7&view=map&src=japan2026",
-          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E9%9B%8D%E5%92%8C%E5%AE%AB%2C+%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E9%9B%8D%E5%92%8C%E5%AE%AB%E5%A4%A7%E8%A1%9712%E5%8F%B7",
-          "appleMapsUrl": "https://maps.apple.com/?q=%E9%9B%8D%E5%92%8C%E5%AE%AB%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E9%9B%8D%E5%92%8C%E5%AE%AB%E5%A4%A7%E8%A1%9712%E5%8F%B7"
+          "name": "景山公园",
+          "address": "北京市西城区景山西街44号",
+          "amap": "https://uri.amap.com/search?keyword=%E6%99%AF%E5%B1%B1%E5%85%AC%E5%9B%AD%20%E5%8C%97%E4%BA%AC%E5%B8%82%E8%A5%BF%E5%9F%8E%E5%8C%BA%E6%99%AF%E5%B1%B1%E8%A5%BF%E8%A1%9744%E5%8F%B7&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jingshan+Park%2C+44+Jingshan+West+Street%2C+Beijing%2C+China",
+          "appleMapsUrl": "https://maps.apple.com/?q=Jingshan%20Park%2044%20Jingshan%20West%20Street%20Beijing"
         },
         {
-          "name": "五道营胡同",
-          "address": "北京市东城区五道营胡同",
-          "amap": "https://uri.amap.com/search?keyword=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C&view=map&src=japan2026",
-          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C%2C+%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C",
-          "appleMapsUrl": "https://maps.apple.com/?q=%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E4%BA%94%E9%81%93%E8%90%A5%E8%83%A1%E5%90%8C"
+          "name": "故宫博物院",
+          "address": "北京市东城区景山前街4号",
+          "amap": "https://uri.amap.com/search?keyword=%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E6%99%AF%E5%B1%B1%E5%89%8D%E8%A1%974%E5%8F%B7&view=map&src=japan2026",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Palace+Museum+Forbidden+City%2C+4+Jingshan+Front+Street%2C+Beijing%2C+China",
+          "appleMapsUrl": "https://maps.apple.com/?q=Palace%20Museum%204%20Jingshan%20Front%20Street%20Beijing"
         },
         {
           "name": "什刹海",
@@ -837,6 +811,16 @@
               "url": "https://tabelog.com/en/kyoto/A2601/A260301/26002441/",
               "pick": false,
               "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Gion+Karyo%2C+Kyoto%2C+Japan"
+            },
+            {
+              "name": "Sushi no Musashi Sanjo Honten",
+              "score": "3.4+",
+              "dish": "kaiten-zushi / conveyor-belt sushi",
+              "why": "Запланированный опыт классического суши-конвейера с реально вращающейся лентой.",
+              "route": "Без брони; встроить гибко по очереди в Kyoto, не защищать отдельным временным слотом.",
+              "url": "https://tabelog.com/en/kyoto/A2601/A260201/26000992/",
+              "pick": false,
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sushi+no+Musashi+Sanjo+Honten%2C+Kyoto%2C+Japan"
             }
           ]
         }
@@ -1018,25 +1002,25 @@
         },
         {
           "label": "Ужин · Shinbashi",
-          "time": "19:15",
-          "note": "Imaasa — защищённый сукияки-вечер; суши и якитори остаются только резервами при срыве подтверждения.",
+          "time": "≈19:15",
+          "note": "Защищённого ресторана нет. После Хаконе сохранить гибкость; Imaasa — только необязательный вариант, если отдельно решите его бронировать.",
           "options": [
             {
               "name": "Sukiyaki Imaasa",
               "score": "3.34",
               "dish": "сукияки из вагю",
-              "why": "Главный токийский ужин и отдельный классический жанр.",
-              "route": "Бронь через форму не позднее чем за 5 дней; подтверждена только после ответа ресторана. Базово курс Take, текущую поставку Мацусака уточнить.",
+              "why": "Необязательный вариант сукияки, только если отдельно решите сделать этот ужин.",
+              "route": "Не является To Do и не защищён временем. Бронировать только по отдельному решению пользователя.",
               "url": "https://tabelog.com/en/tokyo/A1301/A130103/13007805/",
-              "pick": true,
+              "pick": false,
               "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sukiyaki+Imaasa%2C+Hakone%2FTokyo%2C+Japan"
             },
             {
               "name": "Shimbashi Tsuruhachi",
               "score": "3.82",
               "dish": "эдомаэ-суши",
-              "why": "Высокий гастрономический резерв Токио.",
-              "route": "Только бронь и высокий бюджет ¥20–30k; больше не основной выбор дня.",
+              "why": "Высокий гастрономический вариант, если заранее сознательно выбрана отдельная бронь.",
+              "route": "Не базовый выбор дня; только при отдельном решении и бронировании.",
               "url": "https://tabelog.com/en/tokyo/A1301/A130103/13173432/",
               "pick": false,
               "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Shimbashi+Tsuruhachi%2C+Hakone%2FTokyo%2C+Japan"
@@ -1046,7 +1030,7 @@
               "score": "3.46",
               "dish": "якитори",
               "why": "Специализированный ужин из птицы без туристического шоу.",
-              "route": "Резерв при срыве Imaasa; лучше бронировать, свинина в дополнительных блюдах не блокирует вариант.",
+              "route": "Вариант только по фактическому желанию; предварительную бронь делать лишь при отдельном решении.",
               "url": "https://tabelog.com/en/tokyo/A1301/A130103/13268602/",
               "pick": false,
               "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tori+Sato%2C+Hakone%2FTokyo%2C+Japan"
@@ -1381,6 +1365,93 @@
               "url": "https://www.narita-airport.jp/en/shop/shop-search/t1_kyotatsu_north/",
               "pick": false,
               "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sushi+Kyotatsu%2C+Tokyo%2FNarita%2C+Japan"
+            }
+          ]
+        }
+      ]
+    },
+    "sep-19-departure": {
+      "alternatives": [
+        {
+          "name": "SVO · тихая зона после контроля",
+          "delta": "без крюка",
+          "when": "Если регистрация и контроль прошли быстро",
+          "swap": "Не уходить из терминала и не рисковать посадкой.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia"
+        }
+      ],
+      "meals": [
+        {
+          "label": "Ужин · перелёт",
+          "time": "по расписанию",
+          "note": "Не строить отдельный гастрономический план перед ночным рейсом.",
+          "options": [
+            {
+              "name": "Бортовое питание / SVO",
+              "score": "включено",
+              "dish": "по ситуации",
+              "why": "Главная цель — спокойный вылет.",
+              "route": "Без отдельного крюка.",
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia"
+            }
+          ]
+        }
+      ]
+    },
+    "sep-20-beijing": {
+      "alternatives": [
+        {
+          "name": "Lama Temple",
+          "delta": "Plan B",
+          "when": "Только если нет билета Forbidden City",
+          "swap": "Заменяет Palace Museum; не добавляется поверх него.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Yonghe+Temple%2C+Beijing%2C+China"
+        }
+      ],
+      "meals": [
+        {
+          "label": "Ужин · Gulou",
+          "time": "18:30–18:45",
+          "note": "Реальный To Do: стол лучше организовать заранее.",
+          "options": [
+            {
+              "name": "Jingmo Beijing Restaurant",
+              "score": "проверить",
+              "dish": "пекинская утка",
+              "why": "Финал компактного северного маршрута без обратного крюка.",
+              "route": "No. 98 Gulou East Street; затем Fairfield.",
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Jingmo+Beijing+Restaurant+98+Gulou+East+Street%2C+Beijing%2C+China"
+            }
+          ]
+        }
+      ]
+    },
+    "oct-03-chengdu": {
+      "alternatives": [
+        {
+          "name": "Daci Temple",
+          "delta": "+20–30 мин",
+          "when": "Если Panda Base закончена вовремя",
+          "swap": "Только рядом с Taikoo Li; сокращается первым при задержке.",
+          "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Daci+Temple%2C+Chengdu%2C+China"
+        }
+      ],
+      "meals": [
+        {
+          "label": "Ранний обед · Taikoo Li",
+          "time": "11:20",
+          "note": "Выбрать один быстрый локальный вариант; dan dan noodles/chaoshou могут содержать свинину.",
+          "options": [
+            {
+              "name": "Quick lunch near Taikoo Li",
+              "score": "—",
+              "dish": "dan dan noodles / chaoshou / tofu",
+              "why": "Последний локальный приём пищи без длинного крюка.",
+              "route": "Выбирать по очереди на месте.",
+              "pick": true,
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Taikoo+Li+Chengdu%2C+China"
             }
           ]
         }

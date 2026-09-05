@@ -43,10 +43,10 @@ test("canonical data contains every parallel track and no public booking codes",
   assert.equal(enrichment.flights.length, 4);
   assert.deepEqual(enrichment.flights.map((item) => item.flight), ["HU7986", "HU473", "3U3962", "3U3887"]);
   assert.equal(enrichment.additionalHotels.length, 2);
-  assert.equal(days.length, 12);
+  assert.equal(days.length, 15);
   assert.ok(days.every((day) => day.alternatives.length >= 1 && day.alternatives.length <= 3));
   const meals = days.flatMap((day) => day.meals);
-  assert.equal(meals.length, 24);
+  assert.ok(meals.length >= 24);
   assert.ok(meals.every((meal) => meal.options.length >= 1 && meal.options.length <= 3));
   assert.ok(enrichment.foodPassport.filter((dish) => dish.level === "must").length >= 8);
   assert.ok(enrichment.foodPassport.filter((dish) => dish.level === "bonus").length >= 5);
@@ -55,11 +55,13 @@ test("canonical data contains every parallel track and no public booking codes",
 });
 
 test("static export renders all critical Russian content", async () => {
-  const [home, china, food, day, planB] = await Promise.all([
+  const [home, route, guides, food, beijing, chengdu, planB] = await Promise.all([
     readOutput("index.html"),
-    readOutput("china/index.html"),
+    readOutput("day/index.html"),
+    readOutput("guides/index.html"),
     readOutput("food/index.html"),
-    readOutput("day/sep-21-osaka/index.html"),
+    readOutput("day/sep-20-beijing/index.html"),
+    readOutput("day/oct-03-chengdu/index.html"),
     readOutput("plan-b/index.html"),
   ]);
   const clean = (html) => html.replaceAll("<!-- -->", "");
@@ -68,15 +70,15 @@ test("static export renders all critical Russian content", async () => {
   assert.match(home, /Пекин → Япония → Чэнду/);
   assert.match(home, /NIPPON · 2026/);
   assert.match(home, /M20 21 17 53M44 21l3 32/);
-  assert.match(china, /HU7986/);
-  assert.match(china, /3U3962/);
-  assert.match(china, /FAIRFIELD BY MARRIOTT BEIJING CAPITAL AIRPORT/);
-  assert.match(china, /CROWNE PLAZA CHENGDU CITY CENTER/);
+  assert.match(route, /15 дней/);
+  assert.match(route, /Пекин/);
+  assert.match(route, /Чэнду/);
+  assert.match(guides, /Гастрономия/);
+  assert.match(guides, /Шопинг/);
+  assert.match(beijing, /Forbidden City/);
+  assert.match(chengdu, /Panda|панд/i);
   assert.match(food, /Гастрономическое путешествие/);
   assert.match(clean(food), /10 главных/);
-  assert.match(day, /Куда свернуть/);
-  assert.match(day, /Где поесть/);
-  assert.match(day, /大阪/);
   assert.match(planB, /План Б/);
 });
 

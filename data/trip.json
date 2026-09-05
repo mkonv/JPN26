@@ -5,17 +5,23 @@
     "dates": "19 сентября — 3 октября 2026",
     "timezone": "Asia/Tokyo",
     "currency": "JPY",
-    "sourceChecked": "29 августа 2026 · подтверждённая транспортная дельта; полный baseline-аудит 23.08",
-    "version": "2026.08.29-v11-confirmed-seats",
+    "sourceChecked": "5 сентября 2026 · IA/UX restructure + confirmed booking delta",
+    "version": "2026.09.05-v13-content-integrity-fix",
     "principles": [
-      "Полный аудит 23.08.2026 и подтверждённые решения пользователя — канонический baseline",
-      "Жёсткие якоря важнее полноты списка; невозможные стыковки и закрытые точки не возвращаются",
-      "Такси — не базовый сценарий, кроме явно обозначенных аварийных/китайских сегментов",
-      "Свинина — soft preference, не запрет: сильное место или более простая логистика могут иметь приоритет; наличие свинины помечается явно",
-      "Критичное продублировано офлайн; продукты с live-QR прямо помечаются как требующие интернет"
+      "Единый end-to-end маршрут: Москва → Пекин → Япония → Чэнду → Москва",
+      "В хронологии перелёты показаны кратко; номер рейса, терминалы и билетные детали — в «Билеты и транспорт»",
+      "Жёсткие якоря и подтверждённые брони важнее полноты списка; DONE не возвращается в action",
+      "Шопинг, гастрономия и альтернативы — контекстные параллельные слои и не меняют sightseeing без отдельного решения",
+      "Критичное продублировано офлайн; live-QR и внешние сервисы требуют сети"
     ]
   },
   "cityRanges": [
+    {
+      "city": "Beijing",
+      "label": "Пекин",
+      "dates": "19–21.09",
+      "color": "china"
+    },
     {
       "city": "Osaka",
       "label": "Осака",
@@ -39,6 +45,12 @@
       "label": "Токио",
       "dates": "28.09–02.10",
       "color": "ink"
+    },
+    {
+      "city": "Chengdu",
+      "label": "Чэнду",
+      "dates": "02–03.10",
+      "color": "china"
     }
   ],
   "hotels": [
@@ -77,32 +89,310 @@
   ],
   "days": [
     {
-      "id": "sep-21-osaka",
+      "id": "sep-19-departure",
       "number": 1,
-      "date": "2026-09-21",
-      "dateLabel": "21 сентября · понедельник",
-      "city": "Осака",
-      "title": "Прилёт и мягкий вход",
-      "summary": "Без героизма после перелёта: заселиться, освоить Umeda и сделать только разведку по магазинам.",
+      "date": "2026-09-19",
+      "dateLabel": "19 сентября · суббота",
+      "city": "Москва → Пекин",
+      "title": "Старт поездки",
+      "summary": "Спокойный выезд в SVO, проверка багажной бирки и ночной перелёт в Пекин.",
       "load": "лёгкая",
-      "distance": "5–7 км",
+      "distance": "—",
       "wake": "—",
-      "principle": "Сохранить силы на раннюю Нару; ничего не догонять после задержки рейса.",
+      "principle": "Не усложнять день перед ночным перелётом; главный контроль — документы, багажная бирка и следующий международный сегмент.",
       "anchors": [
         {
-          "time": "12:45",
-          "label": "KIX · HU473"
+          "time": "16:30",
+          "label": "SVO C"
         },
         {
-          "time": "15:45",
-          "label": "Отель"
+          "time": "20:05",
+          "label": "SVO → PEK"
         }
       ],
       "timeline": [
         {
+          "time": "16:30",
+          "title": "Прибыть в SVO C",
+          "detail": "Заложить запас на международную регистрацию. Паспорт, бронь Fairfield и следующий сегмент PEK → KIX держать под рукой.",
+          "kind": "anchor",
+          "mapLinks": [
+            {
+              "label": "SVO Terminal C",
+              "url": "https://www.google.com/maps/search/?api=1&query=Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia"
+            }
+          ]
+        },
+        {
+          "time": "на регистрации",
+          "title": "Проверить багажную бирку",
+          "detail": "Физически прочитать конечный аэропорт на бирке: PEK или KIX. Не угадывать по словам сотрудника.",
+          "kind": "task",
+          "mapLinks": [
+            {
+              "label": "SVO Terminal C",
+              "url": "https://www.google.com/maps/search/?api=1&query=Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia"
+            }
+          ]
+        },
+        {
+          "time": "20:05",
+          "title": "SVO → PEK",
+          "detail": "Ночной перелёт. Номер рейса, терминал и прочие билетные детали — в «Карман → Билеты и транспорт».",
+          "kind": "move",
+          "mapLinks": [
+            {
+              "label": "SVO Terminal C",
+              "url": "https://www.google.com/maps/search/?api=1&query=Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia"
+            },
+            {
+              "label": "PEK",
+              "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China"
+            }
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "sep-20-beijing",
+      "number": 2,
+      "date": "2026-09-20",
+      "dateLabel": "20 сентября · воскресенье",
+      "city": "Пекин",
+      "title": "Forbidden City и хутуны",
+      "summary": "После прилёта — Fairfield, Palace Museum во второй половине дня, Jingshan, Gulou и Shichahai к закату.",
+      "load": "высокая",
+      "distance": "10–13 км",
+      "wake": "в самолёте",
+      "principle": "Основной день строится вокруг билета Forbidden City. Tiananmen Square не является обязательным пунктом; Lama Temple — только Plan B, если билет в Palace Museum не получен.",
+      "anchors": [
+        {
+          "time": "08:55",
+          "label": "PEK"
+        },
+        {
+          "time": "12:15–15:00",
+          "label": "Forbidden City"
+        },
+        {
+          "time": "18:30",
+          "label": "Jingmo"
+        }
+      ],
+      "timeline": [
+        {
+          "time": "08:55",
+          "title": "Прилёт в PEK",
+          "detail": "Оформить транзитный въезд. Если багаж только до PEK — получить его.",
+          "kind": "anchor",
+          "mapLinks": [
+            {
+              "label": "PEK",
+              "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China"
+            }
+          ]
+        },
+        {
+          "time": "≈10:30",
+          "title": "Fairfield · оставить багаж",
+          "detail": "Использовать shuttle/DiDi по фактической ситуации; не тратить sightseeing-время на лишние пересадки.",
+          "kind": "move",
+          "mapLinks": [
+            {
+              "label": "Fairfield",
+              "url": "https://www.google.com/maps/search/?api=1&query=Fairfield+by+Marriott+Beijing+Capital+Airport%2C+17+Fuqian+First+Street%2C+Beijing%2C+China"
+            }
+          ]
+        },
+        {
+          "time": "12:15–15:00",
+          "title": "Forbidden City / Palace Museum",
+          "detail": "Базовый сценарий — afternoon entry. Билет купить сразу при открытии окна продаж; паспортные данные двух взрослых.",
+          "kind": "anchor",
+          "mapLinks": [
+            {
+              "label": "Forbidden City",
+              "url": "https://www.google.com/maps/search/?api=1&query=Palace+Museum+Forbidden+City%2C+Beijing%2C+China"
+            }
+          ]
+        },
+        {
+          "time": "15:05",
+          "title": "Jingshan Park",
+          "detail": "Подняться к панораме Forbidden City, если погода и силы позволяют; при задержке в музее сократить.",
+          "kind": "flex",
+          "mapLinks": [
+            {
+              "label": "Jingshan Park",
+              "url": "https://www.google.com/maps/search/?api=1&query=Jingshan+Park%2C+Beijing%2C+China"
+            }
+          ]
+        },
+        {
+          "time": "16:15",
+          "title": "Drum Tower / Gulou → хутуны",
+          "detail": "Линейно уйти на север через Gulou и соседние хутуны без Wudaoying.",
+          "kind": "flex",
+          "mapLinks": [
+            {
+              "label": "Drum Tower",
+              "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Drum+Tower%2C+Beijing%2C+China"
+            }
+          ]
+        },
+        {
+          "time": "17:25",
+          "title": "Shichahai / Houhai",
+          "detail": "Прогулка к закату; не добавлять отдельный крюк на Tiananmen Square.",
+          "kind": "anchor",
+          "mapLinks": [
+            {
+              "label": "Shichahai",
+              "url": "https://www.google.com/maps/search/?api=1&query=Shichahai%2C+Beijing%2C+China"
+            }
+          ]
+        },
+        {
+          "time": "18:30–18:45",
+          "title": "Ужин · Jingmo Beijing Restaurant",
+          "detail": "Предпочтительный ресторан: 京茉北京小馆·茉莉烤鸭(南锣鼓巷·鼓楼店), No. 98 Gulou East Street. Желательно заранее забронировать стол и утку.",
+          "kind": "food",
+          "mapLinks": [
+            {
+              "label": "Jingmo",
+              "url": "https://www.google.com/maps/search/?api=1&query=Jingmo+Beijing+Restaurant+98+Gulou+East+Street%2C+Beijing%2C+China"
+            }
+          ]
+        },
+        {
+          "time": "≈20:30–21:00",
+          "title": "Вернуться в Fairfield",
+          "detail": "Подготовить ранний выезд в PEK T2 утром.",
+          "kind": "return",
+          "mapLinks": [
+            {
+              "label": "Fairfield",
+              "url": "https://www.google.com/maps/search/?api=1&query=Fairfield+by+Marriott+Beijing+Capital+Airport%2C+17+Fuqian+First+Street%2C+Beijing%2C+China"
+            }
+          ]
+        }
+      ],
+      "alternate": {
+        "title": "Plan B · если нет билета Forbidden City",
+        "corrected": true,
+        "note": "Lama Temple используется только как резерв вместо Palace Museum, а не как второй обязательный район.",
+        "timeline": [
+          {
+            "time": "12:30",
+            "title": "Lama Temple",
+            "detail": "Главный культурный якорь Plan B."
+          },
+          {
+            "time": "15:00",
+            "title": "Gulou + хутуны",
+            "detail": "Сохранить северный городской коридор."
+          },
+          {
+            "time": "17:20",
+            "title": "Shichahai / Houhai",
+            "detail": "Закат и далее Jingmo по тому же вечернему плану."
+          }
+        ]
+      },
+      "decision": {
+        "title": "Есть ли билет Palace Museum",
+        "trigger": "Если afternoon ticket на 20.09 не получен после открытия продаж.",
+        "protect": "Gulou → Shichahai → Jingmo и ранний возврат в Fairfield.",
+        "cut": "Forbidden City/Jingshan как связку.",
+        "fallback": "Перейти на Lama Temple и не добавлять Wudaoying."
+      },
+      "links": [
+        {
+          "label": "Palace Museum tickets",
+          "url": "https://intl.dpm.org.cn/index.html"
+        },
+        {
+          "label": "NIA · transit policy",
+          "url": "https://en.nia.gov.cn/n147418/n147463/c183412/content.html"
+        },
+        {
+          "label": "Amap · Forbidden City",
+          "url": "https://uri.amap.com/search?keyword=%E6%95%85%E5%AE%AB%E5%8D%9A%E7%89%A9%E9%99%A2%20%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E6%99%AF%E5%B1%B1%E5%89%8D%E8%A1%974%E5%8F%B7&view=map&src=japan2026"
+        },
+        {
+          "label": "Amap · Jingshan",
+          "url": "https://uri.amap.com/search?keyword=%E6%99%AF%E5%B1%B1%E5%85%AC%E5%9B%AD%20%E5%8C%97%E4%BA%AC%E5%B8%82%E8%A5%BF%E5%9F%8E%E5%8C%BA%E6%99%AF%E5%B1%B1%E8%A5%BF%E8%A1%9744%E5%8F%B7&view=map&src=japan2026"
+        },
+        {
+          "label": "Amap · Jingmo",
+          "url": "https://uri.amap.com/search?keyword=%E4%BA%AC%E8%8C%89%E5%8C%97%E4%BA%AC%E5%B0%8F%E9%A6%86%20%E9%BC%93%E6%A5%BC%E4%B8%9C%E5%A4%A7%E8%A1%9798%E5%8F%B7&view=map&src=japan2026"
+        }
+      ]
+    },
+    {
+      "id": "sep-21-osaka",
+      "number": 3,
+      "date": "2026-09-21",
+      "dateLabel": "21 сентября · понедельник",
+      "city": "Осака",
+      "title": "Прилёт и мягкий вход",
+      "summary": "Ранний выезд из Fairfield, перелёт PEK → KIX и мягкий вход в Осаку без попытки догонять программу после дороги.",
+      "load": "лёгкая",
+      "distance": "5–7 км",
+      "wake": "—",
+      "principle": "Защитить ранний выезд и международный перелёт; после KIX сохранить силы на Нару и ничего не догонять при задержке.",
+      "anchors": [
+        {
+          "time": "06:00",
+          "label": "Fairfield → PEK T2"
+        },
+        {
+          "time": "08:45",
+          "label": "PEK → KIX"
+        },
+        {
+          "time": "12:45",
+          "label": "KIX"
+        }
+      ],
+      "timeline": [
+        {
+          "time": "06:00",
+          "title": "Fairfield → PEK T2",
+          "detail": "Целевой shuttle отеля; подтвердить/забронировать 18.09. Подробности и контакты — в «Билеты и транспорт».",
+          "kind": "move",
+          "mapLinks": [
+            {
+              "label": "Fairfield",
+              "url": "https://www.google.com/maps/search/?api=1&query=Fairfield+by+Marriott+Beijing+Capital+Airport%2C+17+Fuqian+First+Street%2C+Beijing%2C+China"
+            },
+            {
+              "label": "PEK Terminal 2",
+              "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Capital+International+Airport+Terminal+2%2C+Beijing%2C+China"
+            }
+          ]
+        },
+        {
+          "time": "08:45",
+          "title": "PEK → KIX",
+          "detail": "Международный перелёт; прилёт 12:45. Номер рейса, терминалы, багаж и билет — в «Билеты и транспорт».",
+          "kind": "move",
+          "mapLinks": [
+            {
+              "label": "PEK",
+              "url": "https://www.google.com/maps/search/?api=1&query=Beijing+Capital+International+Airport%2C+Beijing%2C+China"
+            },
+            {
+              "label": "KIX",
+              "url": "https://www.google.com/maps/search/?api=1&query=Kansai+International+Airport%2C+Osaka%2C+Japan"
+            }
+          ]
+        },
+        {
           "time": "12:45",
           "title": "Прилёт в KIX",
-          "detail": "HU473. Иммиграция, багаж и наличные: не привязывать завершение формальностей к 14:15; фактическое время зависит от очередей.",
+          "detail": "Иммиграция, багаж и наличные: не привязывать завершение формальностей к 14:15; фактическое время зависит от очередей.",
           "kind": "anchor",
           "mapLinks": [
             {
@@ -181,7 +471,7 @@
     },
     {
       "id": "sep-22-nara",
-      "number": 2,
+      "number": 4,
       "date": "2026-09-22",
       "dateLabel": "22 сентября · вторник",
       "city": "Нара → Осака",
@@ -417,7 +707,7 @@
     },
     {
       "id": "sep-23-himeji",
-      "number": 3,
+      "number": 5,
       "date": "2026-09-23",
       "dateLabel": "23 сентября · среда",
       "city": "Химэдзи → Осака",
@@ -631,7 +921,7 @@
     },
     {
       "id": "sep-24-miyajima",
-      "number": 4,
+      "number": 6,
       "date": "2026-09-24",
       "dateLabel": "24 сентября · четверг",
       "city": "Миядзима → Хиросима",
@@ -877,7 +1167,7 @@
     },
     {
       "id": "sep-25-kyoto",
-      "number": 5,
+      "number": 7,
       "date": "2026-09-25",
       "dateLabel": "25 сентября · пятница",
       "city": "Киото",
@@ -905,7 +1195,7 @@
         {
           "time": "07:00–08:30",
           "title": "Завтрак и спокойное утро в Osaka",
-        "detail": "Позавтракать в Hotel Hankyu, спокойно собрать вещи и сохранить позднее окно выезда.",
+          "detail": "Позавтракать в Hotel Hankyu, спокойно собрать вещи и сохранить позднее окно выезда.",
           "kind": "food",
           "mapLinks": [
             {
@@ -1109,7 +1399,7 @@
     },
     {
       "id": "sep-26-kyoto",
-      "number": 6,
+      "number": 8,
       "date": "2026-09-26",
       "dateLabel": "26 сентября · суббота",
       "city": "Киото",
@@ -1368,7 +1658,7 @@
     },
     {
       "id": "sep-27-hakone",
-      "number": 7,
+      "number": 9,
       "date": "2026-09-27",
       "dateLabel": "27 сентября · воскресенье",
       "city": "Киото → Хаконе",
@@ -1525,7 +1815,7 @@
     },
     {
       "id": "sep-28-tokyo",
-      "number": 8,
+      "number": 10,
       "date": "2026-09-28",
       "dateLabel": "28 сентября · понедельник",
       "city": "Хаконе → Токио",
@@ -1534,7 +1824,7 @@
       "load": "средняя",
       "distance": "9–11 км",
       "wake": "06:45",
-      "principle": "Fuji и работа транспорта важнее галочек; вечерняя бронь Imaasa в 19:15 защищена.",
+      "principle": "Fuji и работа транспорта важнее галочек; вечер в Shinbashi гибкий, без защищённой ресторанной брони.",
       "anchors": [
         {
           "time": "09:50",
@@ -1545,8 +1835,8 @@
           "label": "Zōjō-ji"
         },
         {
-          "time": "19:15",
-          "label": "Imaasa"
+          "time": "≈19:15",
+          "label": "Shinbashi"
         }
       ],
       "timeline": [
@@ -1719,14 +2009,14 @@
           ]
         },
         {
-          "time": "19:15",
-          "title": "Sukiyaki Imaasa · Shinbashi",
-          "detail": "Бронь обязательна. Курс Take; при бронировании подтвердить текущую говядину. Мягкое предпочтение по свинине можно сообщить, но курс не блокировать из-за бульона/соуса/гарнира.",
-          "kind": "anchor",
+          "time": "≈19:15",
+          "title": "Ужин · Shinbashi",
+          "detail": "Без обязательной брони. Imaasa — только если отдельно решите его забронировать; иначе выбрать ужин рядом с Shinbashi/Hotel 1899 по фактической ситуации.",
+          "kind": "food",
           "mapLinks": [
             {
-              "label": "Sukiyaki Imaasa Shinbashi",
-              "url": "https://www.google.com/maps/search/?api=1&query=Imaasa+Shinbashi%2C+Tokyo%2C+Japan"
+              "label": "Shinbashi Station",
+              "url": "https://www.google.com/maps/search/?api=1&query=Shimbashi+Station%2C+Tokyo%2C+Japan"
             }
           ]
         }
@@ -1750,10 +2040,6 @@
         {
           "label": "Issa",
           "url": "https://hakone-japan.com/things-to-do/foods-shops/shops/yosegi-zaiku-store-issa/"
-        },
-        {
-          "label": "Imaasa · бронь",
-          "url": "https://sukiyaki.imaasa.com/reserve/"
         }
       ],
       "photoSpots": [
@@ -1791,7 +2077,7 @@
     },
     {
       "id": "sep-29-tokyo",
-      "number": 9,
+      "number": 11,
       "date": "2026-09-29",
       "dateLabel": "29 сентября · вторник",
       "city": "Токио",
@@ -1983,137 +2269,168 @@
     },
     {
       "id": "sep-30-tokyo",
-      "number": 10,
+      "number": 12,
       "date": "2026-09-30",
       "dateLabel": "30 сентября · среда",
-      "city": "Токио / резерв на Фудзи",
-      "title": "День, который выбирает погода",
-      "summary": "Базово — Hiroshige, TNM, Edo-Tokyo и Ginza. При чистом Fuji — ранний поезд к Chureito и Kawaguchiko.",
-      "load": "средняя",
-      "distance": "10–12 км",
-      "wake": "06:30 / 06:15 Fuji",
-      "principle": "Решение принимается 29 сентября вечером; после него не смешивать два сценария.",
+      "city": "Фудзи / Kawaguchiko",
+      "title": "Chureito, Kawaguchiko и Oishi Park",
+      "summary": "Основной план — уже забронированный Fuji-day. Tokyo остаётся погодным Plan B.",
+      "load": "высокая",
+      "distance": "11–14 км",
+      "wake": "05:45",
+      "principle": "Fuji — базовый сценарий, потому что транспорт уже куплен. Отменять его только по погоде, а не ради спонтанной перестановки Tokyo.",
       "anchors": [
         {
-          "time": "09:30",
-          "label": "Hiroshige"
+          "time": "07:30",
+          "label": "Fuji Excursion No.3"
         },
         {
-          "time": "08:30",
-          "label": "Fuji No.7"
+          "time": "09:20",
+          "label": "Chureito"
+        },
+        {
+          "time": "16:48",
+          "label": "No.44 → Shinjuku"
         }
       ],
       "timeline": [
         {
           "time": "07:30",
-          "title": "Tsukiji Outer Market",
-          "detail": "Короткий завтрак; при Fuji-сценарии пропустить.",
-          "kind": "food",
-          "mapLinks": [
-            {
-              "label": "Tsukiji Outer Market",
-              "url": "https://www.google.com/maps/search/?api=1&query=Tsukiji+Outer+Market%2C+Tokyo%2C+Japan"
-            }
-          ]
-        },
-        {
-          "time": "09:15",
-          "title": "Tokyo National Museum",
-          "detail": "К входу до открытия выставки.",
+          "title": "Shinjuku → Shimoyoshida",
+          "detail": "Fuji Excursion No.3, прибытие 09:11. Билет уже куплен; детали мест — в «Билеты и транспорт».",
           "kind": "move",
           "mapLinks": [
             {
-              "label": "Tokyo National Museum",
-              "url": "https://www.google.com/maps/search/?api=1&query=Tokyo+National+Museum%2C+Tokyo%2C+Japan"
+              "label": "Shinjuku Station",
+              "url": "https://www.google.com/maps/search/?api=1&query=Shinjuku+Station%2C+Tokyo%2C+Japan"
+            },
+            {
+              "label": "Shimoyoshida Station",
+              "url": "https://www.google.com/maps/search/?api=1&query=Shimoyoshida+Station%2C+Fujiyoshida%2C+Japan"
             }
           ]
         },
         {
-          "time": "09:30",
-          "title": "Hiroshige · часть 1",
-          "detail": "New Perspectives on Edo Japan, 29.09–25.10. ¥1,500 или предварительно ¥1,300 до 28.09; без временного слота, включает коллекцию TNM.",
+          "time": "09:20",
+          "title": "Chureito Pagoda",
+          "detail": "Подъём к классическому виду на Fuji; не затягивать ожидание идеального кадра.",
           "kind": "anchor",
           "mapLinks": [
             {
-              "label": "Tokyo National Museum",
-              "url": "https://www.google.com/maps/search/?api=1&query=Tokyo+National+Museum%2C+Tokyo%2C+Japan"
+              "label": "Chureito Pagoda",
+              "url": "https://www.google.com/maps/search/?api=1&query=Chureito+Pagoda%2C+Fujiyoshida%2C+Japan"
             }
           ]
         },
         {
-          "time": "11:30",
-          "title": "Главное в Honkan",
-          "detail": "Только выбранные залы, не весь музей.",
-          "kind": "flex",
+          "time": "11:35",
+          "title": "Shimoyoshida → Kawaguchiko",
+          "detail": "Вернуться к станции и доехать местным поездом; далее короткий обед.",
+          "kind": "move",
           "mapLinks": [
             {
-              "label": "Tokyo National Museum Honkan",
-              "url": "https://www.google.com/maps/search/?api=1&query=Tokyo+National+Museum+Honkan%2C+Tokyo%2C+Japan"
+              "label": "Kawaguchiko Station",
+              "url": "https://www.google.com/maps/search/?api=1&query=Kawaguchiko+Station%2C+Fujikawaguchiko%2C+Japan"
             }
           ]
         },
         {
-          "time": "12:15",
-          "title": "Обед Ueno",
-          "detail": "Закончить ориентировочно к 13:10; после этого заложить переезд Ueno → Ryōgoku.",
+          "time": "12:30",
+          "title": "Обед · hoto",
+          "detail": "Выбрать один вариант рядом со станцией/по маршруту, не превращать обед в отдельный крюк.",
           "kind": "food",
           "mapExempt": true,
-          "mapExemptReason": "Конкретный ресторан Ueno выбирается в гастрономическом блоке."
+          "mapExemptReason": "Ресторан выбирается из гастрономического блока по очереди."
         },
         {
-          "time": "14:15",
-          "title": "Edo-Tokyo Museum",
-          "detail": "Постоянная экспозиция + BROTHERS IN ARMS. Музей 09:30–17:30; постоянная экспозиция ¥800, комбинированный билет ¥2,740. Билеты невозвратные — покупать только после решения по Фудзи.",
+          "time": "13:40",
+          "title": "Oishi Park",
+          "detail": "Северный берег Lake Kawaguchi; Fuji-watch по фактической видимости.",
           "kind": "anchor",
           "mapLinks": [
             {
-              "label": "Edo-Tokyo Museum",
-              "url": "https://www.google.com/maps/search/?api=1&query=Edo-Tokyo+Museum%2C+Tokyo%2C+Japan"
+              "label": "Oishi Park",
+              "url": "https://www.google.com/maps/search/?api=1&query=Oishi+Park%2C+Fujikawaguchiko%2C+Japan"
             }
           ]
         },
         {
-          "time": "19:30",
-          "title": "Ужин",
-          "detail": "Базово Ginza Kagari по фактической очереди; Yoshizawa — только если заранее сознательно забронирован. Завершить шопинг к 19:20.",
-          "kind": "food",
-          "mapExempt": true,
-          "mapExemptReason": "Ужин выбирается по очереди/броне в гастрономическом блоке."
+          "time": "15:35",
+          "title": "Вернуться к Kawaguchiko Station",
+          "detail": "Защитить запас перед обратным поездом; Lawson Kawaguchiko Ekimae — короткая фототочка только если всё по времени.",
+          "kind": "return",
+          "mapLinks": [
+            {
+              "label": "Kawaguchiko Station",
+              "url": "https://www.google.com/maps/search/?api=1&query=Kawaguchiko+Station%2C+Fujikawaguchiko%2C+Japan"
+            }
+          ]
+        },
+        {
+          "time": "16:48",
+          "title": "Kawaguchiko → Shinjuku",
+          "detail": "Fuji Excursion No.44, прибытие 18:48. Билет уже куплен.",
+          "kind": "anchor",
+          "mapLinks": [
+            {
+              "label": "Kawaguchiko Station",
+              "url": "https://www.google.com/maps/search/?api=1&query=Kawaguchiko+Station%2C+Fujikawaguchiko%2C+Japan"
+            },
+            {
+              "label": "Shinjuku Station",
+              "url": "https://www.google.com/maps/search/?api=1&query=Shinjuku+Station%2C+Tokyo%2C+Japan"
+            }
+          ]
         }
       ],
       "alternate": {
-        "title": "Резерв на Фудзи · только при ясном прогнозе",
+        "title": "Plan B · Tokyo при плохой видимости Fuji",
         "corrected": true,
-        "note": "Исправлено после проверки официального расписания: No.94 в сентябре не ходит.",
+        "note": "Это погодный fallback; он не является базовым планом при нормальной видимости.",
         "timeline": [
           {
-            "time": "08:30",
-            "title": "Fuji Excursion No.7",
-            "detail": "Shinjuku → Shimoyoshida 10:13; ¥4,010 с человека."
+            "time": "07:30",
+            "title": "Tsukiji Outer Market",
+            "detail": "Короткий завтрак; при Fuji-сценарии пропустить."
           },
           {
-            "time": "10:25",
-            "title": "Chureito Pagoda",
-            "detail": "Подъём только при видимости и приемлемой жаре."
+            "time": "09:15",
+            "title": "Tokyo National Museum",
+            "detail": "К входу до открытия выставки."
           },
           {
-            "time": "12:30",
-            "title": "Местный поезд → Kawaguchiko",
-            "detail": "Обед и Oishi Park при устойчивой видимости."
+            "time": "09:30",
+            "title": "Hiroshige · часть 1",
+            "detail": "New Perspectives on Edo Japan, 29.09–25.10. ¥1,500 или предварительно ¥1,300 до 28.09; без временного слота, включает коллекцию TNM."
           },
           {
-            "time": "16:48",
-            "title": "Fuji Excursion No.44",
-            "detail": "Kawaguchiko → Shinjuku 18:48; ¥4,200 с человека."
+            "time": "11:30",
+            "title": "Главное в Honkan",
+            "detail": "Только выбранные залы, не весь музей."
+          },
+          {
+            "time": "12:15",
+            "title": "Обед Ueno",
+            "detail": "Закончить ориентировочно к 13:10; после этого заложить переезд Ueno → Ryōgoku."
+          },
+          {
+            "time": "14:15",
+            "title": "Edo-Tokyo Museum",
+            "detail": "Постоянная экспозиция + BROTHERS IN ARMS. Музей 09:30–17:30; постоянная экспозиция ¥800, комбинированный билет ¥2,740. Билеты невозвратные — покупать только после решения по Фудзи."
+          },
+          {
+            "time": "19:30",
+            "title": "Ужин",
+            "detail": "Базово Ginza Kagari по фактической очереди; Yoshizawa — только если заранее сознательно забронирован. Завершить шопинг к 19:20."
           }
         ]
       },
       "decision": {
-        "title": "Решение 29 сентября вечером",
-        "trigger": "JMA + онлайн-камеры + облачность утром 30.09.",
-        "protect": "Выбранный сценарий целиком и обратный Fuji No.44 в 16:48.",
-        "cut": "Fuji при низкой видимости; Edo-Tokyo и Ginza при Fuji-сценарии.",
-        "fallback": "Если Fuji не едем — купить невозвратный Edo-Tokyo билет вечером 29 сентября и следовать базовому дню."
+        "title": "Погодный gate вечером 29.09",
+        "trigger": "JMA/камеры показывают устойчивую низкую видимость, сильный дождь или условия, при которых Fuji-day теряет смысл.",
+        "protect": "Если едем — оба уже купленных Fuji Excursion и обратный No.44 16:48.",
+        "cut": "Fuji-day целиком при плохой погоде; не смешивать его с Tokyo музеями.",
+        "fallback": "Остаться в Tokyo и пройти музейный Plan B."
       },
       "links": [
         {
@@ -2165,7 +2482,7 @@
     },
     {
       "id": "oct-01-asakusa",
-      "number": 11,
+      "number": 13,
       "date": "2026-10-01",
       "dateLabel": "1 октября · четверг",
       "city": "Токио",
@@ -2360,12 +2677,12 @@
     },
     {
       "id": "oct-02-departure",
-      "number": 12,
+      "number": 14,
       "date": "2026-10-02",
       "dateLabel": "2 октября · пятница",
       "city": "Токио → аэропорт",
       "title": "Narita и перелёт в Чэнду",
-      "summary": "Спокойный выезд к 3U3962: NRT T1 к 13:15, затем ночёвка в центре Чэнду.",
+      "summary": "Спокойный выезд в Narita и вечерний перелёт в Чэнду.",
       "load": "лёгкая",
       "distance": "3–5 км + аэропорт",
       "wake": "06:45",
@@ -2377,7 +2694,7 @@
         },
         {
           "time": "16:40",
-          "label": "3U3962"
+          "label": "NRT → TFU"
         }
       ],
       "timeline": [
@@ -2432,7 +2749,7 @@
         {
           "time": "13:15",
           "title": "NRT · терминал 1",
-          "detail": "Регистрация 3U3962 и багаж. До security решить еду: Kawatoyo и Dashi Chazuke En находятся landside (T1 Central 4F, before security). После security (after security) использовать только airside-вариант, например Sushi Kyotatsu.",
+          "detail": "Регистрация рейс NRT → TFU и багаж. До security решить еду: Kawatoyo и Dashi Chazuke En находятся landside (T1 Central 4F, before security). После security (after security) использовать только airside-вариант, например Sushi Kyotatsu.",
           "kind": "anchor",
           "mapLinks": [
             {
@@ -2455,8 +2772,8 @@
         },
         {
           "time": "16:40",
-          "title": "3U3962 · NRT → TFU",
-          "detail": "Sichuan Airlines, NRT T1 → Chengdu Tianfu T1, прилёт в 21:00 по билету.",
+          "title": "NRT → TFU",
+          "detail": "Перелёт в Чэнду. Номер рейса, терминалы и билетные детали — в «Карман → Билеты и транспорт».",
           "kind": "anchor",
           "mapLinks": [
             {
@@ -2489,7 +2806,7 @@
       "decision": {
         "title": "Если железная дорога к NRT нестабильна",
         "trigger": "Сбой/задержка N'EX или Access Express утром 02.10.",
-        "protect": "Прибытие в NRT T1 к 13:15 и 3U3962 в 16:40.",
+        "protect": "Прибытие в NRT T1 к 13:15 и вылет NRT → TFU в 16:40.",
         "cut": "Любую утреннюю прогулку и ресторан до регистрации.",
         "fallback": "Уехать раньше; при серьёзном сбое запросить у отеля альтернативный маршрут и рассмотреть автобус из аэропорта или такси только как аварийный вариант."
       },
@@ -2501,6 +2818,157 @@
         {
           "label": "Crowne Plaza Chengdu",
           "url": "https://www.ihg.com/crowneplaza/hotels/us/en/chengdu/ctuch/hoteldetail"
+        }
+      ]
+    },
+    {
+      "id": "oct-03-chengdu",
+      "number": 15,
+      "date": "2026-10-03",
+      "dateLabel": "3 октября · суббота",
+      "city": "Чэнду → Москва",
+      "title": "Панды и возвращение домой",
+      "summary": "Ранний Panda Base, короткий центр, багаж и международный вылет домой.",
+      "load": "высокая",
+      "distance": "8–11 км",
+      "wake": "05:45",
+      "principle": "Панды — единственный защищённый sightseeing-якорь. После 10:00 центр сокращается первым, чтобы не рисковать международным вылетом.",
+      "anchors": [
+        {
+          "time": "07:30",
+          "label": "Panda Base"
+        },
+        {
+          "time": "14:00",
+          "label": "TFU T1"
+        },
+        {
+          "time": "17:00",
+          "label": "TFU → SVO"
+        }
+      ],
+      "timeline": [
+        {
+          "time": "03.10 · по времени отеля",
+          "title": "Бесплатный Panda shuttle / резерв DiDi",
+          "detail": "С 23.06.2026 Crowne Plaza заявляет бесплатный шаттл к Panda Base. Время заранее подтвердить у отеля; если не подходит под вход 07:30 — использовать DiDi.",
+          "mapLinks": [
+            {
+              "label": "Crowne Plaza Chengdu City Center",
+              "url": "https://www.google.com/maps/search/?api=1&query=Crowne+Plaza+Chengdu+City+Center%2C+31+Zongfu+Street%2C+Chengdu%2C+China"
+            },
+            {
+              "label": "Chengdu Panda Base",
+              "url": "https://www.google.com/maps/search/?api=1&query=Chengdu+Research+Base+of+Giant+Panda+Breeding%2C+1375+Panda+Avenue%2C+Chengdu%2C+China"
+            }
+          ],
+          "kind": "move"
+        },
+        {
+          "time": "07:30",
+          "title": "Chengdu Panda Base",
+          "detail": "До 10:00. Сначала активные зоны утром; не обещать возврат в центр уже к 10:15.",
+          "mapLinks": [
+            {
+              "label": "Chengdu Panda Base",
+              "url": "https://www.google.com/maps/search/?api=1&query=Chengdu+Research+Base+of+Giant+Panda+Breeding%2C+1375+Panda+Avenue%2C+Chengdu%2C+China"
+            }
+          ],
+          "kind": "anchor"
+        },
+        {
+          "time": "10:00",
+          "title": "Выход и дорога в центр",
+          "detail": "Реалистичный ориентир возвращения к Crowne Plaza / Taikoo Li — около 10:35–10:50 при нормальном трафике.",
+          "mapLinks": [
+            {
+              "label": "Chengdu Panda Base",
+              "url": "https://www.google.com/maps/search/?api=1&query=Chengdu+Research+Base+of+Giant+Panda+Breeding%2C+1375+Panda+Avenue%2C+Chengdu%2C+China"
+            },
+            {
+              "label": "Crowne Plaza Chengdu City Center",
+              "url": "https://www.google.com/maps/search/?api=1&query=Crowne+Plaza+Chengdu+City+Center%2C+31+Zongfu+Street%2C+Chengdu%2C+China"
+            }
+          ],
+          "kind": "move"
+        },
+        {
+          "time": "10:50",
+          "title": "Taikoo Li + Daci Temple",
+          "detail": "Короткий коридор рядом с отелем; первым сокращается при задержке Panda Base.",
+          "mapLinks": [
+            {
+              "label": "Chengdu IFS / Taikoo Li",
+              "url": "https://www.google.com/maps/search/?api=1&query=Sino-Ocean+Taikoo+Li+Chengdu%2C+8+Zhongshamao+Street%2C+Chengdu%2C+China"
+            },
+            {
+              "label": "Daci Temple",
+              "url": "https://www.google.com/maps/search/?api=1&query=Daci+Temple%2C+21+Dacisi+Road%2C+Chengdu%2C+China"
+            }
+          ],
+          "kind": "flex"
+        },
+        {
+          "time": "11:20",
+          "title": "Ранний обед",
+          "detail": "Soft preference: dan dan noodles и hongyou chaoshou снова допустимы как знаковые блюда Чэнду, хотя типично могут содержать свинину. Выбрать один быстрый локальный обед у Taikoo Li и не растягивать остановку.",
+          "mapLinks": [
+            {
+              "label": "Chengdu IFS / Taikoo Li",
+              "url": "https://www.google.com/maps/search/?api=1&query=Sino-Ocean+Taikoo+Li+Chengdu%2C+8+Zhongshamao+Street%2C+Chengdu%2C+China"
+            }
+          ],
+          "kind": "food"
+        },
+        {
+          "time": "12:10",
+          "title": "Забрать багаж",
+          "detail": "Выехать из отеля около 12:30; не растягивать центр.",
+          "mapLinks": [
+            {
+              "label": "Crowne Plaza Chengdu City Center",
+              "url": "https://www.google.com/maps/search/?api=1&query=Crowne+Plaza+Chengdu+City+Center%2C+31+Zongfu+Street%2C+Chengdu%2C+China"
+            }
+          ],
+          "kind": "flex"
+        },
+        {
+          "time": "14:00",
+          "title": "TFU T1",
+          "detail": "Международная регистрация, погранконтроль и запас перед вылетом домой.",
+          "mapLinks": [
+            {
+              "label": "Chengdu Tianfu Airport Terminal 1",
+              "url": "https://www.google.com/maps/search/?api=1&query=Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China"
+            }
+          ],
+          "kind": "anchor"
+        },
+        {
+          "time": "17:00",
+          "title": "TFU T1 → SVO C",
+          "detail": "Перелёт в Москву. Номер рейса, терминалы и билетные детали — в «Карман → Билеты и транспорт».",
+          "mapLinks": [
+            {
+              "label": "Chengdu Tianfu Airport Terminal 1",
+              "url": "https://www.google.com/maps/search/?api=1&query=Chengdu+Tianfu+International+Airport+Terminal+1%2C+Chengdu%2C+China"
+            },
+            {
+              "label": "Sheremetyevo Airport Terminal C",
+              "url": "https://www.google.com/maps/search/?api=1&query=Sheremetyevo+International+Airport+Terminal+C%2C+Moscow%2C+Russia"
+            }
+          ],
+          "kind": "anchor"
+        }
+      ],
+      "links": [
+        {
+          "label": "Chengdu Panda Base",
+          "url": "https://www.panda.org.cn/en/"
+        },
+        {
+          "label": "Panda tickets",
+          "url": "https://m.panda.org.cn/en/service/ticket/"
         }
       ]
     }
@@ -2518,16 +2986,15 @@
       "url": "https://www.e-tix.jp/nezu-muse/en/"
     },
     {
-      "id": "matsusaka-m",
-      "group": "Еда · бронировать заранее",
+      "id": "departure",
       "status": "done",
       "deadline": "Готово",
-      "sortDate": "2026-08-23",
-      "title": "Yakiniku M Fukushima Honten · 23.09 20:00",
-      "price": "По меню · бронь Accepted",
-      "action": "TableCheck подтверждает стол на 23.09.2026 в 20:00 для 2 человек. Прийти всей компанией вовремя; бронь освобождают через 15 минут опоздания.",
-      "offline": "TableCheck confirmation · Accepted + адрес 6-3-7 Fukushima",
-      "url": "https://www.tablecheck.com/en/shops/matsusakamfukushima/reserve"
+      "sortDate": "2026-08-13",
+      "title": "3U3962 · NRT → Chengdu · 02.10 16:40",
+      "price": "Билет есть",
+      "action": "NRT, терминал 1 → TFU, терминал 1; прилёт 21:00. Целевой выезд из Hotel 1899 в 11:15.",
+      "offline": "Билет + маршрут до NRT + адрес Crowne Plaza",
+      "url": "https://www.narita-airport.jp/en/flight/dep-search/?keywordAirlineCodeL=SICHUANAIRLINES&keywordAirlineCodeV=3U"
     },
     {
       "id": "haruka",
@@ -2552,16 +3019,16 @@
       "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/jrwest-rail-pass/kansai_hiroshima/"
     },
     {
-      "id": "kix-physical-pickup",
-      "group": "Билеты, транспорт и подготовка",
-      "status": "action",
-      "deadline": "21 сентября · после выхода в KIX",
-      "sortDate": "2026-09-21",
-      "title": "KIX · получить HARUKA и Kansai–Hiroshima Pass",
-      "price": "Уже оплачено",
-      "action": "Получить 2 физических HARUKA One-way Tickets и физический Kansai–Hiroshima Area Pass. Нужны паспорта, номера броней, 4-значные коды и физическая карта оплаты; WEST QR не использовать.",
-      "offline": "Паспорта + обе брони + коды + карта оплаты",
-      "url": "https://www.westjr.co.jp/global/en/ticket/receive/"
+      "id": "matsusaka-m",
+      "group": "Еда · бронировать заранее",
+      "status": "done",
+      "deadline": "Готово",
+      "sortDate": "2026-08-23",
+      "title": "Yakiniku M Fukushima Honten · 23.09 20:00",
+      "price": "По меню · бронь Accepted",
+      "action": "TableCheck подтверждает стол на 23.09.2026 в 20:00 для 2 человек. Прийти всей компанией вовремя; бронь освобождают через 15 минут опоздания.",
+      "offline": "TableCheck confirmation · Accepted + адрес 6-3-7 Fukushima",
+      "url": "https://www.tablecheck.com/en/shops/matsusakamfukushima/reserve"
     },
     {
       "id": "himeji-seats",
@@ -2586,173 +3053,15 @@
       "url": "https://www.westjr.co.jp/travel-information/en/tickets-passes/route-search/"
     },
     {
-      "id": "nara-live-train",
-      "sortDate": "2026-09-21",
-      "deadline": "21 сентября · вечером",
-      "title": "Yamatoji Rapid · Nara 22.09",
-      "price": "Reserved seat не нужен",
-      "action": "Проверить в JR-West точную минуту и платформу прямого поезда Osaka → Nara около 07:55 после завтрака; ориентир прибытия около 08:50.",
-      "offline": "Скрин live timetable / платформа",
-      "status": "watch",
-      "group": "Билеты, транспорт и подготовка",
-      "url": "https://www.westjr.co.jp/global/en/timetable/"
-    },
-    {
-      "id": "hikari",
-      "status": "watch",
-      "deadline": "До 27 сентября · выбрать boarding method",
-      "sortDate": "2026-09-26",
-      "title": "Hikari 642 Kyoto → Odawara · 27.09",
-      "price": "¥24,200 / 2 человека · оплачено",
-      "action": "SmartEX подтверждён: Kyoto 08:33 → Odawara 10:38, Ordinary Reserved, Car 6, seats 9-D/9-E; 9-E — Fuji-side window. IC Card for Boarding пока не назначены: перед поездкой назначить по одной транспортной IC-карте каждому пассажиру либо сохранить и распределить два отдельных QR-Tickets.",
-      "offline": "SmartEX confirmation + Car 6, 9-D/9-E + два QR-Tickets или назначенные IC-карты",
-      "url": "https://smart-ex.jp/en/entraining/"
-    },
-    {
       "id": "fuji",
-      "status": "action",
-      "deadline": "30 августа · 10:00 JST",
-      "sortDate": "2026-08-30",
-      "title": "Резерв на Фудзи · 30.09",
-      "price": "¥4,010 туда + ¥4,200 обратно / человек",
-      "action": "Бронировать No.7 Shinjuku 08:30 → Shimoyoshida 10:13 и No.44 Kawaguchiko 16:48 → Shinjuku 18:48. No.94 в сентябре не ходит.",
-      "offline": "Оба билета, места и правило возврата/обмена",
-      "url": "https://e.fujikyu-railway.jp/fujikaiyuu/"
-    },
-    {
-      "id": "shiunso",
-      "group": "Еда · бронировать заранее",
-      "status": "action",
-      "deadline": "До 13 сентября",
-      "sortDate": "2026-09-13",
-      "title": "Shiunso · питание и заселение",
-      "price": "По бронированию рёкана",
-      "action": "Подтвердить время ужина/завтрака, прибытие до 18:00 и возможность приватной ванны. При желании сообщить мягкое предпочтение по свинине, но не требовать переделывать включённый кайсэки.",
-      "offline": "Письмо рёкана + телефон",
-      "url": "https://www.shiunso.co.jp/english/faq/"
-    },
-    {
-      "id": "shibuya-sky",
-      "status": "action",
-      "deadline": "15 сентября · открыть продажу",
-      "sortDate": "2026-09-15",
-      "title": "Shibuya Sky · 29.09",
-      "price": "¥3,400 онлайн после 15:00",
-      "action": "Купить слот 16:20 или 16:40. Продажа открыта до даты на две недели вперёд; цена кассы ¥3,700.",
-      "offline": "QR + время входа; напоминание о камере хранения",
-      "url": "https://www.shibuya-scramble-square.com/sky/ticket/"
-    },
-    {
-      "id": "umeda",
-      "status": "action",
-      "deadline": "До 21 сентября",
-      "sortDate": "2026-09-21",
-      "title": "Umeda Sky · 23.09 17:10",
-      "price": "¥2,000 / человек",
-      "action": "Купить заранее и сохранить QR. Проверить погоду: rooftop может закрыться при сильном дожде.",
-      "offline": "QR каждому",
-      "url": "https://www.skybldg.co.jp/en/"
-    },
-    {
-      "id": "imaasa",
-      "group": "Еда · бронировать заранее",
-      "status": "action",
-      "deadline": "До 23 сентября",
-      "sortDate": "2026-09-23",
-      "title": "Sukiyaki Imaasa · 28.09 19:15",
-      "price": "Курс Take · актуальную цену проверить",
-      "action": "Отправить официальную форму не позднее чем за 5 дней. Запросить курс Take и подтвердить текущую поставку говядины Мацусака; бронь действует только после ответа ресторана.",
-      "offline": "Ответ ресторана с подтверждением + адрес + время 19:15",
-      "url": "https://sukiyaki.imaasa.com/reserve/"
-    },
-    {
-      "id": "gion-karyo",
-      "group": "Еда · бронировать заранее",
-      "status": "watch",
-      "deadline": "До 24 сентября · только если выбираем",
-      "sortDate": "2026-09-24",
-      "title": "Gion Karyo · опциональный кайсэки 25.09",
-      "price": "P2 · высокий бюджет",
-      "action": "Бронировать минимум накануне только если нужен отдельный высокий кайсэки-вечер. Свинина не блокирует курс; при желании сообщить мягкое предпочтение. Не считать обязательным: 27.09 уже есть кайсэки в Shiunso.",
-      "offline": "Подтверждение брони или отметка «не выбираем»",
-      "url": "https://tabelog.com/en/kyoto/A2601/A260301/26002441/"
-    },
-    {
-      "id": "hiroshige",
-      "status": "action",
-      "deadline": "До 28 сентября",
-      "sortDate": "2026-09-28",
-      "title": "Hiroshige · TNM 30.09",
-      "price": "¥1,300 advance / ¥1,500 regular",
-      "action": "Купить advance только если базовый Tokyo-сценарий остаётся вероятным; предзаказ закрывается 28.09.",
-      "offline": "Билет/подтверждение",
-      "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=2759&lang=en"
-    },
-    {
-      "id": "edo",
-      "status": "watch",
-      "deadline": "29 сентября · вечером",
-      "sortDate": "2026-09-29",
-      "title": "Edo-Tokyo Museum · 30.09",
-      "price": "¥800 permanent / ¥2,740 combo",
-      "action": "Покупать невозвратный билет только после решения не ехать к Fuji. Combo включает BROTHERS IN ARMS.",
-      "offline": "QR + выбранный тип билета",
-      "url": "https://www.edo-tokyo-museum.or.jp/en/information/guide/"
-    },
-    {
-      "id": "yamato",
-      "status": "verify",
-      "deadline": "25 сентября · утром",
-      "sortDate": "2026-09-25",
-      "title": "Yamato Kyoto → Hotel 1899",
-      "price": "Уточнить у отеля",
-      "action": "Отправить большой багаж напрямую в Tokyo; в Hakone взять сумку на одну ночь. Согласовать приём обоими отелями.",
-      "offline": "Фото квитанции и номер отслеживания",
-      "url": ""
-    },
-    {
-      "id": "kyoto-bus",
-      "status": "watch",
-      "deadline": "25 сентября · вечером",
-      "sortDate": "2026-09-25",
-      "title": "Kyoto Bus 62/72 · 26.09",
-      "price": "ICOCA",
-      "action": "Проверить ближайший 62/72 к Toriimoto после фактического выхода из Katsura и главной Bamboo Grove. 92/94 из старой версии не использовать.",
-      "offline": "Скрин расписания / номера рейсов",
-      "url": ""
-    },
-    {
-      "id": "open-air",
-      "status": "watch",
-      "deadline": "26 сентября · вечером",
-      "sortDate": "2026-09-26",
-      "title": "Hakone Open-Air Museum · 27.09",
-      "price": "¥1,800 онлайн / ¥2,000 на входе",
-      "action": "После прогноза купить билет онлайн, если музей остаётся в плане.",
-      "offline": "QR",
-      "url": "https://www.hakone-oam.or.jp/en/webticket/"
-    },
-    {
-      "id": "departure",
       "status": "done",
       "deadline": "Готово",
-      "sortDate": "2026-08-13",
-      "title": "3U3962 · NRT → Chengdu · 02.10 16:40",
-      "price": "Билет есть",
-      "action": "NRT, терминал 1 → TFU, терминал 1; прилёт 21:00. Целевой выезд из Hotel 1899 в 11:15.",
-      "offline": "Билет + маршрут до NRT + адрес Crowne Plaza",
-      "url": "https://www.narita-airport.jp/en/flight/dep-search/?keywordAirlineCodeL=SICHUANAIRLINES&keywordAirlineCodeV=3U"
-    },
-    {
-      "id": "china-transit",
-      "status": "verify",
-      "deadline": "12 сентября",
-      "sortDate": "2026-09-12",
-      "title": "Китай · 240-часовой транзит",
-      "price": "Без визы при подтверждении права на въезде",
-      "action": "Перепроверить актуальные правила NIA для PEK и TFU, распечатать/сохранить билеты дальше по маршруту и обе брони отелей.",
-      "offline": "Паспорт + HU473/3U3887 + отели + адреса на китайском",
-      "url": "https://en.nia.gov.cn/n147418/n147463/c183412/content.html"
+      "sortDate": "2026-08-30",
+      "title": "Fuji Excursion No.3 / No.44 · 30.09",
+      "price": "¥4,010 туда + ¥4,200 обратно / человек",
+      "action": "Оба направления куплены; не требуется действие.",
+      "offline": "Сохранить e-ticket/QR обоих направлений.",
+      "url": "https://e.fujikyu-railway.jp/fujikaiyuu/"
     },
     {
       "id": "china-payments",
@@ -2766,37 +3075,130 @@
       "url": ""
     },
     {
+      "id": "jingmo-dinner",
+      "group": "Китай",
+      "status": "action",
+      "sortDate": "2026-09-10",
+      "deadline": "Заранее · не оставлять на последний момент",
+      "title": "Jingmo Beijing Restaurant · 20.09 18:30–18:45",
+      "price": "2 человека",
+      "action": "Попросить Fairfield concierge/direct contact забронировать стол; по возможности — Peking duck.",
+      "offline": "Сохранить название/адрес на китайском."
+    },
+    {
+      "id": "china-transit",
+      "status": "verify",
+      "deadline": "12 сентября · затем ещё раз ≈за 7 дней до сегмента",
+      "sortDate": "2026-09-12",
+      "title": "Китай · 240-часовой транзит",
+      "price": "Без визы при подтверждении права на въезде",
+      "action": "Перепроверить актуальные правила NIA для PEK и TFU, распечатать/сохранить билеты дальше по маршруту и обе брони отелей.",
+      "offline": "Паспорт + HU473/3U3887 + отели + адреса на китайском",
+      "url": "https://en.nia.gov.cn/n147418/n147463/c183412/content.html"
+    },
+    {
+      "id": "shiunso",
+      "group": "Еда · бронировать заранее",
+      "status": "action",
+      "deadline": "До 13 сентября",
+      "sortDate": "2026-09-13",
+      "title": "Shiunso · питание и заселение",
+      "price": "По бронированию рёкана",
+      "action": "Подтвердить время ужина/завтрака и прибытие до 18:00. Бесплатную приватную ванну заранее не бронировать — запросить при заселении; платную Kanzan-no-Yu бронировать только при отдельном желании. При желании сообщить мягкое предпочтение по свинине, не требуя переделывать кайсэки.",
+      "offline": "Письмо рёкана + телефон",
+      "url": "https://www.shiunso.co.jp/english/faq/"
+    },
+    {
+      "id": "forbidden-city",
+      "group": "Китай",
+      "status": "action",
+      "sortDate": "2026-09-13",
+      "deadline": "13 сентября · 15:00 МСК",
+      "title": "Forbidden City · 20.09 afternoon",
+      "price": "2 взрослых",
+      "action": "При подтверждении официального окна купить сразу после открытия продаж.",
+      "offline": "Сохранить подтверждение и паспортные данные.",
+      "url": "https://intl.dpm.org.cn/index.html"
+    },
+    {
+      "id": "shibuya-sky",
+      "status": "action",
+      "deadline": "15 сентября · 00:00 JST",
+      "sortDate": "2026-09-15",
+      "title": "SHIBUYA SKY · 29.09 16:20/16:40",
+      "price": "¥3,400 онлайн после 15:00",
+      "action": "Купить целевой слот 16:20 или 16:40 при открытии 14-дневного окна.",
+      "offline": "QR + время входа; напоминание о камере хранения",
+      "url": "https://www.shibuya-scramble-square.com/sky/ticket/"
+    },
+    {
       "id": "beijing-shuttle",
       "status": "verify",
       "deadline": "18 сентября",
       "sortDate": "2026-09-18",
       "title": "Fairfield Beijing · трансфер и ранний выезд",
       "price": "Круглосуточный трансфер включён",
-      "action": "Fairfield shuttle к PEK T2 отправляется каждый час ровно в :00. Забронировать минимум за 2 часа; целевой выезд 06:00 21.09.",
+      "action": "Подтвердить/забронировать shuttle Fairfield → PEK T2 на 21.09 около 06:00.",
       "offline": "Телефон отеля + адрес на китайском + место посадки",
       "url": "https://www.marriott.com/en-us/hotels/bjspe-fairfield-beijing-capital-airport/overview/"
     },
     {
       "id": "panda-ticket",
       "status": "action",
-      "deadline": "Как только откроется продажа",
-      "sortDate": "2026-09-20",
+      "deadline": "Ориентир 19 сентября · после реального открытия",
+      "sortDate": "2026-09-19",
       "title": "Chengdu Panda Base · 03.10 07:30",
       "price": "Проверить при покупке",
-      "action": "Купить ранний вход на паспортные данные. Отдельно у Crowne Plaza подтвердить время бесплатного Panda shuttle (доступен с 23.06.2026); если он не подходит к 07:30 — DiDi.",
+      "action": "Купить ранний вход 03.10 07:30 только после фактического открытия даты.",
       "offline": "QR + паспорт + китайский адрес южного входа",
       "url": "https://m.panda.org.cn/en/service/ticket/"
     },
     {
-      "id": "chengdu-transfer",
+      "id": "hiraso-hours",
+      "group": "Еда · проверить перед поездкой",
+      "status": "verify",
+      "deadline": "До 20 сентября",
+      "sortDate": "2026-09-20",
+      "title": "Hirasō Naramachi · 22.09",
+      "price": "Целевой обед · kakinoha-zushi",
+      "action": "Прямо подтвердить работу ресторана 22.09.2026 с учётом праздничного графика. Если закрыт — использовать Momoshiki как резерв.",
+      "offline": "Подтверждённые часы / отметка «закрыт» + адрес",
+      "url": "https://tabelog.com/en/nara/A2901/A290101/29000753/"
+    },
+    {
+      "id": "kix-physical-pickup",
+      "group": "Билеты, транспорт и подготовка",
       "status": "action",
-      "deadline": "До 25 сентября",
-      "sortDate": "2026-09-25",
-      "title": "TFU → Crowne Plaza · ночь 02.10",
-      "price": "Уточнить",
-      "action": "Заказать/подтвердить ночной TFU → Crowne Plaza. Утром 03.10 использовать бесплатный Panda shuttle только после подтверждения точного времени; багаж забрать около 12:10.",
-      "offline": "Водитель/ваучер + адрес отеля на китайском",
-      "url": "https://www.ihg.com/crowneplaza/hotels/us/en/chengdu/ctuch/hoteldetail"
+      "deadline": "21 сентября · после выхода в KIX",
+      "sortDate": "2026-09-21",
+      "title": "KIX · получить HARUKA и Kansai–Hiroshima Pass",
+      "price": "Уже оплачено",
+      "action": "Получить 2 физических HARUKA One-way Tickets и физический Kansai–Hiroshima Area Pass. Нужны паспорта, номера броней, 4-значные коды и физическая карта оплаты; WEST QR не использовать.",
+      "offline": "Паспорта + обе брони + коды + карта оплаты",
+      "url": "https://www.westjr.co.jp/global/en/ticket/receive/"
+    },
+    {
+      "id": "nara-live-train",
+      "sortDate": "2026-09-21",
+      "deadline": "21 сентября · вечером",
+      "title": "Yamatoji Rapid · Nara 22.09",
+      "price": "Reserved seat не нужен",
+      "action": "Проверить в JR-West точную минуту и платформу прямого поезда Osaka → Nara около 07:55 после завтрака; ориентир прибытия около 08:50.",
+      "offline": "Скрин live timetable / платформа",
+      "status": "watch",
+      "group": "Билеты, транспорт и подготовка",
+      "url": "https://www.westjr.co.jp/global/en/timetable/"
+    },
+    {
+      "id": "umeda",
+      "status": "done",
+      "deadline": "Готово",
+      "sortDate": "2026-09-21",
+      "title": "Umeda Sky Building · 23.09 ≈17:10",
+      "price": "¥2,000 / человек",
+      "action": "Билет Klook куплен; date-specific без фиксированного слота.",
+      "offline": "Сохранить Klook voucher.",
+      "url": "https://www.skybldg.co.jp/en/"
     },
     {
       "id": "himeji-paid",
@@ -2808,6 +3210,18 @@
       "action": "Открывать живое подтверждение; иметь офлайн-копию как запас.",
       "offline": "2 билета + письмо",
       "url": "https://www.city.himeji.lg.jp/castle/0000030310.html"
+    },
+    {
+      "id": "gion-karyo",
+      "group": "Еда · бронировать заранее",
+      "status": "watch",
+      "deadline": "До 24 сентября · только если выбираем",
+      "sortDate": "2026-09-24",
+      "title": "Gion Karyo · опциональный кайсэки 25.09",
+      "price": "P2 · высокий бюджет",
+      "action": "Бронировать минимум накануне только если нужен отдельный высокий кайсэки-вечер. Свинина не блокирует курс; при желании сообщить мягкое предпочтение. Не считать обязательным: 27.09 уже есть кайсэки в Shiunso.",
+      "offline": "Подтверждение брони или отметка «не выбираем»",
+      "url": "https://tabelog.com/en/kyoto/A2601/A260301/26002441/"
     },
     {
       "id": "sea-route-booked",
@@ -2832,6 +3246,61 @@
       "url": "https://peace-tourism.com/en/spot/entry-40.html"
     },
     {
+      "id": "yamato",
+      "status": "verify",
+      "deadline": "25 сентября · утром",
+      "sortDate": "2026-09-25",
+      "title": "Yamato Kyoto → Hotel 1899",
+      "price": "Уточнить у отеля",
+      "action": "Отправить большой багаж напрямую в Tokyo; в Hakone взять сумку на одну ночь. Согласовать приём обоими отелями.",
+      "offline": "Фото квитанции и номер отслеживания",
+      "url": ""
+    },
+    {
+      "id": "kyoto-bus",
+      "status": "watch",
+      "deadline": "25 сентября · вечером",
+      "sortDate": "2026-09-25",
+      "title": "Kyoto Bus 62/72 · 26.09",
+      "price": "ICOCA",
+      "action": "Проверить ближайший 62/72 к Toriimoto после фактического выхода из Katsura и главной Bamboo Grove. 92/94 из старой версии не использовать.",
+      "offline": "Скрин расписания / номера рейсов",
+      "url": ""
+    },
+    {
+      "id": "chengdu-transfer",
+      "status": "action",
+      "deadline": "До 25 сентября",
+      "sortDate": "2026-09-25",
+      "title": "TFU → Crowne Plaza · ночь 02.10",
+      "price": "Уточнить",
+      "action": "Заказать/подтвердить ночной TFU → Crowne Plaza. Утром 03.10 использовать бесплатный Panda shuttle только после подтверждения точного времени; багаж забрать около 12:10.",
+      "offline": "Водитель/ваучер + адрес отеля на китайском",
+      "url": "https://www.ihg.com/crowneplaza/hotels/us/en/chengdu/ctuch/hoteldetail"
+    },
+    {
+      "id": "hikari",
+      "status": "watch",
+      "deadline": "До 27 сентября · выбрать boarding method",
+      "sortDate": "2026-09-26",
+      "title": "Hikari 642 Kyoto → Odawara · 27.09",
+      "price": "¥24,200 / 2 человека · оплачено",
+      "action": "SmartEX подтверждён: Kyoto 08:33 → Odawara 10:38, Ordinary Reserved, Car 6, seats 9-D/9-E; 9-E — Fuji-side window. IC Card for Boarding пока не назначены: перед поездкой назначить по одной транспортной IC-карте каждому пассажиру либо сохранить и распределить два отдельных QR-Tickets.",
+      "offline": "SmartEX confirmation + Car 6, 9-D/9-E + два QR-Tickets или назначенные IC-карты",
+      "url": "https://smart-ex.jp/en/entraining/"
+    },
+    {
+      "id": "open-air",
+      "status": "watch",
+      "deadline": "26 сентября · вечером",
+      "sortDate": "2026-09-26",
+      "title": "Hakone Open-Air Museum · 27.09",
+      "price": "¥1,800 онлайн / ¥2,000 на входе",
+      "action": "После прогноза купить билет онлайн, если музей остаётся в плане.",
+      "offline": "QR",
+      "url": "https://www.hakone-oam.or.jp/en/webticket/"
+    },
+    {
       "id": "katsura-confirmed",
       "status": "done",
       "deadline": "Готово",
@@ -2854,19 +3323,49 @@
       "url": ""
     },
     {
-      "id": "hiraso-hours",
-      "group": "Еда · проверить перед поездкой",
-      "status": "verify",
-      "deadline": "До 20 сентября",
-      "sortDate": "2026-09-20",
-      "title": "Hirasō Naramachi · 22.09",
-      "price": "Целевой обед · kakinoha-zushi",
-      "action": "Прямо подтвердить работу ресторана 22.09.2026 с учётом праздничного графика. Если закрыт — использовать Momoshiki как резерв.",
-      "offline": "Подтверждённые часы / отметка «закрыт» + адрес",
-      "url": "https://tabelog.com/en/nara/A2901/A290101/29000753/"
+      "id": "hiroshige",
+      "status": "watch",
+      "deadline": "28–29 сентября · только если отменён Fuji-day",
+      "sortDate": "2026-09-28",
+      "title": "Hiroshige · TNM 30.09 · Plan B",
+      "price": "¥1,300 advance / ¥1,500 regular",
+      "action": "Не покупать ради основного плана. Рассматривать билет только если по погоде принято решение остаться в Tokyo; advance закрывается 28.09.",
+      "offline": "Билет/подтверждение — только если активирован Tokyo Plan B",
+      "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=2759&lang=en"
+    },
+    {
+      "id": "edo",
+      "status": "watch",
+      "deadline": "29 сентября · вечером · только при Tokyo Plan B",
+      "sortDate": "2026-09-29",
+      "title": "Edo-Tokyo Museum · 30.09 · Plan B",
+      "price": "¥800 permanent / ¥2,740 combo",
+      "action": "Покупать невозвратный билет только после решения не ехать к Fuji. Combo включает BROTHERS IN ARMS.",
+      "offline": "QR + выбранный тип билета — только если активирован Tokyo Plan B",
+      "url": "https://www.edo-tokyo-museum.or.jp/en/information/guide/"
     }
   ],
   "transport": [
+    {
+      "when": "19 сентября",
+      "title": "HU7986 · Москва · SVO → Пекин · PEK",
+      "detail": "20:05 → 08:55 · 20.09. Терминал PEK перепроверить в билете. Статус: билет есть. Проверить багаж/посадочный по фактическому билету."
+    },
+    {
+      "when": "21 сентября",
+      "title": "HU473 · Пекин · PEK T2 → Осака · KIX T1",
+      "detail": "08:45 → 12:45. PEK T2 → KIX T1. Статус: билет есть. Проверить багаж/посадочный по фактическому билету."
+    },
+    {
+      "when": "2 октября",
+      "title": "3U3962 · Токио · NRT T1 → Чэнду · TFU T1",
+      "detail": "16:40 → 21:00. NRT T1 → TFU T1. Статус: билет есть. Проверить багаж/посадочный по фактическому билету."
+    },
+    {
+      "when": "3 октября",
+      "title": "3U3887 · Чэнду · TFU T1 → Москва · SVO C",
+      "detail": "17:00 → 20:20. TFU T1 → SVO C. Статус: билет есть. Проверить багаж/посадочный по фактическому билету."
+    },
     {
       "title": "ICOCA",
       "when": "Вся поездка",
@@ -2908,9 +3407,24 @@
       "detail": "От Odawara ¥6,000 на 2 дня; включает местные поезда, фуникулёр, канатную дорогу, круиз и ряд автобусов."
     },
     {
-      "title": "Такси",
-      "when": "Не базовый транспорт",
-      "detail": "В Японии план рассчитан без базового такси; использовать только при сбое/медицинской необходимости. Китайские ночные/аэропортовые сегменты имеют отдельные DiDi/шаттл-сценарии."
+      "when": "27 сентября",
+      "title": "Hikari 642 · Kyoto → Odawara",
+      "detail": "Куплено: Car 6, seats 9D/9E; 9E — Fuji-side. Осталось выбрать boarding method: IC каждому или два QR-Tickets."
+    },
+    {
+      "when": "30 сентября",
+      "title": "Fuji Excursion No.3 · Shinjuku → Shimoyoshida",
+      "detail": "Куплено: 07:30 → 09:11, Car 1, seats 8C/8D, Reserved seat e-ticket."
+    },
+    {
+      "when": "30 сентября",
+      "title": "Fuji Excursion No.44 · Kawaguchiko → Shinjuku",
+      "detail": "Куплено: 16:48 → 18:48, Car 1, seats 6C/6D, Reserved seat e-ticket."
+    },
+    {
+      "title": "Такси / DiDi",
+      "when": "Вся поездка",
+      "detail": "В Японии такси не является базовым транспортом: использовать его только при сбое, медицинской необходимости или когда оно явно возвращает существенное время; в Китае DiDi/airport transfer допустим как обычный резерв для аэропортовой логистики."
     }
   ],
   "planB": [
@@ -2956,7 +3470,8 @@
       "Внешний аккумулятор — только ручная кладь.",
       "Сохранить QR как файлы/в Wallet, но для Himeji держать и живое подтверждение.",
       "На Shibuya Sky сумки и свободные предметы оставляются в ячейке хранения.",
-      "При сбое сначала защищать якорь и возврат, а не пытаться ускорить все пункты."
+      "При сбое сначала защищать якорь и возврат, а не пытаться ускорить все пункты.",
+      "В Японии такси не является базовым транспортом: использовать его только при сбое, медицинской необходимости или когда оно явно возвращает существенное время; в Китае DiDi/airport transfer допустим как обычный резерв для аэропортовой логистики."
     ],
     "weather": [
       {

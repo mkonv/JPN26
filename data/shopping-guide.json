@@ -1,7 +1,7 @@
 {
   "meta": {
-    "checked": "23 августа 2026",
-    "principle": "Maximum convenient optionality per city. Shopping не привязан к дням и не меняет sightseeing-маршрут: город → 2–4 компактных района → магазины. Повторение утверждённого бренда между городами — плюс. Перед выходом проверить официальный источник, внеплановые закрытия и наличие конкретной модели.",
+    "checked": "5 сентября 2026",
+    "principle": "Shopping — отдельный слой и не меняет sightseeing: город → 2–4 удобных географических кластера → магазин → адрес → product-note. Только утверждённые категории/бренды; удалённые цели не возвращаются.",
     "structure": "город → компактный район → магазин → точный адрес/режим → product-note → Google Maps"
   },
   "cities": [
@@ -300,21 +300,21 @@
               "products": "SportStyle + performance; японские расцветки и лимитированные релизы по наличию.",
               "url": "https://www.asics.com/jp/ja-jp/mk/store/asics-flagship-harajuku",
               "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=ASICS+FLAGSHIP+HARAJUKU%2C+1F%2C+1-5-8+Jingumae%2C+Shibuya-ku%2C+Tokyo+150-0001"
+            },
+            {
+              "name": "Tools Infinity · TCB stockist",
+              "address": "2F, 6-9-2 Jingumae, Shibuya-ku, Tokyo",
+              "hours": "Перед визитом проверить текущие часы магазина",
+              "products": "TCB Jeans: японский denim/workwear. Официальный список TCB указывает Tools Infinity как Tokyo stockist; смотреть jeans, jackets и workwear по фактическому наличию.",
+              "url": "https://tcbjeans.com/shop",
+              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Tools+Infinity%2C+6-9-2+Jingumae%2C+Shibuya-ku%2C+Tokyo"
             }
           ]
         },
         {
           "name": "Aoyama / Minami-Aoyama / Nishiazabu",
-          "note": "Расширенный, но логичный specialty block: Kurono, Sabae eyewear и Gyokusendo.",
+          "note": "Расширенный, но логичный specialty block: Sabae eyewear и Gyokusendo.",
           "stores": [
-            {
-              "name": "Kurono Tokyo Aoyama Salon",
-              "address": "2-10-22 Kita-Aoyama, Minato-ku, Tokyo 107-0061",
-              "hours": "пн–сб 11:00–19:00 · вс/праздники закрыто",
-              "products": "Salon Editions, Bunkyo Tokyo/Classic и previews; наличие покупки не гарантировано.",
-              "url": "https://kuronotokyo.com/pages/kurono-tokyo-aoyama-salon",
-              "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Kurono+Tokyo+Aoyama+Salon%2C+2-10-22+Kita-Aoyama%2C+Minato-ku%2C+Tokyo+107-0061"
-            },
             {
               "name": "MASUNAGA1905 TOKYO AOYAMA",
               "address": "2-12-34 Kita-Aoyama, Minato-ku, Tokyo 107-0061",
